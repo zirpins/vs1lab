@@ -8,6 +8,8 @@ In der Übung konstruieren wir die *Geo Tagging App*: eine Social Sharing App f�
 
 - In einer *Discovery Liste* werden die GeoTags der aktuellen Umgebung angezeigt. GeoTags der Umgebung können zudem über Name oder Hashtag gefiltert werden.
 
+![Screenshot](https://github.com/zirpins/vs1lab/blob/master/screen.png)
+
 ## Entwicklungsumgebung
 Auf ihrem Entwicklungsrechner brauchen sie zur Lösung der Aufgaben verschiedene Tools und Frameworks. Für die ersten zwei Aufgaben sind folgende Komponenten nötig:
 
