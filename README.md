@@ -8,7 +8,7 @@ In der Übung konstruieren wir die *Geo Tagging App*: eine Social Sharing App f�
 
 - In einer *Discovery Liste* werden die GeoTags der aktuellen Umgebung angezeigt. GeoTags der Umgebung können zudem über Name oder Hashtag gefiltert werden.
 
-![Screenshot](https://github.com/zirpins/vs1lab/blob/master/screen.png)
+![Screenshot](https://github.com/zirpins/vs1lab/blob/master/gta-screen.png)
 
 ## Entwicklungsumgebung
 Auf ihrem Entwicklungsrechner brauchen sie zur Lösung der Aufgaben verschiedene Tools und Frameworks. Für die ersten zwei Aufgaben sind folgende Komponenten nötig:
@@ -23,3 +23,14 @@ Ab der dritten Aufgabe kommen folgende Frameworks hinzu:
 - [**Express Framework**](http://expressjs.com) (inkl. Express-Generator)
 
 Alle Komponenten sind auf den Poolrechnern (LI 137) vorhanden.
+
+## Aufgaben
+Die Laborübungen umfassen dieses Semester vier Teilaufgaben:
+
+1. [Web Apps strukturieren (HTML5) und gestalten (CSS3) ](Aufgabe1/README.md)
+2. [Clientseitige Programmierung mit JavaScript / HTML5 APIs](Aufgabe2/README.md)
+3. [Serverseitige Anwendung mit Node.js / Express erstellen](Aufgabe3/README.md)
+4. [Interaktion per REST API und AJAX Aufrufen](Aufgabe4/README.md)
+
+## Beispiele
+Für einige weitere Vorlesungsthemen gibt es [praktische Code-Beispiele](Beispiele/README.md)
