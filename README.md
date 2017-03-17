@@ -27,10 +27,10 @@ Alle Komponenten sind auf den Poolrechnern (LI 137) vorhanden.
 ## Aufgaben
 Die Laborübungen umfassen dieses Semester vier Teilaufgaben:
 
-1. [Web Apps strukturieren (HTML5) und gestalten (CSS3) ](Aufgabe1/README.md)
-2. [Clientseitige Programmierung mit JavaScript / HTML5 APIs](Aufgabe2/README.md)
-3. [Serverseitige Anwendung mit Node.js / Express erstellen](Aufgabe3/README.md)
-4. [Interaktion per REST API und AJAX Aufrufen](Aufgabe4/README.md)
+1. [Web Apps strukturieren (HTML5) und gestalten (CSS3) ](Aufgabe1)
+2. [Clientseitige Programmierung mit JavaScript / HTML5 APIs](Aufgabe2)
+3. [Serverseitige Anwendung mit Node.js / Express erstellen](Aufgabe3)
+4. [Interaktion per REST API und AJAX Aufrufen](Aufgabe4)
 
 ## Beispiele
 Für einige weitere Vorlesungsthemen gibt es [praktische Code-Beispiele](Beispiele/README.md)
