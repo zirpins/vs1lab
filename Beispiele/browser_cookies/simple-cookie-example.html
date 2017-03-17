@@ -1,0 +1,38 @@
+<!doctype html>
+
+<html>
+	<head>
+		<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+		<title>Simple cookie example</title>
+		<link rel="stylesheet" href="pure-min.css">
+		<style>
+			body {
+				padding: 20px;
+				background-color: #333;
+				color: #eee;
+			}
+		</style>
+	</head>
+	<body>
+
+		<form class="pure-form">
+  		Add a cookie&nbsp;&nbsp;&nbsp;&nbsp;: 
+  			<input type="text" placeholder="name=value" id="addCookie"><br>&nbsp;<br>
+  		Delete a cookie: 
+  			<input type="text" placeholder="name=value" id="deleteCookie"><br>&nbsp;<br>
+  
+  			<input type="submit" onclick="
+			    var toadd = document.getElementById('addCookie').value;
+			    if( toadd.length > 0) {
+			       document.cookie = toadd;
+			    }
+
+			    var todel = document.getElementById('deleteCookie').value;
+			    if( todel.length > 0) {
+			       document.cookie = todel+'; expires=Thu, 01-Jan-1970 00:00:01 GMT';
+			    }
+  			" class="pure-button pure-button-primary" value="Modify cookies"><br>&nbsp;<br>
+  			<input type="submit" onclick="alert(document.cookie)" class="pure-button pure-button-warning" value="Show cookies">
+  </form>
+</body>
+</html>
