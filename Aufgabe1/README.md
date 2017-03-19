@@ -1,6 +1,8 @@
 # 1. Aufgabe - Web App strukturieren und gestalten
 In der ersten Aufgabe soll die Web-Oberfläche der GT-App entstehen. Dazu gehört ein HTML-Dokument zur Strukturierung der Inhalte und ein CSS-Stylesheet für Layout und Gestaltung.
 
+Die Aufgabe vertieft den Umgang mit **HTML** und besonders mit **HTML-Formularen** und zeigt deren Zusammenhang mit **CSS3** durch verschiedene **Selektoren** sowie die Funktionsweise von **Float Properties**.
+
 ## Vorbereitung
 Für die Aufgabe existieren schon Templates auf github: [https://github.com/zirpins/vs1lab](https://github.com/zirpins/vs1lab). Laden sie das ganze Repository von **github** herunter oder aktualisieren sie es bei Bedarf. Die Dateien der Aufgabe befinden sich im Ordner `vs1lab/Aufgabe1/`.
 
