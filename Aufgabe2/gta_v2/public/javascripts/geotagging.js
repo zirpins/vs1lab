@@ -99,7 +99,7 @@ var gtaLocator = (function GtaLocator() {
         readme: "Dieses Objekt enthält 'öffentliche' Teile des Moduls.",
 
         update: function () {
-            // Hier Inhalt der Funktion "update" ergänzen
+            // TODO Hier Inhalt der Funktion "update" ergänzen
         }
 
     }; // ... Ende öffentlicher Teil
@@ -112,5 +112,5 @@ var gtaLocator = (function GtaLocator() {
  */
 $(document).ready(function () {
     alert("Hello World")
-    // Hier Event Listener für Button Click registrieren
+    // TODO Hier den Aufruf für updateLocation einfügen
 });
