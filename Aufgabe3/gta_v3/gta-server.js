@@ -38,11 +38,12 @@ app.set('view engine', 'ejs');
 // TODO: CODE ERGÄNZEN
 
 /**
- * Array als Speicher für Geo Tags.
- * Funktion zur Suche von Geo Tags in einem Radius um eine Koordinate.
- * Funktion zur Suche von Geo Tags nach Suchbegriff.
- * Funktion zum hinzufügen eines Geo Tags.
- * Funktion zum Löschen eines Geo Tags.
+ * Modul für 'In-Memory'-Speicherung von GeoTags mit folgenden Komponenten:
+ * - Array als Speicher für Geo Tags.
+ * - Funktion zur Suche von Geo Tags in einem Radius um eine Koordinate.
+ * - Funktion zur Suche von Geo Tags nach Suchbegriff.
+ * - Funktion zum hinzufügen eines Geo Tags.
+ * - Funktion zum Löschen eines Geo Tags.
  */
 
 // TODO: CODE ERGÄNZEN
