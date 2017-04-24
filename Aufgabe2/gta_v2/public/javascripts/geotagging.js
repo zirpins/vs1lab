@@ -98,7 +98,7 @@ var gtaLocator = (function GtaLocator() {
 
         readme: "Dieses Objekt enthält 'öffentliche' Teile des Moduls.",
 
-        update: function () {
+        updateLocation: function () {
             // TODO Hier Inhalt der Funktion "update" ergänzen
         }
 
