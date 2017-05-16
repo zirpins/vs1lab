@@ -16,8 +16,8 @@ Dann gehen Sie wie folgt vor:
 2. Kopieren sie den Inhalt `Aufgabe2/gta_v2/public/index.html` in die EJS-Datei und **ersetzen** sie die **Beispieleinträge der Discovery-Liste** mit den folgenden Zeilen:
 
 ```
-    <% gtags.forEach(function(gtag) { %>
-        <li><%= gtag.name %> ( <%= gtag.latitude %>,<%= gtag.longitude %>) <%= gtag.hashtag %> </li>
+    <% if (taglist !== undefined) taglist.forEach(function(gtag) { %>
+    	<li><%= gtag.name %> ( <%= gtag.latitude %>,<%= gtag.longitude %>) <%= gtag.hashtag %> </li>
     <% }); %>
 ```
 
@@ -27,11 +27,11 @@ Dann gehen Sie wie folgt vor:
 
 ## 3.2. Teilaufgaben
 
-Die hauptsächliche Aufgabe besteht in der Entwicklung der Serverseite. Die Clientseite muss nur leicht angepasst werden. Optional erfordert die Darstellung einer Karte mit Markern noch eine Erweiterung.
+Die Aufgabe besteht nun in der Entwicklung der Serverskripte. Die Clientseite (Browserskript) muss nur leicht angepasst werden. Optional erfordert die Darstellung einer Karte mit Markern noch eine Erweiterung.
 
 ### 3.2.1 Implementierung des Servers
 
-Der Server besteht in dieser Aufgabe aus einem **Express.js** Serverskript zur Verarbeitung von HTTP-Requests und einem **EJS Template** zur dynamischen Erzeugung von neuen HTML-Seitendarstellungen.
+Der Server besteht in dieser Aufgabe aus einem **Express.js** Serverskript zur Verarbeitung von HTTP-Requests und einem **EJS Template** zur dynamischen Erzeugung von neuen HTML-Seitendarstellungen. EJS ist dabei zu Beginn noch nicht unbedingt erforderlich (kommt in Vorlesung 6).
 
 #### 3.2.1.a Serverskript fertigstellen
 
@@ -42,7 +42,7 @@ Die erste (und umfangreichste) Teilaufgabe besteht in der Vervollständigung ein
     - Ein Modul für die **Speicherung und Suche von GeoTag Objekten** erstellen
 - Server Endpunkte
     - **Statische Dateien** bereitstellen
-    - Eine **1. Route** `/` zur **Erzeugung der Einstiegsseite** erstellen
+    - Die **1. Route** `/` zur **Erzeugung der Einstiegsseite** ist vorgegeben (hier sieht man, wie mit EJS eine HTML-Seite erzeugt wird)
     - Eine **2. Route** `/tagging` zur **Speicherung von GeoTags** erstellen
     - Eine **3. Route** `/discovery` zur **Abfrage von GeoTags** erstellen
 

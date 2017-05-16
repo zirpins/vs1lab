@@ -14,7 +14,8 @@ var logger = require('morgan');
 var bodyParser = require('body-parser');
 var express = require('express');
 
-var app = express();
+var app;
+app = express();
 app.use(logger('dev'));
 app.use(bodyParser.urlencoded({
     extended: false
@@ -57,7 +58,11 @@ app.set('view engine', 'ejs');
  * Als Response wird das ejs-Template ohne Geo Tag Objekte gerendert.
  */
 
-// TODO: CODE ERGÄNZEN START
+app.get('/', function(req, res) {
+    res.render('gta', {
+        taglist: []
+    });
+});
 
 /**
  * Route mit Pfad '/tagging' für HTTP 'POST' Requests.
