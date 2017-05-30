@@ -12,6 +12,7 @@ Aktualisieren Sie zunächst das Repository auf ihrem Entwicklungsrechner. Die Da
 1. Kopieren Sie das Stylesheet `Aufgabe1/gta_v1/public/stylesheets/style.css` aus Aufgabe 1 nach `Aufgabe4/gta_v4/public/stylesheets/style.css`.
 2. Kopieren Sie das Client Skript `Aufgabe3/gta_v3/public/javascripts/geotagging.js` aus Aufgabe 3 nach `Aufgabe4/gta_v4/public/javascripts/geotagging.js`.
 3. Kopieren Sie das Server Skript `Aufgabe3/gta_v3/gta-server.js` aus Aufgabe 3 nach `Aufgabe4/gta_v4/gta-server.js`.
+4. Kopieren Sie das EJS-Template `Aufgabe3/gta_v3/views/gta.ejs` aus Aufgabe 3 nach `Aufgabe4/gta_v4/views/gta.ejs`.
 
 ### 4.1.2 Node-js vorbereiten
 1. Führen sie `npm install` im Verzeichnis `Aufgabe4/gta_v4/` aus, um die nötigen Module zu laden und zu installieren.
@@ -29,18 +30,18 @@ Die Formulare für die Eingabe und das Filtern von Tags können grundsätzlich b
 Um das standardmäßige Absenden der Formulare zu verhindern, kann ein anderer Button-Typ verwendet werden (im EJS-Template für die `button`- Elemente `type`-Attribut `submit` durch `button` ersetzen).
 
 #### Ajax Aufrufe hinzufügen
-Der Ajax Aufruf soll mit dem XMLHttpRequest Objekt realisiert werden (siehe entsprechende Folien). 
+Der Ajax Aufruf soll mit dem XMLHttpRequest Objekt realisiert werden (siehe entsprechende Folien).
 
-- Für das Tagging Formular soll der Aufruf asynchron ablaufen und die Daten per HTTP POST in JSON Format an den Server senden. 
-    - Tipp 1: Sie können hier den serverseitigen GeoTag Konstruktor aus Aufgabe 3 clientseitig wiederverwenden. 
-    - Tipp 2: spezifizieren sie einen JSON MIME-Typ im HTTP-Header `Content-Type`, damit der Server den Inhalt erkennt. 
-- Für das Filter Formular soll der Aufruf auch asynchron ablaufen aber per HTTP GET mit Query Parametern erfolgen. 
+- Für das Tagging Formular soll der Aufruf asynchron ablaufen und die Daten per HTTP POST in JSON Format an den Server senden.
+    - Tipp 1: Sie können hier den serverseitigen GeoTag Konstruktor aus Aufgabe 3 clientseitig wiederverwenden.
+    - Tipp 2: spezifizieren sie einen JSON MIME-Typ im HTTP-Header `Content-Type`, damit der Server den Inhalt erkennt.
+- Für das Filter Formular soll der Aufruf auch asynchron ablaufen aber per HTTP GET mit Query Parametern erfolgen.
 
 #### Weitere Funktionen
 Auf der Clientseite muss noch eine Funktion zur Aktualisierung der Darstellung im Discovery-Widget erstellt werden. Diese soll die Ergebnisliste (und optional die Karte) aktualisieren. Die Aktualisierung soll sowohl beim Anlegen eines neuen Filters als auch eines neuen GeoTags erfolgen.
 
 ### 4.2.2 Serverseite (Node.js)
-Für die REST-Schnittstelle auf der Serverseite kann das Skript `gta-server.js` weiterentwickelt werden. Hier müssen neue Routen für die Ajax Aufrufe erstellt werden (die bisherigen Routen können dabei beibehalten werden). 
+Für die REST-Schnittstelle auf der Serverseite kann das Skript `gta-server.js` weiterentwickelt werden. Hier müssen neue Routen für die Ajax Aufrufe erstellt werden (die bisherigen Routen können dabei beibehalten werden).
 
 #### Neue Routen der REST Schnittstelle
 In einer REST-konformen API besitzen Ressourcen eines Typs (also z.B. GeoTag) oft eine sog. *Container-Ressource*, die im URI-Pfad nach dem Plural der Ressource benannt ist (also z.b. `/geotags`). Das Erzeugen einer neuen Ressourcen-Instanz erfolgt dann per HTTP POST auf die Adresse der Container Ressource. Das Auslesen aller Ressourcen-Instanzen erfolgt durch HTTP GET auf die Adresse der Container Ressource. Realisieren sie zwei entsprechende Routen.
