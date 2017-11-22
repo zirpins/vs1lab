@@ -28,7 +28,7 @@ Aufgabe 1 nach `Aufgabe2/gta_v2/public/stylesheets/style.css`.
 
 ## 2.2. Teilaufgaben
 ### Koordinaten in das Formular eintragen
-Das JavaScript enthält ein Modul `gtaLocator` mit Funktionen zur Abfrage der GeoLocationAPI und zur Verwendung der resultierenden `position`. Die Funktion `tryLocate` nimmt als Parameter zwei *Callback Funktionen* an, die bei Erfolg mit der Position oder bei Fehler mit einer Meldung 'zurückgerufen' werden. Zur Verwendung der Funktion müssen beide Callback Funktionen übergeben werden.
+Das JavaScript enthält ein Modul `gtaLocator` mit Funktionen zur Abfrage der GeoLocationAPI und zur Verwendung der resultierenden `position`. Die Funktion `tryLocate` nimmt als Parameter zwei *Callback Funktionen* an, die bei Erfolg mit der Position oder bei Fehler mit einer Meldung 'zurückgerufen' werden. Beim Aufruf der Funktion müssen beide Callback Funktionen übergeben werden.
 
 Fügen sie eine _öffentliche_ Funktion `updateLocation` zum Modul `gtaLocator` hinzu, die folgendes tut:
 
