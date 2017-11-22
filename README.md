@@ -2,7 +2,7 @@
 Ziel des Labors ist die praktische Anwendung verschiedener Web Technologien aus der Vorlesung. Dazu wird in mehreren Schritten eine komplette Web Anwendung erstellt. In jedem Schritt wird jeweils ein Bereich von Web Technologien genauer betrachtet.
 
 ## Die Geo Tagging App (GTA)
-In der Übung Entwickeln wir die **Geo Tagging App** (kurz GT-App oder GTA): eine Social Sharing App für interessante Orte. Die App verwaltet dabei *GeoTags* (= Locations mit Hashtags). Dies beinhaltet zwei wesentliche Aktivitäten: das Anlegen (*Tagging*) und die Suche (*Discovery*) von GeoTags die wie folgt umgesetzt werden:
+In der Übung entwickeln wir die **Geo Tagging App** (kurz GT-App oder GTA): eine Social Sharing App für interessante Orte. Die App verwaltet dabei *GeoTags* (= Locations mit Hashtags). Dies beinhaltet zwei wesentliche Aktivitäten: das Anlegen (*Tagging*) und die Suche (*Discovery*) von GeoTags, die wie folgt umgesetzt werden:
 
 - Über ein *Tagging Widget* (Formular) kann jederzeit der Name sowie ein Hashtag für den aktuellen Ort des Browsers (oder manuell eingegebene Koordinaten) registriert werden.
 
