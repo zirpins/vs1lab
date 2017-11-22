@@ -13,8 +13,8 @@ In der Übung entwickeln wir die **Geo Tagging App** (kurz GT-App oder GTA): ein
 ## Entwicklungsumgebung
 Auf ihrem Entwicklungsrechner brauchen sie zur Lösung der Aufgaben verschiedene Tools und Frameworks. Für die ersten zwei Aufgaben sind folgende Komponenten nötig:
 
-- Eine **IDE** oder einen **Editor** ([Webstorm](https://www.jetbrains.com/webstorm/), [Nodeclipse](http://www.nodeclipse.org), [Atom](https://atom.io) etc.)
-- Einen **Browser** (nach Belieben Chrome, Firefox, Safari etc.)
+- Eine **IDE** oder ein **Editor** ([Webstorm](https://www.jetbrains.com/webstorm/), [Nodeclipse](http://www.nodeclipse.org), [Atom](https://atom.io) etc.)
+- Ein **Browser** (nach Belieben Chrome, Firefox, Safari etc.)
 - Möglichst [**git**](https://help.github.com/articles/set-up-git/) als **Version Control System** (VCS)
 
 Ab der dritten Aufgabe kommen folgende Frameworks hinzu:
