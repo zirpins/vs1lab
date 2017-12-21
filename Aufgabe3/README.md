@@ -31,7 +31,7 @@ Die Aufgabe besteht nun in der Entwicklung der Serverskripte. Die Clientseite (B
 
 ### 3.2.1 Implementierung des Servers
 
-Der Server besteht in dieser Aufgabe aus einem **Express.js** Serverskript zur Verarbeitung von HTTP-Requests und einem **EJS Template** zur dynamischen Erzeugung von neuen HTML-Seitendarstellungen. EJS ist dabei zu Beginn noch nicht unbedingt erforderlich (kommt in Vorlesung 6).
+Der Server besteht in dieser Aufgabe aus einem **Express.js** Serverskript zur Verarbeitung von HTTP-Requests und einem **EJS Template** zur dynamischen Erzeugung von neuen HTML-Seitendarstellungen. 
 
 #### 3.2.1.a Serverskript fertigstellen
 
