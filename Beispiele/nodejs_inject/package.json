@@ -1,0 +1,8 @@
+{
+  "name": "nodejs_inject",
+  "version": "0.0.1",
+  "dependencies": {
+    "express": "~4.14.0",
+    "validator": "^9.2.0"
+  }
+}
