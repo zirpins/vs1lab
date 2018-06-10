@@ -1,6 +1,6 @@
 var ejs = require('ejs');
 
-var template = "<%=: movies  | sort | get:0 %>";
+var template = "<%=: movies  | sort | get:1 %>";
 
 var context = {
     'movies': [
