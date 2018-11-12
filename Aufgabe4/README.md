@@ -94,7 +94,7 @@ werden (die bisherigen Routen können dabei beibehalten werden).
 Routen zum Anlegen neuer Ressorcen und zur Suche auf einer Container Ressource
 mit URI `geotags/` sowie drei Routen für das Lesen, Ändern und Löschen einzelner
 Ressourcen mit URI `geotags/<id>`. Demonstrieren Sie alle Routen mit einem
-generischen REST CLient.
+generischen REST Client.
 
 In einer *REST-konformen API* besitzen Ressourcen eines Typs (also z.B. GeoTag)
 oft eine sog. *Container-Ressource*, die im URI-Pfad nach dem Plural der
