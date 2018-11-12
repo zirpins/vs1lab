@@ -92,7 +92,7 @@ werden (die bisherigen Routen können dabei beibehalten werden).
 
 `tl;dr` Erstellen Sie eine komplette REST API für GeoTags. Realisieren Sie zwei
 Routen zum Anlegen neuer Ressorcen und zur Suche auf einer Container Ressource
-mit URI `geotags/` und drei Routen für das Lesen, Ändern und Löschen einzelner
+mit URI `geotags/` sowie drei Routen für das Lesen, Ändern und Löschen einzelner
 Ressourcen mit URI `geotags/<id>`. Demonstrieren Sie alle Routen mit einem
 generischen REST CLient.
 
