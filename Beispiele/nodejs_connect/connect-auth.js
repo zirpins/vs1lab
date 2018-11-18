@@ -5,7 +5,7 @@ var serveStatic = require('serve-static'),
 
 connect()
     .use(logger)
-    .use('/admin', restrict)
+    .use('/admin/', restrict)
     .use(serve)
     .use(hello)
     .listen(3001);
