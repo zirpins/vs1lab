@@ -25,7 +25,7 @@ git clone https://github.com/zirpins/vs1lab.git # git befehl zum Herunterladen d
 ```
 
 oder aktualisieren sie es bei Bedarf. Sie sollten Ihre Lösungen nicht direkt in
-das Repositpry schreiben (Tipps dazu folgen unten), dann können sie
+das kopierte Repository schreiben (Tipps zu 'branches' folgen unten), dann können sie
 Aktualisierungen wie folgt herunterladen (Beispiel für Linux/Mac):
 
 ```bash
