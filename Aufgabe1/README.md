@@ -36,7 +36,7 @@ git checkout master # wechsle in den Hauptzweig (eigene Änderungen vorher mit '
 git pull # lade Aktualisierungen herunter
 ```
 
-Die Dateien der Aufgabe befinden sich nun im Ordner `vs1lab/Aufgabe1/`.
+Die Dateien der Aufgabe befinden sich nun im Ordner `~/git/vs1lab/Aufgabe1/`.
 
 ## Teil A - Struktur einer Webanwendung mit HTML5 erstellen
 
