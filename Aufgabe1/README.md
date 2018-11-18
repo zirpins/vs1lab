@@ -24,9 +24,11 @@ cd ~/git # wechsle in das neue Verzeichnis
 git clone https://github.com/zirpins/vs1lab.git # git befehl zum Herunterladen des Repo
 ```
 
-oder aktualisieren sie es bei Bedarf. Sie sollten Ihre Lösungen nicht direkt in
-das Repositpry schreiben (Tipps dazu folgen unten), dann können sie
-Aktualisierungen wie folgt herunterladen (Beispiel für Linux/Mac):
+Wenn sie das Repository wie gezeigt 'gecloned' haben, können sie später
+Aktualisierungen herunterladen. Sie sollten dazu Ihre Lösungen nicht direkt in
+das kopierte Repository schreiben (Tipps zu Zweigen bzw. 'branches' folgen
+unten), Aktualisierungen laden sie dann wie folgt herunter (Beispiel für
+Linux/Mac):
 
 ```bash
 cd ~/git/vs1lab # wechsle in das git Verzeichnis
@@ -34,7 +36,7 @@ git checkout master # wechsle in den Hauptzweig (eigene Änderungen vorher mit '
 git pull # lade Aktualisierungen herunter
 ```
 
-Die Dateien der Aufgabe befinden sich im Ordner `vs1lab/Aufgabe1/`.
+Die Dateien der Aufgabe befinden sich nun im Ordner `vs1lab/Aufgabe1/`.
 
 ## Teil A - Struktur einer Webanwendung mit HTML5 erstellen
 
