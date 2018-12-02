@@ -2,8 +2,8 @@
 
 In der zweiten Aufgabe soll die Position (d.h. die Koordinaten) des Browsers mit
 JavaScript abgefragt und in das Formular aus Aufgabe 1 eingetragen werden. Es
-wird dazu die **HTML5 GeoLocationAPI** verwendet. Optional kann mit der **Google
-Maps API** eine Karte angezeigt werden.
+wird dazu die **HTML5 GeoLocationAPI** verwendet. Optional kann mit der 
+**MapQuest API** eine Karte angezeigt werden.
 
 Die Aufgabe vertieft die Programmierung von **Modulen** und **Callbacks** sowie
 **DOM Manipulation** mit JavaScript.
