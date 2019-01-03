@@ -127,11 +127,11 @@ var gtaLocator = (function GtaLocator(geoLocationApi) {
 })(GEOLOCATIONAPI);
 
 /**
- * $(document).ready wartet, bis die Seite komplett geladen wurde. Dann wird die
+ * $(function(){...}) wartet, bis die Seite komplett geladen wurde. Dann wird die
  * angegebene Funktion aufgerufen. An dieser Stelle beginnt die eigentliche Arbeit
  * des Skripts.
  */
-$(document).ready(function() {
+$(function() {
     alert("Please change the script 'geotagging.js'");
     // TODO Hier den Aufruf für updateLocation einfügen
 });

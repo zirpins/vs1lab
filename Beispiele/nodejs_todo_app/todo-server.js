@@ -6,30 +6,31 @@ var port = 3000;
 var app = express();
 app.use(express.static(__dirname + "/client"));
 http.createServer(app).listen(port);
+console.log('Server startet on port 3000');
 
 var todos = [];
 var t1 = {
-	message: "Mow the cat",
-	type: 1,
-	deadline: "12/12/2016"
+    message: "Mow the cat",
+    type: 1,
+    deadline: "12/12/2016"
 };
 var t2 = {
-	message: "Feed the lawn",
-	type: 3,
-	deadline: "20/12/2016"
+    message: "Feed the lawn",
+    type: 3,
+    deadline: "20/12/2016"
 };
 todos.push(t1);
 todos.push(t2);
 
 function logger(request, response, next) {
-	console.log('%s\t%s\t%s', new Date(),
-		request.method, request.url);
-	next();
+    console.log('%s\t%s\t%s', new Date(),
+        request.method, request.url);
+    next();
 }
 
 function getTodos(request, response, next) {
-	console.log("todos requested!");
-	response.json(todos);
+    console.log("todos requested!");
+    response.json(todos);
 }
 
 //clients requests todos
@@ -37,19 +38,19 @@ app.get("/todos", logger, getTodos);
 
 //add todo to the server
 app.get("/addtodo", function(request, response) {
-	var url_parts = url.parse(request.url, true);
-	var query = url_parts.query;
+    var url_parts = url.parse(request.url, true);
+    var query = url_parts.query;
 
-	if (query["message"] !== undefined) {
-		var tx = {
-			message: query["message"],
-			type: query["type"],
-			deadline: query["deadline"]
-		};
-		todos.push(tx);
-		console.log("Added " + tx.message);
-		response.end("Todo added successfully");
-	} else {
-		response.end("Error: missing message parameter");
-	}
+    if (query["message"] !== undefined) {
+        var tx = {
+            message: query["message"],
+            type: query["type"],
+            deadline: query["deadline"]
+        };
+        todos.push(tx);
+        console.log("Added " + tx.message);
+        response.end("Todo added successfully");
+    } else {
+        response.end("Error: missing message parameter");
+    }
 });
