@@ -28,7 +28,7 @@ function restrict(req, res, next) {
         return next(new Error('Unauthorized'));
     var parts = authz.split(' ');
     var scheme = parts[0];
-    var auth = new Buffer(parts[1], 'base64')
+    var auth = new Buffer.from(parts[1], 'base64')
         .toString().split(':');
     var user = auth[0]
     var pass = auth[1];
