@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        <%= title %>
+    </title>
+</head>
+
+<body>
+    <h1>TODOs</h1>
+    <div>
+        <% todo_array.forEach(function(todo) { %>
+            <div>
+                <h3>
+                    <%=todo.dueDate%>
+                </h3>
+                <p>
+                    <%=todo.message%>
+                </p>
+            </div>
+            <% }) %>
+    </div>
+</body>
+
+</html>
