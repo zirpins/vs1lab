@@ -23,7 +23,7 @@ GeoTags, die wie folgt umgesetzt werden:
   angezeigt. GeoTags der Umgebung können zudem über Name oder Hashtag gefiltert
   werden.
 
-![Screenshot](https://github.com/zirpins/vs1lab/blob/master/gta-screen.png)
+![Screenshot](gta-screen.png)
 
 ## Entwicklungsumgebung
 

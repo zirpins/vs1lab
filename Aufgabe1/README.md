@@ -209,7 +209,7 @@ Setzen sie weitere **gestalterische Ziele** um:
 
 Das Ergebnis könnte wie folgt aussehen:
 
-![Screenshot](https://github.com/zirpins/vs1lab/blob/master/gta-screen.png)
+![Screenshot](../gta-screen.png)
 
 ##### Allgemeine Hinweise
 
