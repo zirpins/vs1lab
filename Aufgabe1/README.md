@@ -237,7 +237,7 @@ Das Ergebnis könnte wie folgt aussehen:
 
 ### B.3 Zusatzaufgabe bei Interesse: Bootstrap verwenden
 
-Für die Nutzung von **Bootsrap** gibt es je eine alternative HTML und CSS Datei
+Für die Nutzung von **Bootstrap** gibt es je eine alternative HTML und CSS Datei
 mit `-bs` Postfix. Das Framework gibt schon praktisch alle benötigten
 CSS-Regelsätze vor.
 
