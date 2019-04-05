@@ -1,15 +1,15 @@
 {
     "name": "nodejs_ejs",
     "version": "1.0.0",
-    "description": "",
+    "description": "ejs example",
     "main": "test-ejs2.js",
     "dependencies": {
-        "ejs": "1.0.0",
-        "express": "4.16.4"
+        "ejs": "^2.6.1"
     },
     "devDependencies": {},
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node ./test-ejs2.js"
     },
     "author": "",
     "license": "ISC"
