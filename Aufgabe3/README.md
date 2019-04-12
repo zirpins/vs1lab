@@ -111,16 +111,16 @@ dort die geeigneten Formularfelder im DOM aus und testen sie, ob schon
 Koordinaten eingetragen sind. Rufen sie die `tryLocate`-Funktion nur dann auf,
 wenn es die Situation erfordert.
 
-### 3.2.3 Zusatzaufgabe bei interesse: `data-*`-Attribute und Google Map Marker
+### 3.2.3 `data-*`-Attribute und Google Map Marker
 
 Die `getLocationMapSrc`-Funktion im `gtaLocator`-Modul besitzt einen Parameter,
 dem man einen Array von GeoTag Objekten übergeben kann. Wenn dieser vorliegt,
 werden an den Positionen der GeoTags Marker in die Karte eingetragen, d.h. die
 Tags werden auf der Karte sichtbar.
 
-Das Problem ist nun, im Client Skript das Array mit GeoTag Objekten zu bekommen.
-Diese Information liegt im Server schon vor. Wie aber kommen die Daten zum
-Client? In der nächsten Aufgabe werden wir zu diesem Zweck AJAX-Abfragen
+Das Problem ist nun, im Client Skript das Array mit GeoTag Objekten verfügbar zu
+machen. Diese Information liegt im Server schon vor. Wie aber kommen die Daten
+zum Client? In der nächsten Aufgabe werden wir zu diesem Zweck AJAX-Abfragen
 einführen. An dieser Stelle wollen wir noch eine andere Variante kennenlernen:
 
 Der Server kann das Array mit GeoTag Objekten als `data-*`-Attribut einem

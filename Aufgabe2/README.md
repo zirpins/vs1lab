@@ -2,11 +2,12 @@
 
 In der zweiten Aufgabe soll die Position (d.h. die Koordinaten) des Browsers mit
 JavaScript abgefragt und in das Formular aus Aufgabe 1 eingetragen werden. Es
-wird dazu die **HTML5 GeoLocationAPI** verwendet. Optional kann mit der 
-**MapQuest API** eine Karte angezeigt werden.
+wird dazu die **HTML5 GeoLocationAPI** verwendet. Zusätzlich soll nun durch 
+Nutzung der **MapQuest API** eine dynamische Karte angezeigt werden.
 
 Die Aufgabe vertieft die Programmierung von **Modulen** und **Callbacks** sowie
-**DOM Manipulation** mit JavaScript.
+**DOM Manipulation** mit JavaScript. Zudem wird die Nutzung einer externen 
+**Web API** demonstriert.
 
 ## 2.1. Vorbereitung
 
@@ -43,7 +44,7 @@ gehen Sie wie folgt vor:
 
 ## 2.2. Teilaufgaben
 
-### Koordinaten in das Formular eintragen
+### 1. Teilaufgabe: Koordinaten in das Formular eintragen
 
 Das JavaScript enthält ein Modul `gtaLocator` mit Funktionen zur Abfrage der
 GeoLocationAPI und zur Verwendung der resultierenden `position`. Die Funktion
@@ -69,7 +70,7 @@ tauschen, die das korrekte Verhalten simuliert. Suchen Sie im Skript
 `geotagging.js` die Zuweisung der Konstanten `GEOLOCATIONAPI` und folgen Sie der
 Dokumentation im Code.
 
-### Zusatzaufgabe bei Interesse: MapQuest einbinden
+### 2. Teilaufgabe: MapQuest einbinden
 
 Um die Karte mit MapQuest, ein - für unsere Zwecke - kostenfreier Dienst um
 statische Karten anzuzeigen, zu aktualisieren, benötigen sie einen
@@ -83,5 +84,5 @@ Ergänzen sie ihre `updateLocation`-Funktion im im `gtaLocator` Modul wie folgt:
 
 - Rufen sie die Funktion `getLocationMapSrc` mit den aktuellen Koordinaten auf.
   Das Ergebnis ist eine **URL** auf die Karte.
-- Suchen sie im DOM (bzw. mit jquery) das **Image Element** auf der Webseite.
-- Ändern sie per DOM Aufruf (bzw. jquery) das `src`-Attribut auf die neue URL.
+- Suchen sie im DOM das **Image Element** auf der Webseite.
+- Ändern sie per DOM Aufruf das `src`-Attribut auf die neue URL.

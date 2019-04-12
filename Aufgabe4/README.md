@@ -78,9 +78,9 @@ entsprechende Folien). Verwenden Sie kein JQuery.
 #### Weitere Funktionen
 
 Auf der Clientseite muss noch eine Funktion zur Aktualisierung der Darstellung
-im Discovery-Widget erstellt werden. Diese soll die Ergebnisliste (und optional
-die Karte) aktualisieren. Die Aktualisierung soll sowohl beim Anlegen eines
-neuen Filters als auch eines neuen GeoTags erfolgen.
+im Discovery-Widget erstellt werden. Diese soll die Ergebnisliste und die Karte
+aktualisieren. Die Aktualisierung soll sowohl beim Anlegen eines neuen Filters
+als auch eines neuen GeoTags erfolgen.
 
 ### 4.2.2 Serverseite (Node.js)
 
