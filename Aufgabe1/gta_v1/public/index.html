@@ -6,6 +6,20 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>GeoTagApp</title>
 		<link rel='stylesheet' href='./stylesheets/style.css'/>
+		<style>
+			label, input {
+    	display: block;
+			}
+			label {
+    	margin-bottom: 20px;
+			}
+			legend {
+				margin-bottom: 5px;
+			}
+			#f1 {
+				width: 50px; margin: left;
+			}
+		</style>
 	</head>
 
 	<body>
@@ -26,7 +40,16 @@
 				<h2>Tagging</h2>
 
 				<!-- ############### Aufgabe1a Form1 Start -->
-				<form id="tag-form" action="/tagging" method="post"></form>
+				<form id="tag-form" action="/tagging" method="post">
+					<fieldset id="f1">
+						<legend> Enter new GeoTag </legend>
+							<label>Latitude: 	<input id="tag-latitude" name="lat" placeholder="Enter latitude" type="text" /></label>
+							<label>Longitude:	<input id="tag-longitude" name="lon" placeholder="Enter longitude" type="text" /></label>
+							<label>Name: 			<input id="tag-name" name="name" placeholder="Enter your name" type="text" /></label>
+							<label>Hashtag: 	<input name="hash" placeholder="Hastag?" type="text" /></label>
+							<button type="submit" form="tag-form" value="Submit">Submit</button>
+					</fieldset>
+				</form>
 				<!-- ############### Aufgabe1a Form1 Ende -->
 
 			</section>
@@ -35,7 +58,15 @@
 				<h2>Discovery</h2>
 
 				<!-- ############### Aufgabe1a Form2 Start -->
-				<form id="filter-form" action="/discovery" method="post"></form>
+				<form id="filter-form" action="/discovery" method="post">
+					<fieldset id="f2">
+						<legend>Filter by Searchterm</legend>
+							<label><input id="search-place" name="searchplace" placeholder="search term" type="text" />
+							<button type="submit" form="filter-form" value="Submit">Apply</button>
+							<button type="submit" form="filter-form" value="Submit">Remove</button>
+						</label>
+					</fieldset>
+				</form>
 				<!-- ############### Aufgabe1a Form2 Ende -->
 
 				<div class="taglist">
