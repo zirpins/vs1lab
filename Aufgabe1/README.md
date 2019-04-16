@@ -104,7 +104,7 @@ Im Template fehlen noch die Formulare. Diese sollen nun erstellt werden.
   JavaScript finden zu können.
 - Deklarieren sie für alle Felder jeweils ein `label`.
 - Verwenden sie `fieldset` und `legend` zur Begrenzung des Formulars.
-- Deklarieren sie für jedes Formular einen `button` zum Submit.
+- Deklarieren sie für jedes Formular ein Element zum Absenden der Daten.
 - Fügen sie als Hilfe für die Benutzer *Beispiel Platzhalter* in die Felder ein.
 
 #### Formularvalidierung
