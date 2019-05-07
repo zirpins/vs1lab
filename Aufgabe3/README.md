@@ -111,7 +111,7 @@ dort die geeigneten Formularfelder im DOM aus und testen sie, ob schon
 Koordinaten eingetragen sind. Rufen sie die `tryLocate`-Funktion nur dann auf,
 wenn es die Situation erfordert.
 
-### 3.2.3 `data-*`-Attribute und Google Map Marker
+### 3.2.3 `data-*`-Attribute und Map Marker
 
 Die `getLocationMapSrc`-Funktion im `gtaLocator`-Modul besitzt einen Parameter,
 dem man einen Array von GeoTag Objekten übergeben kann. Wenn dieser vorliegt,
@@ -134,3 +134,7 @@ string wieder in ein Array Objekt umwandeln. Für einen JSON-String
 `taglist_json` erzeugt der Aufruf `JSON.parse(taglist_json)` das
 korrespondierende JavaScript Array Objekt. Dieses Array Objekt können sie der
 `getLocationMapSrc`-Funktion als Parameter übergeben.
+
+**Aufgabe:** Erweitern Sie den Aufruf von der `getLocationMapSrc`-Funktion und
+übergeben sie neben der aktuellen Position des CLients zusätzlich einen Array
+von GeoTag Objekten des aktuellen Suchergebnisses im Discovery Widget.
