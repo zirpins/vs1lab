@@ -59,7 +59,7 @@ registrieren. Dies sollte direkt nach dem Laden einer Seite erfolgen.
 
 Um das standardmäßige Absenden der Formulare zu verhindern, kann ein anderer
 Button-Typ verwendet werden (im EJS-Template für die `input`- Elemente der 
-Absendeknöpfe den `type`-Attribut `submit` durch `button` ersetzen).
+Absendeknöpfe das `type`-Attribut von `submit` auf `button` ändern).
 
 #### Ajax Aufrufe hinzufügen
 
