@@ -58,8 +58,8 @@ erfolgen. Hierzu müssen Sie beim Laden der Seite Event-Listener erstellen und
 registrieren. Dies sollte direkt nach dem Laden einer Seite erfolgen.
 
 Um das standardmäßige Absenden der Formulare zu verhindern, kann ein anderer
-Button-Typ verwendet werden (im EJS-Template für die `button`- Elemente
-`type`-Attribut `submit` durch `button` ersetzen).
+Button-Typ verwendet werden (im EJS-Template für die `input`- Elemente der 
+Absendeknöpfe den `type`-Attribut `submit` durch `button` ersetzen).
 
 #### Ajax Aufrufe hinzufügen
 
