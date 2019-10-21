@@ -114,8 +114,7 @@ Validierung soll **nur HTML5-Attribute** verwenden .
 
 Setzen sie folgende Regeln um:
 
-- Alle Felder bis auf Suchbegriff und Hashtag müssen in den Formularen
-  ausgefüllt werden.
+- Im Tagging-Formular müssen alle Felder bis auf den Hashtag ausgefüllt werden.
 - Namen dürfen 10 Buchstaben lang sein.
 - Hashtags müssen mit `#` beginnen und dürfen dann noch 10 Buchstaben haben.
 
