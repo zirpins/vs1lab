@@ -1,0 +1,14 @@
+{
+  "name": "nodejs_express",
+  "version": "1.0.0",
+  "description": "A simple example of an express web server.",
+  "main": "express.js",
+  "scripts": {
+    "start": "node express.js"
+  },
+  "author": "lkit",
+  "license": "ISCL",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

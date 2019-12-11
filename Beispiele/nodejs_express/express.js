@@ -10,11 +10,11 @@ http.createServer(app).listen(3000);
 app.get("/", function(req, res) {
 	// Auch HTTP Header werden automatisch gesetzt
 	res.send("What?");
-})
+});
 
 app.get("/greetings", function(req, res) {
 	var query = url.parse(req.url, true).query;
-	var name = (query["name"] !== undefined) ? query["name"] : "Anonymous";
+	var name = (query.name !== undefined) ? query.name : "Anonymous";
 	res.send("Greetings " + name);
 });
 
