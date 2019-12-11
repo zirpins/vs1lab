@@ -23,8 +23,8 @@ var simpleHTTPResponder = function(req, res) {
 		// Auch URL Query Parameter können abgefragt werden
 		var query = url_parts.query;
 		var name = "Anonymous";
-		if (query["name"] != undefined) {
-			name = query["name"];
+		if (query.name != undefined) {
+			name = query.name;
 		}
 
 		// HTML im Script zu erzeugen ist mühselig...
@@ -40,7 +40,7 @@ var simpleHTTPResponder = function(req, res) {
 			"<html><head><title>Error</title></head><body><H1>Only /greetme is implemented.</H1></body></html>"
 		);
 	}
-}
+};
 
 // Webserver erzeugen, an Endpunkt binden und starten
 server = http.createServer(simpleHTTPResponder);
