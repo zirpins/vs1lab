@@ -41,11 +41,11 @@ app.get("/addtodo", function(request, response) {
     var url_parts = url.parse(request.url, true);
     var query = url_parts.query;
 
-    if (query["message"] !== undefined) {
+    if (query.message !== undefined) {
         var tx = {
-            message: query["message"],
-            type: query["type"],
-            deadline: query["deadline"]
+            message: query.message,
+            type: query.type,
+            deadline: query.deadline
         };
         todos.push(tx);
         console.log("Added " + tx.message);
