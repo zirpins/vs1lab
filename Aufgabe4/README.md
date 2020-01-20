@@ -55,11 +55,9 @@ Für den Ajax Aufruf im Browser müssen Sie ihr Javascript
 Die Formulare für die Eingabe und das Filtern von Tags können grundsätzlich
 beibehalten werden, jedoch soll jeweils beim Klicken des Buttons ein Ajax Aufruf
 erfolgen. Hierzu müssen Sie beim Laden der Seite Event-Listener erstellen und
-registrieren. Dies sollte direkt nach dem Laden einer Seite erfolgen.
-
-Um das standardmäßige Absenden der Formulare zu verhindern, kann ein anderer
-Button-Typ verwendet werden (im EJS-Template für die `input`- Elemente der 
-Absendeknöpfe das `type`-Attribut von `submit` auf `button` ändern).
+registrieren. Dies sollte direkt nach dem Laden einer Seite erfolgen. Daneben
+muss noch das standardmäßige Absenden der Formulare verhindert werden. Eine
+Möglichkeit hierzu wurde in der Vorlesung gezeigt.
 
 #### Ajax Aufrufe hinzufügen
 
