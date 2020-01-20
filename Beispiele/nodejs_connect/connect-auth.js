@@ -34,5 +34,7 @@ function restrict(req, res, next) {
     var pass = auth[1];
     if (user === "user" && pass === "password") {
         next();
+    } else{
+        next(new Error('Wrong uname/pwd'));
     }
 }
