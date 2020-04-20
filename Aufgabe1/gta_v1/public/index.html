@@ -25,60 +25,18 @@
 			<section class="tagging">
 				<h2>Tagging</h2>
 
-                <!-- ############### Aufgabe1a Form1 Start -->
-                <form id="tag-form" action="/tagging" method="post">
-
-                    <fieldset>
-                        <legend>Enter new GeoTag</legend>
-                        <label for="latitude">
-                            latitude
-                            <input type="number" step="any" id="latitude" name="latitude" placeholder="e.g. 49.01379">
-                        </label>
-
-                        <label for="longitude">
-                            longitude
-                            <input type="number" step="any" id="longitude" name="lonitude" placeholder="e.g. 8.390071">
-                        </label>
-
-                        <label for="name">
-                            name
-                            <input type="text" step="any" id="name" name="lonitude" maxlength="10"
-                                   placeholder="type in a name">
-                        </label>
-
-                        <lable for="hashtag">
-                            hashtag
-                            <input type="text" id="hashtag" name="hashtag" maxlength="11" pattern="[#a-z]{4,11}"
-                                   placeholder="# + max. 10 letters">
-                        </lable>
-
-                        <button type="submit" name="new-tag">submit</button>
-
-                    </fieldset>
-
-                </form>
-                <!-- ############### Aufgabe1a Form1 Ende -->
+				<!-- ############### Aufgabe1a Form1 Start -->
+				<form id="tag-form" action="/tagging" method="post"></form>
+				<!-- ############### Aufgabe1a Form1 Ende -->
 
 			</section>
 
 			<section class="discovery">
 				<h2>Discovery</h2>
 
-                <!-- ############### Aufgabe1a Form2 Start -->
-                <form id="filter-form" action="/discovery" method="post">
-
-                    <fieldset>
-                        <legend>Filter by Searchterm</legend>
-                        <label>
-                            <input type="search" placeholder="search term">
-                        </label>
-
-                        <button type="submit" name="tag-search">apply</button>
-
-                    </fieldset>
-
-                </form>
-                <!-- ############### Aufgabe1a Form2 Ende -->
+				<!-- ############### Aufgabe1a Form2 Start -->
+				<form id="filter-form" action="/discovery" method="post"></form>
+				<!-- ############### Aufgabe1a Form2 Ende -->
 
 				<div class="taglist">
 					<ul id="results">
