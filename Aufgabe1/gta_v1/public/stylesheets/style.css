@@ -6,3 +6,31 @@ body {
 a {
   color: #00B7FF;
 }
+
+#header-jumbo {
+  background-color: gray;
+}
+
+h1, nav {
+  color: white;
+}
+
+.nav-links {
+  color: #00BAFF;
+}
+
+footer {
+  background-color: gray;
+  color: white;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-top: 50px;
+}
+
+#footer-text {
+  padding-left: 20px;
+}
+
+input::placeholder {
+  padding-left: 10px;
+}
