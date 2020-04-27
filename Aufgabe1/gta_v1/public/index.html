@@ -1,79 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
 
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>GeoTagApp</title>
-		<link rel='stylesheet' href='./stylesheets/style.css'/>
-	</head>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>GeoTagApp</title>
+	<link rel='stylesheet' href='./stylesheets/style.css' />
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+		integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
 
-	<body>
+<body>
 
-		<header>
-			<img src="./images/location.png" width="100"
-					alt="an image of a map and location">
+	<header>
+		<div class="jumbotron" id="header-jumbo">
+			<img src="./images/location.png" width="100" alt="an image of a map and location">
 			<h1>GeoTagApp</h1>
 			<nav>
-				<a href="#">About</a> | <a href="#">Help</a> | <a
-					href="/">Home</a>
+				<a href="#" class="nav-links">About</a> | <a href="#" class="nav-links">Help</a> | <a href="/" class="nav-links">Home</a>
 			</nav>
-		</header>
+		</div>
+	</header>
 
-		<main>
+	<main>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-4">
+					<section class="tagging">
+						<h2>Tagging</h2>
 
-			<section class="tagging">
-				<h2>Tagging</h2>
+						<!-- ############### Aufgabe1a Form1 Start -->
+						<fieldset>
+							<legend>Enter a new Geotag</legend>
+							<form id="tag-form" action="/tagging" method="post">
 
-				<!-- ############### Aufgabe1a Form1 Start -->
-				<fieldset style="text-align:center">
-					<legend style="padding:20px;text-align:center">Enter new GeoTag</legend>
-					<label>
-						<input type="text" id="text_field_latitude" size="20" />
-					</label>
-					<label>
-						<input type="text" id="text_field_longitude" size="20" />
-					</label>
-					<label>
-						<input type="text" id="text_field_name" size="30" />
-					</label>
-					<label>
-						<input type="text" id="text_field_hashtag" size="20" />
-					</label>
-				</fieldset>
-				<!-- ############### Aufgabe1a Form1 Ende -->
+								<label for="latitude">
+									<input type="text" name="latitude" id="text_field_latitude" size="20" placeholder="69.01379"/>
+								</label>
+								<label for="longitude">
+									<input type="text" name="longitude" id="text_field_longitude" size="20" placeholder="69.01379"/>
+								</label>
+								<label for="tag-name">
+									<input type="text" name="tag-name" id="text_field_name" size="30" placeholder="some name"/>
+								</label>
+								<label for="tag-hashtag">
+									<input type="text" name="tag-hashtag" id="text_field_hashtag" size="20" placeholder="# + max. 10 letters"/>
+								</label>
+								<label>
+									<input type="submit">
+								</label>
+							</form>
+						</fieldset>
+						<!-- ############### Aufgabe1a Form1 Ende -->
 
-			</section>
-
-			<section class="discovery">
-				<h2>Discovery</h2>
-
-				<!-- ############### Aufgabe1a Form2 Start -->
-				<form id="filter-form" action="/discovery" method="post">
-					<input type="hidden" id="hidden_latitude" />
-					<input type="hidden" id="hidden_longitude" />
-				</form>
-				<!-- ############### Aufgabe1a Form2 Ende -->
-
-				<div class="taglist">
-					<ul id="results">
-						<li>Castle (49.01379, 8.404435) #sight</li>
-						<li>IWI (49.01379, 8.390071) #edu</li>
-					</ul>
+					</section>
 				</div>
+				<div class="col-lg-8">
+					<section class="discovery">
+						<h2>Discovery</h2>
 
-				<div class="tagmap">
-					<img id="result-img" src="./images/mapview.jpg" alt="a map with locations"/>
-					<div class="caption">Result map</div>
+						<!-- ############### Aufgabe1a Form2 Start -->
+						<form id="filter-form" action="/discovery" method="post"></form>
+						<!-- ############### Aufgabe1a Form2 Ende -->
+
+						<div class="taglist">
+							<ul id="results">
+								<li>Castle (49.01379, 8.404435) #sight</li>
+								<li>IWI (49.01379, 8.390071) #edu</li>
+							</ul>
+						</div>
+
+						<div class="tagmap">
+							<img id="result-img" src="./images/mapview.jpg" alt="a map with locations" />
+							<div class="caption">Result map</div>
+						</div>
+
+					</section>
 				</div>
+			</div>
+		</div>
 
-			</section>
+	</main>
 
-		</main>
+	<footer>
+		<span id="footer-text">2020 by LKIT</span>
+	</footer>
 
-		<footer>
-			<span>2017 by LKIT</span>
-		</footer>
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+		integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+		integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+		crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+		integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+		crossorigin="anonymous"></script>
+</body>
 
-	</body>
 </html>
