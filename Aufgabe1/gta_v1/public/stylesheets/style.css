@@ -34,3 +34,30 @@ footer {
 input::placeholder {
   padding-left: 10px;
 }
+
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.container .container-gt {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.container .discovery {
+  flex-grow: 0.9;
+}
+
+.container .container-ds {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+
+@media screen and (max-width: 300px) {
+
+}
