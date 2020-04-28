@@ -24,7 +24,7 @@
 	</header>
 
 	<main>
-		<div class="container">
+		<div id="container">
 
 			<section class="tagging">
 				<h2>Tagging</h2>
@@ -36,19 +36,19 @@
 					<form id="tag-form" action="/tagging" method="post">
 						<div class="container-gt">
 							<label class="col" for="latitude"> latitude </label>
-							<input type="text" name="latitude" id="text_field_latitude" size="20" placeholder="69.01379"
+							<input type="text" name="latitude" id="text_field_latitude"placeholder="69.01379"
 								required />
 
 							<label class="col" for="longitude"> longitude </label>
-							<input type="text" name="longitude" id="text_field_longitude" size="20"
+							<input type="text" name="longitude" id="text_field_longitude"
 								placeholder="69.01379" required />
 
 							<label class="col" for="tag-name"> name </label>
-							<input type="text" name="tag-name" id="text_field_name" size="30" placeholder="some name"
+							<input type="text" name="tag-name" id="text_field_name" placeholder="some name"
 								required pattern="[A-Za-z]{1,10}" />
 
 							<label class="col" for="tag-hashtag"> hashtag </label>
-							<input type="text" name="tag-hashtag" id="text_field_hashtag" size="20"
+							<input type="text" name="tag-hashtag" id="text_field_hashtag"
 								pattern="[#]{1}[A-Za-z]{0,10}" placeholder="# + max. 10 letters" />
 
 							<input type="submit" value="submit">
@@ -66,9 +66,9 @@
 				<fieldset>
 					<legend>Filter by Searchterm</legend>
 
-					<form id="filter-form" action="/discovery" method="post">
+					<form id="filter-form" action="/discovery" method="post" >
 
-						<input type="text" placeholder="search term" id="searchterm" size="20">
+						<input type="text" placeholder="search term" id="searchterm">
 						<input type="submit" value="apply">
 
 					</form>
@@ -76,7 +76,7 @@
 				</fieldset>
 
 				<!-- ############### Aufgabe1a Form2 Ende -->
-				<div class="container-ds">
+				<div class="container-map">
 					<div class="taglist">
 						<ul id="results">
 							<li>Castle (49.01379, 8.404435) #sight</li>
