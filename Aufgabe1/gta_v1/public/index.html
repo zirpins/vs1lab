@@ -6,6 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>GeoTagApp</title>
 	<link rel='stylesheet' href="./stylesheets/style.css" />
+	<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 	<!--
 	<link rel="stylesheet" href="./stylesheets/bootstrap.min.css" />-->
 </head>
@@ -13,7 +14,7 @@
 <body>
 
 	<header>
-		<div class="jumbotron" id="header-jumbo">
+		<div id="header-content">
 			<img src="./images/location.png" width="100" alt="an image of a map and location">
 			<h1>GeoTagApp</h1>
 			<nav>
@@ -69,7 +70,7 @@
 					<form id="filter-form" action="/discovery" method="post" >
 
 						<input type="text" placeholder="search term" id="searchterm">
-						<input type="submit" value="apply">
+						<input id="apply-button" type="submit" value="apply">
 
 					</form>
 
