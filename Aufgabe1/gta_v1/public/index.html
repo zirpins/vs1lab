@@ -26,7 +26,24 @@
 				<h2>Tagging</h2>
 
 				<!-- ############### Aufgabe1a Form1 Start -->
-				<form id="tag-form" action="/tagging" method="post"></form>
+				<form id="tag-form" action="/tagging" method="post">
+					<fieldset>
+						<legend>Enter new GeoTag</legend>
+						<label for="latitude">latitude</label>
+						<input id="latitude" type="text" placeholder="49.01379" pattern="[0-9]+[.]?[0-9]+" required />
+
+						<label for="longitude">logitude</label>
+						<input id="longitude" type="text" placeholder="8.390071" pattern="[0-9]+[.]?[0-9]+" required />
+
+						<label for="name">name</label>
+						<input id="name" type="text" placeholder="some name" maxlength="10" required />
+
+						<label for="hashtag">hashtag</label>
+						<input id="hashtag" type="text" placeholder="# + max. 10 letters" pattern="#[a-zA-Z]{1,10}" maxlength="11"/>
+
+						<input type="submit" value="submit" />
+					</fieldset>
+				</form>
 				<!-- ############### Aufgabe1a Form1 Ende -->
 
 			</section>
@@ -35,7 +52,13 @@
 				<h2>Discovery</h2>
 
 				<!-- ############### Aufgabe1a Form2 Start -->
-				<form id="filter-form" action="/discovery" method="post"></form>
+				<form id="filter-form" action="/discovery" method="post">
+					<fieldset>
+						<legend>Filter by Searchterm</legend>
+						<input id="searchterm" type="text" placeholder="search term" />
+						<input type="submit" value="apply" />
+					</fieldset>
+				</form>
 				<!-- ############### Aufgabe1a Form2 Ende -->
 
 				<div class="taglist">
