@@ -20,9 +20,9 @@
 			</nav>
 		</header>
 
-		<main>
+		<main class="row">
 
-			<section class="tagging">
+			<section class="tagging col-3">
 				<h2>Tagging</h2>
 
 				<!-- ############### Aufgabe1a Form1 Start -->
@@ -48,7 +48,7 @@
 
 			</section>
 
-			<section class="discovery">
+			<section class="discovery col-9">
 				<h2>Discovery</h2>
 
 				<!-- ############### Aufgabe1a Form2 Start -->
@@ -63,16 +63,18 @@
 				</form>
 				<!-- ############### Aufgabe1a Form2 Ende -->
 
-				<div class="taglist">
-					<ul id="results">
-						<li>Castle (49.01379, 8.404435) #sight</li>
-						<li>IWI (49.01379, 8.390071) #edu</li>
-					</ul>
-				</div>
+				<div class="row">
+					<div class="taglist col-5">
+						<ul id="results">
+							<li>Castle (49.01379, 8.404435) #sight</li>
+							<li>IWI (49.01379, 8.390071) #edu</li>
+						</ul>
+					</div>
 
-				<div class="tagmap">
-					<img id="result-img" src="./images/mapview.jpg" alt="a map with locations"/>
-					<div class="caption">Result map</div>
+					<div class="tagmap col-7">
+						<img id="result-img" src="./images/mapview.jpg" alt="a map with locations"/>
+						<div class="caption">Result map</div>
+					</div>
 				</div>
 
 			</section>
