@@ -36,19 +36,19 @@
 
 					<form id="tag-form" action="/tagging" method="post">
 						<div class="container-gt">
-							<label class="col" for="latitude"> latitude </label>
-							<input type="text" name="latitude" id="text_field_latitude"placeholder="69.01379"
+							<label class="col" for="text_field_latitude"> latitude </label>
+							<input type="text" name="latitude" id="text_field_latitude" placeholder="69.01379"
 								required />
 
-							<label class="col" for="longitude"> longitude </label>
+							<label class="col" for="text_field_longitude"> longitude </label>
 							<input type="text" name="longitude" id="text_field_longitude"
 								placeholder="69.01379" required />
 
-							<label class="col" for="tag-name"> name </label>
+							<label class="col" for="text_field_name"> name </label>
 							<input type="text" name="tag-name" id="text_field_name" placeholder="some name"
 								required pattern="[A-Za-z]{1,10}" />
 
-							<label class="col" for="tag-hashtag"> hashtag </label>
+							<label class="col" for="text_field_hashtag"> hashtag </label>
 							<input type="text" name="tag-hashtag" id="text_field_hashtag"
 								pattern="[#]{1}[A-Za-z]{0,10}" placeholder="# + max. 10 letters" />
 
@@ -68,7 +68,7 @@
 					<legend>Filter by Searchterm</legend>
 
 					<form id="filter-form" action="/discovery" method="post" >
-
+						<label for="searchterm"></label>
 						<input type="text" placeholder="search term" id="searchterm">
 						<input id="apply-button" type="submit" value="apply">
 
