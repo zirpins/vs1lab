@@ -57,9 +57,10 @@ fieldset {
   color: #00BAFF;
 }
 
-#apply-button {
-  padding-left: 8px;
-  padding-right: 8px;
+.container-gt input {
+  margin-top: 5px;
+  margin-bottom: 10px;
+  width: 221px;
 }
 
 #footer-text {
@@ -85,13 +86,12 @@ fieldset {
   flex-grow: 1;
 }
 
-.container-gt input {
-  margin-top: 5px;
-  margin-bottom: 10px;
-  width: 221px;
+#submit-search {
+  padding-left: 8px;
+  padding-right: 8px;
 }
 
-.container-gt input[type='submit'] {
+#submit-tagging {
   width: 60px;
 }
 
