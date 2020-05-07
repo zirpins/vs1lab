@@ -54,7 +54,17 @@
 				<h2>Discovery</h2>
 
 				<!-- ############### Aufgabe1a Form2 Start -->
-				<form id="filter-form" action="/discovery" method="post"></form>
+				<form id="filter-form" action="/discovery" method="post">
+					<label form="filter-form"></label>
+					<fieldset>
+						<legend>Filter by Searchterm</legend>
+	
+						<label for="search-text"></label>
+						<input id="search-text" type="text" name="search term" placeholder="search term" required size="">
+	
+						<input id="search-submit" type="submit" value="apply">
+					</fieldset>
+				</form>
 				<!-- ############### Aufgabe1a Form2 Ende -->
 
 				<div class="taglist">
