@@ -10,7 +10,7 @@
 
 	<body>
 
-		<header>
+		<header class="header">
 			<img src="./images/location.png" width="100"
 					alt="an image of a map and location">
 			<h1>GeoTagApp</h1>
@@ -20,9 +20,9 @@
 			</nav>
 		</header>
 
-		<main>
+		<main class="row">
 
-			<section class="tagging">
+			<section class="tagging Gtagging">
 				<h2>Tagging</h2>
 
                 <!-- ############### Aufgabe1a Form1 Start -->
@@ -32,19 +32,18 @@
 						<legend>Enter new GeoTag</legend>
 
 						<label for="latitude">latitude</label>
-						<input type="number" id="latitude" step="0.000001" placeholder="e.g. 49.01379" required="true">
-
+						<p><input type="number" id="latitude" step="0.000001" placeholder="e.g. 49.01379" required="true"></p>
 
 						<label for="longitude">longitude</label>
-						<input type="number" id="longitude" step="0.000001" placeholder="e.g. 8.390071" required="true">
+						<P><input type="number" id="longitude" step="0.000001" placeholder="e.g. 8.390071" required="true"></p>
 
 
 						<label for="name">name</label>
-						<input type="text" id="name" maxlength="10" placeholder="type in a name" required="true">
+						<p><input type="text" id="name" maxlength="10" placeholder="type in a name" required="true"></p>
 
 
 						<lable for="hashtag">hashtag</lable>
-						<input type="text" id="hashtag" maxlength="11" pattern="[#a-z]{4,11}" placeholder="# + max. 10 letters" required="true">
+						<p><input type="text" id="hashtag" maxlength="11" pattern="[#a-z]{4,11}" placeholder="# + max. 10 letters" required="true"></p>
 
 
 						<button type="submit" name="new-tag">submit</button>
@@ -56,7 +55,7 @@
 
 			</section>
 
-			<section class="discovery">
+			<section class="discovery Gdiscovery">
 				<h2>Discovery</h2>
 
                 <!-- ############### Aufgabe1a Form2 Start -->
@@ -73,24 +72,25 @@
 
                 </form>
                 <!-- ############### Aufgabe1a Form2 Ende -->
+				<div class="row">
+					<div class="taglist">
+						<ul id="results">
+							<li>Castle (49.01379, 8.404435) #sight</li>
+							<li>IWI (49.01379, 8.390071) #edu</li>
+						</ul>
+					</div>
 
-				<div class="taglist">
-					<ul id="results">
-						<li>Castle (49.01379, 8.404435) #sight</li>
-						<li>IWI (49.01379, 8.390071) #edu</li>
-					</ul>
-				</div>
-
-				<div class="tagmap">
-					<img id="result-img" src="./images/mapview.jpg" alt="a map with locations"/>
-					<div class="caption">Result map</div>
+					<div class="tagmap">
+						<img id="result-img" src="./images/mapview.jpg" alt="a map with locations"/>
+						<div class="caption">Result map</div>
+					</div>
 				</div>
 
 			</section>
 
 		</main>
 
-		<footer>
+		<footer class="footer">
 			<span>2017 by Robin Wohlfart</span>
 		</footer>
 

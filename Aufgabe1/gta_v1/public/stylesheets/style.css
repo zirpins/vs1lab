@@ -1,8 +1,95 @@
+*{
+  box-sizing: border-box;
+}
+
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif, bold;
 }
 
 a {
   color: #00B7FF;
 }
+
+input {
+  padding: 5px;
+}
+
+/*------Normal CSS------*/
+
+.tagging{
+  //border: 3px red solid;
+  padding: 10px;
+}
+
+.discovery{
+  //border: 3px red solid;
+  padding: 10px;
+}
+
+.taglist{
+  //color: white;
+  //background: #02B6FD;
+  padding: 0px;
+}
+
+#results li{
+  color: white;
+  background: #02B6FD;
+  padding: 5px;
+  margin: 10px;
+  font-weight: bold;
+}
+
+.tagmap{
+  padding: 10px;
+}
+
+/*-----Grid Stuff-----*/
+
+.row{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.Gtagging{
+  //flex-wrap: wrap;
+}
+
+.Gdiscovery{
+  //flex-wrap: wrap;
+}
+
+@media screen and (min-width: 1200px) {
+  .Gtagging{
+    flex: 1;
+  }
+
+  .Gdiscovery{
+    flex: 3;
+  }
+}
+
+/*Header und Footer*/
+
+.header{
+  background: grey;
+  padding: 10px;
+  //margin: 10px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  color: white;
+}
+
+.footer{
+  background: grey;
+  padding: 10px;
+  //margin: 10px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  color: white;
+
+}
+
+
+
