@@ -51,6 +51,10 @@ label, input {
   margin-left: 0;
 }
 
+.display-inline {
+  display: inline;
+}
+
 input {
   padding: 5px;
 }
