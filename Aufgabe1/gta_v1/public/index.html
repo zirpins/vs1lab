@@ -6,10 +6,18 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>GeoTagApp</title>
 		<link rel='stylesheet' href='./stylesheets/style.css'/>
+
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+		<!-- jQuery library -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+		<!-- Latest compiled JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 	</head>
 
 	<body>
-
 		<header>
 			<img src="./images/location.png" width="100"
 					alt="an image of a map and location">
@@ -20,66 +28,86 @@
 			</nav>
 		</header>
 
+		<div class="row">
+			<div class="col-md-4">
+				<div class="col-md-12">
+					<section class="tagging">
+						<h2>Tagging</h2>
+		
+						<!-- ############### Aufgabe1a Form1 Start -->
+						<form id="tag-form" action="/tagging" method="post">
+							<label form="tag-form"></label>
+							<fieldset>
+								<legend>Enter new GeoTag</legend>
+			
+								<label for="tag-latitude">latitude</label>
+								<input id="tag-latitude" type="text" name="latitude" placeholder="latitude" required size="" autofocus>
+			
+								<label for="tag-longitude">longitude</label>
+								<input id="tag-longitude" type="text" name="longitude" placeholder="longitude" required size="">
+			
+								<label for="tag-name">name</label>
+								<input id="tag-name" type="text" name="name" placeholder="some name" maxlength="10" required size="">
+			
+								<label for="tag-hashtag">hashtag</label>
+								<input id="tag-hashtag" type="text" name="hashtag" placeholder="# + max. 10 letters" pattern="#[A-Za-z]{1,10}" size="">
+			
+								<input id="tag-submit" type="submit" value="submit">
+							</fieldset>
+						</form>
+						<!-- ############### Aufgabe1a Form1 Ende -->
+		
+					</section>
+				</div>
+			</div>
+			<div class="col-md-8">
+				<div class="col-md-12">
+					<section class="discovery">
+						<h2>Discovery</h2>
+		
+						<!-- ############### Aufgabe1a Form2 Start -->
+						<form id="filter-form" action="/discovery" method="post">
+							<label form="filter-form"></label>
+							<fieldset>
+								<legend>Filter by Searchterm</legend>
+			
+								<label for="search-text"></label>
+								<input id="search-text" type="text" name="search term" placeholder="search term" required size="">
+			
+								<input id="search-submit" type="submit" value="apply">
+							</fieldset>
+						</form>
+						<!-- ############### Aufgabe1a Form2 Ende -->
+		
+						
+					</section>
+		
+				</div>
+				<div class="row">
+					<div class="col-md-4">
+						<div class="taglist">
+							<ul id="results">
+								<li>Castle (49.01379, 8.404435) #sight</li>
+								<li>IWI (49.01379, 8.390071) #edu</li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-md-8">
+						<div class="tagmap">
+							<img id="result-img" src="./images/mapview.jpg" alt="a map with locations"/>
+							<div class="caption">Result map</div>
+						</div>
+		
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
 		<main>
 
-			<section class="tagging">
-				<h2>Tagging</h2>
 
-				<!-- ############### Aufgabe1a Form1 Start -->
-				<form id="tag-form" action="/tagging" method="post">
-					<label form="tag-form"></label>
-					<fieldset>
-						<legend>Enter new GeoTag</legend>
-	
-						<label for="tag-latitude">latitude</label>
-						<input id="tag-latitude" type="text" name="latitude" placeholder="latitude" required size="" autofocus>
-	
-						<label for="tag-longitude">longitude</label>
-						<input id="tag-longitude" type="text" name="longitude" placeholder="longitude" required size="">
-	
-						<label for="tag-name">name</label>
-						<input id="tag-name" type="text" name="name" placeholder="some name" maxlength="10" required size="">
-	
-						<label for="tag-hashtag">hashtag</label>
-						<input id="tag-hashtag" type="text" name="hashtag" placeholder="# + max. 10 letters" pattern="#[A-Za-z]{1,10}" size="">
-	
-						<input id="tag-submit" type="submit" value="submit">
-					</fieldset>
-				</form>
-				<!-- ############### Aufgabe1a Form1 Ende -->
-
-			</section>
-
-			<section class="discovery">
-				<h2>Discovery</h2>
-
-				<!-- ############### Aufgabe1a Form2 Start -->
-				<form id="filter-form" action="/discovery" method="post">
-					<label form="filter-form"></label>
-					<fieldset>
-						<legend>Filter by Searchterm</legend>
-	
-						<label for="search-text"></label>
-						<input id="search-text" type="text" name="search term" placeholder="search term" required size="">
-	
-						<input id="search-submit" type="submit" value="apply">
-					</fieldset>
-				</form>
-				<!-- ############### Aufgabe1a Form2 Ende -->
-
-				<div class="taglist">
-					<ul id="results">
-						<li>Castle (49.01379, 8.404435) #sight</li>
-						<li>IWI (49.01379, 8.390071) #edu</li>
-					</ul>
-				</div>
-
-				<div class="tagmap">
-					<img id="result-img" src="./images/mapview.jpg" alt="a map with locations"/>
-					<div class="caption">Result map</div>
-				</div>
-
-			</section>
 
 		</main>
 
