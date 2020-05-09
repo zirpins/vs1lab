@@ -1,153 +1,134 @@
+/*RWD Grid View - Begin*/
+* {
+    box-sizing: border-box;
+}
+
+.row {
+    display: flex;
+    overflow: auto;
+}
+
+@media screen and (max-width: 1279px) {
+    .row {
+        flex-direction: column;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .row {
+        flex-direction: row;
+    }
+
+    .col-1 {
+        width: 8.33%;
+    }
+
+    .col-2 {
+        width: 16.66%;
+    }
+
+    .col-3 {
+        width: 25%;
+    }
+
+    .col-4 {
+        width: 33.33%;
+    }
+
+    .col-5 {
+        width: 41.66%;
+    }
+
+    .col-6 {
+        width: 50%;
+    }
+
+    .col-7 {
+        width: 58.33%;
+    }
+
+    .col-8 {
+        width: 66.66%;
+    }
+
+    .col-9 {
+        width: 75%;
+    }
+
+    .col-10 {
+        width: 83.33%;
+    }
+
+    .col-11 {
+        width: 91.66%;
+    }
+
+    .col-12 {
+        width: 100%;
+    }
+}
+
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    padding: 50px;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+    color: #00B7FF;
 }
 
 header, footer {
-  background-color: #4b58e2;
-  color: rgb(6, 2, 48);
-  padding: 10px;
+    background-color: #808080;
+    color: white;
 }
 
-main {
-  display: flex;
-  flex-direction: row;
+main, header, footer {
+    padding: 1%;
 }
 
-section.tagging {
-  flex-grow: 1;
-  padding: 10px;
+.discovery {
+    margin-left: 1%;
+    display: flex;
+    flex-direction: column;
 }
 
-section.discovery {
-  flex-grow: 2;
-  padding: 10px;
+.taglist, .tagmap {
+    padding: 1%;
 }
 
-section.discovery {
-  display: flex;
-  flex-direction: column;
-  
+.tagging_fieldset {
+    display: flex;
+    flex-direction: column;
 }
 
-section.discovery div.list-map {
-  display: flex;
-  flex-direction: row;
+ul {
+    list-style-type: none;
+    padding: unset;
+    margin: unset;
 }
 
-div.taglist {
-  align-self: flex-start;
-  padding: 10px;
+li {
+    margin-bottom: 1%;
+    padding: 2%;
+    background-color: #00B7FF;
+    color: white;
 }
 
-div.tagmap {
-  align-self: flex-end;
-  padding: 10px;
+.tagging_form_element {
+    margin: 2%;
+    width: 100%;
 }
 
-label, input {
-  display: block;
-  margin: 10px;
-  margin-left: 0;
-}
-
-.display-inline {
-  display: inline;
+img {
+    max-width: 100%;
+    height: auto;
 }
 
 input {
   padding: 5px;
 }
 
-ul {
-  padding-inline-start: 10px;
-}
-
-li {
-  background: rgb(85, 248, 64);
+button {
   padding: 5px;
-  margin: 5px;
-}
-.result-img{
-  max-width: 100%;
-  max-height: auto;
-}
-
-/* Portrait */
-@media only screen 
-  and (min-device-width: 359px)
-  and (max-device-width: 812px)
-  and (-webkit-min-device-pixel-ratio: 3)
-  and (orientation: portrait) {
-    body {
-      padding: 20px;
-      font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-    }
-
-    main {
-      display: flex;
-      flex-direction: column;
-    }
-
-    section.discovery {
-      display: flex;
-      flex-direction: column;
-    }
-
-    section.discovery div.list-map {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .result-img {
-      max-width: 10%;
-      max-height: auto;
-    }
-}
-
-header a{
-  color: black;
-}
-
-#search-submit, #tag-submit{
-  margin-top: 10px;
-}
-
-.customLegend {
-  display: block;
-  padding-inline-start: 2px;
-  padding-inline-end: 2px;
-  border-width: initial;
-  border-style: none;
-  border-color: initial;
-  border-image: initial;
-  width: auto;
-}
-
-.customFieldset {
-  display: block;
-  margin-inline-start: 2px;
-  margin-inline-end: 2px;
-  padding-block-start: 0.35em;
-  padding-inline-start: 0.75em;
-  padding-inline-end: 0.75em;
-  padding-block-end: 0.625em;
-  min-inline-size: min-content;
-  border-width: 2px;
-  border-style: groove;
-  border-color: black;
-  border-image: initial;
-}
-
-.discovery .customFieldset label:first-of-type{
-  display: none;
-}
-
-/* Landscape */
-@media only screen 
-  and (min-device-width: 360px)
-  and (max-device-width: 812px)
-  and (-webkit-min-device-pixel-ratio: 3)
-  and (orientation: landscape) {
-
+  margin-top: 5px;
 }
