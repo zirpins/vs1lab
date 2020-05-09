@@ -26,7 +26,17 @@
 				<h2>Tagging</h2>
 
 				<!-- ############### Aufgabe1a Form1 Start -->
-				<form id="tag-form" action="/tagging" method="post"></form>
+				<form id="tag-form" action="/tagging" method="post">
+					<fieldset>
+						<legend>New GeoTag</legend>
+						<label for="location">Name:</label>  <input type="text" id="location" placeholder="Atlantis" required maxlength="10" pattern="[a-zA-Z]+"/><br>
+						<label for="latitude">Latitude:</label>  <input type="text" id="latitude" required placeholder="42" pattern="\-?[0-9]+.?[0-9]*"/><br>
+						<label for="longitude">Longitude:</label>  <input type="text" id="longitude" required placeholder="42" pattern="\-?[0-9]+.?[0-9]*"/><br>
+						<label for="hashtag">Hashtag:</label> <input type="text" id="hashtag" maxlength="11" placeholder="#sunken" pattern="#[a-zA-Z]+"/><br>
+						<input type="submit" value="Submit"/>
+					</fieldset>
+				</form>
+
 				<!-- ############### Aufgabe1a Form1 Ende -->
 
 			</section>
@@ -35,7 +45,15 @@
 				<h2>Discovery</h2>
 
 				<!-- ############### Aufgabe1a Form2 Start -->
-				<form id="filter-form" action="/discovery" method="post"></form>
+				<form id="filter-form" action="/discovery" method="post">
+					<fieldset>
+						<legend>Filter by Searchterm</legend>
+						<label for="search"></label><input type="text" id="search" placeholder="search term"/>
+						<input type="hidden" id="latitude"/>
+						<input type="hidden" id="longitude"/>
+						<input type="submit" value="Search"/>
+					</fieldset>
+				</form>
 				<!-- ############### Aufgabe1a Form2 Ende -->
 
 				<div class="taglist">
