@@ -1,8 +1,93 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+
 }
 
 a {
   color: #00B7FF;
 }
+
+header{
+  background-color: #828282;
+  padding: 15px;
+  color:white;
+}
+
+main {
+  display: flex;
+  flex-flow: row wrap;
+  box-sizing: border-box;
+}
+@media (max-width: 950px) {
+  main{display: block;}
+}
+
+
+footer{
+  background-color: #828282;
+  padding: 10px;
+  color:white;
+}
+
+.tagging{
+  width: 25%;
+}
+
+.discovery{
+  width: 75%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#filter-form{
+  width: 100%;
+}
+
+.taglist li{
+  margin-bottom: 7px;
+  background-color: #657cde;
+  color:white;
+
+}
+
+.taglist{
+  padding: 5px;
+
+}
+
+.tagmap{
+  padding: 5px;
+  position: relative;
+}
+
+#location {
+  display:block;
+  padding: 4px;
+}
+
+#latitude {
+  display:block;
+  padding: 4px;
+}
+
+#longitude {
+  display:block;
+  padding: 4px;
+}
+
+#hashtag {
+  display:block;
+  padding: 4px;
+}
+
+#submit1 {
+  display:block;
+  padding: 4px;
+}
+
+label{
+  display: flex;
+}
+
+
