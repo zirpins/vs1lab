@@ -9,10 +9,6 @@ header, footer {
   padding: 10px;
 }
 
-a {
-  color: rgb(54, 1, 47);
-}
-
 main {
   display: flex;
   flex-direction: row;
@@ -103,35 +99,6 @@ li {
       max-width: 10%;
       max-height: auto;
     }
-}
-
-.test1{
-  height: 50px;
-  background-color: red;
-}
-.test2{
-  height: 50px;
-  background-color: blue;
-}
-.test3{
-  height: 50px;
-  background-color: green;
-}
-.test4{
-  height: 50px;
-  background-color: yellow;
-}
-.test5{
-  height: 50px;
-  background-color: pink;
-}
-.test6{
-  height: 50px;
-  background-color: purple;
-}
-.test7{
-  height: 50px;
-  background-color: red;
 }
 
 header a{
