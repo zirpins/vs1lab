@@ -29,9 +29,9 @@
 				<form id="tag-form" action="/tagging" method="post">
 					<fieldset>
 						<legend>New GeoTag</legend>
-						<label for="location">Name:</label>  <input type="text" id="location" placeholder="Atlantis" required maxlength="10" pattern="[a-zA-Z]+"/>
-						<label for="latitude">Latitude:</label>  <input type="text" id="latitude" required placeholder="42" pattern="\-?[0-9]+.?[0-9]*"/>
-						<label for="longitude">Longitude:</label>  <input type="text" id="longitude" required placeholder="42" pattern="\-?[0-9]+.?[0-9]*"/>
+						<label for="locationTag">Name:</label>  <input type="text" id="locationTag" placeholder="Atlantis" required maxlength="10" pattern="[a-zA-Z]+"/>
+						<label for="latitudeTag">Latitude:</label>  <input type="text" id="latitudeTag" required placeholder="42" pattern="\-?[0-9]+.?[0-9]*"/>
+						<label for="longitudeTag">Longitude:</label>  <input type="text" id="longitudeTag" required placeholder="42" pattern="\-?[0-9]+.?[0-9]*"/>
 						<label for="hashtag">Hashtag:</label> <input type="text" id="hashtag" maxlength="11" placeholder="#sunken" pattern="#[a-zA-Z]+"/>
 						<input id="submit1" type="submit" value="Submit"/>
 					</fieldset>
@@ -48,9 +48,9 @@
 				<form id="filter-form" action="/discovery" method="post">
 					<fieldset>
 						<legend>Filter by Searchterm</legend>
-						<label for="search"></label><input type="text" id="search" placeholder="search term"/>
-						<input type="hidden" id="latitude"/>
-						<input type="hidden" id="longitude"/>
+						<label for="searchDisc"></label><input type="text" id="searchDisc" placeholder="search term"/>
+						<input type="hidden" id="latitudeDisc"/>
+						<input type="hidden" id="longitudeDisc"/>
 						<input type="submit" value="Search"/>
 					</fieldset>
 				</form>

@@ -61,17 +61,17 @@ footer{
   position: relative;
 }
 
-#location {
+#locationTag {
   display:block;
   padding: 4px;
 }
 
-#latitude {
+#latitudeTag {
   display:block;
   padding: 4px;
 }
 
-#longitude {
+#longitudeTag {
   display:block;
   padding: 4px;
 }
@@ -84,6 +84,7 @@ footer{
 #submit1 {
   display:block;
   padding: 4px;
+
 }
 
 label{
