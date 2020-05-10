@@ -101,7 +101,7 @@ main, header, footer {
 }
 
 .taglist, .tagmap {
-    padding: 1%;
+    margin: 10px;
 }
 
 .tagging_fieldset {
