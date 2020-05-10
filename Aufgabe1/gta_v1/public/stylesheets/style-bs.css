@@ -14,7 +14,6 @@
   }
 }
 
-
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
@@ -24,9 +23,11 @@ a:link{
   color: #00B7FF;
   text-decoration: underline;
 }
+
 a:hover {
   color: #23527c;
 }
+
 a:visited {
   color: rgb(45, 0, 128); 
 }
@@ -41,10 +42,12 @@ main, header, footer {
 }
 
 .discovery {
-  margin-left: 1%;
   display: flex;
   flex-direction: column;
+}
 
+.padding-unset {
+  padding: unset;
 }
 
 h1 {
@@ -57,7 +60,7 @@ h2 {
 }
 
 .taglist, .tagmap {
-  padding: 1%;
+  padding: 10px;
 }
 
 .tagging_fieldset {
