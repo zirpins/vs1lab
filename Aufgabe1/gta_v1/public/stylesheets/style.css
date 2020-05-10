@@ -50,32 +50,25 @@ footer{
   padding: 5px;
 }
 
-.taglist{
-  padding: 5px;
+.taglist ul{
+  padding: 0;
+  list-style-type: none;
+}
 
+.taglist{
+  padding: 10px;
 }
 
 .tagmap{
-  padding: 5px;
-  position: relative;
+  margin-top: 5px;
+  align-items: stretch;
 }
 
-#locationTag {
-  display:block;
-  padding: 4px;
+#result-img {
+  max-width:100%;
 }
 
-#latitudeTag {
-  display:block;
-  padding: 4px;
-}
-
-#longitudeTag {
-  display:block;
-  padding: 4px;
-}
-
-#hashtag {
+#locationTag, #longitudeTag, #latitudeTag, #hashtag, #longitudeTag {
   display:block;
   padding: 4px;
 }
