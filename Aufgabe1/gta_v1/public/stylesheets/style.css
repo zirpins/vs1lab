@@ -73,15 +73,16 @@ body {
     font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-a:link{ 
+a {
     color: #00B7FF;
-    text-decoration: underline;
 }
+
 a:hover {
     color: #23527c;
 }
+
 a:visited {
-    color: rgb(45, 0, 128); 
+    color: rgb(45, 0, 128);
 }
 
 header, footer {
@@ -97,16 +98,6 @@ main, header, footer {
     margin-left: 1%;
     display: flex;
     flex-direction: column;
-
-}
-
-h1 {
-    font-size: 28px;
-    font-weight: bold;
-}
-h2 {
-    font-weight: bold;
-    font-size: 21px;;
 }
 
 .taglist, .tagmap {
@@ -118,28 +109,10 @@ h2 {
     flex-direction: column;
 }
 
-fieldset{
-    border: 1px solid gray;
-    margin-inline-start: 2px;
-    margin-inline-end: 2px;
-    padding-block-start: 0.35em;
-    padding-inline-start: 0.75em;
-    padding-inline-end: 0.75em;
-    padding-block-end: 0.625em;
-    min-inline-size: min-content;
-}
-
-label {
-    font-weight: normal;
-    margin-bottom: 0px;
-}
-#tagging_send_button{
-    width: 55px;
-}
-
 ul {
     list-style-type: none;
-    padding: 0px;
+    padding: unset;
+    margin: unset;
 }
 
 li {
@@ -150,27 +123,10 @@ li {
 }
 
 .tagging_form_element {
-  
-    width: 100%;
+    margin: 1%;
 }
 
 img {
     max-width: 100%;
     height: auto;
-}
-
-input {
-    padding: 5px;
-}
-
-button {
-  padding: 5px;
-  margin-top: 5px;
-  margin-right: 20px;
-}
-
-legend {
-    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-    width: auto;
-    border-bottom: none;
 }
