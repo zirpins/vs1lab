@@ -82,7 +82,7 @@ var gtaLocator = (function GtaLocator(geoLocationApi) {
     };
 
     // Hier Google Maps API Key eintragen
-    var apiKey = "YOUR_API_KEY_HERE";
+    var apiKey = "IAHVc16LUKV5SBm48lUrE0gDpB9BJYqc";
 
     /**
      * Funktion erzeugt eine URL, die auf die Karte verweist.
@@ -130,6 +130,10 @@ var gtaLocator = (function GtaLocator(geoLocationApi) {
                     document.getElementById("longitudeTag").placeholder = long;
                     document.getElementById("latitudeDisc").placeholder = lat;
                     document.getElementById("longitudeDisc").placeholder = long;
+
+                    const imgUrl = getLocationMapSrc(lat, long);
+                    document.getElementById("result-img").src = imgUrl;
+
 
                 }, function() {
                      alert("No location found");
