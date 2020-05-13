@@ -1,0 +1,110 @@
+*{
+  box-sizing: border-box;
+}
+
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+a {
+  color: #00b7ff;
+}
+
+header{
+  background-color: #828282;
+  padding: 15px;
+  color:white;
+}
+
+main {
+}
+
+
+
+[class*="col-"]{
+
+}
+
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+
+.row{
+  display: flex;
+  flex-flow: row wrap;
+  flex-wrap: wrap;
+}
+
+
+@media (max-width: 950px) {
+  .row{display: block;}
+  [class*="col-"]{
+    width: 100%;
+  }
+}
+
+footer{
+  background-color: #828282;
+  padding: 10px;
+  color:white;
+}
+
+#filter-form{
+  width: 100%;
+}
+
+.taglist li{
+  margin-bottom: 7px;
+  background-color: #657cde;
+  color:white;
+  padding: 5px;
+}
+
+.taglist ul{
+  padding: 0;
+  list-style-type: none;
+}
+
+.taglist{
+  padding: 10px;
+}
+
+.tagmap{
+  margin-top: 5px;
+  align-items: stretch;
+}
+
+#result-img {
+  max-width:100%;
+}
+
+#locationTag, #longitudeTag, #latitudeTag, #hashtag, #longitudeTag {
+  display:block;
+  padding: 4px;
+}
+
+#submit1 {
+  display:block;
+  padding: 4px;
+  margin-top: 7px;
+}
+
+#searchDisc {
+  padding: 4px;
+}
+
+label{
+  padding: 5px;
+  display: flex;
+}
