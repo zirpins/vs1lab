@@ -52,13 +52,7 @@ input {
   flex-wrap: wrap;
 }
 
-.Gtagging{
-  //flex-wrap: wrap;
-}
 
-.Gdiscovery{
-  //flex-wrap: wrap;
-}
 
 @media screen and (min-width: 1200px) {
   .Gtagging{
