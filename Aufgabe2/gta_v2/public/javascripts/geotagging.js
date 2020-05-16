@@ -147,6 +147,5 @@ var gtaLocator = (function GtaLocator(geoLocationApi) {
  * des Skripts.
  */
 $(function() {
-    //alert("Please change the script 'geotagging.js'");
     gtaLocator.updateLocation();
 });
