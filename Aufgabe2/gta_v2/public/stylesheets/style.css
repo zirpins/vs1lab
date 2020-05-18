@@ -1,0 +1,119 @@
+body {
+  padding: 50px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+}
+
+footer {
+  background-color: gray;
+  color: white;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-top: 50px;
+}
+
+a {
+  color: #00B7FF;
+}
+
+ul {
+  margin-top: 10px;
+  padding-left: 10px;
+}
+
+li {
+  background-color: #00B7FF;
+  color: white;
+  list-style-type: none;
+  padding: 5px 30px 5px 5px;
+  margin-bottom: 8px;
+}
+
+h2 {
+  margin-left: 10px;
+}
+
+h1, nav {
+  color: white;
+}
+
+input {
+  padding: 5px 0px 5px 0px;
+}
+
+input::placeholder {
+  padding-left: 5px;
+}
+
+fieldset {
+  margin: 10px;
+}
+
+.tagmap {
+  margin: 10px;
+}
+
+.nav-links {
+  color: #00BAFF;
+}
+
+.container-gt input {
+  margin-top: 5px;
+  margin-bottom: 10px;
+  width: 221px;
+}
+
+#footer-text {
+  padding-left: 20px;
+}
+
+#header-content {
+  background-color: gray;
+  padding: 20px;
+}
+
+#container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+#container .tagging {
+  flex-grow: 1;
+}
+
+#container .discovery {
+  flex-grow: 1;
+}
+
+#submit-search {
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+#submit-tagging {
+  width: 60px;
+}
+
+#container .container-gt {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+#container .container-map {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+@media only screen and (max-width: 600px) {
+  .discovery {
+    width: 100%;
+  }
+
+  #result-img {
+    width: 100%;
+  }
+}
