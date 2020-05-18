@@ -40,16 +40,16 @@
 								required />
 
 							<label for="text_field_longitude"> longitude </label>
-							<input type="text" name="longitude" id="text_field_longitude"
-								placeholder="69.01379" required />
+							<input type="text" name="longitude" id="text_field_longitude" placeholder="69.01379"
+								required />
 
 							<label for="text_field_name"> name </label>
-							<input type="text" name="tag-name" id="text_field_name" placeholder="some name"
-								required pattern="[A-Za-z]{1,10}" />
+							<input type="text" name="tag-name" id="text_field_name" placeholder="some name" required
+								pattern="[A-Za-z]{1,10}" />
 
 							<label for="text_field_hashtag"> hashtag </label>
-							<input type="text" name="tag-hashtag" id="text_field_hashtag"
-								pattern="[#]{1}[A-Za-z]{0,10}" placeholder="# + max. 10 letters" />
+							<input type="text" name="tag-hashtag" id="text_field_hashtag" pattern="[#]{1}[A-Za-z]{0,10}"
+								placeholder="# + max. 10 letters" />
 
 							<input type="submit" value="submit" id="submit-tagging">
 						</div>
@@ -66,7 +66,7 @@
 				<fieldset>
 					<legend>Filter by Searchterm</legend>
 
-					<form id="filter-form" action="/discovery" method="post" >
+					<form id="filter-form" action="/discovery" method="post">
 						<label for="searchterm"></label>
 						<input type="text" placeholder="search term" id="searchterm">
 						<input id="latitude_hidden" type="hidden">
@@ -101,6 +101,12 @@
 	<footer>
 		<span id="footer-text">2020 by LKIT</span>
 	</footer>
+
+	<!-- Load JavaScripts
+    ================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	<script src="./javascripts/geotagging.js"></script>
 
 </body>
 

@@ -121,6 +121,15 @@ var gtaLocator = (function GtaLocator(geoLocationApi) {
 
         updateLocation: function() {
             // TODO Hier Inhalt der Funktion "update" ergänzen
+
+            var erfolg = function() {
+                var test = document.getElementById("text_field_latitude").setAttribute("value", getLatitude());
+                document.getElementById("text_field_longitude").setAttribute("value", document.getElementById("text_field_longitude").value);
+                document.getElementById("latitude_hidden").setAttribute("value", document.getElementById("latitude_hidden").value);
+                document.getElementById("longitude_hidden").setAttribute("value", document.getElementById("longitude_hidden").value);
+            }
+
+            tryLocate(erfolg, alert("failed"));
         }
 
     }; // ... Ende öffentlicher Teil
@@ -132,6 +141,7 @@ var gtaLocator = (function GtaLocator(geoLocationApi) {
  * des Skripts.
  */
 $(function() {
-    alert("Please change the script 'geotagging.js'");
+    //alert("Please change the script 'geotagging.js'");
     // TODO Hier den Aufruf für updateLocation einfügen
+    gtaLocator.updateLocation();
 });
