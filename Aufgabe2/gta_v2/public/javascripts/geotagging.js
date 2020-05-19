@@ -122,14 +122,21 @@ var gtaLocator = (function GtaLocator(geoLocationApi) {
         updateLocation: function() {
             // TODO Hier Inhalt der Funktion "update" ergänzen
 
-            var erfolg = function() {
-                var test = document.getElementById("text_field_latitude").setAttribute("value", getLatitude());
-                document.getElementById("text_field_longitude").setAttribute("value", document.getElementById("text_field_longitude").value);
-                document.getElementById("latitude_hidden").setAttribute("value", document.getElementById("latitude_hidden").value);
-                document.getElementById("longitude_hidden").setAttribute("value", document.getElementById("longitude_hidden").value);
+            var erfolg = function(position) {
+                var lati = getLatitude(position);
+                var longi = getLongitude(position);
+                
+                document.getElementById("text_field_latitude").setAttribute("value", lati);
+                document.getElementById("text_field_longitude").setAttribute("value", longi);
+                document.getElementById("latitude_hidden").setAttribute("value", lati);
+                document.getElementById("longitude_hidden").setAttribute("value", longi);
+            }
+            
+            var keinErfolg = function() {
+                console.log("läuft nicht");
             }
 
-            tryLocate(erfolg, alert("failed"));
+            tryLocate(erfolg, keinErfolg);
         }
 
     }; // ... Ende öffentlicher Teil
