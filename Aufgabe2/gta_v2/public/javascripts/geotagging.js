@@ -122,14 +122,14 @@ var gtaLocator = (function GtaLocator(geoLocationApi) {
         readme: "Dieses Objekt enthält 'öffentliche' Teile des Moduls.",
 
         updateLocation: function() {
-            var erfolg = function() {
-                document.getElementById("text_field_latitude").setAttribute("value",getLatitude());
-                document.getElementById("text_field_longitude").setAttribute("value",getLongitude());
+
+            tryLocate(erfolg,alert("Could not find coordinates!"));
+            var erfolg = function(position) {
+                document.getElementById("text_field_latitude").setAttribute("value",getLatitude(position));
+                document.getElementById("text_field_longitude").setAttribute("value",getLongitude(position));
                 document.getElementById("latitude_hidden").setAttribute("value",getLatitude());
                 document.getElementById("longitude_hidden").setAttribute("value",getLongitude());
             };
-            tryLocate(erfolg,alert("Could not find coordinates!"));
-            // TODO Hier Inhalt der Funktion "update" ergänzen
         }
 
 
