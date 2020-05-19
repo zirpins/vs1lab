@@ -82,7 +82,7 @@ var gtaLocator = (function GtaLocator(geoLocationApi) {
     };
 
     // Hier Google Maps API Key eintragen
-    var apiKey = "YOUR_API_KEY_HERE";
+    var apiKey = "Uatl5k3XOd39HmA0UbKqVAPGqBC2nuzv";
 
     /**
      * Funktion erzeugt eine URL, die auf die Karte verweist.
@@ -113,8 +113,6 @@ var gtaLocator = (function GtaLocator(geoLocationApi) {
         return urlString;
     };
 
-
-
     return { // Start öffentlicher Teil des Moduls ...
 
         // Public Member
@@ -122,16 +120,29 @@ var gtaLocator = (function GtaLocator(geoLocationApi) {
         readme: "Dieses Objekt enthält 'öffentliche' Teile des Moduls.",
 
         updateLocation: function() {
+            // TODO Hier Inhalt der Funktion "update" ergänzen
 
-            tryLocate(erfolg,alert("Could not find coordinates!"));
             var erfolg = function(position) {
-                document.getElementById("text_field_latitude").setAttribute("value",getLatitude(position));
-                document.getElementById("text_field_longitude").setAttribute("value",getLongitude(position));
-                document.getElementById("latitude_hidden").setAttribute("value",getLatitude());
-                document.getElementById("longitude_hidden").setAttribute("value",getLongitude());
-            };
-        }
+                var lati = getLatitude(position);
+                var longi = getLongitude(position);
 
+                document.getElementById("text_field_latitude").setAttribute("value", lati);
+                document.getElementById("text_field_longitude").setAttribute("value", longi);
+                document.getElementById("latitude_hidden").setAttribute("value", lati);
+                document.getElementById("longitude_hidden").setAttribute("value", longi);
+
+                var tags = []; 
+
+                var newURL = getLocationMapSrc(lati, longi, tags, 12);
+                document.getElementById("result-img").setAttribute("src", newURL);
+            }
+            
+            var keinErfolg = function() {
+                console.log("läuft nicht");
+            }
+
+            tryLocate(erfolg, keinErfolg);
+        }
 
     }; // ... Ende öffentlicher Teil
 })(GEOLOCATIONAPI);
@@ -142,7 +153,7 @@ var gtaLocator = (function GtaLocator(geoLocationApi) {
  * des Skripts.
  */
 $(function() {
-    alert("Please change the script 'geotagging.js'");
-    gtaLocator.updateLocation();
+    //alert("Please change the script 'geotagging.js'");
     // TODO Hier den Aufruf für updateLocation einfügen
+    gtaLocator.updateLocation();
 });
