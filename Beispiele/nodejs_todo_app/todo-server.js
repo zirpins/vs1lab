@@ -1,5 +1,4 @@
 var express = require("express");
-var url = require("url");
 var http = require("http");
 
 var port = 3000;
@@ -38,14 +37,14 @@ app.get("/todos", logger, getTodos);
 
 //add todo to the server
 app.get("/addtodo", function(request, response) {
-    var url_parts = url.parse(request.url, true);
-    var query = url_parts.query;
+    const url_parts = new URL(request.url, `http://${request.headers.host}`);
+	const query = url_parts.searchParams;
 
-    if (query.message !== undefined) {
+    if (query.has("message")) {
         var tx = {
-            message: query.message,
-            type: query.type,
-            deadline: query.deadline
+            message: query.get("message"),
+            type: query.get("type"),
+            deadline: query.get("deadline")
         };
         todos.push(tx);
         console.log("Added " + tx.message);

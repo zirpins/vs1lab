@@ -1,5 +1,4 @@
 var express = require("express");
-var url = require("url");
 var http = require("http");
 var app;
 
@@ -13,8 +12,10 @@ app.get("/", function(req, res) {
 });
 
 app.get("/greetings", function(req, res) {
-	var query = url.parse(req.url, true).query;
-	var name = (query.name !== undefined) ? query.name : "Anonymous";
+	const url_parts = new URL(req.url, `http://${req.headers.host}`);
+	const query = url_parts.searchParams;
+
+	var name = (query.has("name")) ? query.get("name") : "Anonymous";
 	res.send("Greetings " + name);
 });
 
