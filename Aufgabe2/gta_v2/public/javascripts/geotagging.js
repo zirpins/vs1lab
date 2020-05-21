@@ -14,6 +14,7 @@ console.log("The script is going to start...");
 // Die folgende Deklaration ist ein 'Mockup', das immer funktioniert und eine fixe Position liefert.
 GEOLOCATIONAPI = {
     getCurrentPosition: function(onsuccess) {
+        //alert("i want to die");
         onsuccess({
             "coords": {
                 "latitude": 49.013790,
@@ -81,8 +82,29 @@ var gtaLocator = (function GtaLocator(geoLocationApi) {
         return position.coords.longitude;
     };
 
+    var errorfunction = function(msg){
+        alert(msg);
+    };
+
+    var successfunction = function(position){
+        //alert(position);
+        var latitude = getLatitude(position);
+        var longitude = getLongitude(position);
+        //alert(latitude);
+        //alert(longitude);
+        document.getElementById("tagging_latitude_input").value = latitude;
+        document.getElementById("tagging_longitude_input").value = longitude;
+
+        document.getElementById("discovery_tagging_latitude_input").value = latitude;
+        document.getElementById("discovery_tagging_longitude_input").value = longitude;
+        //alert("im here");
+        var returnurl = getLocationMapSrc(latitude, longitude);
+        //alert(returnurl);
+        document.getElementById("result-img").src = returnurl;
+    };
+
     // Hier Google Maps API Key eintragen
-    var apiKey = "YOUR_API_KEY_HERE";
+    var apiKey = "FZ5UfGbai3sGj21u6ZJJkGLk351DCGa4";
 
     /**
      * Funktion erzeugt eine URL, die auf die Karte verweist.
@@ -94,7 +116,7 @@ var gtaLocator = (function GtaLocator(geoLocationApi) {
      * zoom: Zoomfaktor der Karte
      */
     var getLocationMapSrc = function(lat, lon, tags, zoom) {
-        zoom = typeof zoom !== 'undefined' ? zoom : 10;
+        zoom = typeof zoom !== 'undefined' ? zoom : 15;
 
         if (apiKey === "YOUR_API_KEY_HERE") {
             console.log("No API key provided.");
@@ -121,6 +143,7 @@ var gtaLocator = (function GtaLocator(geoLocationApi) {
 
         updateLocation: function() {
             // TODO Hier Inhalt der Funktion "update" ergänzen
+            tryLocate(successfunction, errorfunction);
         }
 
     }; // ... Ende öffentlicher Teil
@@ -132,6 +155,7 @@ var gtaLocator = (function GtaLocator(geoLocationApi) {
  * des Skripts.
  */
 $(function() {
-    alert("Please change the script 'geotagging.js'");
+    //alert("Please change the script 'geotagging.js'");
     // TODO Hier den Aufruf für updateLocation einfügen
+    gtaLocator.updateLocation();
 });
