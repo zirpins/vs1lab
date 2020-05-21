@@ -6,6 +6,7 @@ app = express();
 http.createServer(app).listen(3000);
 
 // Dateien im "static" Unterverzeichnis ausliefern
+// Index deaktivieren mit ...static(PATH,{index:false})
 app.use(express.static(__dirname + "/static"));
 
 // Mit Express ist Routing einfach:
