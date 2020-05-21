@@ -5,6 +5,9 @@ var app;
 app = express();
 http.createServer(app).listen(3000);
 
+// Dateien im "static" Unterverzeichnis ausliefern
+app.use(express.static(__dirname + "/static"));
+
 // Mit Express ist Routing einfach:
 app.get("/", function(req, res) {
 	// Auch HTTP Header werden automatisch gesetzt
