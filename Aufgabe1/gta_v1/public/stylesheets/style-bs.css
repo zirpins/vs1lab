@@ -1,8 +1,126 @@
+/*RWD Grid View - Begin*/
+* {
+  box-sizing: border-box;
+}
+
+.row {
+  display: flex;
+  overflow: auto;
+}
+
+@media screen and (max-width: 1279px) {
+  .row {
+      flex-direction: column;
+  }
+}
+
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-a {
+a:link{ 
   color: #00B7FF;
+  text-decoration: underline;
+}
+
+a:hover {
+  color: #23527c;
+}
+
+a:visited {
+  color: rgb(45, 0, 128); 
+}
+
+header, footer {
+  background-color: #808080;
+  color: white;
+}
+
+main, header, footer {
+  padding: 1%;
+}
+
+.discovery {
+  display: flex;
+  flex-direction: column;
+}
+
+.padding-unset {
+  padding: unset;
+}
+
+h1 {
+  font-size: 28px;
+  font-weight: bold;
+}
+h2 {
+  font-weight: bold;
+  font-size: 21px;;
+}
+
+.taglist, .tagmap {
+  padding: 10px;
+}
+
+.tagging_fieldset {
+  display: flex;
+  flex-direction: column;
+}
+
+fieldset{
+  border: 1px solid gray;
+  margin-inline-start: 2px;
+  margin-inline-end: 2px;
+  padding-block-start: 0.35em;
+  padding-inline-start: 0.75em;
+  padding-inline-end: 0.75em;
+  padding-block-end: 0.625em;
+  min-inline-size: min-content;
+}
+
+label {
+  font-weight: normal;
+  margin-bottom: 0px;
+}
+#tagging_send_button{
+  width: 55px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0px;
+}
+
+li {
+  margin-bottom: 1%;
+  padding: 2%;
+  background-color: #00B7FF;
+  color: white;
+}
+
+.tagging_form_element {
+
+  width: 100%;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+input {
+  padding: 5px;
+}
+
+button {
+padding: 5px;
+margin-top: 5px;
+margin-right: 20px;
+}
+
+legend {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  width: auto;
+  border-bottom: none;
 }
