@@ -1,0 +1,12 @@
+### GET request with a header
+GET http://localhost:3000/greetings
+Accept: text/plain
+
+###
+GET http://localhost:3000/greetings?name=bob
+
+###
+GET http://localhost:3000/
+
+###
+GET http://localhost:3000/images/Expressjs.png
