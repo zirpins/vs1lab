@@ -137,8 +137,8 @@ var gtaLocator = (function GtaLocator(geoLocationApi) {
                 document.getElementById("result-img").setAttribute("src", newURL);
             }
             
-            var keinErfolg = function() {
-                console.log("läuft nicht");
+            var keinErfolg = function(msg) {
+                console.log(msg);
             }
 
             tryLocate(erfolg, keinErfolg);
