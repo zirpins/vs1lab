@@ -2,96 +2,98 @@
 <html lang="en">
 
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>GeoTagApp</title>
-	<link rel='stylesheet' href='./stylesheets/style.css'/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GeoTagApp</title>
+    <link rel='stylesheet' href='./stylesheets/style.css'/>
 </head>
 
 <body>
 
 <header class="header">
-	<img src="./images/location.png" width="100"
-		 alt="an image of a map and location">
-	<h1>GeoTagApp</h1>
-	<nav>
-		<a href="#">About</a> | <a href="#">Help</a> | <a
-				href="/">Home</a>
-	</nav>
+    <img src="./images/location.png" width="100"
+         alt="an image of a map and location">
+    <h1>GeoTagApp</h1>
+    <nav>
+        <a href="#">About</a> | <a href="#">Help</a> | <a
+                href="/">Home</a>
+    </nav>
 </header>
 
 <main class="row">
 
-	<section class="tagging Gtagging">
-		<h2>Tagging</h2>
+    <section class="tagging Gtagging">
+        <h2>Tagging</h2>
 
-		<!-- ############### Aufgabe1a Form1 Start -->
-		<form id="tag-form" action="/tagging" method="post">
+        <!-- ############### Aufgabe1a Form1 Start -->
+        <form id="tag-form" action="/tagging" method="post">
 
-			<fieldset>
-				<legend>Enter new GeoTag</legend>
+            <fieldset>
+                <legend>Enter new GeoTag</legend>
 
-				<label for="latitude">latitude</label>
-				<p><input type="number" id="latitude" step="0.000001" placeholder="e.g. 49.01379" required="true"></p>
+                <label for="latitude">latitude</label>
+                <p><input type="number" id="latitude" step="0.000001" placeholder="e.g. 49.01379" required="true"></p>
 
-				<label for="longitude">longitude</label>
-				<P><input type="number" id="longitude" step="0.000001" placeholder="e.g. 8.390071" required="true"></p>
-
-
-				<label for="name">name</label>
-				<p><input type="text" id="name" maxlength="10" placeholder="type in a name" required="true"></p>
+                <label for="longitude">longitude</label>
+                <P><input type="number" id="longitude" step="0.000001" placeholder="e.g. 8.390071" required="true"></p>
 
 
-				<lable for="hashtag">hashtag</lable>
-				<p><input type="text" id="hashtag" maxlength="11" pattern="[#a-z]{4,11}" placeholder="# + max. 10 letters" required="true"></p>
+                <label for="name">name</label>
+                <p><input type="text" id="name" maxlength="10" placeholder="type in a name" required="true"></p>
 
 
-				<button type="submit" name="new-tag">submit</button>
+                <lable for="hashtag">hashtag</lable>
+                <p><input type="text" id="hashtag" maxlength="11" pattern="[#a-z]{4,11}"
+                          placeholder="# + max. 10 letters" required="true"></p>
 
-			</fieldset>
 
-		</form>
-		<!-- ############### Aufgabe1a Form1 Ende -->
+                <button type="submit" name="new-tag">submit</button>
 
-	</section>
+            </fieldset>
 
-	<section class="discovery Gdiscovery">
-		<h2>Discovery</h2>
+        </form>
+        <!-- ############### Aufgabe1a Form1 Ende -->
 
-		<!-- ############### Aufgabe1a Form2 Start -->
-		<form id="filter-form" action="/discovery" method="post">
+    </section>
 
-			<fieldset>
-				<legend>Filter by Searchterm</legend>
+    <section class="discovery Gdiscovery">
+        <h2>Discovery</h2>
 
-				<input type="search" placeholder="search term">
+        <!-- ############### Aufgabe1a Form2 Start -->
+        <form id="filter-form" action="/discovery" method="post">
 
-				<button type="submit" name="tag-search">apply</button>
+            <fieldset>
+                <legend>Filter by Searchterm</legend>
 
-			</fieldset>
+                <input type="search" placeholder="search term">
 
-		</form>
-		<!-- ############### Aufgabe1a Form2 Ende -->
-		<div class="row">
-			<div class="taglist">
-				<ul id="results">
-					<li>Castle (49.01379, 8.404435) #sight</li>
-					<li>IWI (49.01379, 8.390071) #edu</li>
-				</ul>
-			</div>
+                <button type="submit" name="tag-search">apply</button>
 
-			<div class="tagmap">
-				<img id="result-img" src="./images/mapview.jpg" alt="a map with locations"/>
-				<div class="caption">Result map</div>
-			</div>
-		</div>
+            </fieldset>
 
-	</section>
+        </form>
+        <!-- ############### Aufgabe1a Form2 Ende -->
+        <div class="row">
+            <div class="taglist">
+                <ul id="results">
+                    <% if (taglist !== undefined) taglist.forEach(function(gtag) { %>
+                        <li><%= gtag.name %> ( <%= gtag.latitude %>,<%= gtag.longitude %>) <%= gtag.hashtag %> </li>
+                    <% }); %>
+                </ul>
+            </div>
+
+            <div class="tagmap">
+                <img id="result-img" src="./images/mapview.jpg" alt="a map with locations"/>
+                <div class="caption">Result map</div>
+            </div>
+        </div>
+
+    </section>
 
 </main>
 
 <footer class="footer">
-	<span>2024 by Test123</span>
+    <span>2024 by Test123</span>
 </footer>
 <!-- Load JavaScripts
     ================================================== -->
@@ -102,6 +104,4 @@
 </html>
 
 
-<% if (taglist !== undefined) taglist.forEach(function(gtag) { %>
-		<li><%= gtag.name %> ( <%= gtag.latitude %>,<%= gtag.longitude %>) <%= gtag.hashtag %> </li>
-	<% }); %>
+
