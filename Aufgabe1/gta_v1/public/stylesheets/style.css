@@ -1,0 +1,133 @@
+/*RWD Grid View - Begin*/
+* {
+    box-sizing: border-box;
+}
+
+.row {
+    display: flex;
+    overflow: auto;
+}
+
+@media screen and (max-width: 1279px) {
+    .row {
+        flex-direction: column;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .row {
+        flex-direction: row;
+    }
+
+    .col-1 {
+        width: 8.33%;
+    }
+
+    .col-2 {
+        width: 16.66%;
+    }
+
+    .col-3 {
+        width: 25%;
+    }
+
+    .col-4 {
+        width: 33.33%;
+    }
+
+    .col-5 {
+        width: 41.66%;
+    }
+
+    .col-6 {
+        width: 50%;
+    }
+
+    .col-7 {
+        width: 58.33%;
+    }
+
+    .col-8 {
+        width: 66.66%;
+    }
+
+    .col-9 {
+        width: 75%;
+    }
+
+    .col-10 {
+        width: 83.33%;
+    }
+
+    .col-11 {
+        width: 91.66%;
+    }
+
+    .col-12 {
+        width: 100%;
+    }
+}
+
+body {
+    padding: 50px;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+    color: #00B7FF;
+}
+
+a:hover {
+    color: #23527c;
+}
+
+a:visited {
+    color: rgb(45, 0, 128);
+}
+
+header, footer {
+    background-color: #808080;
+    color: white;
+}
+
+main, header, footer {
+    padding: 1%;
+}
+
+.discovery {
+    margin-left: 1%;
+    display: flex;
+    flex-direction: column;
+}
+
+.taglist, .tagmap {
+    margin: 10px;
+}
+
+.tagging_fieldset {
+    display: flex;
+    flex-direction: column;
+}
+
+ul {
+    list-style-type: none;
+    padding: unset;
+    margin: unset;
+}
+
+li {
+    margin-bottom: 1%;
+    padding: 2%;
+    background-color: #00B7FF;
+    color: white;
+}
+
+.tagging_form_element {
+    margin: 1%;
+    padding: 1%;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
