@@ -1,0 +1,9 @@
+GET http://localhost:3000/greetings
+accept: text/plain
+###
+
+GET http://localhost:3000/greetings?name=judas
+
+###
+
+GET http://localhost:3000/cheerio
