@@ -32,13 +32,13 @@
                         <label id="tagging_latitude_label" for="tagging_latitude_input"
                                class="tagging_form_element">latitude</label>
                         <input id="tagging_latitude_input" name="latitude" placeholder="49.01379" class="tagging_form_element"
-                               value="<%= lati %>" required/>
+                               value="<%= lati  !== undefined ? lati : '' %>" required/>
 
                         <!--  `longitude` -->
                         <label id="tagging_longitude_label" for="tagging_longitude_input"
                                class="tagging_form_element">longitude</label>
                         <input id="tagging_longitude_input" name="longitude" placeholder="8.390071" class="tagging_form_element"
-                               value="<%= longi %>" required/>
+                               value="<%= longi !== undefined ? longi : '' %>" required/>
 
                         <!--  `name` -->
                         <label id="tagging_name_label" for="tagging_name_input"
@@ -80,10 +80,10 @@
                                 <input id="discovery_searchterm_input" name="discovery" placeholder="#aim"/>
 
                                 <!--  versteckte Koordinate (`latitude`) -->
-                                <input id="discovery_tagging_latitude_input" name="latitude" type="hidden" value="<%= lati %>"/>
+                                <input id="discovery_tagging_latitude_input" name="latitude" type="hidden" value="<%= lati  !== undefined ? lati : '' %>"/>
 
                                 <!--  versteckte Koordinate (`longitude`) -->
-                                <input id="discovery_tagging_longitude_input" name="longitude" type="hidden" value="<%= longi %>"/>
+                                <input id="discovery_tagging_longitude_input" name="longitude" type="hidden" value="<%= longi !== undefined ? longi : '' %>"/>
 
                                 <button id="discovery_send_button">apply</button>
                             </fieldset>
@@ -105,7 +105,7 @@
                     <div class="col-8">
                         <div class="tagmap">
                             <img id="result-img" src="./images/mapview.jpg" alt="a map with locations"
-                            data-tags="<%= JSON.stringify(taglist) %>"/>
+                            data-tags="<%= taglist === undefined ? '' : JSON.stringify(taglist) %>"/>
                             <div class="caption">Result map</div>
                         </div>
                     </div>
