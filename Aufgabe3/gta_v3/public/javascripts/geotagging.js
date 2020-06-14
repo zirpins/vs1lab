@@ -100,6 +100,9 @@ var gtaLocator = (function GtaLocator(geoLocationApi) {
 
         document.getElementById("discovery_tagging_latitude_input").value = latitude;
         document.getElementById("discovery_tagging_longitude_input").value = longitude;
+
+        var returnurl = getLocationMapSrc(latitude, longitude);
+        document.getElementById("result-img").src = returnurl;
     };
 
     // Hier Google Maps API Key eintragen
@@ -156,9 +159,10 @@ var gtaLocator = (function GtaLocator(geoLocationApi) {
                 (isNaN(hiddenLongitude.value))) {
                 tryLocate(successfunction, errorfunction);
             }
-
-            var returnurl = getLocationMapSrc(hiddenLatitude.value, hiddenLongitude.value, getTagList(), 13);
-            document.getElementById("result-img").src = returnurl;
+            else {
+                var returnurl = getLocationMapSrc(hiddenLatitude.value, hiddenLongitude.value, getTagList(), 13);
+                document.getElementById("result-img").src = returnurl;
+            }
         }
 
     };

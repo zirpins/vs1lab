@@ -140,7 +140,7 @@ var geoTagModul = (function() {
          * @param {hashtag} hashtag of new geo tag
          */
         addGeoTag: function (latitude, longitude, name, hashtag) {
-            geoTags.push(new GeoTag(name, latitude, longitude, hashtag));
+            tagList.push(new GeoTag(latitude, longitude, name, hashtag));
         },
 
         /**
@@ -157,13 +157,13 @@ var geoTagModul = (function() {
          */
         deleteGeoTagByGeoTag: function (geoTag) {
             if (geoTag instanceof GeoTag) {
-                for (var i = 0; i < geoTags.length; i++) {
-                    if (geoTags[i].name === geoTag.name
-                        && geoTags[i].latitude === geoTag.latitude
-                        && geoTags[i].longitude === geoTag.longitue
-                        && geoTags[i].hashtag === geoTag.hashtag) {
+                for (var i = 0; i < tagList.length; i++) {
+                    if (tagList[i].name === geoTag.name
+                        && tagList[i].latitude === geoTag.latitude
+                        && tagList[i].longitude === geoTag.longitue
+                        && tagList[i].hashtag === geoTag.hashtag) {
 
-                        geoTags.slice(i + 1);
+                        tagList.slice(i + 1);
                     }
                 }
             }
@@ -227,7 +227,7 @@ app.post('/tagging', function (req, res) {
 
 app.post('/discovery', function (req, res) {
     // Creat list of GeoTags in a certain radius
-    var toRender = geoTagModul.searchByRadius(req.body.latitude, req.body.longitude, 100)
+    var toRender = geoTagModul.searchByRadius(req.body.latitude, req.body.longitude, 5)
     // Reduce list to GeoTags with a certain infix
     if (req.body.discovery !== undefined) {
         toRender = geoTagModul.searchByTerm(req.body.discovery, toRender)
