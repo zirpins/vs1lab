@@ -169,6 +169,6 @@ var gtaLocator = (function GtaLocator(geoLocationApi) {
  * angegebene Funktion aufgerufen. An dieser Stelle beginnt die eigentliche Arbeit
  * des Skripts.
  */
-$(function() {
-    gtaLocator.updateLocation();
-});
+$(document).ready(
+    gtaLocator.updateLocation()
+);
