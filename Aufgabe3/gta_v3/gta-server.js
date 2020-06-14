@@ -29,14 +29,19 @@ app.set('view engine', 'ejs');
  * Teste das Ergebnis im Browser unter 'http://localhost:3000/'.
  */
 
-// TODO: CODE ERGÄNZEN
+app.use(express.static(__dirname + '/public'));
 
 /**
  * Konstruktor für GeoTag Objekte.
  * GeoTag Objekte sollen min. alle Felder des 'tag-form' Formulars aufnehmen.
  */
 
-// TODO: CODE ERGÄNZEN
+function GeoTag(latitude, longitude, name, hashtag) {
+    this.latitude = latitude
+    this.longitude = longitude
+    this.name = name
+    this.hashtag = hashtag
+};
 
 /**
  * Modul für 'In-Memory'-Speicherung von GeoTags mit folgenden Komponenten:
@@ -47,7 +52,83 @@ app.set('view engine', 'ejs');
  * - Funktion zum Löschen eines Geo Tags.
  */
 
-// TODO: CODE ERGÄNZEN
+var geoTagModul = (function() {
+    // Private
+    var tagList = [];
+    /**
+     * Converts degree to radian values
+     * @param {double} degree Degree to be converted to radian
+     */
+    var degreeToRadian = function (degree) {
+        return degree * (Math.PI/180)
+    }
+    // Public
+    return {
+        /**
+         * Returns an array of GeoTags in a certain radius
+         * @param {double} latitude Latitude in °
+         * @param {double} longitude Longitude in °
+         * @param {double} radius Radius in km
+         * @param {GeoTag} list (Optional) Array of GeoTags
+         */
+        searchRadius: function(latitude, longitude, radius, list) {
+            if (list === undefined) {
+                list = tagList
+            }
+            var results = []
+            // Comparing every value with the Haversine formula for distance
+            list.forEach(function (geoTag) {
+                var latitude1 = degreeToRadian(latitude)
+                var latitude2= degreeToRadian(geoTag.latitude)
+                var divLat = degreeToRadian(geoTag.latitude - latitude)
+                var divLon = degreeToRadian(geoTag.longitude - longitude)
+                var distance = Math.sin(divLat/2) * Math.sin(divLat/2) 
+                    + Math.cos(latitude1) * Math.cos(latitude2)
+                    * Math.sin(divLon/2) * Math.sin(divLon/2);
+                distance = 2 * Math.atan2(Math.sqrt(distance), Math.sqrt(1-distance))
+                distance = distance * 6371
+                console.log(distance)
+                if (distance <= radius) {
+                    results.push(geoTag)
+                }
+            });
+            return results
+        },
+
+        /**
+         * Returns an array of Geotags that have the phrase as an infix in their name or hashtag
+         * @param {String} phrase Infix to look for
+         * @param {GeoTag} list (Optional) Array of GeoTags
+         */
+        searchName: function(phrase, list) {
+            if (list === undefined) {
+                list = tagList
+            }
+            var results = []
+            var reg = new RegExp(phrase, 'i')
+            results = list.filter(function (geoTag) {
+                return (reg.test(geoTag.name) || reg.test(geoTag.hashtag))
+            })
+            return results
+        },
+
+        /**
+         * Adds a GeoTag to the list
+         * @param {GeoTag} geoTag GeoTag to be added
+         */
+        addGeoTag: function(geoTag) {
+            tagList.push(geoTag)
+        },
+
+        /**
+         * Deletes a GeoTag
+         * @param {int} index Index of the GeoTag to be deleted
+         */
+        deleteGeoTag: function(index) {
+            tagList.splice(index)
+        },
+    };
+})();
 
 /**
  * Route mit Pfad '/' für HTTP 'GET' Requests.
@@ -60,7 +141,7 @@ app.set('view engine', 'ejs');
 
 app.get('/', function(req, res) {
     res.render('gta', {
-        taglist: []
+        taglist: [], lati: req.body.latitude, longi: req.body.longitude
     });
 });
 
@@ -77,7 +158,14 @@ app.get('/', function(req, res) {
  * Die Objekte liegen in einem Standard Radius um die Koordinate (lat, lon).
  */
 
-// TODO: CODE ERGÄNZEN START
+app.post('/tagging', function (req, res) {
+    // Create new GeoTag
+    var newGeoTag = new GeoTag(req.body.latitude, req.body.longitude, req.body.name, req.body.hashtag)
+    geoTagModul.addGeoTag(newGeoTag)
+    // Create list of GeoTags in a certain radius
+    var toRender = geoTagModul.searchRadius(req.body.latitude, req.body.longitude, 5)
+    res.render('gta', {taglist: toRender, lati: req.body.latitude, longi: req.body.longitude})
+});
 
 /**
  * Route mit Pfad '/discovery' für HTTP 'POST' Requests.
@@ -91,8 +179,15 @@ app.get('/', function(req, res) {
  * Falls 'term' vorhanden ist, wird nach Suchwort gefiltert.
  */
 
-// TODO: CODE ERGÄNZEN
-
+app.post('/discovery', function (req, res) {
+    // Creat list of GeoTags in a certain radius
+    var toRender = geoTagModul.searchRadius(req.body.latitude, req.body.longitude, 100)
+    // Reduce list to GeoTags with a certain infix
+    if (req.body.discovery !== undefined) {
+        toRender = geoTagModul.searchName(req.body.discovery, toRender)
+    }
+    res.render('gta', {taglist: toRender, lati: req.body.latitude, longi: req.body.longitude})
+});
 /**
  * Setze Port und speichere in Express.
  */
