@@ -41,6 +41,26 @@ function GeoTag(latitude, longitude, name, hashtag) {
     this.longitude = longitude
     this.name = name
     this.hashtag = hashtag
+
+    this.getName = function () {
+        return this.name;
+    };
+
+    this.getLatitude = function () {
+        return this.latitude;
+    };
+
+    this.getLongitude = function () {
+        return this.longitude;
+    };
+
+    this.getHashtag = function () {
+        return this.hashtag;
+    };
+
+    this.toString = function () {
+        return "GeoTag: [name=" + this.name + "][latitude=" + this.latitude + "][longitude=" + this.longitude + "][hashtag=" + this.hashtag + "]";
+    }
 };
 
 /**
@@ -71,7 +91,7 @@ var geoTagModul = (function() {
          * @param {double} radius Radius in km
          * @param {GeoTag} list (Optional) Array of GeoTags
          */
-        searchRadius: function(latitude, longitude, radius, list) {
+        searchByRadius: function(latitude, longitude, radius, list) {
             if (list === undefined) {
                 list = tagList
             }
@@ -96,16 +116,16 @@ var geoTagModul = (function() {
         },
 
         /**
-         * Returns an array of Geotags that have the phrase as an infix in their name or hashtag
-         * @param {String} phrase Infix to look for
+         * Returns an array of Geotags that have the searchTerm as an infix in their name or hashtag
+         * @param {String} searchTerm Infix to look for
          * @param {GeoTag} list (Optional) Array of GeoTags
          */
-        searchName: function(phrase, list) {
+        searchByTerm: function(searchTerm, list) {
             if (list === undefined) {
                 list = tagList
             }
             var results = []
-            var reg = new RegExp(phrase, 'i')
+            var reg = new RegExp(searchTerm, 'i')
             results = list.filter(function (geoTag) {
                 return (reg.test(geoTag.name) || reg.test(geoTag.hashtag))
             })
@@ -114,18 +134,39 @@ var geoTagModul = (function() {
 
         /**
          * Adds a GeoTag to the list
-         * @param {GeoTag} geoTag GeoTag to be added
+         * @param {latitude} latitude of new geo tag
+         * @param {longitude} longitude of new geo tag
+         * @param {name} name of new geo tag
+         * @param {hashtag} hashtag of new geo tag
          */
-        addGeoTag: function(geoTag) {
-            tagList.push(geoTag)
+        addGeoTag: function (latitude, longitude, name, hashtag) {
+            geoTags.push(new GeoTag(name, latitude, longitude, hashtag));
         },
 
         /**
          * Deletes a GeoTag
          * @param {int} index Index of the GeoTag to be deleted
          */
-        deleteGeoTag: function(index) {
+        deleteGeoTagByIndex: function(index) {
             tagList.splice(index)
+        },
+
+        /**
+         * Deletes geo tag
+         * @param {geoTag} geo tag to delete
+         */
+        deleteGeoTagByGeoTag: function (geoTag) {
+            if (geoTag instanceof GeoTag) {
+                for (var i = 0; i < geoTags.length; i++) {
+                    if (geoTags[i].name === geoTag.name
+                        && geoTags[i].latitude === geoTag.latitude
+                        && geoTags[i].longitude === geoTag.longitue
+                        && geoTags[i].hashtag === geoTag.hashtag) {
+
+                        geoTags.slice(i + 1);
+                    }
+                }
+            }
         },
     };
 })();
@@ -141,7 +182,9 @@ var geoTagModul = (function() {
 
 app.get('/', function(req, res) {
     res.render('gta', {
-        taglist: [], lati: req.body.latitude, longi: req.body.longitude
+        taglist: [],
+        lati: req.body.latitude,
+        longi: req.body.longitude
     });
 });
 
@@ -160,11 +203,14 @@ app.get('/', function(req, res) {
 
 app.post('/tagging', function (req, res) {
     // Create new GeoTag
-    var newGeoTag = new GeoTag(req.body.latitude, req.body.longitude, req.body.name, req.body.hashtag)
-    geoTagModul.addGeoTag(newGeoTag)
+    geoTagModul.addGeoTag(req.body.latitude, req.body.longitude, req.body.name, req.body.hashtag)
     // Create list of GeoTags in a certain radius
-    var toRender = geoTagModul.searchRadius(req.body.latitude, req.body.longitude, 5)
-    res.render('gta', {taglist: toRender, lati: req.body.latitude, longi: req.body.longitude})
+    var toRender = geoTagModul.searchByRadius(req.body.latitude, req.body.longitude, 5)
+    res.render('gta', {
+        taglist: toRender,
+        lati: req.body.latitude,
+        longi: req.body.longitude
+    });
 });
 
 /**
@@ -181,12 +227,16 @@ app.post('/tagging', function (req, res) {
 
 app.post('/discovery', function (req, res) {
     // Creat list of GeoTags in a certain radius
-    var toRender = geoTagModul.searchRadius(req.body.latitude, req.body.longitude, 100)
+    var toRender = geoTagModul.searchByRadius(req.body.latitude, req.body.longitude, 100)
     // Reduce list to GeoTags with a certain infix
     if (req.body.discovery !== undefined) {
-        toRender = geoTagModul.searchName(req.body.discovery, toRender)
+        toRender = geoTagModul.searchByTerm(req.body.discovery, toRender)
     }
-    res.render('gta', {taglist: toRender, lati: req.body.latitude, longi: req.body.longitude})
+    res.render('gta', {
+        taglist: toRender,
+        lati: req.body.latitude,
+        longi: req.body.longitude
+    });
 });
 /**
  * Setze Port und speichere in Express.
