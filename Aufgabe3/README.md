@@ -77,7 +77,7 @@ einzelnen gibt es folgende Teilaufgaben:
   - Eine **2. Route** `/tagging` zur **Speicherung von GeoTags** erstellen
   - Eine **3. Route** `/discovery` zur **Abfrage von GeoTags** erstellen
 
-#### 3.2.1.a Server Template erweitern
+#### 3.2.1.b Server Template erweitern
 
 Die Routen im Serverskript verwenden das EJS-Template
 `Aufgabe3/gta_v3/views/gta.ejs`, um die nächste Sicht der Browser-GUI als
