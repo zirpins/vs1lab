@@ -50,8 +50,8 @@ gehen Sie wie folgt vor:
 ## 3.2. Teilaufgaben
 
 Die Aufgabe besteht nun in der Entwicklung der Serverskripte. Die Clientseite
-(Browserskript) muss nur leicht angepasst werden. Optional erfordert die
-Darstellung einer Karte mit Markern noch eine Erweiterung.
+(Browserskript) muss nur leicht angepasst werden. Die Darstellung der Karte mit
+Markern erfordert eine geringfügige Erweiterung.
 
 ### 3.2.1 Implementierung des Servers
 
@@ -77,7 +77,7 @@ einzelnen gibt es folgende Teilaufgaben:
   - Eine **2. Route** `/tagging` zur **Speicherung von GeoTags** erstellen
   - Eine **3. Route** `/discovery` zur **Abfrage von GeoTags** erstellen
 
-#### 3.2.1.a Server Template erweitern
+#### 3.2.1.b Server Template erweitern
 
 Die Routen im Serverskript verwenden das EJS-Template
 `Aufgabe3/gta_v3/views/gta.ejs`, um die nächste Sicht der Browser-GUI als
@@ -136,5 +136,5 @@ korrespondierende JavaScript Array Objekt. Dieses Array Objekt können sie der
 `getLocationMapSrc`-Funktion als Parameter übergeben.
 
 **Aufgabe:** Erweitern Sie den Aufruf von der `getLocationMapSrc`-Funktion und
-übergeben sie neben der aktuellen Position des CLients zusätzlich einen Array
+übergeben sie neben der aktuellen Position des Clients zusätzlich einen Array
 von GeoTag Objekten des aktuellen Suchergebnisses im Discovery Widget.
