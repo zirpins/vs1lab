@@ -167,9 +167,25 @@ var gtaLocator = (function GtaLocator(geoLocationApi) {
     };
 })(GEOLOCATIONAPI);
 
+const serverAddress = 'http://localhost:3000'
+
 function submitTaggingFormular(event) {
     alert("submit tagging"); //TODO: remove later
     event.preventDefault(); // prevent submitting of form
+
+    var data = {
+        latitude: document.getElementById("tagging_latitude_input").value,
+        longitude: document.getElementById("tagging_longitude_input").value,
+        name: document.getElementById("tagging_name_input").value,
+        hashtag: document.getElementById("tagging_hashtag_input").value
+    }
+
+    console.log(data);
+    console.log(JSON.stringify(data));
+
+    var xmlHttpRequest = new XMLHttpRequest();
+    xmlHttpRequest.open('POST', serverAddress + '/tagging');
+    xmlHttpRequest.send(JSON.stringify(data));
 }
 
 function submitDiscoveryFormular(event) {
