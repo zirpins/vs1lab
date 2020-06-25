@@ -9,7 +9,6 @@
  */
 
 var http = require('http');
-//var path = require('path');
 var logger = require('morgan');
 var bodyParser = require('body-parser');
 var express = require('express');
