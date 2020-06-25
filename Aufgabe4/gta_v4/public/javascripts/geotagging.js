@@ -167,11 +167,25 @@ var gtaLocator = (function GtaLocator(geoLocationApi) {
     };
 })(GEOLOCATIONAPI);
 
+function submitTaggingFormular(event) {
+    alert("submit tagging"); //TODO: remove later
+    event.preventDefault(); // prevent submitting of form
+}
+
+function submitDiscoveryFormular(event) {
+    alert("submit discovery"); //TODO: remove later
+    event.preventDefault(); // prevent submitting of form
+}
+
+
 /**
  * $(function(){...}) wartet, bis die Seite komplett geladen wurde. Dann wird die
  * angegebene Funktion aufgerufen. An dieser Stelle beginnt die eigentliche Arbeit
  * des Skripts.
  */
-$(document).ready(
-    gtaLocator.updateLocation()
-);
+$(document).ready(function () {
+    document.getElementById("tagging_send_button").addEventListener("click", submitTaggingFormular);
+    document.getElementById("discovery_send_button").addEventListener("click", submitDiscoveryFormular);
+
+    gtaLocator.updateLocation();
+});
