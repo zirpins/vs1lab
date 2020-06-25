@@ -13,7 +13,7 @@ console.log("The script is going to start...");
 // Hier wird die verwendete API für Geolocations gewählt
 // Die folgende Deklaration ist ein 'Mockup', das immer funktioniert und eine fixe Position liefert.
 GEOLOCATIONAPI = {
-    getCurrentPosition: function(onsuccess) {
+    getCurrentPosition: function (onsuccess) {
         onsuccess({
             "coords": {
                 "latitude": 49.013790,
@@ -46,9 +46,9 @@ var gtaLocator = (function GtaLocator(geoLocationApi) {
      * Bei Fehler Callback 'onerror' mit Meldung.
      * Callback Funktionen als Parameter übergeben.
      */
-    var tryLocate = function(onsuccess, onerror) {
+    var tryLocate = function (onsuccess, onerror) {
         if (geoLocationApi) {
-            geoLocationApi.getCurrentPosition(onsuccess, function(error) {
+            geoLocationApi.getCurrentPosition(onsuccess, function (error) {
                 var msg;
                 switch (error.code) {
                     case error.PERMISSION_DENIED:
@@ -72,29 +72,29 @@ var gtaLocator = (function GtaLocator(geoLocationApi) {
     };
 
     // Auslesen Breitengrad aus der Position
-    var getLatitude = function(position) {
+    var getLatitude = function (position) {
         return position.coords.latitude;
     };
 
     // Auslesen Längengrad aus Position
-    var getLongitude = function(position) {
+    var getLongitude = function (position) {
         return position.coords.longitude;
     };
 
     // Read the taglist saved in the image data
-    var getTagList = function() {
+    var getTagList = function () {
         return JSON.parse(document.getElementById("result-img").dataset.tags)
     };
 
-    var errorfunction = function(msg){
+    var errorfunction = function (msg) {
         alert(msg);
     };
 
-    var successfunction = function(position){
+    var successfunction = function (position) {
 
         var latitude = getLatitude(position);
         var longitude = getLongitude(position);
-        
+
         document.getElementById("tagging_latitude_input").value = latitude;
         document.getElementById("tagging_longitude_input").value = longitude;
 
@@ -117,7 +117,7 @@ var gtaLocator = (function GtaLocator(geoLocationApi) {
      * tags : Array mit Geotag Objekten, das auch leer bleiben kann
      * zoom: Zoomfaktor der Karte
      */
-    var getLocationMapSrc = function(lat, lon, tags, zoom) {
+    var getLocationMapSrc = function (lat, lon, tags, zoom) {
         zoom = typeof zoom !== 'undefined' ? zoom : 15;
 
         if (apiKey === "YOUR_API_KEY_HERE") {
@@ -126,7 +126,7 @@ var gtaLocator = (function GtaLocator(geoLocationApi) {
         }
 
         var tagList = "&pois=You," + lat + "," + lon;
-        if (tags !== undefined) tags.forEach(function(tag) {
+        if (tags !== undefined) tags.forEach(function (tag) {
             tagList += "|" + tag.name + "," + tag.latitude + "," + tag.longitude;
         });
 
@@ -143,7 +143,7 @@ var gtaLocator = (function GtaLocator(geoLocationApi) {
 
         readme: "Dieses Objekt enthält 'öffentliche' Teile des Moduls.",
 
-        updateLocation: function() {
+        updateLocation: function () {
             const latitudeElement = document.getElementById('tagging_latitude_input')
             const longitudeElement = document.getElementById('tagging_longitude_input')
             const hiddenLatitude = document.getElementById('discovery_tagging_latitude_input')
@@ -158,8 +158,7 @@ var gtaLocator = (function GtaLocator(geoLocationApi) {
                 (isNaN(hiddenLatitude.value)) ||
                 (isNaN(hiddenLongitude.value))) {
                 tryLocate(successfunction, errorfunction);
-            }
-            else {
+            } else {
                 var returnurl = getLocationMapSrc(hiddenLatitude.value, hiddenLongitude.value, getTagList(), 13);
                 document.getElementById("result-img").src = returnurl;
             }
