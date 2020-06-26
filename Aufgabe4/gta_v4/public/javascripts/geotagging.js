@@ -167,14 +167,14 @@ var gtaLocator = (function GtaLocator(geoLocationApi) {
     };
 })(GEOLOCATIONAPI);
 
-const serverAddress = 'http://localhost:3000'
+const serverAddress = 'http://localhost:3000';
 
-function submitFormular(path, data) {
-    console.log(data); //TODO: remove later
+function submitFormular(requestMethod, path, data) {
+    //console.log(data); //TODO: remove later
     console.log(JSON.stringify(data)); //TODO: remove later
 
     var xmlHttpRequest = new XMLHttpRequest();
-    xmlHttpRequest.open('POST', serverAddress + path, true);
+    xmlHttpRequest.open(requestMethod, serverAddress + path, true);
     xmlHttpRequest.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
     xmlHttpRequest.send(JSON.stringify(data));
 }
@@ -183,14 +183,16 @@ function submitTaggingFormular(event) {
     alert("submit tagging"); //TODO: remove later
     event.preventDefault(); // prevent submitting of form
 
-    var data = {
-        latitude: document.getElementById("tagging_latitude_input").value,
-        longitude: document.getElementById("tagging_longitude_input").value,
-        name: document.getElementById("tagging_name_input").value,
-        hashtag: document.getElementById("tagging_hashtag_input").value
-    }
+    var tagList = [
+        {
+            latitude: document.getElementById("tagging_latitude_input").value,
+            longitude: document.getElementById("tagging_longitude_input").value,
+            name: document.getElementById("tagging_name_input").value,
+            hashtag: document.getElementById("tagging_hashtag_input").value
+        }
+    ];
 
-    submitFormular('/tagging', data);
+    submitFormular('POST', '/tagging', tagList);
 }
 
 function submitDiscoveryFormular(event) {
@@ -203,7 +205,7 @@ function submitDiscoveryFormular(event) {
         searchTerm: document.getElementById("discovery_searchterm_input").value,
     }
 
-    submitFormular('/discovery', data);
+    submitFormular('GET', '/discovery', data);
 }
 
 
