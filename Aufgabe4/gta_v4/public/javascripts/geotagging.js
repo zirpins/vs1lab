@@ -169,6 +169,16 @@ var gtaLocator = (function GtaLocator(geoLocationApi) {
 
 const serverAddress = 'http://localhost:3000'
 
+function submitFormular(path, data) {
+    console.log(data); //TODO: remove later
+    console.log(JSON.stringify(data)); //TODO: remove later
+
+    var xmlHttpRequest = new XMLHttpRequest();
+    xmlHttpRequest.open('POST', serverAddress + path, true);
+    xmlHttpRequest.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    xmlHttpRequest.send(JSON.stringify(data));
+}
+
 function submitTaggingFormular(event) {
     alert("submit tagging"); //TODO: remove later
     event.preventDefault(); // prevent submitting of form
