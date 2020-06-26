@@ -167,6 +167,10 @@ var gtaLocator = (function GtaLocator(geoLocationApi) {
     };
 })(GEOLOCATIONAPI);
 
+function updateDiscovery() {
+    //TODO: add functionality
+}
+
 const serverAddress = 'http://localhost:3000';
 
 function submitFormular(requestMethod, path, data) {
