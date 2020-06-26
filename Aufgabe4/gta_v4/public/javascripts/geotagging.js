@@ -190,19 +190,20 @@ function submitTaggingFormular(event) {
         hashtag: document.getElementById("tagging_hashtag_input").value
     }
 
-    console.log(data);
-    console.log(JSON.stringify(data));
-
-    var xmlHttpRequest = new XMLHttpRequest();
-    xmlHttpRequest.open('POST', serverAddress + '/tagging');
-    xmlHttpRequest.send(JSON.stringify(data));
+    submitFormular('/tagging', data);
 }
 
 function submitDiscoveryFormular(event) {
     alert("submit discovery"); //TODO: remove later
     event.preventDefault(); // prevent submitting of form
 
-    //TODO: Ajax call
+    var data = {
+        latitude: document.getElementById("discovery_tagging_latitude_input").value,
+        longitude: document.getElementById("discovery_tagging_longitude_input").value,
+        searchTerm: document.getElementById("discovery_searchterm_input").value,
+    }
+
+    submitFormular('/discovery', data);
 }
 
 
