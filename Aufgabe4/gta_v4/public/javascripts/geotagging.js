@@ -191,6 +191,8 @@ function submitTaggingFormular(event) {
 function submitDiscoveryFormular(event) {
     alert("submit discovery"); //TODO: remove later
     event.preventDefault(); // prevent submitting of form
+
+    //TODO: Ajax call
 }
 
 
