@@ -214,7 +214,6 @@ app.post('/tagging', function (req, res) {
     }
 
     // Create list of GeoTags in a certain radius
-    console.log('have it') // TODO: remove later
     var toRender = geoTagModul.searchByRadius(req.body.latitude, req.body.longitude, 5)
     console.log('toRender: [' + toRender + ']')// TODO: remove later
     res.render('gta', {
