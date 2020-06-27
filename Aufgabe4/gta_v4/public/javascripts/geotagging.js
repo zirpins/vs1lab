@@ -178,8 +178,29 @@ function submitFormular(requestMethod, path, data) {
     console.log(JSON.stringify(data)); //TODO: remove later
 
     var xmlHttpRequest = new XMLHttpRequest();
+
     xmlHttpRequest.open(requestMethod, serverAddress + path, true);
+
     xmlHttpRequest.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+
+    xmlHttpRequest.onreadystatechange = function() {
+        if (xmlHttpRequest.readyState === 4) {
+            var response = xmlHttpRequest.responseText;
+            if (xmlHttpRequest.status === 200) {
+                console.log('successful')
+                console.log('response: [' + response +']');
+                document.open();
+                document.write(response);
+                document.close();
+
+                updateDiscovery()
+            } else {
+                console.log('failed');
+                console.log('response: [' + response +']');
+            }
+        }
+    }
+
     xmlHttpRequest.send(JSON.stringify(data));
 }
 
