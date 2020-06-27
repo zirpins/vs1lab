@@ -188,7 +188,7 @@ function submitFormular(requestMethod, path, data) {
             var response = xmlHttpRequest.responseText;
             if (xmlHttpRequest.status === 200) {
                 console.log('successful')// TODO: remove later
-                console.log('response: [' + response +']');// TODO: remove later
+                // console.log('response: [' + response +']');// TODO: remove later
                 document.open();
                 document.write(response);
                 document.close();
