@@ -190,7 +190,7 @@ function submitFormular(requestMethod, path, data) {
                 console.log('successful')// TODO: remove later
                 // console.log('response: [' + response +']');// TODO: remove later
                 document.open();
-                document.write(response);
+                document.write(response); //TODO: later only change parts of page
                 document.close();
 
                 updateDiscovery()
