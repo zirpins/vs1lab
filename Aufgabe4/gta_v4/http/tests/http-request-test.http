@@ -15,7 +15,18 @@ Content-Type: application/json
 }
 
 ###
+
 POST http://localhost:3000/tagging
 
 ###
 
+GET http://localhost:3000/discovery
+Content-Type: application/json
+
+{
+  "searchTerm":"#dd",
+  "latitude":49.1243,
+  "longitude":8.598
+}
+
+###
