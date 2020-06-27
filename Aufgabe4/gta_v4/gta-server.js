@@ -203,7 +203,16 @@ app.get('/', function(req, res) {
 
 app.post('/tagging', function (req, res) {
     // Create new GeoTag
-    geoTagModul.addGeoTag(req.body.latitude, req.body.longitude, req.body.name, req.body.hashtag)
+    var newTagList = req.body.newTagList;
+    for (var i = 0; i < newTagList.length; i++) {
+        geoTagModul.addGeoTag(
+            newTagList[i].latitude,
+            newTagList[i].longitude,
+            newTagList[i].name,
+            newTagList[i].hashtag
+        )
+    }
+
     // Create list of GeoTags in a certain radius
     console.log('have it') // TODO: remove later
     var toRender = geoTagModul.searchByRadius(req.body.latitude, req.body.longitude, 5)
