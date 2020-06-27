@@ -160,7 +160,7 @@ var geoTagModul = (function () {
                 for (var i = 0; i < tagList.length; i++) {
                     if (tagList[i].name === geoTag.name
                         && tagList[i].latitude === geoTag.latitude
-                        && tagList[i].longitude === geoTag.longitue
+                        && tagList[i].longitude === geoTag.longitude
                         && tagList[i].hashtag === geoTag.hashtag) {
 
                         tagList.slice(i + 1);
