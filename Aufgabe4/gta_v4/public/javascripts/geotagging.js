@@ -187,16 +187,16 @@ function submitFormular(requestMethod, path, data) {
         if (xmlHttpRequest.readyState === 4) {
             var response = xmlHttpRequest.responseText;
             if (xmlHttpRequest.status === 200) {
-                console.log('successful')
-                console.log('response: [' + response +']');
+                console.log('successful')// TODO: remove later
+                console.log('response: [' + response +']');// TODO: remove later
                 document.open();
                 document.write(response);
                 document.close();
 
                 updateDiscovery()
             } else {
-                console.log('failed');
-                console.log('response: [' + response +']');
+                console.log('failed');// TODO: remove later
+                console.log('response: [' + response +']');// TODO: remove later
             }
         }
     }
