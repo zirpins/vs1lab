@@ -2,13 +2,17 @@ POST http://localhost:3000/tagging
 Content-Type: application/json
 
 {
+  "newTagList": [
+    {
+      "latitude": 1,
+      "longitude": 2,
+      "name": "echo",
+      "hashtag": "#asfe"
+    }
+  ],
   "latitude":1,
-  "longitude":2,
-  "name":"echo",
-  "hashtag":"#asfe"
+  "longitude":2
 }
-
-
 
 ###
 POST http://localhost:3000/tagging
