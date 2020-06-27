@@ -240,6 +240,8 @@ app.get('/discovery', function (req, res) {
     var toRender = geoTagModul.searchByRadius(req.body.latitude, req.body.longitude, 5)
     console.log('toRender: [' + toRender + ']')// TODO: remove later
     // Reduce list to GeoTags with a certain infix
+    console.log('json in body: ' + JSON.stringify(req.body))
+    console.log("discovery: " + req.body.discovery)
     if (req.body.discovery !== undefined) {
         toRender = geoTagModul.searchByTerm(req.body.discovery, toRender)
     }

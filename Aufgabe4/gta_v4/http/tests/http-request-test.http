@@ -24,7 +24,7 @@ GET http://localhost:3000/discovery
 Content-Type: application/json
 
 {
-  "searchTerm": "#dd",
+  "discovery": "HSKA",
   "latitude": 49.1243,
   "longitude": 8.598
 }

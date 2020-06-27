@@ -174,9 +174,6 @@ function updateDiscovery() {
 function submitFormular(requestMethod, path, data) {
     const serverAddress = 'http://localhost:3000';
 
-    //console.log(data); //TODO: remove later
-    console.log(JSON.stringify(data)); //TODO: remove later
-
     var xmlHttpRequest = new XMLHttpRequest();
 
     xmlHttpRequest.open(requestMethod, serverAddress + path, true);
@@ -188,7 +185,7 @@ function submitFormular(requestMethod, path, data) {
             var response = xmlHttpRequest.responseText;
             if (xmlHttpRequest.status === 200) {
                 console.log('successful')// TODO: remove later
-                // console.log('response: [' + response +']');// TODO: remove later
+                // console.log('response: [' + response + ']');// TODO: remove later
                 document.open();
                 document.write(response); //TODO: later only change parts of page
                 document.close();
@@ -225,16 +222,43 @@ function submitTaggingFormular(event) {
     submitFormular('POST', '/tagging', data);
 }
 
+function formatParams( params ){
+    return "?" + Object
+        .keys(params)
+        .map(function(key){
+            return key+"="+encodeURIComponent(params[key])
+        })
+        .join("&")
+}
+
 function submitDiscoveryFormular(event) {
     event.preventDefault(); // prevent submitting of form
 
-    var data = {
+    var params = [
+        {
+            name: 'latitude',
+            value: document.getElementById("discovery_tagging_latitude_input").value
+        },
+        {
+            name: 'longitude',
+            value: 'document.getElementById("discovery_tagging_longitude_input").value'
+        },
+        {
+            name: 'discovery',
+            value: document.getElementById("discovery_searchterm_input").value
+        }
+    ]
+
+    var path = '/discovery'
+
+    var params = {
         latitude: document.getElementById("discovery_tagging_latitude_input").value,
         longitude: document.getElementById("discovery_tagging_longitude_input").value,
-        searchTerm: document.getElementById("discovery_searchterm_input").value,
+        discovery: document.getElementById("discovery_searchterm_input").value
     }
+    path += formatParams(params)
 
-    submitFormular('GET', '/discovery', data);
+    submitFormular('GET', path, {});
 }
 
 
