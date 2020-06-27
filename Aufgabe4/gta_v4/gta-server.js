@@ -212,7 +212,6 @@ app.post('/tagging', function (req, res) {
 
     // Create list of GeoTags in a certain radius
     var toRender = geoTagModul.searchByRadius(req.body.latitude, req.body.longitude, 5)
-    console.log('toRender: [' + toRender + ']')// TODO: remove later
     res.render('gta', {
         taglist: toRender,
         lati: req.body.latitude,
@@ -235,14 +234,15 @@ app.post('/tagging', function (req, res) {
 app.get('/discovery', function (req, res) {
     // Creat list of GeoTags in a certain radius
     var toRender = geoTagModul.searchByRadius(req.query.latitude, req.query.longitude, 5)
-    console.log('toRender: [' + toRender + ']')// TODO: remove later
+
     // Reduce list to GeoTags with a certain infix
-    console.log('json in body: ' + JSON.stringify(req.body))
     console.log("discovery: " + req.query.discovery)
     if (req.query.discovery !== undefined) {
         toRender = geoTagModul.searchByTerm(req.query.discovery, toRender)
     }
+
     console.log('toRender: [' + toRender + ']')// TODO: remove later
+
     res.render('gta', {
         taglist: toRender,
         lati: req.query.latitude,
