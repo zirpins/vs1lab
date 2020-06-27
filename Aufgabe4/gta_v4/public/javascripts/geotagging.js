@@ -183,7 +183,7 @@ function submitFormular(requestMethod, path, data) {
 
     xmlHttpRequest.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
 
-    xmlHttpRequest.onreadystatechange = function() {
+    xmlHttpRequest.onreadystatechange = function () {
         if (xmlHttpRequest.readyState === 4) {
             var response = xmlHttpRequest.responseText;
             if (xmlHttpRequest.status === 200) {
@@ -196,7 +196,7 @@ function submitFormular(requestMethod, path, data) {
                 updateDiscovery()
             } else {
                 console.log('failed');// TODO: remove later
-                console.log('response: [' + response +']');// TODO: remove later
+                console.log('response: [' + response + ']');// TODO: remove later
             }
         }
     }

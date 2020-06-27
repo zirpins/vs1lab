@@ -31,13 +31,15 @@
                         <!-- `latitude` -->
                         <label id="tagging_latitude_label" for="tagging_latitude_input"
                                class="tagging_form_element">latitude</label>
-                        <input id="tagging_latitude_input" name="latitude" placeholder="49.01379" class="tagging_form_element"
-                               value="<%= lati  !== undefined ? lati : '' %>" required/>
+                        <input id="tagging_latitude_input" name="latitude" placeholder="49.01379"
+                               class="tagging_form_element"
+                               value="<%= lati !== undefined ? lati : '' %>" required/>
 
                         <!--  `longitude` -->
                         <label id="tagging_longitude_label" for="tagging_longitude_input"
                                class="tagging_form_element">longitude</label>
-                        <input id="tagging_longitude_input" name="longitude" placeholder="8.390071" class="tagging_form_element"
+                        <input id="tagging_longitude_input" name="longitude" placeholder="8.390071"
+                               class="tagging_form_element"
                                value="<%= longi !== undefined ? longi : '' %>" required/>
 
                         <!--  `name` -->
@@ -50,7 +52,8 @@
                         <!--  `hashtag` -->
                         <label id="tagging_hashtag_label" for="tagging_hashtag_input"
                                class="tagging_form_element">hashtag</label>
-                        <input id="tagging_hashtag_input" name="hashtag" placeholder="#sight" maxlength="11" pattern="#.*"
+                        <input id="tagging_hashtag_input" name="hashtag" placeholder="#sight" maxlength="11"
+                               pattern="#.*"
                                class="tagging_form_element"/>
 
                         <button id="tagging_send_button" class="tagging_form_element">submit</button>
@@ -80,10 +83,12 @@
                                 <input id="discovery_searchterm_input" name="discovery" placeholder="#aim"/>
 
                                 <!--  versteckte Koordinate (`latitude`) -->
-                                <input id="discovery_tagging_latitude_input" name="latitude" type="hidden" value="<%= lati  !== undefined ? lati : '' %>"/>
+                                <input id="discovery_tagging_latitude_input" name="latitude" type="hidden"
+                                       value="<%= lati !== undefined ? lati : '' %>"/>
 
                                 <!--  versteckte Koordinate (`longitude`) -->
-                                <input id="discovery_tagging_longitude_input" name="longitude" type="hidden" value="<%= longi !== undefined ? longi : '' %>"/>
+                                <input id="discovery_tagging_longitude_input" name="longitude" type="hidden"
+                                       value="<%= longi !== undefined ? longi : '' %>"/>
 
                                 <button id="discovery_send_button">apply</button>
                             </fieldset>
@@ -95,9 +100,10 @@
                     <div class="col-4">
                         <div class="taglist">
                             <ul id="results">
-								<% if (taglist !== undefined) taglist.forEach(function(gtag) { %>
-									<li><%= gtag.name %> ( <%= gtag.latitude %>,<%= gtag.longitude %>) <%= gtag.hashtag %> </li>
-								<% }); %>
+                                <% if (taglist !== undefined) taglist.forEach(function(gtag) { %>
+                                    <li><%= gtag.name %> ( <%= gtag.latitude %>,<%= gtag.longitude %>
+                                        ) <%= gtag.hashtag %> </li>
+                                <% }); %>
                             </ul>
                         </div>
                     </div>
@@ -105,7 +111,7 @@
                     <div class="col-8">
                         <div class="tagmap">
                             <img id="result-img" src="./images/mapview.jpg" alt="a map with locations"
-                            data-tags="<%= taglist === undefined ? '' : JSON.stringify(taglist) %>"/>
+                                 data-tags="<%= taglist === undefined ? '' : JSON.stringify(taglist) %>"/>
                             <div class="caption">Result map</div>
                         </div>
                     </div>

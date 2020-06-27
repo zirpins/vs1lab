@@ -72,7 +72,7 @@ function GeoTag(latitude, longitude, name, hashtag) {
  * - Funktion zum Löschen eines Geo Tags.
  */
 
-var geoTagModul = (function() {
+var geoTagModul = (function () {
     // Private
     var tagList = [];
     /**
@@ -80,7 +80,7 @@ var geoTagModul = (function() {
      * @param {double} degree Degree to be converted to radian
      */
     var degreeToRadian = function (degree) {
-        return degree * (Math.PI/180)
+        return degree * (Math.PI / 180)
     }
     // Public
     return {
@@ -91,7 +91,7 @@ var geoTagModul = (function() {
          * @param {double} radius Radius in km
          * @param {GeoTag} list (Optional) Array of GeoTags
          */
-        searchByRadius: function(latitude, longitude, radius, list) {
+        searchByRadius: function (latitude, longitude, radius, list) {
             if (list === undefined) {
                 list = tagList
             }
@@ -99,13 +99,13 @@ var geoTagModul = (function() {
             // Comparing every value with the Haversine formula for distance
             list.forEach(function (geoTag) {
                 var latitude1 = degreeToRadian(latitude)
-                var latitude2= degreeToRadian(geoTag.latitude)
+                var latitude2 = degreeToRadian(geoTag.latitude)
                 var divLat = degreeToRadian(geoTag.latitude - latitude)
                 var divLon = degreeToRadian(geoTag.longitude - longitude)
-                var distance = Math.sin(divLat/2) * Math.sin(divLat/2)
+                var distance = Math.sin(divLat / 2) * Math.sin(divLat / 2)
                     + Math.cos(latitude1) * Math.cos(latitude2)
-                    * Math.sin(divLon/2) * Math.sin(divLon/2);
-                distance = 2 * Math.atan2(Math.sqrt(distance), Math.sqrt(1-distance))
+                    * Math.sin(divLon / 2) * Math.sin(divLon / 2);
+                distance = 2 * Math.atan2(Math.sqrt(distance), Math.sqrt(1 - distance))
                 distance = distance * 6371
                 console.log('distance: ' + distance)// TODO: remove later
                 if (distance <= radius) {
@@ -120,7 +120,7 @@ var geoTagModul = (function() {
          * @param {String} searchTerm Infix to look for
          * @param {GeoTag} list (Optional) Array of GeoTags
          */
-        searchByTerm: function(searchTerm, list) {
+        searchByTerm: function (searchTerm, list) {
             if (list === undefined) {
                 list = tagList
             }
@@ -147,7 +147,7 @@ var geoTagModul = (function() {
          * Deletes a GeoTag
          * @param {int} index Index of the GeoTag to be deleted
          */
-        deleteGeoTagByIndex: function(index) {
+        deleteGeoTagByIndex: function (index) {
             tagList.splice(index)
         },
 
@@ -180,7 +180,7 @@ var geoTagModul = (function() {
  * Als Response wird das ejs-Template ohne Geo Tag Objekte gerendert.
  */
 
-app.get('/', function(req, res) {
+app.get('/', function (req, res) {
     res.render('gta', {
         taglist: [],
         lati: req.body.latitude,
@@ -264,7 +264,6 @@ app.route('/geotags')
     .put(function (req, res) {
         res.send('Update geotags')
     })
-
 
 
 /**

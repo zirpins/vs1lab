@@ -10,8 +10,8 @@ Content-Type: application/json
       "hashtag": "#asfe"
     }
   ],
-  "latitude":1,
-  "longitude":2
+  "latitude": 1,
+  "longitude": 2
 }
 
 ###
@@ -24,9 +24,9 @@ GET http://localhost:3000/discovery
 Content-Type: application/json
 
 {
-  "searchTerm":"#dd",
-  "latitude":49.1243,
-  "longitude":8.598
+  "searchTerm": "#dd",
+  "latitude": 49.1243,
+  "longitude": 8.598
 }
 
 ###
