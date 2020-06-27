@@ -187,7 +187,7 @@ function submitTaggingFormular(event) {
     alert("submit tagging"); //TODO: remove later
     event.preventDefault(); // prevent submitting of form
 
-    var tagList = [
+    var newTagList = [
         {
             latitude: document.getElementById("tagging_latitude_input").value,
             longitude: document.getElementById("tagging_longitude_input").value,
@@ -196,7 +196,7 @@ function submitTaggingFormular(event) {
         }
     ];
 
-    submitFormular('POST', '/tagging', tagList);
+    submitFormular('POST', '/tagging', newTagList);
 }
 
 function submitDiscoveryFormular(event) {
