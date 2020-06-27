@@ -205,7 +205,6 @@ function submitFormular(requestMethod, path, data) {
 }
 
 function submitTaggingFormular(event) {
-    alert("submit tagging"); //TODO: remove later
     event.preventDefault(); // prevent submitting of form
 
     var newTagList = [
@@ -227,7 +226,6 @@ function submitTaggingFormular(event) {
 }
 
 function submitDiscoveryFormular(event) {
-    alert("submit discovery"); //TODO: remove later
     event.preventDefault(); // prevent submitting of form
 
     var data = {
