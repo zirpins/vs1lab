@@ -168,7 +168,7 @@ var gtaLocator = (function GtaLocator(geoLocationApi) {
 })(GEOLOCATIONAPI);
 
 function updateDiscovery() {
-    //TODO: add functionality
+    gtaLocator.updateLocation();
 }
 
 const serverAddress = 'http://localhost:3000';
