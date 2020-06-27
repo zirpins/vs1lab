@@ -204,19 +204,11 @@ function submitFormular(requestMethod, path, data) {
 function submitTaggingFormular(event) {
     event.preventDefault(); // prevent submitting of form
 
-    var newTagList = [
-        {
-            latitude: document.getElementById("tagging_latitude_input").value,
-            longitude: document.getElementById("tagging_longitude_input").value,
-            name: document.getElementById("tagging_name_input").value,
-            hashtag: document.getElementById("tagging_hashtag_input").value
-        }
-    ];
-
     var data = {
-        newTagList: newTagList,
-        latitude: document.getElementById("discovery_tagging_latitude_input").value,
-        longitude: document.getElementById("discovery_tagging_longitude_input").value,
+        latitude: document.getElementById("tagging_latitude_input").value,
+        longitude: document.getElementById("tagging_longitude_input").value,
+        name: document.getElementById("tagging_name_input").value,
+        hashtag: document.getElementById("tagging_hashtag_input").value
     }
 
     submitFormular('POST', '/tagging', data);
