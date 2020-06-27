@@ -171,9 +171,9 @@ function updateDiscovery() {
     gtaLocator.updateLocation();
 }
 
-const serverAddress = 'http://localhost:3000';
-
 function submitFormular(requestMethod, path, data) {
+    const serverAddress = 'http://localhost:3000';
+
     //console.log(data); //TODO: remove later
     console.log(JSON.stringify(data)); //TODO: remove later
 
