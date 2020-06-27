@@ -275,6 +275,17 @@ app.route('/geotags')
         res.send('successful')
     })
 
+app.route('/geotags/:geotagId')
+    .get(function (res, req) {
+        res.send(req.params)
+    })
+    .put(function (res, req) {
+
+    })
+    .delete('/geotags/:geotagId', function (res, req) {
+        geoTagModul.deleteGeoTagByIndex(req.params.geotagId)
+    })
+
 /**
  * Setze Port und speichere in Express.
  */
