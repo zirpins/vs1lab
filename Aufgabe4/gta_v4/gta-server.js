@@ -241,6 +241,23 @@ app.post('/discovery', function (req, res) {
         longi: req.body.longitude
     });
 });
+
+/*
+ * Container Ressource
+ */
+app.route('/geotags')
+    .get(function (req, res) {
+        res.send('Get a geotags')
+    })
+    .post(function (req, res) {
+        res.send('Add a geotags')
+    })
+    .put(function (req, res) {
+        res.send('Update geotags')
+    })
+
+
+
 /**
  * Setze Port und speichere in Express.
  */
