@@ -255,15 +255,23 @@ app.get('/discovery', function (req, res) {
  */
 app.route('/geotags')
     .get(function (req, res) {
-        res.send('Get a geotags')
+
+        console.log('req.query.discovery: ' + req.query.discovery)
+        var searchTerm = req.query.discovery !== undefined ? req.query.discovery : ''
+        console.log('searchTerm: ' + searchTerm)
+
+        var geotags = geoTagModul.searchByTerm(searchTerm, undefined)
+
+        res.send(JSON.stringify(geotags))
     })
     .post(function (req, res) {
-        res.send('Add a geotags')
+        geoTagModul.addGeoTag(
+            req.body.latitude,
+            req.body.longitude,
+            req.body.name,
+            req.body.hashtag
+        )
     })
-    .put(function (req, res) {
-        res.send('Update geotags')
-    })
-
 
 /**
  * Setze Port und speichere in Express.
