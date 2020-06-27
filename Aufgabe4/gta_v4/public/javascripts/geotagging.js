@@ -226,21 +226,6 @@ function formatParams( params ){
 function submitDiscoveryFormular(event) {
     event.preventDefault(); // prevent submitting of form
 
-    var params = [
-        {
-            name: 'latitude',
-            value: document.getElementById("discovery_tagging_latitude_input").value
-        },
-        {
-            name: 'longitude',
-            value: 'document.getElementById("discovery_tagging_longitude_input").value'
-        },
-        {
-            name: 'discovery',
-            value: document.getElementById("discovery_searchterm_input").value
-        }
-    ]
-
     var path = '/discovery'
 
     var params = {
