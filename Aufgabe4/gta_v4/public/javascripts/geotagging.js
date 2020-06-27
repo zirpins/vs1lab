@@ -217,13 +217,13 @@ function submitTaggingFormular(event) {
         }
     ];
 
-    var dataToSend = {
+    var data = {
         newTagList: newTagList,
         latitude: document.getElementById("discovery_tagging_latitude_input").value,
         longitude: document.getElementById("discovery_tagging_longitude_input").value,
     }
 
-    submitFormular('POST', '/tagging', dataToSend);
+    submitFormular('POST', '/tagging', data);
 }
 
 function submitDiscoveryFormular(event) {
