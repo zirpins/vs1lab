@@ -102,12 +102,12 @@ var geoTagModul = (function() {
                 var latitude2= degreeToRadian(geoTag.latitude)
                 var divLat = degreeToRadian(geoTag.latitude - latitude)
                 var divLon = degreeToRadian(geoTag.longitude - longitude)
-                var distance = Math.sin(divLat/2) * Math.sin(divLat/2) 
+                var distance = Math.sin(divLat/2) * Math.sin(divLat/2)
                     + Math.cos(latitude1) * Math.cos(latitude2)
                     * Math.sin(divLon/2) * Math.sin(divLon/2);
                 distance = 2 * Math.atan2(Math.sqrt(distance), Math.sqrt(1-distance))
                 distance = distance * 6371
-                console.log(distance)
+                console.log('distance: ' + distance)
                 if (distance <= radius) {
                     results.push(geoTag)
                 }
