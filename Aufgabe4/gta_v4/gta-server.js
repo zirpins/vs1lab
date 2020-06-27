@@ -235,7 +235,7 @@ app.post('/tagging', function (req, res) {
  * Falls 'term' vorhanden ist, wird nach Suchwort gefiltert.
  */
 
-app.post('/discovery', function (req, res) {
+app.get('/discovery', function (req, res) {
     // Creat list of GeoTags in a certain radius
     var toRender = geoTagModul.searchByRadius(req.body.latitude, req.body.longitude, 5)
     console.log('toRender: [' + toRender + ']')// TODO: remove later
