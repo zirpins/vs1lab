@@ -19,7 +19,7 @@ app.use(logger('dev'));
 app.use(bodyParser.urlencoded({
     extended: false
 }));
-app.use(bodyParser.json);
+//app.use(bodyParser.json);
 
 // Setze ejs als View Engine
 app.set('view engine', 'ejs');
