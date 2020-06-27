@@ -233,9 +233,8 @@ function submitDiscoveryFormular(event) {
         longitude: document.getElementById("discovery_tagging_longitude_input").value,
         discovery: document.getElementById("discovery_searchterm_input").value
     }
-    path += formatParams(params)
 
-    submitFormular('GET', path, {});
+    submitFormular('GET', path + formatParams(params), {});
 }
 
 
