@@ -107,7 +107,7 @@ var geoTagModul = (function() {
                     * Math.sin(divLon/2) * Math.sin(divLon/2);
                 distance = 2 * Math.atan2(Math.sqrt(distance), Math.sqrt(1-distance))
                 distance = distance * 6371
-                console.log('distance: ' + distance)
+                console.log('distance: ' + distance)// TODO: remove later
                 if (distance <= radius) {
                     results.push(geoTag)
                 }
@@ -205,6 +205,7 @@ app.post('/tagging', function (req, res) {
     // Create new GeoTag
     geoTagModul.addGeoTag(req.body.latitude, req.body.longitude, req.body.name, req.body.hashtag)
     // Create list of GeoTags in a certain radius
+    console.log('have it') // TODO: remove later
     var toRender = geoTagModul.searchByRadius(req.body.latitude, req.body.longitude, 5)
     res.render('gta', {
         taglist: toRender,
@@ -228,10 +229,12 @@ app.post('/tagging', function (req, res) {
 app.post('/discovery', function (req, res) {
     // Creat list of GeoTags in a certain radius
     var toRender = geoTagModul.searchByRadius(req.body.latitude, req.body.longitude, 5)
+    console.log('toRender: [' + toRender + ']')// TODO: remove later
     // Reduce list to GeoTags with a certain infix
     if (req.body.discovery !== undefined) {
         toRender = geoTagModul.searchByTerm(req.body.discovery, toRender)
     }
+    console.log('toRender: [' + toRender + ']')// TODO: remove later
     res.render('gta', {
         taglist: toRender,
         lati: req.body.latitude,
