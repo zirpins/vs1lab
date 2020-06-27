@@ -1,3 +1,17 @@
-#GET http://localhost:3000/geotags
-
 POST http://localhost:3000/tagging
+Content-Type: application/json
+
+{
+  "latitude":1,
+  "longitude":2,
+  "name":"echo",
+  "hashtag":"#asfe"
+}
+
+
+
+###
+POST http://localhost:3000/tagging
+
+###
+
