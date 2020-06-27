@@ -1,0 +1,22 @@
+POST http://localhost:3000/geotags
+Content-Type: application/json
+
+{
+  "latitude": 1,
+  "longitude": 2,
+  "name": "echo",
+  "hashtag": "#asfe"
+}
+
+###
+
+GET http://localhost:3000/geotags
+Content-Type: application/json
+
+###
+
+GET http://localhost:3000/geotags?discovery=HSKA
+Content-Type: application/json
+
+###
+
