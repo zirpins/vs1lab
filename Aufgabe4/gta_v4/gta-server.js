@@ -271,6 +271,8 @@ app.route('/geotags')
             req.body.name,
             req.body.hashtag
         )
+
+        res.send('successful')
     })
 
 /**
