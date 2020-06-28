@@ -1,3 +1,5 @@
+###
+
 POST http://localhost:3000/geotags
 Content-Type: application/json
 
@@ -10,7 +12,23 @@ Content-Type: application/json
 
 ###
 
+POST http://localhost:3000/geotags
+Content-Type: application/json
+
+{
+  "latitude": 11,
+  "longitude": 22,
+  "name": "HSKA",
+  "hashtag": "#reminder"
+}
+
+###
+
 GET http://localhost:3000/geotags
+
+###
+
+GET http://localhost:3000/geotags?discovery=HSKA
 
 ###
 
@@ -22,9 +40,18 @@ GET http://localhost:3000/geotags/4
 
 ###
 
-GET http://localhost:3000/geotags?discovery=HSKA
+PUT http://localhost:3000/geotags/0
+Content-Type: application/json
+
+{
+  "latitude": 48.54,
+  "longitude": 9.123,
+  "name": "Huepfburg",
+  "hashtag": "#hiphop"
+}
 
 ###
+
 
 DELETE http://localhost:3000/geotags/0
 
