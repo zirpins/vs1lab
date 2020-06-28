@@ -274,37 +274,51 @@ app.route('/geotags')
 
         console.log('req.query.discovery: ' + req.query.discovery)
         var searchTerm = req.query.discovery !== undefined ? req.query.discovery : ''
-        console.log('searchTerm: ' + searchTerm)
 
-        var geotags = geoTagModul.searchByTerm(searchTerm, undefined)
+        var data = {
+            geotags: geoTagModul.searchByTerm(searchTerm)
+        }
 
-        res.send(JSON.stringify(geotags))
+        res.send(JSON.stringify(data))
     })
     .post(function (req, res) {
-        geoTagModul.addGeoTag(
+        var createdGeoTag = geoTagModul.addGeoTag(
             req.body.latitude,
             req.body.longitude,
             req.body.name,
             req.body.hashtag
         )
 
-        res.send('successfuly created geotag')
+        var data = {
+            geoTag: createdGeoTag
+        }
+
+        res.status(201);
+
+        res.send(JSON.stringify(data))
     })
 
 app.get('/geotags/:index', function (req, res) {
-    var geoTag = geoTagModul.findByIndex(req.params.index);
-
-    if (geoTag == null) {
-        res.send(JSON.stringify({}))
-    } else {
-        res.send(JSON.stringify(geoTag));
+    var data = {
+        index: req.params.index,
+        geoTag: geoTagModul.findByIndex(req.params.index)
     }
+
+    res.send(JSON.stringify(data));
 })
 
 app.delete('/geotags/:index', function (req, res) {
+    var deletedItems = geoTagModul.deleteGeoTagByIndex(req.params.index);
+
+    if (deletedItems.length === 0) {
+        res.status(204)
+    }
+    else {
+        res.status(200)
+    }
+
     var data = {
-        message: 'succesfully deleted geotag at index ' + req.params.index,
-        deletedItems: geoTagModul.deleteGeoTagByIndex(req.params.index),
+        deletedItems: deletedItems,
     }
 
     res.send(JSON.stringify(data))
