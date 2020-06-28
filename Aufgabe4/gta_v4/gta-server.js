@@ -326,6 +326,8 @@ app.route('/geotags')
             geoTag: geoTagModul.findByIndex(tagId)
         }
 
+        res.setHeader('Location', '/geotags/' + tagId);
+
         res.status(201);
 
         res.send(JSON.stringify(data))
