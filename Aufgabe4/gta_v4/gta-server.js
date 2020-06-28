@@ -159,6 +159,19 @@ var geoTagModul = (function () {
         },
 
         /**
+         * Adds a GeoTag to the list
+         * @param {number} index - index of geo tag
+         * @param {number} longitude - new Value for latitude of geo tag
+         * @param {number} latitude - new Value for longitude of geo tag
+         * @param {string} name - new Value for name of geo tag
+         * @param {string} hashtag - new Value for hashtag of geo tag
+         */
+        modifyGeoTag: function (index, latitude, longitude, name, hashtag) {
+            tagList[index] = new GeoTag(latitude, longitude, name, hashtag);
+            return tagList[index];
+        },
+
+        /**
          * Deletes a GeoTag
          * @param {int} index Index of the GeoTag to be deleted
          * @return deleted item(s)
