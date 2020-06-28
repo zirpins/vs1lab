@@ -300,8 +300,12 @@ app.get('/geotags/:index', function (req, res) {
 })
 
 app.delete('/geotags/:index', function (req, res) {
-    geoTagModul.deleteGeoTagByIndex(req.params.index)
-    res.send('succesfully deleted geotag at index ' + req.params.index)
+    var data = {
+        message: 'succesfully deleted geotag at index ' + req.params.index,
+        deletedItems: geoTagModul.deleteGeoTagByIndex(req.params.index),
+    }
+
+    res.send(JSON.stringify(data))
 })
 
 /**
