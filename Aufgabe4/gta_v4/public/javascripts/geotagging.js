@@ -167,7 +167,10 @@ var gtaLocator = (function GtaLocator(geoLocationApi) {
     };
 })(GEOLOCATIONAPI);
 
-function updateDiscovery() {
+function updateDiscovery(response) {
+    document.open();
+    document.write(response);
+    document.close();
     gtaLocator.updateLocation();
 }
 
@@ -184,18 +187,14 @@ function submitFormular(requestMethod, path, data) {
         if (xmlHttpRequest.readyState === 4) {
             var response = xmlHttpRequest.responseText;
             if (xmlHttpRequest.status === 200) {
-                document.open();
-                document.write(response);
-                document.close();
-
-                updateDiscovery()
+                updateDiscovery(response)
             } else {
                 console.log('failed')
                 console.log('response: [' + response + ']');
             }
         }
     }
-
+    console.log(JSON.stringify(data));
     xmlHttpRequest.send(JSON.stringify(data));
 }
 
