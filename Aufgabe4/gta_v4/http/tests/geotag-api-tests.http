@@ -1,5 +1,7 @@
 ###
 
+# expected:
+# {"geoTag":{"latitude":1,"longitude":2,"name":"echo1","hashtag":"#asfe"}}
 POST http://localhost:3000/geotags
 Content-Type: application/json
 
@@ -12,6 +14,8 @@ Content-Type: application/json
 
 ###
 
+# expected:
+# {"geoTag":{"latitude":11,"longitude":22,"name":"HSKA","hashtag":"#reminder"}}
 POST http://localhost:3000/geotags
 Content-Type: application/json
 
@@ -24,6 +28,8 @@ Content-Type: application/json
 
 ###
 
+# expected:
+# {"geoTag":{"latitude":5,"longitude":5,"name":"HSKA","hashtag":"#secondReminder"}}
 POST http://localhost:3000/geotags
 Content-Type: application/json
 
@@ -31,43 +37,70 @@ Content-Type: application/json
   "latitude": 5,
   "longitude": 5,
   "name": "HSKA",
-  "hashtag": "#reminder"
+  "hashtag": "#secondReminder"
 }
 
 ###
 
+# supposing all requests are executed in the given order
+# expected:
+# {"geotags":[{"latitude":1,"longitude":2,"name":"echo1","hashtag":"#asfe"},{"latitude":11,"longitude":22,"name":"HSKA","hashtag":"#reminder"},{"latitude":5,"longitude":5,"name":"HSKA","hashtag":"#secondReminder"}]}
 GET http://localhost:3000/geotags
 
 ###
 
+# supposing all requests are executed in the given order
+# expected:
+# {"geotags":[{"latitude":11,"longitude":22,"name":"HSKA","hashtag":"#reminder"},{"latitude":5,"longitude":5,"name":"HSKA","hashtag":"#secondReminder"}]}
 GET http://localhost:3000/geotags?discovery=HSKA
 
 ###
 
+# supposing all requests are executed in the given order
+# expected:
+# {"geotags":[{"latitude":1,"longitude":2,"name":"echo1","hashtag":"#asfe"}]}
 GET http://localhost:3000/geotags?radius=5&latitude=1&longitude=2
 
 ###
 
+# supposing all requests are executed in the given order
+# expected:
+# {"geotags":[]}
 GET http://localhost:3000/geotags?discovery=HSKA&radius=5&latitude=5&longitude=1
 
 ###
 
+# supposing all requests are executed in the given order
+# expected:
+# {"geotags":[{"latitude":1,"longitude":2,"name":"echo1","hashtag":"#asfe"},{"latitude":11,"longitude":22,"name":"HSKA","hashtag":"#reminder"},{"latitude":5,"longitude":5,"name":"HSKA","hashtag":"#secondReminder"}]}
 GET http://localhost:3000/geotags??radius=5&longitude=1
 
 ###
 
+# supposing all requests are executed in the given order
+# expected:
+# {"geotags":[{"latitude":5,"longitude":5,"name":"HSKA","hashtag":"#secondReminder"}]}
 GET http://localhost:3000/geotags?longitude=5&discovery=HSKA&latitude=5&radius=5
 
 ###
 
+# supposing all requests are executed in the given order
+# expected:
+# {"index":"0","geoTag":{"latitude":1,"longitude":2,"name":"echo1","hashtag":"#asfe"}}
 GET http://localhost:3000/geotags/0
 
 ###
 
-GET http://localhost:3000/geotags/4
+# supposing all requests are executed in the given order
+# expected:
+# {"index":"4","geoTag":null}
+GET http://localhost:3000/geotags/123
 
 ###
 
+# supposing all requests are executed in the given order
+# expected:
+# {"index":"0","geoTag":{"latitude":48.54,"longitude":9.123,"name":"Huepfburg","hashtag":"#hiphop"}}
 PUT http://localhost:3000/geotags/0
 Content-Type: application/json
 
@@ -80,7 +113,9 @@ Content-Type: application/json
 
 ###
 
-
+# supposing all requests are executed in the given order
+# expected:
+# {"deletedItems":[{"latitude":48.54,"longitude":9.123,"name":"Huepfburg","hashtag":"#hiphop"}]}
 DELETE http://localhost:3000/geotags/0
 
 ###
