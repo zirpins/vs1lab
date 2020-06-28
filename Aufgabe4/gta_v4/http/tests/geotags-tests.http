@@ -4,19 +4,28 @@ Content-Type: application/json
 {
   "latitude": 1,
   "longitude": 2,
-  "name": "echo",
+  "name": "echo1",
   "hashtag": "#asfe"
 }
 
 ###
 
 GET http://localhost:3000/geotags
-Content-Type: application/json
+
+###
+
+GET http://localhost:3000/geotags/0
+
+###
+
+GET http://localhost:3000/geotags/4
 
 ###
 
 GET http://localhost:3000/geotags?discovery=HSKA
-Content-Type: application/json
 
 ###
 
+DELETE http://localhost:3000/geotags/0
+
+###
