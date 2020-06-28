@@ -86,10 +86,11 @@ var geoTagModul = (function () {
     return {
         /**
          * Returns an array of GeoTags in a certain radius
-         * @param {number} latitude Latitude in °
-         * @param {number} longitude Longitude in °
-         * @param {number} radius Radius in km
-         * @param {GeoTag} list (Optional) Array of GeoTags
+         * @param {number} latitude - Latitude in °
+         * @param {number} longitude - Longitude in °
+         * @param {number} radius - Radius in km
+         * @param {GeoTag[]} list (Optional) - Wenn list nicht undefined ist wird in der Liste gesucht anstatt in tagList
+         * @return {GeoTag[]} found geo tags
          */
         searchByRadius: function (latitude, longitude, radius, list) {
             if (list === undefined) {
@@ -117,8 +118,9 @@ var geoTagModul = (function () {
 
         /**
          * Returns an array of Geotags that have the searchTerm as an infix in their name or hashtag
-         * @param {String} searchTerm Infix to look for
-         * @param {GeoTag} list (Optional) Array of GeoTags
+         * @param {string} searchTerm Infix to look for
+         * @param {GeoTag[]} list (Optional) - Wenn list nicht undefined ist wird in der Liste gesucht anstatt in tagList
+         * @return {GeoTag[]} found geo tags
          */
         searchByTerm: function (searchTerm, list) {
             if (list === undefined) {
@@ -136,6 +138,7 @@ var geoTagModul = (function () {
          * Returns an Geotags of the given index of the taglist;
          * If there is no Geotag with this index it returns null;
          * @param {number} index of geoTag
+         * @return {GeoTag} returns found geo tag. Returns null if there is no geo tag at this index
          */
         findByIndex: function (index) {
             if (index < tagList.length) {
