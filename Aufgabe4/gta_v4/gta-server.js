@@ -288,16 +288,19 @@ app.route('/geotags')
         res.send('successful')
     })
 
-app.route('/geotags/:geotagId')
-    .get(function (res, req) {
-        res.send(req.params)
-    })
-    .put(function (res, req) {
+app.get('/geotags/:index', function (req, res) {
+    var geoTag = geoTagModul.findByIndex(req.params.index);
 
-    })
-    .delete('/geotags/:geotagId', function (res, req) {
-        geoTagModul.deleteGeoTagByIndex(req.params.geotagId)
-    })
+    if (geoTag == null) {
+        res.send(JSON.stringify({}))
+    } else {
+        res.send(JSON.stringify(geoTag));
+    }
+})
+
+app.delete('/geotags/:index', function (req, res) {
+    geoTagModul.deleteGeoTagByIndex(req.params.index)
+})
 
 /**
  * Setze Port und speichere in Express.
