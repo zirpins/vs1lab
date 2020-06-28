@@ -61,7 +61,7 @@ function GeoTag(latitude, longitude, name, hashtag) {
     this.toString = function () {
         return "GeoTag: [name=" + this.name + "][latitude=" + this.latitude + "][longitude=" + this.longitude + "][hashtag=" + this.hashtag + "]";
     }
-};
+}
 
 /**
  * Modul für 'In-Memory'-Speicherung von GeoTags mit folgenden Komponenten:
@@ -77,7 +77,7 @@ var geoTagModul = (function () {
     var tagList = [];
     /**
      * Converts degree to radian values
-     * @param {double} degree Degree to be converted to radian
+     * @param {number} degree Degree to be converted to radian
      */
     var degreeToRadian = function (degree) {
         return degree * (Math.PI / 180)
@@ -86,9 +86,9 @@ var geoTagModul = (function () {
     return {
         /**
          * Returns an array of GeoTags in a certain radius
-         * @param {double} latitude Latitude in °
-         * @param {double} longitude Longitude in °
-         * @param {double} radius Radius in km
+         * @param {number} latitude Latitude in °
+         * @param {number} longitude Longitude in °
+         * @param {number} radius Radius in km
          * @param {GeoTag} list (Optional) Array of GeoTags
          */
         searchByRadius: function (latitude, longitude, radius, list) {
@@ -169,7 +169,7 @@ var geoTagModul = (function () {
 
         /**
          * Deletes geo tag
-         * @param {geoTag} geo tag to delete
+         * @param {geoTag} geoTag to delete
          */
         deleteGeoTagByGeoTag: function (geoTag) {
             if (geoTag instanceof GeoTag) {
@@ -312,8 +312,7 @@ app.delete('/geotags/:index', function (req, res) {
 
     if (deletedItems.length === 0) {
         res.status(204)
-    }
-    else {
+    } else {
         res.status(200)
     }
 
