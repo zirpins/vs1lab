@@ -159,9 +159,10 @@ var geoTagModul = (function () {
         /**
          * Deletes a GeoTag
          * @param {int} index Index of the GeoTag to be deleted
+         * @return deleted item(s)
          */
         deleteGeoTagByIndex: function (index) {
-            tagList.splice(index)
+            return tagList.splice(index, 1)
         },
 
         /**
