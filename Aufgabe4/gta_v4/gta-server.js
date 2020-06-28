@@ -133,6 +133,19 @@ var geoTagModul = (function () {
         },
 
         /**
+         * Returns an Geotags of the given index of the taglist;
+         * If there is no Geotag with this index it returns null;
+         * @param {number} index of geoTag
+         */
+        findByIndex: function (index) {
+            if (index < tagList.length) {
+                return tagList[index];
+            }
+
+            return null;
+        },
+
+        /**
          * Adds a GeoTag to the list
          * @param {latitude} latitude of new geo tag
          * @param {longitude} longitude of new geo tag
