@@ -320,6 +320,23 @@ app.get('/geotags/:index', function (req, res) {
     res.send(JSON.stringify(data));
 })
 
+app.put('/geotags/:index', function (req, res) {
+    var modifiedGeoTag = geoTagModul.modifyGeoTag(
+        req.params.index,
+        req.body.latitude,
+        req.body.longitude,
+        req.body.name,
+        req.body.hashtag
+    );
+
+    var data = {
+        index: req.params.index,
+        geoTag: modifiedGeoTag
+    }
+
+    res.send(JSON.stringify(data));
+})
+
 app.delete('/geotags/:index', function (req, res) {
     var deletedItems = geoTagModul.deleteGeoTagByIndex(req.params.index);
 
