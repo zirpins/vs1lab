@@ -289,10 +289,26 @@ app.route('/geotags')
     .get(function (req, res) {
 
         console.log('req.query.discovery: ' + req.query.discovery)
+        console.log('req.query.radius: ' + req.query.radius)
+
+        var resultList
+
+        if (req.query.radius !== undefined
+            && req.query.latitude !== undefined
+            && req.query.longitude !== undefined) {
+            resultList = geoTagModul.searchByRadius(
+                req.query.latitude,
+                req.query.longitude,
+                req.query.radius
+            )
+        }
+
         var searchTerm = req.query.discovery !== undefined ? req.query.discovery : ''
 
+        resultList = geoTagModul.searchByTerm(searchTerm, resultList)
+
         var data = {
-            geotags: geoTagModul.searchByTerm(searchTerm)
+            geotags: resultList
         }
 
         res.send(JSON.stringify(data))
