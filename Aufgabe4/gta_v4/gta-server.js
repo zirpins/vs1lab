@@ -179,7 +179,7 @@ var geoTagModul = (function () {
                         && tagList[i].longitude === geoTag.longitude
                         && tagList[i].hashtag === geoTag.hashtag) {
 
-                        tagList.slice(i + 1);
+                        tagList.splice(i, 1);
                     }
                 }
             }
