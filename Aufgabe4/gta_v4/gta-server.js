@@ -154,11 +154,12 @@ var geoTagModul = (function () {
          * @param {longitude} longitude of new geo tag
          * @param {name} name of new geo tag
          * @param {hashtag} hashtag of new geo tag
+         * @return {number} index of new geo tag
          */
         addGeoTag: function (latitude, longitude, name, hashtag) {
             var newGeoTag = new GeoTag(latitude, longitude, name, hashtag);
             tagList.push(newGeoTag);
-            return newGeoTag;
+            return tagList.length - 1;
         },
 
         /**
@@ -314,7 +315,7 @@ app.route('/geotags')
         res.send(JSON.stringify(data))
     })
     .post(function (req, res) {
-        var createdGeoTag = geoTagModul.addGeoTag(
+        var tagId = geoTagModul.addGeoTag(
             req.body.latitude,
             req.body.longitude,
             req.body.name,
@@ -322,7 +323,7 @@ app.route('/geotags')
         )
 
         var data = {
-            geoTag: createdGeoTag
+            geoTag: geoTagModul.findByIndex(tagId)
         }
 
         res.status(201);
