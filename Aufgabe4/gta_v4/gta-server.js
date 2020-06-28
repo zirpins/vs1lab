@@ -153,7 +153,9 @@ var geoTagModul = (function () {
          * @param {hashtag} hashtag of new geo tag
          */
         addGeoTag: function (latitude, longitude, name, hashtag) {
-            tagList.push(new GeoTag(latitude, longitude, name, hashtag));
+            var newGeoTag = new GeoTag(latitude, longitude, name, hashtag);
+            tagList.push(newGeoTag);
+            return newGeoTag;
         },
 
         /**
