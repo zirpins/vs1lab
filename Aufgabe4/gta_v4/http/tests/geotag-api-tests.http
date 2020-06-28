@@ -24,11 +24,39 @@ Content-Type: application/json
 
 ###
 
+POST http://localhost:3000/geotags
+Content-Type: application/json
+
+{
+  "latitude": 5,
+  "longitude": 5,
+  "name": "HSKA",
+  "hashtag": "#reminder"
+}
+
+###
+
 GET http://localhost:3000/geotags
 
 ###
 
 GET http://localhost:3000/geotags?discovery=HSKA
+
+###
+
+GET http://localhost:3000/geotags?radius=5&latitude=1&longitude=2
+
+###
+
+GET http://localhost:3000/geotags?discovery=HSKA&radius=5&latitude=5&longitude=1
+
+###
+
+GET http://localhost:3000/geotags??radius=5&longitude=1
+
+###
+
+GET http://localhost:3000/geotags?longitude=5&discovery=HSKA&latitude=5&radius=5
 
 ###
 
