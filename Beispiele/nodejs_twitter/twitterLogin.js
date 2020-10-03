@@ -27,7 +27,12 @@ var sessions = require('express-session');
 var app = express();
 app.use(express.static(__dirname + "/static"));
 app.use(cookies(credentials.cookieSecret));
-app.use(sessions(credentials.cookieSecret));
+app.use(sessions({
+    secret: credentials.cookieSecret,
+    resave: false,
+    saveUninitialized: true,
+    cookie: {signed: true}
+}));
 app.use(passport.initialize());
 app.use(passport.session());
 

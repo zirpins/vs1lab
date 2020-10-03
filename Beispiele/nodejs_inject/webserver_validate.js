@@ -13,5 +13,6 @@ app.get("/hello", function (req, res) {
   var name = (query["name"]!=undefined) ? query["name"] : "Anonymous";
   var cleaned = validator.escape(name); //escaping HTML
     console.log(cleaned);
-  res.send("<html><head></head><body><h1>Greetings " + cleaned + ", have a nice day!</h1></body></html>");
+  res.send("<html><head></head><body><h1>Greetings "
+      + cleaned + ", have a nice day!</h1></body></html>");
 });
