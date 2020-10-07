@@ -137,3 +137,30 @@ Die Vorverarbeitung des HTTP Requests erfolgt mit dem Modul *Bodyparser*.
 Stellen Sie sicher, dass der Bodyparser (auch) für die Verarbeitung von
 JSON-Inhalten konfiguriert ist. Der JSON-Inhalt lässt sich dann aus dem [Body
 des Request Objekts](http://expressjs.com/de/4x/api.html#req.body) entnehmen.
+
+# Zusatzaufgabe
+Die Zusatzaufgabe besteht darin die vorhandene Liste von GeoTags mit einer Seitennummerierung (Pagination) zu versehen.
+
+Ein Beispiel wie dies aussehen könnte zeigt die folgende Abbildung:
+
+![Screenshot](../gta-seitennummerierung.png)
+
+Wie die Seitennummerierung gestaltet wird, ist ihnen überlassen.
+
+## Teilschritte
+Ein Beispielablauf der Umsetzung ist in 5 Schritte aufgeteilt:  
+1. Überlegen welche Änderungen benötigt werden für die Umsetzung  
+1.1 Wie viele GeoTags soll eine Seite anzeigen?
+
+2. Erstellen der HTML Struktur (HTML)
+3. Gestalten der Elemente für die Seitennummerierung (CSS)
+4. Änderungen an den bestehenden HTTP Endpunkten und Hinzufügen neuer benötigter Endpunkte (Server)
+5. Anbinden der neuen/geänderten Endpunkte (Client) 
+
+## Anforderungen
+Bei der Erstellung soll darauf geachtet werden, dass nur die GeoTags für die aktuell benötigte Seite geladen werden.
+Es sollen also nicht alle GeoTags angefragt, aber nur die aktuell sichtbaren z. B. 10 angezeigt werden.
+
+Ist man wie in obiger Abbildung bereits auf Seite 1 und möchte per Pfeile nach links eine Seite zurück Blättern, dann soll nichts geschehen. Dasselbe gilt für die letzte Seite mit den Pfeilen nach rechts.
+
+Klickt man eine Seitennummer an, sollen die GeoTags dieser Seite geladen und angezeigt werden. 
