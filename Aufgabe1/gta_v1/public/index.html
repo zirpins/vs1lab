@@ -26,7 +26,34 @@
 				<h2>Tagging</h2>
 
 				<!-- ############### Aufgabe1a Form1 Start -->
-				<form id="tag-form" action="/tagging" method="post"></form>
+				<form id="tag-form" action="/tagging" method="post">
+					latitude <br>
+					<input type="text" 
+						placeholder="Längengrad" 
+						name="breiten_grad" 
+						required/> 
+
+					<br>longitude <br>
+					<input type="text" 
+						placeholder="Breitengrad" 
+						name="laengen_grad" 
+						required>
+
+					<br> name <br>
+					<input type="text" 
+						name="bezeichnung" 
+						placeholder="Bezeichnung" 
+						maxlength="10" 
+						required>
+
+					<br>hashtag <br>
+					<input type="text" 
+						placeholder="# + max. 10 Zeichen" 
+						name="kuerzel"
+						pattern="[#]+[a-zA-Z0-9]+" maxlength="11" > 
+					<br>
+					<input type="submit" value="submit">
+				</form>
 				<!-- ############### Aufgabe1a Form1 Ende -->
 
 			</section>
