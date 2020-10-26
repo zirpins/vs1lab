@@ -27,32 +27,40 @@
 
 				<!-- ############### Aufgabe1a Form1 Start -->
 				<form id="tag-form" action="/tagging" method="post">
-					latitude <br>
-					<input type="text" 
-						placeholder="Längengrad" 
-						name="breiten_grad" 
-						required/> 
+					<fieldset>
+						<legend>Enter new GeoTag</legend>
+						<label for="latitude">latitude</label> <br>
+						<input type="text" 
+							placeholder="e.g. 49.01379" 
+							id="latitude"
+							name="latitude"
+							required/> 
 
-					<br>longitude <br>
-					<input type="text" 
-						placeholder="Breitengrad" 
-						name="laengen_grad" 
-						required>
+						<br><label for="longitude">longitude</label> <br>
+						<input type="text" 
+							placeholder="e.g. 8.390071" 
+							id="longitude"
+							name="longitude"
+							required>
 
-					<br> name <br>
-					<input type="text" 
-						name="bezeichnung" 
-						placeholder="Bezeichnung" 
-						maxlength="10" 
-						required>
+						<br><label for="name">name</label>  <br>
+						<input type="text" 
+							id="name"
+							name="name" 
+							placeholder="some name" 
+							maxlength="10"
+							required>
 
-					<br>hashtag <br>
-					<input type="text" 
-						placeholder="# + max. 10 Zeichen" 
-						name="kuerzel"
-						pattern="[#]+[a-zA-Z0-9]+" maxlength="11" > 
-					<br>
-					<input type="submit" value="submit">
+						<br><label for="hashtag">hashtag</label>  <br>
+						<input type="text" 
+							id="hashtag"
+							placeholder="# + max. 10 letters" 
+							name="hashtag" 
+							pattern="[#]+[a-zA-Z0-9]+" 
+							maxlength="11" > 
+						<br>
+						<input type="submit" value="submit">
+					</fieldset>
 				</form>
 				<!-- ############### Aufgabe1a Form1 Ende -->
 
@@ -62,7 +70,22 @@
 				<h2>Discovery</h2>
 
 				<!-- ############### Aufgabe1a Form2 Start -->
-				<form id="filter-form" action="/discovery" method="post"></form>
+				<form id="filter-form" action="/discovery" method="post">
+					<fieldset>
+						<legend>Filter by Searchterm</legend>
+						<label for="search term"></label>
+						<input type="text"
+							id="search_term"
+							name="search term"
+							placeholder="search term"
+							maxlength="11">
+						<input type="hidden"
+							id="current_longitude">
+						<input type="hidden"
+							id="current_latitude">
+						<input type="submit" value="aplly">
+					</fieldset>
+				</form>
 				<!-- ############### Aufgabe1a Form2 Ende -->
 
 				<div class="taglist">
