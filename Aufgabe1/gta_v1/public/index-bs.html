@@ -2,46 +2,75 @@
 <html lang="en">
 
 	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>GeoTagApp</title>
-		<link rel='stylesheet' href='./stylesheets/style-bs.css'/>
-		<link rel="stylesheet" href="./stylesheets/bootstrap.min.css">
+		<link rel='stylesheet' href='./stylesheets/style.css'/>
 	</head>
 
 	<body>
 
-		<header class="jumbotron">
-			<div class="container">
-				<img src="./images/location.png" width="100"
-						alt="an image of a map and location">
-				<h1>GeoTagApp</h1>
-				<nav>
-					<a href="#">About</a> | <a href="#">Help</a> | <a
-						href="/">Home</a>
-				</nav>
-			</div>
+		<header>
+			<img src="./images/location.png" width="100"
+					alt="an image of a map and location">
+			<h1>GeoTagApp</h1>
+			<nav>
+				<a href="#">About</a> | <a href="#">Help</a> | <a
+					href="/">Home</a>
+			</nav>
 		</header>
 
-		<main class="container">
+		<main>
 
 			<section class="tagging">
 				<h2>Tagging</h2>
 
 				<!-- ############### Aufgabe1a Form1 Start -->
-				<form id="tag-form" action="/tagging" method="post"></form>
+
+				<form id="tag-form" action="/tagging" method="post">
+					<Fieldset>
+						<legend> Tag something onto the map </legend>
+						<label for="latitude" id="tag-latitude">Latidude</label>
+						<input type="number" name="latitude" id="tag-latitude" placeholder="49.0118171" maxlength="9" required/>
+
+						<label for="longitude" id="tag-latitude">Longitude</label>
+						<!-- wie genau gibt man longitude und latitude an?-->
+						<input type="number" name="longitude" id="tag-longitude" placeholder="8.3963831" maxlength="9" required/>
+
+						<label for="name" id="tag-name">Name</label>
+						<input required type="text" name="name" id="tag-name" placeholder="Mensa" maxlength="10">
+
+						<label for="hastag" id="tag-hashtag">Hashtag</label>
+						<input type="text" name="hastag" id="tag-hashtag" placeholder="#food" maxlength="11"
+						pattern="#.+"/>
+
+						<input type="submit" value="Submit location data" />
+					</fieldset>
+				</form>
 				<!-- ############### Aufgabe1a Form1 Ende -->
 
 			</section>
 
-			<section class="discovery">
-				<h2>Discovery</h2>
+				<section class="discovery">
+					<h2>Discovery</h2>
 
-				<!-- ############### Aufgabe1a Form2 Start -->
-				<form id="filter-form" action="/discovery" method="post">Filter
-				</form>
-				<!-- ############### Aufgabe1a Form2 Ende -->
+					<!-- ############### Aufgabe1a Form2 Start -->
+					<form id="filter-form" action="/discovery" method="post">
+						<fieldset>
+							<legend> Search for interesting things </legend>
+
+							<label for="searchterm" id="discovery-searchterm">Searchterm</label>
+							<input type="text" name="searchterm" id="discovery-searchterm" placeholder="What's here?" maxlength="10" required/>
+
+							<!-- Sowas wie einen verweis auf die oberen input felder durdch ids? -->
+							<input type="hidden" name="latitude" id="discovery-latitude" maxlength="9" />
+
+							<input type="hidden" name="longitude" id="dicovery-longitude" maxlength="9" />
+
+							<input type="submit" value="Submit tag-search" />
+						</fieldset>
+					</form>
+					<!-- ############### Aufgabe1a Form2 Ende -->
 
 				<div class="taglist">
 					<ul id="results">
@@ -62,12 +91,6 @@
 		<footer>
 			<span>2017 by LKIT</span>
 		</footer>
-
-		<!-- Load JavaScripts
-					================================================== -->
-		<!-- Placed at the end of the document so the pages load faster -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-		<script src="/javascripts/bootstrap.min.js"></script>
 
 	</body>
 </html>
