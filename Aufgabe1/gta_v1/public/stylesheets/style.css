@@ -6,3 +6,54 @@ body {
 a {
   color: #00B7FF;
 }
+
+header{
+  background-color: lightgray;
+  width: auto;
+  padding: 10px;
+  clear: both;
+}
+footer {
+  background-color: lightgray;
+  width: auto;
+  padding: 10px;
+  clear: both;
+}
+
+input{
+ 
+  padding : 5px;
+  margin: 3px;
+}
+
+form {
+  line-height: 30px;
+}
+
+
+#results{
+  background-color: lightblue;
+}
+
+/* Grid start*/
+.tagging {
+  display: inline-block;
+  
+}
+
+.discovery{
+  display: inline-table;
+
+}
+
+.taglist {
+  display: inline-block;
+}
+
+.tagmap{
+  display: inline-table;
+  float: right;
+}
+
+
+  
