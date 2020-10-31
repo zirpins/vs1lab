@@ -32,18 +32,27 @@ form {
 
 
 #results{
-  background-color: lightblue;
+  padding: 5px;
+  margin-left: 5px;
+  list-style-type: none;
+
+
+
+
 }
 
 /* Grid start*/
 .tagging {
-  display: inline-block;
+  display: block;
+  float:left;
+  margin-top: 0px;
 
 }
 
 .discovery{
-  display: inline-table;
+  display: block;
   position: relative;
+  left: 50px;
 
 }
 
@@ -52,6 +61,13 @@ form {
 }
 
 .tagmap{
-  display: inline-table;
+  display: block;
   float: right;
+  position: relative;
+}
+
+li{
+  background-color: lightblue;
+  margin: 30px;
+  padding: 20px;
 }
