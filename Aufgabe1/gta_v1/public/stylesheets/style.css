@@ -20,8 +20,13 @@ footer {
   clear: both;
 }
 
-input{
+#tag-form input {
+  display: block;
+  padding : 5px;
+  margin: 3px;
+}
 
+#filter-form input{
   padding : 5px;
   margin: 3px;
 }
@@ -35,18 +40,21 @@ form {
   padding: 5px;
   margin-left: 5px;
   list-style-type: none;
-
-
-
-
 }
 
-/* Grid start   1 Grid = 8.33% */
+/* Grid start   */
+
+/*first mobile phone display*/
+[class*="col-"] {
+  width: 100%;
+}
 
 * {
   box-sizing: border-box;
 }
 
+/*1 Grid = 8.33% */
+@media only screen and (min-width: 1080px) {
 .col-1 {width: 8.33%;}
 .col-2 {width: 16.66%;}
 .col-3 {width: 25%;}
@@ -59,11 +67,12 @@ form {
 .col-10 {width: 83.33%;}
 .col-11 {width: 91.66%;}
 .col-12 {width: 100%;}
+}
 
 [class*="col-"] {
   float: left;
   padding: 15px;
-  border: 0px solid red;
+  border: 3px solid red;
 }
 
 .row::after {
@@ -76,14 +85,13 @@ form {
   display: block;
   position: relative;
   margin-left: 10px;
-
 }
 
 .discovery{
   display: block;
   position: relative;
-  margin-left: 10px;
-
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .taglist {
@@ -92,8 +100,17 @@ form {
 
 .tagmap{
   display: block;
-  float: right;
+  margin-left: auto;
+  margin-right: auto;
   position: relative;
+}
+
+
+@media only screen and (max-width: 584px){
+  #result-img{
+    width: 100%;
+    height: auto;
+  }
 }
 
 li{
