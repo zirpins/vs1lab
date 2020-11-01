@@ -20,11 +20,20 @@ footer {
   clear: both;
 }
 
+
+
 #tag-form input {
   display: block;
   padding : 5px;
   margin: 3px;
+  width: 100%;
+
 }
+/* exception for the button   */
+#tag-form input:last-child {
+  width: 60px;
+}
+
 
 #filter-form input{
   padding : 5px;
@@ -33,6 +42,7 @@ footer {
 
 form {
   line-height: 30px;
+
 }
 
 
@@ -85,6 +95,7 @@ form {
   display: block;
   position: relative;
   margin-left: 10px;
+
 }
 
 .discovery{
@@ -96,7 +107,10 @@ form {
 
 .taglist {
   display: inline-block;
+  width: 100%;
 }
+
+
 
 .tagmap{
   display: block;
@@ -105,6 +119,10 @@ form {
   position: relative;
 }
 
+#result-img{
+  background-size: cover;
+
+}
 
 @media only screen and (max-width: 584px){
   #result-img{
