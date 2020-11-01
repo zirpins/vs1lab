@@ -1,8 +1,119 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
+header {
+  background: #c9e2b3;
+  padding: 15px;
+}
+
+footer {
+  background: #c9e2b3;
+  padding: 15px;
+  float: bottom;
+}
+
+main {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  align-items: flex-start;
+}
+
+.tagging {
+  width: 20%;
+}
+
+#latitudeNew, #longitudeNew, #nameNew, #hashtagNew, #searchFilter {
+  height: 25px;
+  width: 150px;
+}
+#submitButtonNew {
+  display: flex;
+  height: 25px;
+  margin-top: 7px;
+}
+
+#applyButtonFilter {
+  height: 25px;
+}
+
+.discovery  {
+  display: flex;
+  width: 75%;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.taglist {
+  flex: 30%;
+  margin: 6px;
+}
+
+#results {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.tagmap > img {
+  margin: 6px;
+}
+
+.discovery > h2 {
+  flex: 75%;
+}
+ .discovery > #filter-form {
+   flex: 75%;
+   margin: 6px;
+ }
+
+legend {
+  font: 18px "Lucia Grande", Helvetica Arial, sans-serif;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  padding: 4px;
+}
+
 a {
   color: #00B7FF;
 }
+
+
+.tagmap > img {
+  margin: 6px;
+}
+
+
+li {
+  color: white;
+  background: #31b0d5;
+  padding: 6px;
+  margin: 6px;
+}
+
+.caption {
+  margin-bottom: 8px;
+}
+
+@media screen and (max-width: 950px){
+  main {
+    flex-wrap: wrap;
+  }
+  main > section {
+    flex: 2 2 50%
+  }
+}
+
+

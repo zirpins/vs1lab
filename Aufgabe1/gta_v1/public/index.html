@@ -26,16 +26,47 @@
 				<h2>Tagging</h2>
 
 				<!-- ############### Aufgabe1a Form1 Start -->
-				<form id="tag-form" action="/tagging" method="post"></form>
+				<form id="tag-form" action="/tagging" method="post">
+					<fieldset>
+
+						<legend>Enter new GoTag</legend>
+						<label>latitude</label>
+						<input name="latitude" id="latitudeNew" placeholder="latitude of the place" required>
+
+						<label>longitude</label>
+						<input name="longitude" id="longitudeNew" placeholder="longitude of the place" required>
+
+						<label>name</label>
+						<input name="name" id="nameNew" placeholder="some name" maxlength="10" pattern="[A-Za-z]{1,10}"required>
+
+						<label>hashtag</label>
+						<input name="hashtag" id="hashtagNew" placeholder="# + max. 10 letters" maxlength="11" pattern="#+[A-Za-z]{1,10}" title="e.g. #sight">
+
+						<input type="submit" name="submitButton1" id="submitButtonNew" value="submit">
 				<!-- ############### Aufgabe1a Form1 Ende -->
 
+					</fieldset>
+				</form>
 			</section>
 
 			<section class="discovery">
 				<h2>Discovery</h2>
 
 				<!-- ############### Aufgabe1a Form2 Start -->
-				<form id="filter-form" action="/discovery" method="post"></form>
+				<form id="filter-form" action="/discovery" method="post">
+					<fieldset>
+						<legend>Filter by Searchterm</legend>
+
+						<input name="search" id="searchFilter" placeholder="search term">
+
+						<input type="hidden" name="hiddenLatitude" id="hiddenLatitude">
+
+						<input type="hidden" name="hiddenLongitude" id="hiddenLongitude" >
+
+						<input type="submit" name="applyButton1" id="applyButtonFilter" value="apply">
+
+					</fieldset>
+				</form>
 				<!-- ############### Aufgabe1a Form2 Ende -->
 
 				<div class="taglist">
@@ -55,7 +86,7 @@
 		</main>
 
 		<footer>
-			<span>2017 by LKIT</span>
+			<span>2020 by PS</span>
 		</footer>
 
 	</body>
