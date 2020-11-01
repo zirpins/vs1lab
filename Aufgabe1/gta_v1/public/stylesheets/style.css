@@ -20,7 +20,13 @@ footer {
   clear: both;
 }
 
+<<<<<<< HEAD
 
+=======
+input [type="text"]{
+  width: 100%;
+}
+>>>>>>> a5254a1c45c392a5eaf75406098cbae866c86375
 
 #tag-form input {
   display: block;
@@ -114,17 +120,23 @@ form {
 
 .tagmap{
   display: block;
-  margin-left: auto;
-  margin-right: auto;
+  margin: auto;
   position: relative;
 }
 
 #result-img{
+<<<<<<< HEAD
   background-size: cover;
 
 }
+=======
+  display: flexbox;
+  justify-content: center;
+}
 
-@media only screen and (max-width: 584px){
+>>>>>>> a5254a1c45c392a5eaf75406098cbae866c86375
+
+@media only screen and (max-width: 605px){
   #result-img{
     width: 100%;
     height: auto;
@@ -133,6 +145,7 @@ form {
 
 li{
   background-color: #00B7FF;
+  font-size: auto;
   color: white;
   margin: 15px;
   padding: 10px;
