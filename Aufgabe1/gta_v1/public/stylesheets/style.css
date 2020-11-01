@@ -36,8 +36,12 @@ footer {
 
 
 #filter-form input{
+  width: 35%;
   padding : 5px;
   margin: 3px;
+}
+#filter-form input:last-child{
+  width: 60px;
 }
 
 form {
@@ -66,7 +70,7 @@ form {
 /*1 Grid = 8.33% */
 @media only screen and (min-width: 1080px) {
 .col-1 {width: 8.33%;}
-.col-2 {width: 16.66%;}
+.col-2 {width: ;}
 .col-3 {width: 25%;}
 .col-4 {width: 33.33%;}
 .col-5 {width: 41.66%;}
@@ -82,7 +86,7 @@ form {
 [class*="col-"] {
   float: left;
   padding: 15px;
-  border: 3px solid red;
+  border: 0px solid red; /* for testing set border: x to a positive value */
 }
 
 .row::after {
@@ -113,17 +117,16 @@ form {
 
 
 .tagmap{
-  display: block;
-  margin: auto;
   position: relative;
+  float: right;
+
 }
 
 .caption{
   font-size: 90%;
   color: darkgray;
 }
-#result-img{
-}
+
 
 
 @media only screen and (max-width: 605px){
