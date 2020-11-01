@@ -118,6 +118,10 @@ form {
   position: relative;
 }
 
+.caption{
+  font-size: 90%;
+  color: darkgray;
+}
 #result-img{
 }
 
