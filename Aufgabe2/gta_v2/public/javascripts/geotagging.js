@@ -81,7 +81,7 @@ var gtaLocator = (function GtaLocator(geoLocationApi) {
         return position.coords.longitude;
     };
 
-    // Hier Google Maps API Key eintragen
+    // Hier API Key eintragen
     var apiKey = "YOUR_API_KEY_HERE";
 
     /**
