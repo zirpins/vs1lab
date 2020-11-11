@@ -85,6 +85,9 @@ header, footer {
   padding: 10px;
   flex: 2 2 auto;
 }
+#result-img{
+  width: 100%;
+}
 
 @media only screen and (max-width: 1200px) {
   [class*="col-"]{
