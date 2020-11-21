@@ -68,7 +68,8 @@ form {
 }
 
 /*1 Grid = 8.33% */
-@media only screen and (min-width: 1080px) {
+/*Davor 1080px*/
+@media only screen and (min-width: 1305px) {
 .col-1 {width: 8.33%;}
 .col-2 {width: 16.66;}
 .col-3 {width: 25%;}
@@ -128,8 +129,8 @@ form {
 }
 
 
-
-@media only screen and (max-width: 605px){
+/*davor 605 px*/
+@media only screen and (max-width: 760px){
   #result-img{
     width: 100%;
     height: auto;
