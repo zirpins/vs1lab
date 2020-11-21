@@ -125,7 +125,7 @@ var gtaLocator = (function GtaLocator(geoLocationApi) {
                 console.log(c.coords.longitude);
                 console.log(c.coords.latitude);
                 //Hidden Input in Discovery
-                document.getElementById("current_longitude").value = c.coords.longitude
+                document.getElementById("current_longitude").value = c.coords.longitude;
                 document.getElementById("current_latitude").value = c.coords.latitude;
                 //Input in Taggig
                 document.getElementById("longitude").value = c.coords.longitude;
