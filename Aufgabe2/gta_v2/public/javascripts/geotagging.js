@@ -135,7 +135,10 @@ var gtaLocator = (function GtaLocator(geoLocationApi) {
                 var thisTag;
                 /**Zoom von [0-18] wählbar*/
                 var zoom = 13;
-                var URL = getLocationMapSrc(c.coords.latitude, c.coords.longitude, thisTag, zoom);
+                var URL = getLocationMapSrc(document.getElementById("latitude").value, 
+                document.getElementById("longitude").value, 
+                thisTag, 
+                zoom);
 
             //Suchen und ersetzen
             var map = document.getElementById("result-img");
