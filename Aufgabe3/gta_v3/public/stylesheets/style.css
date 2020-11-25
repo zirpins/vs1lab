@@ -1,0 +1,99 @@
+body {
+  padding: 50px;
+  font: 15px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+input {
+  height: 30px;
+}
+
+br {
+  display: block;
+}
+
+a {
+  color: #cf4281;
+}
+
+header, footer {
+  background-color: #cdd1d1;
+  padding: 10px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* [class*="col-"]{
+  border-style: solid;
+  border-color: red;
+  border-width: 1px;
+} */
+
+.main {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+
+.discovery {
+  /* column-count: 2; */
+  flex-direction: column;
+  border: red;
+}
+
+.tagging {
+    flex: 1 1 auto;
+}
+
+.elements {
+  flex-direction: row;
+  display: flex;
+  flex: 1 1 auto;
+  /* flex-wrap: wrap; */
+    /* column-count: 2; */
+}
+
+.filter {
+  flex: 1 1 auto;
+}
+
+.taglist li{
+  width: 300px;
+  padding: 5px;
+  margin: 10px;
+  background-color: #e084ae;
+  color: white;
+  list-style-type: none;
+  flex: 0 1 auto;
+}
+
+.tagmap {
+  padding: 10px;
+  flex: 2 2 auto;
+}
+
+@media only screen and (max-width: 1200px) {
+  [class*="col-"]{
+    width: 100%;
+  }
+}
+
+@media (max-width: 900px){
+  .elements {
+    flex-direction: column;
+  }
+}
