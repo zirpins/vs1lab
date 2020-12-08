@@ -142,7 +142,7 @@ des Request Objekts](http://expressjs.com/de/4x/api.html#req.body) entnehmen.
 
 Die Zusatzaufgabe besteht darin, die vorhandene Ergebnisliste für GeoTags im
 Discovery Widget mit einer Funktion für die Seitennummerierung
-[Pagination](https://en.wikipedia.org/wiki/Pagination) zu ergänzen. Längere
+([Pagination](https://en.wikipedia.org/wiki/Pagination)) zu ergänzen. Längere
 Ergebnislisten sollen auf mehrere nummerierte Seiten aufgeteilt werden, zwischen
 denen über Links gewechselt werden kann.
 
