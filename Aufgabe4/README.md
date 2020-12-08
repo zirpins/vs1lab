@@ -5,10 +5,12 @@ In der vierten Aufgabe sollen...
 1. Aufrufe zur Speicherung und Filterung von GeoTags aus dem Browser mittels
    **Ajax** erfolgen (statt dem Form-Mechanismus) und
 2. auf der Serverseite über eine **REST-API** realisiert werden.
+3. Als freiwillige Zusatzaufgabe soll eine Seitennummerierung (Pagination) für die GeoTag Liste ergänzt werden.
 
-Am Ende soll die Funktionalität der Anwendung identisch erhalten bleiben, nur
+Grundsätzlich soll die Funktionalität der Anwendung identisch erhalten bleiben, nur
 dass die Interaktion mit dem Server per Ajax wesentlich schneller und ohne
-störenden Aufbau einer neuen Seite abläuft.
+störenden Aufbau einer neuen Seite abläuft. Die Seitennummerierung der 
+GeoTag Liste ermöglicht den Umgang mit umfangreichen Ergebnismengen.
 
 Die Aufgabe vertieft die **Event-Listener**-Programmierung sowie die Verwendung
 der **XMLHttpRequest API** in Javascript. Zudem wird die **Struktur von REST
@@ -128,6 +130,7 @@ verfügbar. Beliebte Beispiele sind:
 - **HTTP Client** für WebStorm [https://www.jetbrains.com/help/webstorm/testing-restful-web-services.html](https://www.jetbrains.com/help/webstorm/testing-restful-web-services.html)
 - **insomnia** [https://insomnia.rest](https://insomnia.rest)
 - **Postman** [https://www.getpostman.com](https://www.getpostman.com)
+- **REST Client** für Visual Studio Code [https://marketplace.visualstudio.com](https://marketplace.visualstudio.com/items?itemName=humao.rest-client)
 
 Demonstrieren Sie alle Routen Ihrer REST API mit einem REST Client Ihrer Wahl.
 
