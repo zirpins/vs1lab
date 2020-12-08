@@ -3,17 +3,17 @@
 In der vierten Aufgabe sollen...
 
 1. Aufrufe zur Speicherung und Filterung von GeoTags aus dem Browser mittels
-  **Ajax** erfolgen (statt dem Form-Mechanismus) und
+   **Ajax** erfolgen (statt dem Form-Mechanismus) und
 2. auf der Serverseite über eine **REST-API** realisiert werden.
 
 Am Ende soll die Funktionalität der Anwendung identisch erhalten bleiben, nur
 dass die Interaktion mit dem Server per Ajax wesentlich schneller und ohne
 störenden Aufbau einer neuen Seite abläuft.
 
-Die Aufgabe vertieft die Programmierung von **Event-Listenern** sowie die
-Verwendung der **XMLHttpRequest API** in Javascript. Zudem wird die **Struktur
-von REST APIs** sowie deren Umsetzung mit dem **HTTP-Protokoll** über **Express
-Routen** in Javascript eingeübt.
+Die Aufgabe vertieft die **Event-Listener**-Programmierung sowie die Verwendung
+der **XMLHttpRequest API** in Javascript. Zudem wird die **Struktur von REST
+APIs** sowie deren Umsetzung mit dem **HTTP-Protokoll** über **Express Routen**
+in Javascript eingeübt.
 
 ## 4.1. Vorbereitung
 
@@ -68,7 +68,7 @@ entsprechende Folien). Verwenden Sie kein JQuery.
   *HTTP POST* in *JSON Format* an den Server senden.
   - Tipp 1: Sie können hier den serverseitigen *GeoTag Konstruktor* aus Aufgabe 3
     im Client Skript wiederverwenden.
-  - Tipp 2: spezifizieren sie einen geeignezen *MIME-Type* für JSON im
+  - Tipp 2: spezifizieren sie einen geeigneten *MIME-Type* für JSON im
     HTTP-Header `Content-Type`, damit der Server den Inhalt erkennt.
 - Für das **Filterformular** soll der Aufruf auch *asynchron* ablaufen aber per *HTTP
   GET* mit *Query Parametern* erfolgen.
@@ -89,7 +89,7 @@ werden (die bisherigen Routen können dabei beibehalten werden).
 #### Neue Routen der REST Schnittstelle
 
 `tl;dr` Erstellen Sie eine komplette REST API für GeoTags. Realisieren Sie zwei
-Routen zum Anlegen neuer Ressorcen und zur Suche auf einer Container Ressource
+Routen zum Anlegen neuer Ressourcen und zur Suche auf einer Container Ressource
 mit URI `geotags/` sowie drei Routen für das Lesen, Ändern und Löschen einzelner
 Ressourcen mit URI `geotags/<id>`. Demonstrieren Sie alle Routen mit einem
 generischen REST Client.
@@ -129,7 +129,7 @@ verfügbar. Beliebte Beispiele sind:
 - **insomnia** [https://insomnia.rest](https://insomnia.rest)
 - **Postman** [https://www.getpostman.com](https://www.getpostman.com)
 
-Demonstrieren Sie alle ROuten Ihrer REST API mit einem REST Client Ihrer Wahl.
+Demonstrieren Sie alle Routen Ihrer REST API mit einem REST Client Ihrer Wahl.
 
 #### Tipps zur Verarbeitung von JSON im Express Server
 
@@ -138,29 +138,42 @@ Stellen Sie sicher, dass der Bodyparser (auch) für die Verarbeitung von
 JSON-Inhalten konfiguriert ist. Der JSON-Inhalt lässt sich dann aus dem [Body
 des Request Objekts](http://expressjs.com/de/4x/api.html#req.body) entnehmen.
 
-# Zusatzaufgabe
-Die Zusatzaufgabe besteht darin die vorhandene Liste von GeoTags mit einer Seitennummerierung (Pagination) zu versehen.
+## 4.3. Zusatzaufgabe
 
-Ein Beispiel wie dies aussehen könnte zeigt die folgende Abbildung:
+Die Zusatzaufgabe besteht darin, die vorhandene Ergebnisliste für GeoTags im
+Discovery Widget mit einer Funktion für die Seitennummerierung
+[Pagination](https://en.wikipedia.org/wiki/Pagination) zu ergänzen. Längere
+Ergebnislisten sollen auf mehrere nummerierte Seiten aufgeteilt werden, zwischen
+denen über Links gewechselt werden kann.
 
-![Screenshot](../gta-seitennummerierung.png)
+Ein Beispiel wie dies aussehen könnte, zeigt die folgende Abbildung:
+
+![Screenshot](../gta-pagination.png)
 
 Wie die Seitennummerierung gestaltet wird, ist ihnen überlassen.
 
-## Teilschritte
-Ein Beispielablauf der Umsetzung ist in 5 Schritte aufgeteilt:  
-1. Überlegen welche Änderungen benötigt werden für die Umsetzung  
-1.1 Wie viele GeoTags soll eine Seite anzeigen?
+### 4.3.1. Teilschritte
 
-2. Erstellen der HTML Struktur (HTML)
-3. Gestalten der Elemente für die Seitennummerierung (CSS)
-4. Änderungen an den bestehenden HTTP Endpunkten und Hinzufügen neuer benötigter Endpunkte (Server)
-5. Anbinden der neuen/geänderten Endpunkte (Client) 
+Die Umsetzung der Aufgabe könnte nach folgender Methode erfolgen:
 
-## Anforderungen
-Bei der Erstellung soll darauf geachtet werden, dass nur die GeoTags für die aktuell benötigte Seite geladen werden.
-Es sollen also nicht alle GeoTags angefragt, aber nur die aktuell sichtbaren z. B. 10 angezeigt werden.
+1. Überlegen Sie, wie sich die nummerierte Liste verhalten soll, wie sie dargestellt wird und wie die Bedienung erfolgt. Legen Sie auch Details fest, wie z.B. die Anzahl der Einträge pro Seite.
+2. Planen Sie die nötigen Änderungen der aktuellen GeoTagging App für die Umsetzung der nummerierten Liste im Client und Server.
+3. Erstellen Sie die neue Seitenstruktur (HTML).
+4. Gestalten Sie die Strukturelemente der Seitennummerierung (CSS).
+5. Führen Sie die nötigen Änderungen an den bestehenden HTTP-Endpunkten durch und fügen Sie nach Bedarf neue Endpunkte hinzu (Server).
+6. Koppeln Sie das Client Script mit den neuen/geänderten Endpunkten (Client).
 
-Ist man wie in obiger Abbildung bereits auf Seite 1 und möchte per Pfeile nach links eine Seite zurück Blättern, dann soll nichts geschehen. Dasselbe gilt für die letzte Seite mit den Pfeilen nach rechts.
+### 4.3.2. Anforderungen
 
-Klickt man eine Seitennummer an, sollen die GeoTags dieser Seite geladen und angezeigt werden. 
+Bei der Erstellung soll darauf geachtet werden, dass nur die GeoTags für die
+aktuell benötigte Seite geladen werden. Es sollen also nicht alle GeoTags
+angefragt, aber nur die aktuell sichtbaren (z.B. 10) angezeigt werden.
+
+Ist man (wie in obiger Abbildung) auf der ersten Seite und möchte per Pfeil nach
+links eine Seite zurück blättern, dann soll nichts geschehen. Dasselbe gilt für
+die letzte Seite mit Pfeil nach rechts.
+
+Die Bedienelemente der Liste sollen neben Pfeilen zum Vor- und Zurückblättern
+auch einige Seitennummern enthalten, die man direkt anspringen kann. Klickt man
+ein Bedienfeld an, sollen die GeoTags der Seite vom Server geladen und angezeigt
+werden.
