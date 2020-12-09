@@ -159,7 +159,7 @@ Ein Beispielablauf der Umsetzung ist in 5 Schritte aufgeteilt:
 
 ## Anforderungen
 Bei der Erstellung soll darauf geachtet werden, dass nur die GeoTags für die aktuell benötigte Seite geladen werden.
-Es sollen also nicht alle GeoTags angefragt, aber nur die aktuell sichtbaren z. B. 10 angezeigt werden.
+Es sollen also **nicht** alle GeoTags angefragt, aber nur die aktuell sichtbaren z. B. 10 angezeigt werden!
 
 Ist man wie in obiger Abbildung bereits auf Seite 1 und möchte per Pfeile nach links eine Seite zurück Blättern, dann soll nichts geschehen. Dasselbe gilt für die letzte Seite mit den Pfeilen nach rechts.
 
