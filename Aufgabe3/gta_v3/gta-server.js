@@ -22,7 +22,7 @@ app.use(bodyParser.urlencoded({
 }));
 
 // Setze ejs als View Engine
-app.set('view engine', 'ejs');
+app.set('view engine', 'ejs'); //vllt hier was machen? für aufgabe 4!!!!!!!!!
 
 /**
  * Konfiguriere den Pfad für statische Dateien.
@@ -30,6 +30,8 @@ app.set('view engine', 'ejs');
  */
 
 // TODO: CODE ERGÄNZEN
+app.use(express.static(__dirname + "/public"));
+
 
 /**
  * Konstruktor für GeoTag Objekte.
@@ -37,7 +39,21 @@ app.set('view engine', 'ejs');
  */
 
 // TODO: CODE ERGÄNZEN
-
+function GeoTag(latitude, longitude, name, hashtag){
+  this.name = name;
+  this.latitude = latitude;
+  this.longitude = longitude;
+  this.hashtag = hashtag;
+};
+/*
+Alternative:
+class GeoTag{
+  constructor(latitude, longitude,.....)
+  this.latitude = latitude;
+  ...
+  fast wie in java
+}
+*/
 /**
  * Modul für 'In-Memory'-Speicherung von GeoTags mit folgenden Komponenten:
  * - Array als Speicher für Geo Tags.
@@ -48,6 +64,54 @@ app.set('view engine', 'ejs');
  */
 
 // TODO: CODE ERGÄNZEN
+var geoTagModule = (function() {
+  var geoTags = [];
+
+  return{
+
+    searchInRadius: function(radius, longitude, latitude){
+      var res = [];
+      geoTags.forEach(function(geoTag){
+        var disLong = longitude - geoTag.longitude;
+        var disLat = latitude - geoTag.latitude;
+        var distance = Math.sqrt(disLong * disLong + disLat * disLat);
+        if(distance <= radius){
+          res.push(geoTag);
+          }
+      });
+      return res;
+    },
+
+    searchForTerm:function(term, array){
+      var res = [];
+      array.forEach(function(geoTag){
+        if(geoTag.name.toLowerCase().includes(term.toLowerCase())
+          || geoTag.hashtag.toLowerCase().includes(term.toLowerCase())){
+          res.push(geoTag);
+        }
+      });
+      return res;
+    },
+
+    addGeoTag:function(latitude, longitude, name, tag){
+      geoTags.push(new GeoTag(latitude, longitude, name, tag));
+    },
+
+    deleteGeoTag:function(tag){
+      var idx = geoTags.indexOf(tag);
+      if(idx !== -1){
+        geoTags.splice(idx, 1);
+      }
+    },
+
+    get:function(){
+      return geoTags;
+    }
+
+  }
+})();
+
+
 
 /**
  * Route mit Pfad '/' für HTTP 'GET' Requests.
@@ -60,7 +124,12 @@ app.set('view engine', 'ejs');
 
 app.get('/', function(req, res) {
     res.render('gta', {
-        taglist: []
+        taglist: [],
+        fLat:'',
+        fLong:'',
+        tLat:'',
+        tLong:'',
+        maptaglist:JSON.stringify([])
     });
 });
 
@@ -78,6 +147,21 @@ app.get('/', function(req, res) {
  */
 
 // TODO: CODE ERGÄNZEN START
+app.post('/tagging', function(req, res){
+    var lat = req.body.tLatitude;
+    var long = req.body.tLongitude;
+    geoTagModule.addGeoTag(lat, long, req.body.tName, req.body.hashtag);
+    var tags = geoTagModule.searchInRadius(20, long, lat);
+
+    res.render('gta', {
+      taglist: tags,
+      fLat:lat,
+      fLong:long,
+      tLat:lat,
+      tLong:long,
+      maptaglist:JSON.stringify(tags)
+    });
+});
 
 /**
  * Route mit Pfad '/discovery' für HTTP 'POST' Requests.
@@ -92,7 +176,28 @@ app.get('/', function(req, res) {
  */
 
 // TODO: CODE ERGÄNZEN
+app.post('/discovery', function(req, res){
+      var lat = req.body.fLatitude;
+      var long = req.body.fLongitude;
+      var tags = geoTagModule.searchInRadius(20, long, lat);
 
+      if(req.body.discovery){
+          tags = geoTagModule.searchForTerm(req.body.discovery, tags);
+          if(tags.length > 0){
+            lat = tags[0].latitude;
+            long = tags[0].longitude;
+          }
+      }
+
+      res.render('gta', {
+        taglist: tags,
+        fLat: lat,
+        fLong: long,
+        tLat: lat,
+        tLong: long,
+        maptaglist: JSON.stringify(tags)
+      });
+});
 /**
  * Setze Port und speichere in Express.
  */
