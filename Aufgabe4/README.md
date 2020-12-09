@@ -31,7 +31,9 @@ Dateien der Aufgabe liegen im Ordner `Aufgabe4`.
    `Aufgabe4/gta_v4/public/javascripts/geotagging.js`.
 3. Kopieren Sie das Server Skript `Aufgabe3/gta_v3/gta-server.js` aus Aufgabe 3
    nach `Aufgabe4/gta_v4/gta-server.js`.
-4. Kopieren Sie das EJS-Template `Aufgabe3/gta_v3/views/gta.ejs` aus Aufgabe 3
+4. Kopieren Sie die Datei `Aufgabe3/gta_v3/package.json` aus Aufgabe 3
+   nach `Aufgabe4/gta_v4/package.json`.
+5. Kopieren Sie das EJS-Template `Aufgabe3/gta_v3/views/gta.ejs` aus Aufgabe 3
    nach `Aufgabe4/gta_v4/views/gta.ejs`.
 
 ### 4.1.2 Node-js vorbereiten
