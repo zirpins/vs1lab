@@ -34,18 +34,18 @@
 						<legend> Enter new GeoTag </legend>
 
 					<label for="tLatitude"> Latitude </label> <br>
-					<input type="text" id="tLatitude" name="tLatitude" placeholder="49.01379" required> <br></br>
+					<input type="text" id="tLatitude" name="tLatitude" placeholder="49.01379" value="<%= tLat %>"required> <br><br>
 
 					<label for="tLongitude"> Longitude </label> <br>
-					<input type="text" id="tLongitude" name="tLongitude" placeholder="8.390071" required ><br></br>
+					<input type="text" id="tLongitude" name="tLongitude" placeholder="8.390071" value="<%= tLong %>" required><br><br>
 
 					<label for="tName"> Name </label> <br>
-					<input type="text" id="tName" name="name" maxlength=10 placeholder="some name" required> <br></br>
+					<input type="text" id="tName" name="tName" maxlength=10 placeholder="some name" required> <br><br>
 
 					<label for="tHashtag"> Hashtag </label> <br>
-					<input type="text" id="tHashtag" name="hashtag" maxlength=11 pattern="[#][A-zäöüÄÖÜß]*" placeholder="# + max. 10 letters" name="hashtag"> <br></br>
+					<input type="text" id="tHashtag" name="hashtag" maxlength=11 pattern="[#][A-zäöüÄÖÜß]*" placeholder="# + max. 10 letters" > <br><br>
 
-				  <input type="submit" value="submit">
+				  <input type="submit" value="submit" name="submit" id="tsubmit">
 					</fieldset>
 				</form>
 				<!-- ############### Aufgabe1a Form1 Ende -->
@@ -60,10 +60,10 @@
 
 					<fieldset>
 						<legend> Filter by Searchterm </legend>
-						<input type="text" id="discovery" name="discovery" placeholder="search term" required>
-						<input type="hidden" id="fLongitude" name="fLongitude" value="placeholderLongitude">
-						<input type="hidden" id="fLatitude" name="fLatitude" value="placeholderLatitude">
-						<input type="submit" value="apply">
+						<input type="text" id="discovery" name="discovery" placeholder="search term">
+						<input type="hidden" id="fLongitude" name="fLongitude" value="<%= fLong %>">
+						<input type="hidden" id="fLatitude" name="fLatitude" value="<%= fLat %>">
+						<input type="submit" value="apply" id="fsubmit">
 					</fieldset>
 				</form>
 
@@ -75,14 +75,11 @@
 						<% if (taglist !== undefined) taglist.forEach(function(gtag) { %>
 							<li><%= gtag.name %> ( <%= gtag.latitude %>,<%= gtag.longitude %>) <%= gtag.hashtag %> </li>
 						<% }); %>
-						<% if (taglist !== undefined) taglist.forEach(function(gtag) { %>
-							<li><%= gtag.name %> ( <%= gtag.latitude %>,<%= gtag.longitude %>) <%= gtag.hashtag %> </li>
-						<% }); %>
 					</ul>
 				</div>
 
 				<div class="tagmap col-7">
-					<img id="result-img" src="./images/mapview.jpg" alt="a map with locations"/>
+					<img id="result-img" src="./images/mapview.jpg" alt="a map with locations" data-tags="<%= maptaglist%>"/>
 					<div class="caption">Result map</div>
 				</div>
 			</div>
@@ -95,14 +92,8 @@
 			<span>2017 by LKIT</span>
 		</footer>
 
-		<!-- Load JavaScripts
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script src="./javascripts/geotagging.js"></script>
 
 	</body>
 </html>
-
-
-	

@@ -102,7 +102,7 @@ var gtaLocator = (function GtaLocator(geoLocationApi) {
         }
 
         var tagList = "&pois=You," + lat + "," + lon;
-        if (tags !== undefined) tags.forEach(function(tag) {
+        if (tags !== undefined && tags !== null) tags.forEach(function(tag) {
             tagList += "|" + tag.name + "," + tag.latitude + "," + tag.longitude;
         });
 
@@ -121,22 +121,36 @@ var gtaLocator = (function GtaLocator(geoLocationApi) {
 
         updateLocation: function() {
 
+          var img = document.getElementById('result-img');
+          var taglist = JSON.parse(img.getAttribute('data-tags'));
+          var zoom = 12;
+
           var onsuccess = function(position){
             var latitude = getLatitude(position);
             var longitude = getLongitude(position);
+
             document.getElementById('tLatitude').setAttribute("value", latitude);
             document.getElementById('tLongitude').setAttribute("value", longitude);
             document.getElementById('fLatitude').setAttribute("value", latitude);
             document.getElementById('fLongitude').setAttribute("value", longitude);
-
-            var img = getLocationMapSrc(latitude, longitude);
-            document.getElementById('result-img').setAttribute("src", img);
+            img.src = getLocationMapSrc(latitude, longitude, taglist, zoom);
           }
 
           var onerror = function(msg){
           alert('msg');
           }
+
+          if(document.getElementById('tLatitude').value === "" || document.getElementById('tLongitude').value === ""){
+            console.log("locating user...");
             tryLocate(onsuccess, onerror);
+          }
+          else{
+            console.log("using existing data");
+            var latitude = document.getElementById('tLatitude').value;
+            var longitude = document.getElementById('tLongitude').value;
+            img.src = getLocationMapSrc(latitude, longitude, taglist, zoom);
+          }
+
         }
 
     }; // ... Ende öffentlicher Teil
