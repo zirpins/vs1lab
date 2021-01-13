@@ -16,7 +16,7 @@ var express = require('express');
 
 var app;
 app = express();
-// app.use(logger('dev'));
+app.use(logger('dev'));
 // app.use(bodyParser.urlencoded({
 //     extended: false
 // }));
@@ -24,7 +24,7 @@ app = express();
 app.use(bodyParser.json());
 
 // Setze ejs als View Engine
-app.set('view engine', 'ejs'); //vllt hier was machen? für aufgabe 4!!!!!!!!!
+app.set('view engine', 'ejs');
 
 /**
  * Konfiguriere den Pfad für statische Dateien.
@@ -222,7 +222,7 @@ app.post('/discovery', function(req, res){
 
       if(searchterm){
         tags = geoTagModule.searchForTerm(searchterm);
-        if(tags.length > 0){
+        if(tags.length > 0){ //Zentriere auf ersten Treffer
               lat = tags[0].latitude;
               long = tags[0].longitude;
             }
