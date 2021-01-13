@@ -16,10 +16,15 @@ var express = require('express');
 
 var app;
 app = express();
-app.use(logger('dev'));
-app.use(bodyParser.urlencoded({
-    extended: false
-}));
+
+// app.use(logger('dev'));
+// app.use(bodyParser.urlencoded({
+//     extended: false
+// }));
+
+app.use(bodyParser.json());
+=======
+
 
 // Setze ejs als View Engine
 app.set('view engine', 'ejs'); //vllt hier was machen? für aufgabe 4!!!!!!!!!
@@ -39,11 +44,16 @@ app.use(express.static(__dirname + "/public"));
  */
 
 // TODO: CODE ERGÄNZEN
-function GeoTag(latitude, longitude, name, hashtag){
+
+function GeoTag(latitude, longitude, name, hashtag, id){
+
   this.name = name;
   this.latitude = latitude;
   this.longitude = longitude;
   this.hashtag = hashtag;
+
+  this.id = id;
+
 };
 /*
 Alternative:
@@ -63,11 +73,14 @@ class GeoTag{
  * - Funktion zum Löschen eines Geo Tags.
  */
 
+var idCounter = 0;
 // TODO: CODE ERGÄNZEN
 var geoTagModule = (function() {
+  //private
   var geoTags = [];
 
   return{
+  //public
 
     searchInRadius: function(radius, longitude, latitude){
       var res = [];
@@ -82,9 +95,11 @@ var geoTagModule = (function() {
       return res;
     },
 
-    searchForTerm:function(term, array){
+
+    searchForTerm:function(term){
       var res = [];
-      array.forEach(function(geoTag){
+      geoTags.forEach(function(geoTag){
+
         if(geoTag.name.toLowerCase().includes(term.toLowerCase())
           || geoTag.hashtag.toLowerCase().includes(term.toLowerCase())){
           res.push(geoTag);
@@ -93,8 +108,12 @@ var geoTagModule = (function() {
       return res;
     },
 
-    addGeoTag:function(latitude, longitude, name, tag){
-      geoTags.push(new GeoTag(latitude, longitude, name, tag));
+
+    addGeoTag:function(tag){
+      tag.id = idCounter++;
+      geoTags.push(tag);
+      return tag.id;
+
     },
 
     deleteGeoTag:function(tag){
@@ -104,8 +123,41 @@ var geoTagModule = (function() {
       }
     },
 
+    deleteGeoTagById:function(id){
+      geoTags.forEach(function(element){
+        if(element.id == id){
+          var index = geoTags.indexOf(element);
+          geoTags.splice(index, 1);
+          return;
+        }
+      });
+    },
+
     get:function(){
       return geoTags;
+    },
+
+    editTag: function(id, tag){
+    geoTags.forEach(element => {
+        if(element.id == id){
+          if(tag.id){
+            element.id = tag.id;
+          }
+          if(tag.longitude){
+            element.longitude = tag.longitude;
+          }
+          if(tag.latitude){
+            element.latitude = tag.latitude;
+          }
+          if(tag.name){
+            element.name = tag.name;
+          }
+          if(tag.hashtag){
+            element.hashtag = tag.hashtag;
+          }
+          return;
+        }
+      });
     }
 
   }
@@ -150,7 +202,9 @@ app.get('/', function(req, res) {
 app.post('/tagging', function(req, res){
     var lat = req.body.tLatitude;
     var long = req.body.tLongitude;
-    geoTagModule.addGeoTag(lat, long, req.body.tName, req.body.hashtag);
+
+    geoTagModule.addGeoTag(new GeoTag(lat, long, req.body.tName, req.body.hashtag));
+
     var tags = geoTagModule.searchInRadius(20, long, lat);
 
     res.render('gta', {
@@ -179,14 +233,20 @@ app.post('/tagging', function(req, res){
 app.post('/discovery', function(req, res){
       var lat = req.body.fLatitude;
       var long = req.body.fLongitude;
-      var tags = geoTagModule.searchInRadius(20, long, lat);
 
-      if(req.body.discovery){
-          tags = geoTagModule.searchForTerm(req.body.discovery, tags);
-          if(tags.length > 0){
-            lat = tags[0].latitude;
-            long = tags[0].longitude;
-          }
+      var searchterm = req.body.discovery;
+      var tags = [];
+
+      if(searchterm){
+        tags = geoTagModule.searchForTerm(searchterm);
+        if(tags.length > 0){
+              lat = tags[0].latitude;
+              long = tags[0].longitude;
+            }
+      }
+      else{
+        tags = geoTagModule.searchInRadius(20, long, lat);
+
       }
 
       res.render('gta', {
@@ -198,6 +258,74 @@ app.post('/discovery', function(req, res){
         maptaglist: JSON.stringify(tags)
       });
 });
+
+
+
+
+//Route to get geotags by Searchterm, by radius or all
+app.get('/geotags', function(req, res){
+  if(req.query.latitude && req.query.longitude){
+    var radius = 20;
+    if(req.query.radius && req.query.radius > 0){
+      radius = req.query.radius;
+    }
+    res.json(geoTagModule.searchInRadius(radius, req.query.longitude, req.query.latitude));
+    return;
+  }
+  else if(req.query.longitude || req.query.latitude){
+    res.status(400).send("request must provide 'latitude' & 'longitude' (&optional 'radius') parameter");
+  }
+  else if(req.query.search){
+    res.json(geoTagModule.searchForTerm(req.query.search));
+    return;
+  }
+  else{
+    res.json(geoTagModule.get());
+    return;
+  }
+});
+
+//Route to add new Geotag
+app.post('/geotags', function(req, res){
+    if(req.body.latitude && req.body.longitude && req.body.name && req.body.hashtag){
+      var id = geoTagModule.addGeoTag(req.body);
+      res.status(201).set("Location", "http://" + server.address().address + ":" + server.address().port + "/geotags/" + id).json(geoTagModule.get());
+    }
+    else{
+      res.status(400).send("post request was invalid");
+    }
+});
+
+//Route to get a specific container-ressource
+app.get('/geotags/:id',function(req, res){
+    var exists = false;
+    geoTagModule.get().forEach(element => {
+      if(element.id == req.params.id){
+        exists = true;
+        res.json(element);
+      }
+    });
+    if(!exists){
+      res.status(404).send("tag id" + req.params.id + "not found");
+    }
+});
+
+app.put('/geotags/:id', function(req, res){
+  if(req.body.latitude || req.body.longitude || req.body.name || req.body.hashtag){
+    geoTagModule.editTag(req.params.id, req.body);
+    res.status(200).send();
+  }
+  else{
+    res.status(400).send("put request was invalid");
+  }
+});
+
+app.delete('/geotags/:id', function(req, res){
+  geoTagModule.deleteGeoTagById(req.params.id);
+  res.status(200).send();
+});
+=======
+
 /**
  * Setze Port und speichere in Express.
  */

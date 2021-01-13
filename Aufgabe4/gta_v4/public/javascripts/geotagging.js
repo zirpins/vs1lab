@@ -33,6 +33,68 @@ GEOLOCATIONAPI = {
 // Falls es damit Probleme gibt, kommentieren Sie die Zeile aus.
 GEOLOCATIONAPI = navigator.geolocation;
 
+
+function GeoTag(lat, lon, name, hashtag) {
+    this.latitude = lat;
+    this.longitude = lon;
+    this.name = name;
+    this.hashtag = hashtag;
+}
+
+var ajax = new XMLHttpRequest();
+
+document.getElementById("tsubmit").addEventListener("click", function(){
+    var lat = document.getElementById('tLatitude').value;
+    var lon = document.getElementById('tLongitude').value;
+    var name = document.getElementById('tName').value;
+    var hashtag = document.getElementById('tHashtag').value;
+    var data = JSON.stringify(new GeoTag(lat, lon, name, hashtag));
+    ajax.onreadystatechange = function(){
+
+      if(ajax.readyState == 4){
+        generateList(JSON.parse(ajax.response));
+      }
+    };
+
+    ajax.open("POST", "/geotags" , true);
+    ajax.setRequestHeader("Content-Type", "application/json");
+    console.log(data);
+    ajax.send(data);
+});
+
+document.getElementById("fsubmit").addEventListener("click", function(){
+  ajax.onreadystatechange = function(){
+    if(ajax.readyState == 4){
+      generateList(JSON.parse(ajax.response));
+    }
+  };
+
+  var latURL = "latitude="+ document.getElementById("fLatitude").value;
+  var longURL = "longitude="+ document.getElementById("fLongitude").value;
+  var termURL = "search="+ document.getElementById("discovery").value;
+  var url = "";
+  if(document.getElementById("discovery").value){
+    url = "/geotags?"+termURL;
+    console.log(url);
+    ajax.open("GET", url, true);
+  }
+  else{
+    url = "/geotags?"+latURL+"&"+longURL;
+    console.log(url);
+    ajax.open("GET", url, true);
+  }
+  ajax.send();
+});
+
+var generateList = function(tags){
+  document.getElementById("results").innerHTML ="";
+  tags.forEach(function(tag){
+        document.getElementById("results").innerHTML += "<li>" + tag.name+" ("+tag.latitude+", "+tag.longitude+") "+tag.hashtag +"</li>";
+      });
+  gtaLocator.updateLocation(tags);
+};
+
+
 /**
  * GeoTagApp Locator Modul
  */
@@ -119,10 +181,11 @@ var gtaLocator = (function GtaLocator(geoLocationApi) {
 
         readme: "Dieses Objekt enthält 'öffentliche' Teile des Moduls.",
 
-        updateLocation: function() {
+
+        updateLocation: function(tags) {
 
           var img = document.getElementById('result-img');
-          var taglist = JSON.parse(img.getAttribute('data-tags'));
+
           var zoom = 12;
 
           var onsuccess = function(position){
@@ -133,12 +196,14 @@ var gtaLocator = (function GtaLocator(geoLocationApi) {
             document.getElementById('tLongitude').setAttribute("value", longitude);
             document.getElementById('fLatitude').setAttribute("value", latitude);
             document.getElementById('fLongitude').setAttribute("value", longitude);
-            img.src = getLocationMapSrc(latitude, longitude, taglist, zoom);
-          }
+
+            img.src = getLocationMapSrc(latitude, longitude, tags, zoom);
+          };
 
           var onerror = function(msg){
-          alert('msg');
-          }
+          alert(msg);
+        };
+
 
           if(document.getElementById('tLatitude').value === "" || document.getElementById('tLongitude').value === ""){
             console.log("locating user...");
@@ -148,7 +213,9 @@ var gtaLocator = (function GtaLocator(geoLocationApi) {
             console.log("using existing data");
             var latitude = document.getElementById('tLatitude').value;
             var longitude = document.getElementById('tLongitude').value;
-            img.src = getLocationMapSrc(latitude, longitude, taglist, zoom);
+
+            img.src = getLocationMapSrc(latitude, longitude, tags, zoom);
+
           }
 
         }
