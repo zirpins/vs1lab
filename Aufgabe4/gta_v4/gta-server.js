@@ -23,7 +23,7 @@ app = express();
 // }));
 
 app.use(bodyParser.json());
-=======
+
 
 
 // Setze ejs als View Engine
@@ -324,7 +324,7 @@ app.delete('/geotags/:id', function(req, res){
   geoTagModule.deleteGeoTagById(req.params.id);
   res.status(200).send();
 });
-=======
+
 
 /**
  * Setze Port und speichere in Express.
