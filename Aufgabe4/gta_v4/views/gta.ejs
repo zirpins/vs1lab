@@ -70,14 +70,32 @@
 				<!-- ############### Aufgabe1a Form2 Ende -->
 
 				<div class="elements col-12">
-				<div class="taglist col-5">
-					<ul id="results">
-						<% if (taglist !== undefined) taglist.forEach(function(gtag) { %>
-							<li><%= gtag.name %> ( <%= gtag.latitude %>,<%= gtag.longitude %>) <%= gtag.hashtag %> </li>
-						<% }); %>
-					</ul>
-				</div>
+					<div class="paginatedList" id="paginatedList">
+						<div class="taglist col-5">
+							<ul id="results">
+								<li id="0"></li>
+								<li id="1"></li>
+								<li id="2"></li>
+								<!--<li id="3"></li>
+								<li id="4"></li>
 
+								<li id="5"></li>
+								<li id="6"></li>
+								<li id="7"></li>
+								<li id="8"></li>
+								<li id="9"></li> -->
+							</ul>
+						</div>
+						<div class="pagenumbers" id="pagination">
+							<input type="button" id="previousButton" value="Prev" disabled>
+							<input type="button" id="minustwo" value ="" disabled>
+							<input type="button" id="minusone" value ="" disabled>
+							<input type="button" id="currentButton" value ="1" >
+							<input type="button" id="plusone" value ="" >
+							<input type="button" id="plustwo" value ="" >
+							<input type="button" id="nextButton" value="Next" >
+						</div>
+					</div>
 				<div class="tagmap col-7">
 					<img id="result-img" src="./images/mapview.jpg" alt="a map with locations" data-tags="<%= maptaglist%>"/>
 					<div class="caption">Result map</div>

@@ -124,6 +124,22 @@ var geoTagModule = (function() {
       return geoTags;
     },
 
+    getTenItems:function(page, rows){
+        var res = [];
+        var start = rows * (page-1);
+        var end = start  + rows + rows;
+        var j;
+        for(j = start; j < end; j++){
+            if(geoTags[j] !== null) {
+                res.push(geoTags[j]);
+            }
+            else{
+                j = end;
+            }
+        }
+        return res;
+    },
+
     editTag: function(id, tag){
     geoTags.forEach(element => {
         if(element.id == id){
@@ -146,7 +162,7 @@ var geoTagModule = (function() {
         }
       });
     }
-  }
+  };
 })();
 
 
@@ -222,7 +238,7 @@ app.post('/discovery', function(req, res){
 
       if(searchterm){
         tags = geoTagModule.searchForTerm(searchterm);
-        if(tags.length > 0){ //Zentriere auf ersten Treffer
+        if(tags.length > 0){ //Zentriere auf erten Treffer
               lat = tags[0].latitude;
               long = tags[0].longitude;
             }
@@ -241,11 +257,9 @@ app.post('/discovery', function(req, res){
       });
 });
 
-
-
 //Route to get geotags by Searchterm, by radius or all
 app.get('/geotags', function(req, res){
-  if(req.query.latitude && req.query.longitude){
+ if(req.query.latitude && req.query.longitude){
     var radius = 20;
     if(req.query.radius && req.query.radius > 0){
       radius = req.query.radius;
@@ -257,8 +271,12 @@ app.get('/geotags', function(req, res){
     res.status(400).send("request must provide 'latitude' & 'longitude' (&optional 'radius') parameter");
   }
   else if(req.query.search){
-    res.json(geoTagModule.searchForTerm(req.query.search));
+        res.json(geoTagModule.searchForTerm(req.query.search));
     return;
+  }
+  else if(req.query.currentpage && req.query.rows){
+      res.json(geoTagModule.getTenItems(req.query.currentpage, req.query.rows));
+      return;
   }
   else{
     res.json(geoTagModule.get());
@@ -279,16 +297,14 @@ app.post('/geotags', function(req, res){
 
 //Route to get a specific container-ressource
 app.get('/geotags/:id',function(req, res){
-    var exists = false;
     geoTagModule.get().forEach(element => {
       if(element.id == req.params.id){
-        exists = true;
         res.json(element);
+        return;
       }
     });
-    if(!exists){
+    //if not found then:
       res.status(404).send("tag id" + req.params.id + "not found");
-    }
 });
 
 app.put('/geotags/:id', function(req, res){

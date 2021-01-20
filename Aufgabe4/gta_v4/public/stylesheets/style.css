@@ -73,8 +73,10 @@ header, footer {
 
 .taglist li{
   width: 300px;
+  height: 30px;
   padding: 5px;
   margin: 10px;
+  border-radius: 5px;
   background-color: #e084ae;
   color: white;
   list-style-type: none;
@@ -96,4 +98,49 @@ header, footer {
   .elements {
     flex-direction: column;
   }
+}
+
+.paginatedList{
+  display: flex;
+  flex-direction: column;
+}
+
+.pagenumbers{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.pagenumbers input{
+  height: 30px;
+
+  appearance: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 5px;
+
+  background-color: #44AAEE;
+
+  margin: 5px;
+  transition: 0.4s;
+
+  color: #FFF;
+  font-size: 18px;
+  text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
+}
+
+.pagenumbers input:hover{
+  background-color: #44EEAA;
+}
+
+.pagenumbers input.active{
+  background-color: #44EEAA;
+  box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.2);
+}
+
+.pagenumbers input:disabled{
+  background-color: #adadad;
 }
