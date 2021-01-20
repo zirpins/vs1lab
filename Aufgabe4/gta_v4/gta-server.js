@@ -16,12 +16,16 @@ var express = require('express');
 
 var app;
 app = express();
+
 app.use(logger('dev'));
+
 // app.use(bodyParser.urlencoded({
 //     extended: false
 // }));
 
 app.use(bodyParser.json());
+
+
 
 // Setze ejs als View Engine
 app.set('view engine', 'ejs');
@@ -41,12 +45,16 @@ app.use(express.static(__dirname + "/public"));
  */
 
 // TODO: CODE ERGÄNZEN
+
 function GeoTag(latitude, longitude, name, hashtag, id){
+
   this.name = name;
   this.latitude = latitude;
   this.longitude = longitude;
   this.hashtag = hashtag;
+
   this.id = id;
+
 };
 /*
 Alternative:
@@ -65,6 +73,7 @@ class GeoTag{
  * - Funktion zum hinzufügen eines Geo Tags.
  * - Funktion zum Löschen eines Geo Tags.
  */
+
 var idCounter = 0;
 // TODO: CODE ERGÄNZEN
 var geoTagModule = (function() {
@@ -73,6 +82,7 @@ var geoTagModule = (function() {
 
   return{
   //public
+
     searchInRadius: function(radius, longitude, latitude){
       var res = [];
       geoTags.forEach(function(geoTag){
@@ -86,9 +96,11 @@ var geoTagModule = (function() {
       return res;
     },
 
+
     searchForTerm:function(term){
       var res = [];
       geoTags.forEach(function(geoTag){
+
         if(geoTag.name.toLowerCase().includes(term.toLowerCase())
           || geoTag.hashtag.toLowerCase().includes(term.toLowerCase())){
           res.push(geoTag);
@@ -97,10 +109,12 @@ var geoTagModule = (function() {
       return res;
     },
 
+
     addGeoTag:function(tag){
       tag.id = idCounter++;
       geoTags.push(tag);
       return tag.id;
+
     },
 
     deleteGeoTag:function(tag){
@@ -162,7 +176,9 @@ var geoTagModule = (function() {
         }
       });
     }
+
   };
+
 })();
 
 
@@ -204,7 +220,9 @@ app.get('/', function(req, res) {
 app.post('/tagging', function(req, res){
     var lat = req.body.tLatitude;
     var long = req.body.tLongitude;
+
     geoTagModule.addGeoTag(new GeoTag(lat, long, req.body.tName, req.body.hashtag));
+
     var tags = geoTagModule.searchInRadius(20, long, lat);
 
     res.render('gta', {
@@ -233,6 +251,7 @@ app.post('/tagging', function(req, res){
 app.post('/discovery', function(req, res){
       var lat = req.body.fLatitude;
       var long = req.body.fLongitude;
+
       var searchterm = req.body.discovery;
       var tags = [];
 
@@ -245,6 +264,7 @@ app.post('/discovery', function(req, res){
       }
       else{
         tags = geoTagModule.searchInRadius(20, long, lat);
+
       }
 
       res.render('gta', {
@@ -321,6 +341,8 @@ app.delete('/geotags/:id', function(req, res){
   geoTagModule.deleteGeoTagById(req.params.id);
   res.status(200).send();
 });
+
+
 /**
  * Setze Port und speichere in Express.
  */
