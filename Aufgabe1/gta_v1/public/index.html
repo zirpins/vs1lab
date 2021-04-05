@@ -25,18 +25,33 @@
 			<section class="tagging">
 				<h2>Tagging</h2>
 
-				<!-- ############### Aufgabe1a Form1 Start -->
-				<form id="tag-form" action="/tagging" method="post"></form>
-				<!-- ############### Aufgabe1a Form1 Ende -->
+				<form id="tag-form" action="/tagging" method="post">
+					<fieldset>
+						<legend>Enter new Geotag</legend>
+						<label for="latitude">latitude</label>
+							<input type="number" step="any" id="latitude" name="latitude" placeholder="latitude" required>
+						<label for="longitude">longitude</label>
+							<input type="number" step="any" id="longitude" name="longitude" placeholder="longitude" required>
+						<label for="name">name</label>
+							<input type="text" id="name" name="name" placeholder="some name" maxlength="10" required>
+						<label for="hashtag">hashtag</label>
+							<input type="text" id="hashtag" name="hashtag" maxlength="11" pattern="#\w+" placeholder="# + max. 10 letters">
+						<input type="submit" id="submitNewGeotag" name="submitNewGeotag" value="submit">
+					</fieldset>
+				</form>
 
 			</section>
 
 			<section class="discovery">
 				<h2>Discovery</h2>
 
-				<!-- ############### Aufgabe1a Form2 Start -->
-				<form id="filter-form" action="/discovery" method="post"></form>
-				<!-- ############### Aufgabe1a Form2 Ende -->
+				<form id="filter-form" action="/discovery" method="post">
+					<fieldset>
+						<legend>Discovery</legend>
+						<input type="text" id="textDiscovery" name="textDiscovery" placeholder="search term" required>
+						<input type="submit" id="submitDiscovery" name="submitDiscovery" value="apply">
+					</fieldset>
+				</form>
 
 				<div class="taglist">
 					<ul id="results">
