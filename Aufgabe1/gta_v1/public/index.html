@@ -27,10 +27,10 @@
 
 				<!-- ############### Aufgabe1a Form1 Start -->
 				<form id="tag-form" action="/tagging" method="post">
-					Latitude:		<input type="text" name="text_field_latitude" placeholder="49.01379" pattern="[0-9]+([.][0-9]+)?" required>
-					Longitude:		<input type="text" name="text_field_longitude" placeholder="49.01379" pattern="[0-9]+([.][0-9]+)?" required>
-					Name:			<input type="text" name="text_field_name" placeholder="Castle" pattern="\w" maxlength="10" required>
-					Hashtag:		<input type="text" name="text_field_hashtag" placeholder="#hashtag" pattern="#\S+">
+					Latitude:		<input type="text" id="tag_latitude" placeholder="49.01379" pattern="[0-9]+([.][0-9]+)?" required>
+					Longitude:		<input type="text" id="tag_longitude" placeholder="49.01379" pattern="[0-9]+([.][0-9]+)?" required>
+					Name:			<input type="text" id="tag_name" placeholder="Castle" pattern=".+" maxlength="10" required>
+					Hashtag:		<input type="text" id="tag_hashtag" placeholder="#hashtag" pattern="#\S+">
 					<input type="submit" value="Submit!">
 				</form>
 				<!-- ############### Aufgabe1a Form1 Ende -->
@@ -41,7 +41,12 @@
 				<h2>Discovery</h2>
 
 				<!-- ############### Aufgabe1a Form2 Start -->
-				<form id="filter-form" action="/discovery" method="post"></form>
+				<form id="filter-form" action="/discovery" method="post">
+					Search:		<input type="search" id="filter_search" placeholder="IWI" pattern=".+">
+								<input type="text" id="filter_latitude" pattern="[0-9]+([.][0-9]+)?" hidden>
+								<input type="text" id="filter_longitude" pattern="[0-9]+([.][0-9]+)?" hidden>
+					<input type="submit" value="GO!">
+				</form>
 				<!-- ############### Aufgabe1a Form2 Ende -->
 
 				<div class="taglist">
