@@ -27,9 +27,10 @@
 
 				<!-- ############### Aufgabe1a Form1 Start -->
 				<form id="tag-form" action="/tagging" method="post">
-					Latitude:		<input type="text" name="text_field_latitude" placeholder="49.01379" pattern="[0-9]+(.[0-9]+)?" required>
-					Longitude:		<input type="text" name="text_field_longitude" placeholder="49.01379" pattern="[0-9]+(.[0-9]+)?" required>
-					Name:			<input type="text" name="text_fiel_name" placeholder="Castle" pattern="\w" maxlength="10" required>
+					Latitude:		<input type="text" name="text_field_latitude" placeholder="49.01379" pattern="[0-9]+([.][0-9]+)?" required>
+					Longitude:		<input type="text" name="text_field_longitude" placeholder="49.01379" pattern="[0-9]+([.][0-9]+)?" required>
+					Name:			<input type="text" name="text_field_name" placeholder="Castle" pattern="\w" maxlength="10" required>
+					Hashtag:		<input type="text" name="text_field_hashtag" placeholder="#hashtag" pattern="#\S+">
 					<input type="submit" value="Submit!">
 				</form>
 				<!-- ############### Aufgabe1a Form1 Ende -->
