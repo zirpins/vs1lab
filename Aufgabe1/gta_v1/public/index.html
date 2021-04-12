@@ -26,23 +26,24 @@
 				<h2>Tagging</h2>
 
 				<!-- ############### Aufgabe1a Form1 Start -->
-				<form id="tag-form" action="/tagging" method="post"></form>
-				<fieldset>
-					<legend>
-						Enter new GeoTag
-					</legend>
-					<label for="latitude"> Latitude </label>   
-						<input type="text" name="latitude" id="latitude" required="required" placeholder="49.00689">
-					<label for="longitude"> Longitude </label>
-						<input type="text" name="longitude" id="longitude" required="required" placeholder="8.403652">
-					<label for="name"> Name </label>      
-						<input type="text" name="name" id="name" maxlength=10 required="required" placeholder="Karlsruhe">
-					<label for="hashtag"> Hashtag </label>    
-						<input type="text" name="hashtag" id="hashtag" pattern="#\[w]{0-10}" placeholder="#city">
+				<form id="tag-form" action="/tagging" method="post">
+					<fieldset id="fieldset_tagging">
+						<legend>
+							Enter new GeoTag
+						</legend>
+						<label for="latitude" id=latitude_label> Latitude </label>   
+							<input type="text" name="latitude" id="latitude" required="required" placeholder="49.00689">
+						<label for="longitude" id=longitude_label> Longitude </label>
+							<input type="text" name="longitude" id="longitude" required="required" placeholder="8.403652">
+						<label for="name"> Name </label>      
+							<input type="text" name="name" id="name" maxlength=10 required="required" placeholder="Karlsruhe">
+						<label for="hashtag"> Hashtag </label>    
+							<input type="text" name="hashtag" id="hashtag" pattern="#\[w]{0-10}" placeholder="#city">
 
 
-					<input type="submit" value="submit">
-				</fieldset>
+						<input type="submit" value="submit">
+					</fieldset>
+				</form>
 				<!-- ############### Aufgabe1a Form1 Ende -->
 
 			</section>
@@ -51,15 +52,16 @@
 				<h2>Discovery</h2>
 
 				<!-- ############### Aufgabe1a Form2 Start -->
-				<form id="filter-form" action="/discovery" method="post"></form>
-				<fieldset>
-					<legend>
-						Filter by SearchTerm
-					</legend>  
-					<input type="text" name="search" id="search" placeholder="search term">
+				<form id="filter-form" action="/discovery" method="post">
+					<fieldset id="fieldset_discovery">
+						<legend>
+							Filter by SearchTerm
+						</legend>  
+						<input type="text" name="search" id="search" placeholder="search term">
 
-					<input type="submit" value="apply">
-				</fieldset>
+						<input type="submit" value="apply">
+					</fieldset>
+				</form>
 				<!-- ############### Aufgabe1a Form2 Ende -->
 
 				<div class="taglist">

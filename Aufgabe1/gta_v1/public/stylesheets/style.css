@@ -4,5 +4,52 @@ body {
 }
 
 a {
-  color: #00B7FF;
+  color: #0004ff;
 }
+
+* {
+  box-sizing: border-box;
+}
+
+main {
+  display: flex;
+}
+
+.tagging {
+  display: flex;
+  flex-direction: column;
+}
+
+.discovery {
+  display: flex;
+}
+
+.tagmap {
+  display: flex;
+}
+
+#fieldset_tagging {
+  display:flex;
+  flex-direction: column;
+}
+
+#fieldset_discovery {
+  display: flex;
+}
+
+.taglist li {
+  padding: 8px;
+  margin-bottom: 7px;
+  background-color: #33b5e5;
+  color: #ffffff;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.taglist li:hover {
+  background-color: #0099cc;
+}
+
+header, footer {
+  background-color:powderblue;
+}
+
