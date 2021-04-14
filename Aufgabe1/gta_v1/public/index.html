@@ -29,13 +29,13 @@
 					<fieldset form="tag-form">
 						<legend>Enter new GeoTag</legend>
 						<label for="latitude">latitude</label><br>
-						<input type="number" value="49.01379" id="latitude" step="0.000001"><br><br>
+						<input type="number" value="49.01379" id="latitude" step="0.000001" required><br><br>
 
 						<label for="longitude">longitude</label><br>
-						<input type="number" value="8.390071" id="longitude" step="0.000001"><br><br>
+						<input type="number" value="8.390071" id="longitude" step="0.000001" required><br><br>
 
 						<label for="name">name</label><br>
-						<input type="text" placeholder="some name" id="name"><br><br>
+						<input type="text" placeholder="some name" id="name" required><br><br>
 
 						<label for="hashtag">hashtag</label><br>
 						<input type="text" pattern="^#[A-z]{1,10}" placeholder = "# + max. 10 letters" id="hashtag" title="Must start with # followed by 1-10 letters!"><br><br>
@@ -51,7 +51,7 @@
 
 				<form id="filter-form" action="/discovery" method="post">
 
-					<input type="text" pattern="[A-z]{1,}" placeholder="search term" id="searchTerm">
+					<input type="text" placeholder="search term" id="searchTerm">
 					<input type="submit" value="apply">
 
 				</form>
