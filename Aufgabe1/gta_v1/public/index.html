@@ -26,8 +26,19 @@
 				<h2>Tagging</h2>
 
 				<form id="tag-form" action="/tagging" method="post">
-					<label for="latitude">latitude</label>
-					<input type="number"  id="latitude" step="0.000001">
+					<label for="latitude">latitude</label><br>
+					<input type="number" value="49.01379" id="latitude" step="0.000001"><br><br>
+
+					<label for="longitude">longitude</label><br>
+					<input type="number" value="8.390071" id="longitude" step="0.000001"><br><br>
+
+					<label for="name">name</label><br>
+					<input type="text" placeholder="some name" id="name"><br><br>
+
+					<label for="hashtag">hashtag</label><br>
+					<input type="text" pattern="^#[A-z]{1,10}" placeholder = "# + max. 10 letters" id="hashtag" title="Must start with # followed by 1-10 letters!"><br><br>
+
+					<input type="submit" value="submit">
 				</form>
 
 			</section>
