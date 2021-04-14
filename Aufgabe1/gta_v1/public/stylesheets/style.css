@@ -4,13 +4,86 @@ body {
 }
 
 a {
-  color: #00B7FF;
+  color: white;
+  font-weight: bold;
 }
-
+main {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
 header {
-  background: #122b40;
+  background: darkgrey;
+  padding: 10px;
 }
 
 h1 {
   color: #FFFFFF;
+}
+
+footer {
+  background: grey;
+  color: #FFFFFF;
+  padding: 10px;
+  font-weight: bold;
+}
+
+nav {
+  color: white;
+}
+
+label {
+  display: block;
+  padding: 5px;
+}
+
+input{
+  padding: 5px;
+}
+
+#tag_submit {
+  display: block;
+  margin-top: 10px;
+}
+
+#filter-form {
+  margin-bottom: 5px;
+}
+
+#results {
+  list-style-type: none;
+  padding: 0;
+}
+
+#results li {
+  display: block;
+  background: #00B7FF;
+  color: white;
+  font-weight: bold;
+  font-size: 14pt;
+  padding: 5px;
+  margin-bottom: 5px;
+}
+
+.tagging {
+  width: 15%;
+}
+
+.discovery {
+  width: 80%;
+}
+
+.discovery_listmap {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.taglist {
+  width: 48%;
+}
+
+.tagmap {
+  width: 48%;
 }
