@@ -1,3 +1,10 @@
+@media only screen and (max-width: 900px) {
+  /* For mobile phones: */
+  .row {
+    width: 100% !important;
+  }
+}
+
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
@@ -5,6 +12,18 @@ body {
 
 a {
   color: #00B7FF;
+}
+
+.submit-button {
+  border: 1px solid #AAA8A8;
+  padding: 0.5rem;
+  background-color: rgb(0,0,0);
+  background: linear-gradient(180deg, rgba(230,230,230,1) 0%,rgba(240,240,240,1) 50%);
+}
+
+input {
+  padding: 0.3rem;
+  border: #CCCCCC solid 1px;
 }
 
 /* Header */
@@ -34,15 +53,18 @@ header h1 {
 
 main {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .tagging {
-  flex-grow: 1;
+  box-sizing: border-box;
+  width: 20%;
 }
 
 .discovery {
-  flex-grow: 4;
-  margin-left: 2rem;
+  width: 75%;
+  box-sizing: border-box;
 }
 
 /* Tagging */
@@ -52,8 +74,14 @@ main {
   flex-direction: column;
 }
 
-.tagging fieldset form input{
+.tagging fieldset form input {
   margin: 0.5rem;
+}
+
+.text-input {
+  width: 88%;
+}
+#submitGeoTag {
   width: min-content;
 }
 
@@ -66,15 +94,16 @@ main {
 .discovery-bottom {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
   margin: 1rem;
 }
 
 .tagmap {
-  flex-grow: 2;
+  width: 68%;
 }
 
 .taglist {
-  flex-grow: 1;
+  width: 30%;
 }
 
 .tagmap img {
@@ -88,7 +117,7 @@ main {
 .taglist ul li {
   list-style-type: none;
   padding: 0.5rem;
-  margin: 0.5rem 2rem 0.5rem 0;
+  margin: 0.5rem;
   background-color: rgb(83, 194, 238);
 }
 

@@ -23,29 +23,29 @@
 
 <main>
 
-    <section class="tagging">
+    <section class="tagging row">
         <h2>Tagging</h2>
-
-        <!-- ############### Aufgabe1a Form1 Start -->
-        <form id="tag-form" action="/tagging" method="post">
-            <fieldset>
-                <legend>Enter new GeoTag</legend>
+        <fieldset>
+            <legend>Enter new GeoTag</legend>
+            <!-- ############### Aufgabe1a Form1 Start -->
+            <form id="tag-form" action="/tagging" method="post">
                 <label for="lat">latitude</label>
-                <input required id="lat" type="text" pattern="^(-?\d+(\.\d+)?)$"><br>
+                <input class="text-input" required id="lat" type="text" pattern="^(-?\d+(\.\d+)?)$">
                 <label for="long">longitude</label>
-                <input required id="long" type="text" pattern="^(-?\d+(\.\d+)?)$">
+                <input class="text-input" required id="long" type="text" pattern="^(-?\d+(\.\d+)?)$">
                 <label for="name">Name</label>
-                <input required id="name" type="text" pattern="[A-Z][a-z]{9}" placeholder="HsKa Tag1">
+                <input class="text-input" required id="name" type="text" pattern="[A-Z][a-z]{9}" placeholder="HsKa Tag1">
                 <label for="tag">Hashtag</label>
-                <input id="tag" type="text" pattern="\#.{,10}" placeholder="#XXX">
-                <input id="submitGeoTag" type="submit" value="submit">
-            </fieldset>
-        </form>
+                <input class="text-input" id="tag" type="text" pattern="\#.{,10}" placeholder="#XXX">
+                <input id="submitGeoTag" class="submit-button" type="submit" value="submit">
+            </form>
+        </fieldset>
+
         <!-- ############### Aufgabe1a Form1 Ende -->
 
     </section>
 
-    <section class="discovery">
+    <section class="discovery row">
         <h2>Discovery</h2>
 
         <!-- ############### Aufgabe1a Form2 Start -->
@@ -53,21 +53,21 @@
             <fieldset>
                 <legend>Filter by Searchterm</legend>
                 <input id="searchterm" type="text" placeholder="search term">
-                <input id="submitSearchTerm" type="submit" value="apply">
+                <input id="submitSearchTerm" class="submit-button" type="submit" value="apply">
             </fieldset>
         </form>
         <!-- ############### Aufgabe1a Form2 Ende -->
 
         <section class="discovery-bottom">
 
-            <div class="taglist">
+            <div class="taglist row">
                 <ul id="results">
                     <li>Castle (49.01379, 8.404435) #sight</li>
                     <li>IWI (49.01379, 8.390071) #edu</li>
                 </ul>
             </div>
 
-            <div class="tagmap">
+            <div class="tagmap row">
                 <img id="result-img" src="./images/mapview.jpg" alt="a map with locations"/>
                 <div class="caption">Result map</div>
             </div>
