@@ -8,8 +8,9 @@
 		<link rel='stylesheet' href='./stylesheets/style.css'/>
 	</head>
 
-	<body>
 
+	
+	<body>
 		<header>
 			<img src="./images/location.png" width="100"
 					alt="an image of a map and location">
@@ -19,41 +20,45 @@
 					href="/">Home</a>
 			</nav>
 		</header>
-
 		<main>
-
 			<section class="tagging">
 				<h2>Tagging</h2>
-
-				<!-- ############### Aufgabe1a Form1 Start -->
-				<form id="tag-form" action="/tagging" method="post"></form>
-				<!-- ############### Aufgabe1a Form1 Ende -->
-
+				<form id="tag-form" action="/tagging" method="post">
+					<fieldset id="tag-fieldset">
+						<legend>Enter new GeoTag</legend>
+						<label for="latitude">latitude</label><br/>
+						<input type="text" id="latitude" name="latitude" placeholder="49.00689" required><br/>
+						<label for="longitude">longitude</label><br/>
+						<input type="text" id="longitude" name="longtiude" placeholder="8.403652" required><br/>
+						<label for="name">name</label><br/>
+						<input type="text" id="name" name="name" placeholder="Karlsruhe" maxlength=10 required><br/>
+						<label for="hashtag">hastag</label><br/>
+						<input type="text" id="hastag" name="hashtag" pattern="#\[w]{0-10}" placeholder="#city" ><br/>
+						<input type="submit" value="submit">
+					</fieldset>
+				</form>
 			</section>
-
 			<section class="discovery">
 				<h2>Discovery</h2>
-
-				<!-- ############### Aufgabe1a Form2 Start -->
-				<form id="filter-form" action="/discovery" method="post"></form>
-				<!-- ############### Aufgabe1a Form2 Ende -->
-
+				<form id="filter-form" action="/discovery" method="post">
+					<fieldset id="filter-fieldset">
+						<legend>Filter by Searchterm</legend>
+						<input type="text" id="search" name="search" placeholder="search term" required><br/>
+						<input type="submit" value="apply">
+					</fieldset>
+				</form>
 				<div class="taglist">
 					<ul id="results">
 						<li>Castle (49.01379, 8.404435) #sight</li>
 						<li>IWI (49.01379, 8.390071) #edu</li>
 					</ul>
 				</div>
-
 				<div class="tagmap">
 					<img id="result-img" src="./images/mapview.jpg" alt="a map with locations"/>
 					<div class="caption">Result map</div>
 				</div>
-
 			</section>
-
 		</main>
-
 		<footer>
 			<span>2017 by LKIT</span>
 		</footer>
