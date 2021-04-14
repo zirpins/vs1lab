@@ -35,7 +35,7 @@ main {
   display: inline-flex;
   flex-direction: column;
   padding-left: 10%;
-  width: 50%;
+  width: 60%;
 }
 
 #tag-fieldset {
@@ -96,4 +96,20 @@ input[type=submit]:hover {
 .taglist li:hover {
   background-color:#45a049;
 }
+
+
+@media (max-device-width: 850px) {
+
+  #tags {
+    width: 100%;
+    display: inline-flex;
+    flex-direction: column;
+  }
+
+  .tagmap {
+    width: 100%;
+  }
+  
+}
+
 
