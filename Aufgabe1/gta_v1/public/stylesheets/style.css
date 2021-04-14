@@ -2,7 +2,104 @@ body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
-
+h1{
+ color: white;
+}
+Header{
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: grey;
+}
+[id^='head_']{
+  margin-left: 10px;
+}
+Footer{
+  padding: 10px;
+  color:white;
+  background-color: grey;
+}
 a {
   color: #00B7FF;
+}
+label{
+  padding-top:0.5em;
+  font-size:16px;
+}
+input[type=number]{
+  -moz-appearance: textfield;
+}
+fieldset{
+  border-color: black;
+}
+
+.container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.discovery{
+  display: flex;
+  flex-direction: column;
+  width: 63vw;
+}
+.indiscovery{
+  margin-top: 1vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.taglist{
+}
+
+.tagmap{
+
+}
+.tagging{
+  width:25vw;
+}
+input{
+
+}
+
+[id^='tag_']{
+  display:block;
+  margin-bottom:0.5em;
+}
+ul li{
+  color: white;
+  background-color: deepskyblue;
+  margin-bottom: 1vh;
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+  padding-right: 2vw;
+  padding-left: 1vw;
+
+}
+@media only screen and (max-width: 768px){
+  .container{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .tagging{
+    width: 500px;
+  }
+  .discovery{
+    width: 500px;
+  }
+  .indiscovery{
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+@media only screen and (max-width: 600px){
+  .tagging{
+    width: 400px;
+  }
+  .discovery{
+    width: 400px;
+  }
+
 }

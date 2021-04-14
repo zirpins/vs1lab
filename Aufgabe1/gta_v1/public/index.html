@@ -8,19 +8,19 @@
 		<link rel='stylesheet' href='./stylesheets/style.css'/>
 	</head>
 
-	<body>
+	<body class>
 
 		<header>
 			<img src="./images/location.png" width="100"
-					alt="an image of a map and location">
-			<h1>GeoTagApp</h1>
-			<nav>
+					alt="an image of a map and location" id="head_img">
+			<h1 id="head_title">GeoTagApp</h1>
+			<nav id="head_nav">
 				<a href="#">About</a> | <a href="#">Help</a> | <a
 					href="/">Home</a>
 			</nav>
 		</header>
 
-		<main>
+		<main class="container">
 
 			<section class="tagging">
 				<h2>Tagging</h2>
@@ -29,14 +29,14 @@
 				<form id="tag-form" action="/tagging" method="post">
 					<fieldset>
 					<legend>Enter new GeoTag</legend>
-					<label for = "latitute">latitude</label>
-					<input type="number" step="any" id="latitute" name="latitude" size="10" placeholder="4,56"  required>
-					<label for = "longitude">longitude</label>
-					<input type="number" step="any" id="longitude" name="longitude" size="10" placeholder="4,56" required>
-					<label for = "name">name</label>
-					<input type="text"  id="name" name="name" size="10" placeholder="some name" maxlength="10" required>
-					<label for = "hashtag">hashtag</label>
-					<input type="text" id="hashtag" name="hashtag" size="10" pattern="[#]{1}[A-Za-z]{1,10}" placeholder="# + max. 10 letters" required>
+					<label for = "tag_lat">latitude</label>
+					<input type="number" step="any" id="tag_lat" name="latitude" size="10" placeholder="4,56"  required>
+					<label for = "tag_long">longitude</label>
+					<input type="number" step="any" id="tag_long" name="longitude" size="10" placeholder="4,56" required>
+					<label for = "tag_name">name</label>
+					<input type="text"  id="tag_name" name="name" size="10" placeholder="some name" maxlength="10" required>
+					<label for = "tag_hashtag">hashtag</label>
+					<input type="text" id="tag_hashtag" name="hashtag" size="10" pattern="[#]{1}[A-Za-z]{1,10}" placeholder="# + max. 10 letters" required>
 					<input type="submit" id="submit" value="Submit">
 					</fieldset>
 				</form>
@@ -48,7 +48,7 @@
 				<h2>Discovery</h2>
 
 				<!-- ############### Aufgabe1a Form2 Start -->
-				<form id="filter-form" action="/discovery" method="post">
+				<form id="filter-form" action="/discovery" method="post" >
 					<fieldset>
 						<legend>Filter by Searchterm</legend>
 						<label for = "searchterm"></label>
@@ -56,8 +56,9 @@
 						<input type="submit" id="apply" value="Apply">
 					</fieldset>
 				</form>
-				<!-- ############### Aufgabe1a Form2 Ende -->
 
+				<!-- ############### Aufgabe1a Form2 Ende -->
+		<section class = "indiscovery">
 				<div class="taglist">
 					<ul id="results">
 						<li>Castle (49.01379, 8.404435) #sight</li>
@@ -69,7 +70,7 @@
 					<img id="result-img" src="./images/mapview.jpg" alt="a map with locations"/>
 					<div class="caption">Result map</div>
 				</div>
-
+			</section>
 			</section>
 
 		</main>
