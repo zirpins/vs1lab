@@ -3,6 +3,97 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-a {
-  color: #00B7FF;
+header, footer {
+  background-color:#4CAF50;
 }
+
+* {
+  box-sizing: border-box;
+}
+
+main {
+  display: flex;
+}
+
+.tagging {
+  display: flex;
+  flex-direction: column;
+  padding-right: 10%;
+}
+
+.discovery {
+  display: flex;
+  width: 100%;
+}
+
+.caption {
+  padding-bottom: 5%;
+}
+
+.tagmap {
+  padding: 1%;
+  display: inline-flex;
+  flex-direction: column;
+  padding-left: 10%;
+  width: 50%;
+}
+
+#tag-fieldset {
+  display: inline-flex;
+  flex-direction: column;
+  padding-bottom: 10%;
+}
+
+input[type=text] {
+  padding: 12px; 
+  border: 1px solid #ccc; 
+  border-radius: 4px; 
+  margin-top: 6px;
+  margin-bottom: 16px; 
+}
+
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.discovery{
+  display: inline-flex;
+  flex-direction: column;
+}
+
+#tags {
+  display: inline-flex;
+  flex-direction: row;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+#filter-form {
+  width: 100%;
+}
+
+#fieldset_discovery {
+  display: flex;
+}
+
+.taglist li {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  margin-bottom: 10px;
+  background-color: #9a98f3;
+  color: #ffffff;
+  align-items: left;
+  padding-right:10px ;
+}
+
+.taglist li:hover {
+  background-color:#45a049;
+}
+
