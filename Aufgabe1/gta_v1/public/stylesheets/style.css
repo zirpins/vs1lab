@@ -6,3 +6,98 @@ body {
 a {
   color: #00B7FF;
 }
+
+/* Header */
+
+header {
+  background-color: #8E8E8E;
+  padding: 1.5rem;
+}
+
+header nav {
+  display: flex;
+}
+
+header h1 {
+  color: white;
+}
+
+.nav-elem {
+  margin-left: 0.5rem;
+}
+
+.separator {
+  color: white;
+}
+
+/* Main */
+
+main {
+  display: flex;
+}
+
+.tagging {
+  flex-grow: 1;
+}
+
+.discovery {
+  flex-grow: 4;
+  margin-left: 2rem;
+}
+
+/* Tagging */
+
+.tagging fieldset form{
+  display: flex;
+  flex-direction: column;
+}
+
+.tagging fieldset form input{
+  margin: 0.5rem;
+  width: min-content;
+}
+
+/* Discovery */
+
+.discovery fieldset form input {
+  margin: 0.5rem;
+}
+
+.discovery-bottom {
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem;
+}
+
+.tagmap {
+  flex-grow: 2;
+}
+
+.taglist {
+  flex-grow: 1;
+}
+
+.tagmap img {
+  width: 100%;
+}
+
+.taglist ul {
+  padding: 0;
+}
+
+.taglist ul li {
+  list-style-type: none;
+  padding: 0.5rem;
+  margin: 0.5rem 2rem 0.5rem 0;
+  background-color: rgb(83, 194, 238);
+}
+
+/* Footer */
+
+footer {
+  background-color: #8E8E8E;
+  color: white;
+  padding: 1rem;
+  margin: 1rem;
+}
+
