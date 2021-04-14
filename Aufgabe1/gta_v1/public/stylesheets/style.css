@@ -8,5 +8,9 @@ a {
 }
 
 header {
-  background: ivory;
+  background: #122b40;
+}
+
+h1 {
+  color: #FFFFFF;
 }
