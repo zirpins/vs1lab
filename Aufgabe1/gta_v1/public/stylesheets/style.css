@@ -50,18 +50,11 @@ fieldset{
   justify-content: space-between;
   align-items: flex-start;
 }
-.taglist{
-}
 
-.tagmap{
-
-}
 .tagging{
   width:25vw;
 }
-input{
 
-}
 
 [id^='tag_']{
   display:block;
