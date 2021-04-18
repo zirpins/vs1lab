@@ -9,7 +9,6 @@
 	</head>
 
 	<body>
-
 		<header>
 			<img src="./images/location.png" width="100"
 					alt="an image of a map and location">
@@ -20,9 +19,8 @@
 			</nav>
 		</header>
 
-		<main>
-
-			<section class="tagging">
+		<main class="row">
+			<section class="tagging col-3">
 				<h2>Tagging</h2>
 
 				<form id="tag-form" action="/tagging" method="post">
@@ -39,10 +37,9 @@
 						<input type="submit" id="submitNewGeotag" name="submitNewGeotag" value="submit">
 					</fieldset>
 				</form>
-
 			</section>
 
-			<section class="discovery">
+			<section class="discovery col-9">
 				<h2>Discovery</h2>
 
 				<form id="filter-form" action="/discovery" method="post">
@@ -64,10 +61,9 @@
 					<img id="result-img" src="./images/mapview.jpg" alt="a map with locations"/>
 					<div class="caption">Result map</div>
 				</div>
-
 			</section>
-
 		</main>
+
 
 		<footer>
 			<span>2017 by LKIT</span>

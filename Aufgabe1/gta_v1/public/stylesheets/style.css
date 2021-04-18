@@ -1,8 +1,144 @@
+/*
+Von vorher übernommen
+ */
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+
+  display: grid;
+  grid-template-areas:
+          "header"
+          "content"
+          "footer"
 }
 
 a {
   color: #00B7FF;
+}
+
+/*
+Übernommen für das Gridstyling
+ */
+* {
+  box-sizing: border-box;
+}
+
+[class*="col-"] {
+  float: left;
+  padding: 15px;
+}
+
+.col-1 {flex-grow: 1;}
+.col-2 {flex-grow: 2;}
+.col-3 {flex-grow: 3;}
+.col-4 {flex-grow: 4;}
+.col-5 {flex-grow: 5;}
+.col-6 {flex-grow: 6;}
+.col-7 {flex-grow: 7;}
+.col-8 {flex-grow: 8;}
+.col-9 {flex-grow: 9;}
+.col-10 {flex-grow: 10;}
+.col-11 {flex-grow: 11;}
+.col-12 {flex-grow: 12;}
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+
+
+header {
+  grid-area: header;
+  background-color: lightskyblue;
+  padding: 20px;
+}
+
+
+main {
+  grid-area: content;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+input {
+  margin: 4px;
+  padding: 9px 14px;
+  border-style: none;
+  border-radius: 4px;
+  background-color: lightsalmon;
+}
+
+
+
+input[type="submit"] {
+  cursor: pointer;
+  background-color: lightcyan;
+}
+
+input[type="submit"]:hover {
+  background-color: #EFFFFF;
+}
+
+input[type="submit"]:active {
+  background-color: #A0EEEE;
+}
+
+#tag-form input {
+  display: block;
+}
+
+/*
+Gridlayout an dieser Stelle
+ */
+.discovery {
+  display: grid;
+  grid-template-areas:
+          "heading heading"
+          "form form"
+          "taglist tagmap"
+}
+
+/*
+unfunctional for whatever reason
+ */
+@media screen and (max-width: 8000px) {
+  .discovery {
+    grid-template-areas:
+            "heading heading"
+            "form form"
+            "taglist taglist"
+            "tagmap tagmap"
+  }
+}
+
+.discovery h2 {
+  grid-area: heading;
+}
+
+.discovery form {
+  grid-area: form;
+}
+
+#taglist {
+  grid-area: taglist;
+}
+
+li {
+  background-color: lightskyblue;
+  margin: 3px;
+  padding: 5px;
+  list-style-type: none;
+}
+
+#tagmap {
+  grid-area: tagmap;
+}
+
+
+footer {
+  grid-area: footer;
+  background-color: lightskyblue;
+  padding: 8px;
 }
