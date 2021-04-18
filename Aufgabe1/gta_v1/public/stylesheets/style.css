@@ -1,12 +1,75 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  min-width: 425px;
 }
 
 a {
-  color: #00B7FF;
+  color: #00B7FF; /*blaue Schriftfarbe für Links in der Navigationszeile*/
 }
 
-.tagging form {
-  
+footer, header {
+  background-color: grey; /*grauer Hintergrund für Header und Footer Bereich*/
+  color: white; /*weiße Schriftfarbe für Header und Footer Bereich*/
+  padding: 10px;  /*Abstand zum Innenrand auf 10px gesetzt*/
 }
+
+.tagging input {
+  display: block; /*Inputs im tagging Bereich untereinander anordnen*/
+}
+
+.input-box {
+  width: 150px; /*Größere Inputboxen*/
+}
+
+main {
+  display: flex;  /*main Bereich = flex */
+  flex-direction:row;   /*Anordnung in der Flexbox = row (horizontal)*/
+}
+
+@media only screen and (max-width: 704px) {
+  main {flex-direction:column};   /*Für Bildschirme mit Bildschirmbreite < 704px werden 
+  die Elemente in der Flexbox (tagging, discovery) untereinander angeordnet*/
+}
+
+.tagging {
+  flex-grow: 1;   /*dynamische Größe des tagging Bereichs = 1*/
+}
+
+.discovery {
+  flex-grow: 4;   /*dynamische Größe des discovery Bereichs = 4*/
+  margin-left: 30px;    /* Abstand zum linken Element (=tagging) wird auf 30 px gesetzt*/
+}
+
+.list-map-box {
+  display: flex;  /*Bereich für Eintragliste und Karte wird zu flex Bereich erklärt */
+}
+
+.list-map-box .taglist {
+  flex-grow: 1; /* dynamischer Breite der Eintragsliste = 1*/
+  min-width: 150px;
+}
+
+.list-map-box .tagmap {
+  flex-grow: 2; /* dynamischer Breite der Karte = 2*/
+  margin-left: 25px;  /*Außenabstand nach links zur Eintragsliste = 25px */
+  min-width: 200px;
+}
+
+.tagmap img {
+  width: 80%; /*dynmaische Größe der Karte auf 80% des verfügbaren platzes gesetzt*/
+  margin-top: 15px; /*Außenabstand der Karte nach oben auf 15px gesetzt.*/
+}
+
+.taglist li {
+  background-color: #00B7FF; /*Discovery Ergebnisliste bekommt blaue Boxen*/
+  color: white; /*weiße Schriftfarbe für Ergebnisliste*/
+  padding: 5px; /*Innenabstand der Einträge zu den Rändern auf 5px gesetzt*/
+  margin-bottom: 7px; /*Außenabstand zwischen 2 Einträgen auf 7px gesetzt*/
+}
+
+ul {
+  list-style: none; /* Entfernung der Aufzählungszeichen */
+  padding-left: 15px; /*Außenabstand nach Links der Eintragsliste auf 15px gesetzt*/
+}
+
