@@ -10,7 +10,7 @@
 header,footer {
   background-color: #5a5757;
   color: #ffffff;
-  padding: 20px;
+  padding: 15px;
 }
 /* For mobile phones: */
 [class*="col-"] {
