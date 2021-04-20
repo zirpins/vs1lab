@@ -38,7 +38,7 @@
 							   maxlength="10" pattern="[A-Z]\w+" required>
 						<label for="hashtag">hashtag</label>
 						<input id="hashtag" name="hashtag" placeholder="# + max. 10 letters"
-							   type="text" pattern="#[A-Za-z]+" maxlength="11">
+							   type="text" pattern="#+[a-z]+" maxlength="10">
 						<label for="submit"></label>
 						<input id="submit" type="submit">
 					</fieldset>
@@ -57,11 +57,12 @@
 						<label for="search"></label>
 						<input id="search" name="search" placeholder="search term" type="text">
 						<label for="apply"></label>
-						<input id="apply" type="button" value="apply">
+						<input id="apply" type="submit" value="apply">
 					</fieldset>
 				</form>
 				<!-- ############### Aufgabe1a Form2 Ende -->
-					<div class="col-5">
+				<div class="row">
+					<div class="col-6">
 						<div class="taglist">
 							<ul id="results">
 								<li>Castle (49.01379, 8.404435) #sight</li>
@@ -69,12 +70,13 @@
 							</ul>
 						</div>
 					</div>
-					<div class="col-7">
+					<div class="col-6">
 						<div class="tagmap">
 							<img alt="a map with locations" id="result-img" src="./images/mapview.jpg"/>
 							<div class="caption">Result map</div>
 						</div>
 					</div>
+				</div>
 			</section>
 		</div>
 
