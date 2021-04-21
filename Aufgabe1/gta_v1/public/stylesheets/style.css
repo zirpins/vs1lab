@@ -47,7 +47,7 @@ input{
 }
 
 #filter-form {
-  margin-bottom: 5px;
+  margin-bottom: 15px;
 }
 
 #results {
@@ -85,7 +85,7 @@ input{
 
 .taglist {
   width: 100%;
-  margin-right: 5px;
+  margin-right: 10px;
 }
 
 @media screen and (max-width: 950px) {
