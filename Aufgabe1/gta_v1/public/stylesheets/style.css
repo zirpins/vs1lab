@@ -66,11 +66,11 @@ input{
 }
 
 .tagging {
-  width: 15%;
+  width: 25%;
 }
 
 .discovery {
-  width: 80%;
+  width: 73%;
 }
 
 .discovery_listmap {
@@ -79,11 +79,42 @@ input{
   justify-content: space-between;
   margin-bottom: 10px;
 }
+.tagmap {
+  width: 438px;
+}
 
 .taglist {
-  width: 48%;
+  width: 100%;
+  margin-right: 5px;
 }
 
-.tagmap {
-  width: 48%;
+@media screen and (max-width: 950px) {
+  main {
+    flex-direction: column;
+  }
+  .tagging {
+    width: 100%;
+  }
+
+  .discovery {
+    width: 100%;
+  }
 }
+
+@media screen and (max-width: 750px) {
+  .discovery_listmap {
+    flex-direction: column;
+  }
+
+}
+
+@media screen and (max-width: 570px) {
+  .tagmap {
+    width: 100%;
+  }
+
+  #result-img {
+    width: 100%;
+  }
+}
+
