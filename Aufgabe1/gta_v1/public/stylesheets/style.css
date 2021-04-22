@@ -1,10 +1,8 @@
 * {
   box-sizing: border-box;
 }
-/*test*/
-.row::after {
-  content: "";
-  clear: both;
+
+.row{
   display: flex;
 }
 header,footer {
@@ -12,13 +10,10 @@ header,footer {
   color: #ffffff;
   padding: 15px;
 }
-/* For mobile phones: */
 [class*="col-"] {
-  width: 100%;
   float: left;
   padding: 15px;
 }
-@media only screen and (min-width: 992px) {
   .col-1 {width: 8.33%;}
   .col-2 {width: 16.66%;}
   .col-3 {width: 25%;}
@@ -31,6 +26,19 @@ header,footer {
   .col-10 {width: 83.33%;}
   .col-11 {width: 91.66%;}
   .col-12 {width: 100%;}
+
+@media only screen and (max-width: 80em){
+  .row{
+    flex-direction: column;
+  }
+  [class*="col-"], input {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 35em) {
+  body {
+    padding: 0;
+  }
 }
 body {
   padding: 50px;
@@ -61,6 +69,10 @@ a {
 .taglist li:hover{
   background-color: #cc0029;
 }
+#result-img{
+  width: 100%;
+}
+
 
 
 
