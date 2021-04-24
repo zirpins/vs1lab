@@ -1,8 +1,165 @@
+/*
+---------------------------
+----------BASICS-----------
+---------------------------
+*/
+
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    padding: 50px;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
 }
 
 a {
-  color: #00B7FF;
+    color: #00B7FF;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+input {
+    height: 30px;
+}
+
+input[type=submit] {
+    width: fit-content;
+}
+
+h1 {
+    color: white;
+}
+
+header, footer {
+    padding: 20px;
+    color: white;
+
+}
+
+.transition-background {
+    background: linear-gradient(-45deg, #007f39, #265300, #008949, #477900);
+    background-size: 400% 400%;
+    animation: Gradient 15s ease infinite;
+}
+
+@keyframes Gradient {
+    0% {
+        background-position: 0 50%
+    }
+
+    50% {
+        background-position: 100% 50%
+    }
+
+    100% {
+        background-position: 0 50%
+    }
+}
+
+/*
+---------------------------
+----------TAGGING----------
+---------------------------
+*/
+
+section.tagging fieldset {
+    display: flex;
+    flex-direction: column;
+}
+
+section.tagging fieldset input {
+    max-width: 70%;
+    margin: 10px 0;
+}
+
+/*
+---------------------------
+---------DISCOVERY---------
+---------------------------
+*/
+
+.taglist li {
+    list-style: none;
+    color: white;
+    padding: 10px;
+    margin-bottom: 5px;
+}
+
+section.discovery img{
+    width:100%;
+}
+
+/*
+---------------------------
+----------COLS-----------
+---------------------------
+*/
+.row {
+    display: flex;
+}
+
+.col-1 {
+    width: 8.33%;
+}
+
+.col-2 {
+    width: 16.66%;
+}
+
+.col-3 {
+    width: 25%;
+}
+
+.col-4 {
+    width: 33.33%;
+}
+
+.col-5 {
+    width: 41.66%;
+}
+
+.col-6 {
+    width: 50%;
+}
+
+.col-7 {
+    width: 58.33%;
+}
+
+.col-8 {
+    width: 66.66%;
+}
+
+.col-9 {
+    width: 75%;
+}
+
+.col-10 {
+    width: 83.33%;
+}
+
+.col-11 {
+    width: 91.66%;
+}
+
+.col-12 {
+    width: 100%;
+}
+
+[class*="col-"] {
+    padding: 15px;
+}
+
+@media (max-width: 900px) {
+    .row{
+        flex-direction: column;
+    }
+
+    [class*="col-"] {
+        width:100%;
+    }
 }
