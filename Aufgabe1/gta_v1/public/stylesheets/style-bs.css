@@ -1,8 +1,35 @@
+header, footer {
+  background: gray !important;
+  color: white !important;
+  padding: 15px;
+}
+
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
-  color: #00B7FF;
+  color: #00B7FF !important;
+}
+
+a:hover {
+  color: #2e6da4 !important;
+}
+
+.taglist li {
+  background: #2daaf3;
+  color: white;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+.taglist ul {
+  list-style-type: none;
+  padding: 0px;
+  margin: 0px;
+}
+
+#filter-form {
+  margin-bottom: 15px;
 }

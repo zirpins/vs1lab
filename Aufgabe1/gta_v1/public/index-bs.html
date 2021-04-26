@@ -13,7 +13,7 @@
 	<body>
 
 		<header class="jumbotron">
-			<div class="container">
+			<div class="container-fluid">
 				<img src="./images/location.png" width="100"
 						alt="an image of a map and location">
 				<h1>GeoTagApp</h1>
@@ -24,34 +24,71 @@
 			</div>
 		</header>
 
-		<main class="container">
+		<main class="container-fluid">
 
-			<section class="tagging">
+			<section class="tagging col-md-3">
 				<h2>Tagging</h2>
 
 				<!-- ############### Aufgabe1a Form1 Start -->
-				<form id="tag-form" action="/tagging" method="post"></form>
+				<form id="tag-form" action="/tagging" method="post">
+					<fieldset>
+						<legend>Enter new GeoTag</legend>
+
+						<div class="form-group">
+						<label for="tLatitude">latitude</label>
+						<input type="text" class="form-control" id="tLatitude" name="tLatitude" placeholder="49.01379" required>
+						</div>
+
+						<div class="form-group">
+						<label for="tLongitude">longitude</label>
+						<input type="text" class="form-control" id="tLongitude" name="tLongitude" placeholder="8.390071" required>
+						</div>
+
+						<div class="form-group">
+						<label for="tName">name</label>
+						<input type="text" class="form-control" id="tName" name="tName" placeholder="some name" required maxlength="10"
+							   pattern="[a-zA-Z]+"/>
+						</div>
+
+						<div class="form-group">
+						<label for="tHashtag">hashtag</label>
+						<input type="text" class="form-control" id="tHashtag" maxlength="11" name="tHashtag"
+							   placeholder="# + max. 10 letters" pattern="#[a-zA-Z]+"/>
+						</div>
+
+						<input id="tSubmit" class="btn btn-default" type="submit" value="submit">
+					</fieldset>
+				</form>
 				<!-- ############### Aufgabe1a Form1 Ende -->
 
 			</section>
 
-			<section class="discovery">
+			<section class="discovery col-md-9">
 				<h2>Discovery</h2>
 
 				<!-- ############### Aufgabe1a Form2 Start -->
-				<form id="filter-form" action="/discovery" method="post">Filter
+				<form id="filter-form" class="form-inline" action="/discovery" method="post">
+					<fieldset>
+						<legend>Filter by SearchTerm</legend>
+
+						<div class="form-group">
+						<input type="text" class="form-control" id="dSearch" name="dSearch" placeholder="search term">
+						</div>
+
+						<input type="submit" class="btn btn-default" value="apply">
+					</fieldset>
 				</form>
 				<!-- ############### Aufgabe1a Form2 Ende -->
 
-				<div class="taglist">
+				<div class="taglist col-sm-4 col-lg-5">
 					<ul id="results">
 						<li>Castle (49.01379, 8.404435) #sight</li>
 						<li>IWI (49.01379, 8.390071) #edu</li>
 					</ul>
 				</div>
 
-				<div class="tagmap">
-					<img id="result-img" src="./images/mapview.jpg" alt="a map with locations"/>
+				<div class="tagmap col-sm-8 col-lg-7">
+					<img id="result-img" class="img-responsive" src="./images/mapview.jpg" alt="a map with locations"/>
 					<div class="caption">Result map</div>
 				</div>
 
@@ -67,7 +104,7 @@
 					================================================== -->
 		<!-- Placed at the end of the document so the pages load faster -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-		<script src="/javascripts/bootstrap.min.js"></script>
+		<script src="./javascripts/bootstrap.min.js"></script>
 
 	</body>
 </html>
