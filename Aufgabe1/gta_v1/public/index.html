@@ -34,7 +34,8 @@
                 <label for="long">longitude</label>
                 <input class="text-input" required id="long" type="text" pattern="^(-?\d+(\.\d+)?)$">
                 <label for="name">Name</label>
-                <input class="text-input" required id="name" type="text" pattern="[A-Z][a-z]{9}" placeholder="HsKa Tag1">
+                <input class="text-input" required id="name" type="text" pattern="[A-Za-z]{,10}"
+                       placeholder="HsKa Tag1">
                 <label for="tag">Hashtag</label>
                 <input class="text-input" id="tag" type="text" pattern="\#.{,10}" placeholder="#XXX">
                 <input id="submitGeoTag" class="submit-button" type="submit" value="submit">
@@ -54,6 +55,8 @@
                 <legend>Filter by Searchterm</legend>
                 <input id="searchterm" type="text" placeholder="search term">
                 <input id="submitSearchTerm" class="submit-button" type="submit" value="apply">
+                <input class="text-input" required id="discoveryformlat" type="hidden">
+                <input class="text-input" required id="discoveryformlong" type="hidden">
             </fieldset>
         </form>
         <!-- ############### Aufgabe1a Form2 Ende -->
