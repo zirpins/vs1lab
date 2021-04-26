@@ -35,10 +35,10 @@
 						<input id="longitude" name="longitude" placeholder="8.404435" type="number" step="any" required>
 						<label for="name">name</label>
 						<input id="name" name="name" placeholder="some name" type="text"
-							   maxlength="10" pattern="[A-Z]\w+" required>
+							   pattern="[A-Z]\w{10}" required>
 						<label for="hashtag">hashtag</label>
 						<input id="hashtag" name="hashtag" placeholder="# + max. 10 letters"
-							   type="text" pattern="#+[A-Za-z]+" maxlength="10">
+							   type="text" pattern="#+[A-Za-z]+" maxlength="11">
 						<label for="submit"></label>
 						<input id="submit" type="submit">
 					</fieldset>
@@ -56,6 +56,8 @@
 						<legend><b>Filter by Searchterm</b></legend>
 						<label for="search"></label>
 						<input id="search" name="search" placeholder="search term" type="text">
+						<input id="hidden_latitude" type="hidden" name="hidden_latitude">
+						<input id="hidden_longitude" type="hidden" name="hidden_longitude">
 						<label for="apply"></label>
 						<input id="apply" type="submit" value="apply">
 					</fieldset>
