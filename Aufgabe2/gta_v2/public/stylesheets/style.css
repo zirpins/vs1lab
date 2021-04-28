@@ -1,0 +1,120 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: white;
+  font-weight: bold;
+}
+main {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+header {
+  background: darkgrey;
+  padding: 10px;
+}
+
+h1 {
+  color: #FFFFFF;
+}
+
+footer {
+  background: grey;
+  color: #FFFFFF;
+  padding: 10px;
+  font-weight: bold;
+}
+
+nav {
+  color: white;
+}
+
+label {
+  display: block;
+  padding: 5px;
+}
+
+input{
+  padding: 5px;
+}
+
+#tag_submit {
+  display: block;
+  margin-top: 10px;
+}
+
+#filter-form {
+  margin-bottom: 15px;
+}
+
+#results {
+  list-style-type: none;
+  padding: 0;
+}
+
+#results li {
+  display: block;
+  background: #00B7FF;
+  color: white;
+  font-weight: bold;
+  font-size: 14pt;
+  padding: 5px;
+  margin-bottom: 5px;
+}
+
+.tagging {
+  width: 25%;
+}
+
+.discovery {
+  width: 73%;
+}
+
+.discovery_listmap {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.tagmap {
+  width: 438px;
+}
+
+.taglist {
+  width: 100%;
+  margin-right: 10px;
+}
+
+@media screen and (max-width: 950px) {
+  main {
+    flex-direction: column;
+  }
+  .tagging {
+    width: 100%;
+  }
+
+  .discovery {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .discovery_listmap {
+    flex-direction: column;
+  }
+
+}
+
+@media screen and (max-width: 570px) {
+  .tagmap {
+    width: 100%;
+  }
+
+  #result-img {
+    width: 100%;
+  }
+}
+
