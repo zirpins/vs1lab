@@ -135,3 +135,5 @@ $(function() {
     alert("Please change the script 'geotagging.js'");
     // TODO Hier den Aufruf für updateLocation einfügen
 });
+
+
