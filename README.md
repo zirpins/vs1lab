@@ -61,7 +61,7 @@ Die Laborübungen umfassen dieses Semester vier Teilaufgaben:
 1. [Web Apps strukturieren (HTML5) und gestalten (CSS3)](Aufgabe1)
 2. [Clientseitige Programmierung mit JavaScript / HTML5 APIs](Aufgabe2)
 3. [Serverseitige Anwendung mit Node.js / Express / EJS erstellen](Aufgabe3)
-4. Interaktion per REST API und AJAX Aufrufen (in Kürze verfügbar)
+4. [Interaktion per REST API und AJAX Aufrufen](Aufgabe4)
 
 ## Beispiele
 
