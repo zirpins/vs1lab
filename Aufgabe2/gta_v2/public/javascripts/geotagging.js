@@ -134,7 +134,7 @@ var gtaLocator = (function GtaLocator(geoLocationApi) {
 
             }, function (msg) {
                 alert(msg);
-            })
+            });
         }
 
     }; // ... Ende öffentlicher Teil

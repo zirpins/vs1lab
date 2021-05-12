@@ -1,5 +1,5 @@
 body {
-  padding: 50px;
+  padding: 2%;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
@@ -101,14 +101,15 @@ input{
   }
 }
 
-@media screen and (max-width: 890px) {
+@media screen and (max-width: 860px) {
   .discovery_listmap {
     flex-direction: column;
   }
 
 }
 
-@media screen and (max-width: 720px) {
+@media screen and (max-width: 643px) {
+
   .tagmap {
     width: 100%;
   }
