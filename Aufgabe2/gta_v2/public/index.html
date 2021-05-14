@@ -35,7 +35,7 @@
 						<input id="longitude" name="longitude" placeholder="8.404435" type="number" step="any" required>
 						<label for="name">name</label>
 						<input id="name" name="name" placeholder="some name" type="text"
-							   pattern="[A-Z]\w{10}" required>
+							   pattern="[A-Z]\w{1,10}" required>
 						<label for="hashtag">hashtag</label>
 						<input id="hashtag" name="hashtag" placeholder="# + max. 10 letters"
 							   type="text" pattern="#+[A-Za-z]+" maxlength="11">
@@ -91,4 +91,9 @@
 </footer>
 
 </body>
+<!-- Load JavaScripts
+    ================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="./javascripts/geotagging.js"></script>
 </html>
