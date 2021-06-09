@@ -29,14 +29,19 @@ app.set('view engine', 'ejs');
  * Teste das Ergebnis im Browser unter 'http://localhost:3000/'.
  */
 
-// TODO: CODE ERGÄNZEN
+app.use(express.static(__dirname + "/public"));
 
 /**
  * Konstruktor für GeoTag Objekte.
  * GeoTag Objekte sollen min. alle Felder des 'tag-form' Formulars aufnehmen.
  */
 
-// TODO: CODE ERGÄNZEN
+function GeoTag (latitude, longitude, name, hashtag) {
+    this.latitude = latitude;
+    this.longitude = longitude;
+    this.name = name;
+    this.hashtag = hashtag;
+}
 
 /**
  * Modul für 'In-Memory'-Speicherung von GeoTags mit folgenden Komponenten:
@@ -47,7 +52,56 @@ app.set('view engine', 'ejs');
  * - Funktion zum Löschen eines Geo Tags.
  */
 
-// TODO: CODE ERGÄNZEN
+var InMemoryModule = (function () {
+    let memory = [];
+
+    return {
+        SearchRad : function (rad, lat, long) {
+            let ret = [];
+            memory.forEach(function (obj) {
+                if (Math.sqrt(Math.pow(obj.latitude - lat, 2) + Math.pow(obj.longitude - long, 2)) <= rad) {
+                    ret.push(obj);
+                }
+            })
+            return ret;
+        },
+
+        SearchTerm : function (mem, term) {
+            let ret = [];
+            mem.forEach(function (obj) {
+                if(obj.name.toUpperCase().includes(term.toUpperCase()) || obj.hashtag.toUpperCase().includes(term.toUpperCase())) {
+                    ret.push(obj);
+                }
+            })
+            return ret;
+        },
+
+        AddGeoTag : function (geo) {
+            let contains = false;
+            memory.forEach(function (obj) {
+                if(obj.name === geo.name) {
+                    contains = true;
+                }
+            })
+
+            if (contains == false) {
+                memory.push(geo);
+            }
+
+        },
+
+        RemoveGeoTag : function (name) {
+
+            memory.forEach(function (obj) {
+                if(obj.name === name) {
+                    memory.splice(memory.indexOf(obj), 1);
+                }
+            })
+        }
+
+    }
+
+})();
 
 /**
  * Route mit Pfad '/' für HTTP 'GET' Requests.
@@ -60,7 +114,9 @@ app.set('view engine', 'ejs');
 
 app.get('/', function(req, res) {
     res.render('gta', {
-        taglist: []
+        taglist: [],
+        reslatitude : null,
+        reslongitude: null,
     });
 });
 
@@ -77,7 +133,18 @@ app.get('/', function(req, res) {
  * Die Objekte liegen in einem Standard Radius um die Koordinate (lat, lon).
  */
 
-// TODO: CODE ERGÄNZEN START
+app.post("/tagging", function(req, res){
+    let tag = new GeoTag(req.body.latitude, req.body.longitude, req.body.name, req.body.hashtag);
+
+    InMemoryModule.AddGeoTag(tag);
+
+    res.render('gta', {
+        taglist : InMemoryModule.SearchRad(0.5, req.body.latitude, req.body.longitude),
+        reslatitude : req.body.latitude,
+        reslongitude : req.body.longitude,
+    })
+
+})
 
 /**
  * Route mit Pfad '/discovery' für HTTP 'POST' Requests.
@@ -91,7 +158,14 @@ app.get('/', function(req, res) {
  * Falls 'term' vorhanden ist, wird nach Suchwort gefiltert.
  */
 
-// TODO: CODE ERGÄNZEN
+app.post("/discovery", function(req, res){
+
+    res.render('gta', {
+        taglist : InMemoryModule.SearchTerm(InMemoryModule.SearchRad(0.5, req.body.latitude, req.body.longitude), req.body.search),
+        reslatitude : req.body.latitude,
+        reslongitude : req.body.longitude,
+    })
+})
 
 /**
  * Setze Port und speichere in Express.
