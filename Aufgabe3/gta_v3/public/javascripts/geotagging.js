@@ -81,7 +81,12 @@ var gtaLocator = (function GtaLocator(geoLocationApi) {
         return position.coords.longitude;
     };
     var getTagList = function() {
-        return JSON.parse(document.getElementById("result-img").dataset.tags)
+        var resultImg = document.getElementById("result-img")
+        if (resultImg.hasAttribute("data-tags")){
+            return JSON.parse(document.getElementById("result-img").dataset.tags);
+        } else{
+            return undefined;
+        }
     };
 
     var errorfunction = function(msg){
@@ -89,6 +94,7 @@ var gtaLocator = (function GtaLocator(geoLocationApi) {
     };
 
     var successfunction = function(position){
+        console.log("test")
 
         var latitude = getLatitude(position);
         var longitude = getLongitude(position);
@@ -147,15 +153,10 @@ var gtaLocator = (function GtaLocator(geoLocationApi) {
             const longitudeElement = document.getElementById('longitude')
             const hiddenLatitude = document.getElementById('hidden_latitude')
             const hiddenLongitude = document.getElementById('hidden_longitude')
-            // If no values exist yet request location
             if ((latitudeElement.value === "") ||
                 (longitudeElement.value === "") ||
                 (hiddenLatitude.value === "") ||
-                (hiddenLongitude.value === "") ||
-                (isNaN(latitudeElement.value)) ||
-                (isNaN(longitudeElement.value)) ||
-                (isNaN(hiddenLatitude.value)) ||
-                (isNaN(hiddenLongitude.value))) {
+                (hiddenLongitude.value === "")){
                 tryLocate(successfunction, errorfunction);
             }
             else {
