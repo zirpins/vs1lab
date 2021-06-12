@@ -80,6 +80,35 @@ var gtaLocator = (function GtaLocator(geoLocationApi) {
     var getLongitude = function(position) {
         return position.coords.longitude;
     };
+    var getTagList = function() {
+        var resultImg = document.getElementById("result-img")
+        if (resultImg.hasAttribute("data-tags")){
+            return JSON.parse(document.getElementById("result-img").dataset.tags);
+        } else{
+            return undefined;
+        }
+    };
+
+    var errorfunction = function(msg){
+        alert(msg);
+    };
+
+    var successfunction = function(position){
+        console.log("test")
+
+        var latitude = getLatitude(position);
+        var longitude = getLongitude(position);
+
+        document.getElementById("latitude").value = latitude;
+        document.getElementById("longitude").value = longitude;
+
+        document.getElementById("hidden_latitude").value = latitude;
+        document.getElementById("hidden_longitude").value = longitude;
+
+        var returnurl = getLocationMapSrc(latitude, longitude);
+
+        document.getElementById("result-img").src = returnurl;
+    };
 
     // Hier API Key eintragen
     var apiKey = "WyTOAGC8RouyGOGbw2xVhAu0LROqFucO";
@@ -120,21 +149,23 @@ var gtaLocator = (function GtaLocator(geoLocationApi) {
         readme: "Dieses Objekt enthält 'öffentliche' Teile des Moduls.",
 
         updateLocation: function() {
-            var onsuccess = function(position){
-                var latitude = getLatitude(position);
-                var longitude = getLongitude(position);
-                document.getElementById('latitude').setAttribute("value", latitude);
-                document.getElementById('longitude').setAttribute("value", longitude);
-                document.getElementById('hidden_latitude').setAttribute("value", latitude);
-                document.getElementById('hidden_longitude').setAttribute("value", longitude);
-                var mapquest = getLocationMapSrc(latitude,longitude);
-                document.getElementById('result-img').setAttribute("src",mapquest);
+            const latitudeElement = document.getElementById('latitude')
+            const longitudeElement = document.getElementById('longitude')
+            const hiddenLatitude = document.getElementById('hidden_latitude')
+            const hiddenLongitude = document.getElementById('hidden_longitude')
+            if ((latitudeElement.value === "") ||
+                (longitudeElement.value === "") ||
+                (hiddenLatitude.value === "") ||
+                (hiddenLongitude.value === "")){
+                tryLocate(successfunction, errorfunction);
             }
-
-            var onerror = function(msg){
-                console.log(msg);
+            else {
+                var latitude = document.getElementById("latitude").value;
+                var longitude = document.getElementById("longitude").value;
+                var tagList = getTagList();
+                var returnurl = getLocationMapSrc(latitude, longitude, tagList);
+                document.getElementById("result-img").src = returnurl;
             }
-            tryLocate(onsuccess, onerror);
         }
     }; // ... Ende öffentlicher Teil
 })(GEOLOCATIONAPI);
