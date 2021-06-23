@@ -1,5 +1,5 @@
 body {
-  padding: 2%;
+  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
@@ -46,10 +46,6 @@ input{
   margin-top: 10px;
 }
 
-#filter_search {
-
-}
-
 #filter-form {
   margin-bottom: 15px;
 }
@@ -84,7 +80,7 @@ input{
   margin-bottom: 10px;
 }
 .tagmap {
-  width: 600px;
+  width: 438px;
 }
 
 .taglist {
@@ -92,7 +88,7 @@ input{
   margin-right: 10px;
 }
 
-@media screen and (max-width: 1180px) {
+@media screen and (max-width: 950px) {
   main {
     flex-direction: column;
   }
@@ -105,15 +101,14 @@ input{
   }
 }
 
-@media screen and (max-width: 860px) {
+@media screen and (max-width: 750px) {
   .discovery_listmap {
     flex-direction: column;
   }
 
 }
 
-@media screen and (max-width: 643px) {
-
+@media screen and (max-width: 570px) {
   .tagmap {
     width: 100%;
   }

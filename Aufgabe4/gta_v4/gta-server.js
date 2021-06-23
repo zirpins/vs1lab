@@ -30,6 +30,7 @@ app.set('view engine', 'ejs');
  */
 
 app.use(express.static(__dirname + "/public"));
+
 /**
  * Konstruktor für GeoTag Objekte.
  * GeoTag Objekte sollen min. alle Felder des 'tag-form' Formulars aufnehmen.
