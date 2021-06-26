@@ -1,0 +1,44 @@
+POST http://localhost:3000/geotags
+Content-Type: application/json
+
+{"name":"Eins","hashtag":"#eins","latitude":"49.102847999999994","longitude":"8.4803584"}
+
+###
+
+POST http://localhost:3000/geotags
+Content-Type: application/json
+
+{"name":"Zwei","hashtag":"#zwei","latitude":"49.102847999999994","longitude":"8.4803584"}
+
+###
+
+POST http://localhost:3000/geotags
+Content-Type: application/json
+
+{"name":"Drei","hashtag":"#drei","latitude":"49.102847999999994","longitude":"8.4803584"}
+
+###
+
+PUT http://localhost:3000/geotags/0
+Content-Type: application/json
+
+{"name":"Hallo","hashtag":"test12","latitude":"49.102847999999994","longitude":"8.4803584"}
+
+###
+
+GET http://localhost:3000/geotags/1
+
+###
+
+DELETE http://localhost:3000/geotags/1
+
+###
+
+GET http://localhost:3000/geotags/2
+
+###
+
+PUT http://localhost:3000/geotags/10
+Content-Type: application/json
+
+{"name":"Hallo","hashtag":"test12","latitude":"49.102847999999994","longitude":"8.4803584"}
