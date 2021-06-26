@@ -21,6 +21,8 @@ app.use(bodyParser.urlencoded({
     extended: false
 }));
 
+app.use(bodyParser.json());
+
 // Setze ejs als View Engine
 app.set('view engine', 'ejs');
 
@@ -77,26 +79,28 @@ var InMemoryModule = (function () {
         },
 
         AddGeoTag : function (geo) {
-            let contains = false;
-            memory.forEach(function (obj) {
-                if(obj.name === geo.name) {
-                    contains = true;
-                }
-            })
-
-            if (contains == false) {
+            if(!memory.includes(geo)) {
                 memory.push(geo);
             }
-
+            return memory.indexOf(geo);
         },
 
-        RemoveGeoTag : function (name) {
+        RemoveGeoTag : function (id) {
+            if(memory[id] != null) {
+                memory.splice(id,1);
+            }
+        },
 
-            memory.forEach(function (obj) {
-                if(obj.name === name) {
-                    memory.splice(memory.indexOf(obj), 1);
-                }
-            })
+        ReturnMemory : function () {
+            return memory;
+        },
+
+        ChangeGeoTag : function (id, geo) {
+            memory[id] = geo;
+        },
+
+        ReturnGeoTag : function (id) {
+          return memory[id];
         }
 
     }
@@ -144,7 +148,7 @@ app.post("/tagging", function(req, res){
         reslongitude : req.body.longitude,
     })
 
-})
+});
 
 /**
  * Route mit Pfad '/discovery' für HTTP 'POST' Requests.
@@ -165,7 +169,44 @@ app.post("/discovery", function(req, res){
         reslatitude : req.body.latitude,
         reslongitude : req.body.longitude,
     })
-})
+});
+
+
+app.post("/geotags", function(req, res){
+
+    let jsonString = JSON.stringify(req.body);
+    let tag = JSON.parse(jsonString);
+    let id = InMemoryModule.AddGeoTag(tag);
+    res.setHeader("Location", id);
+    res.sendStatus(201);
+});
+
+app.get("/geotags", function(req, res){
+    let list;
+
+    if(req.query.term == null) {
+        list = InMemoryModule.SearchRad(req.query.radius, req.query.latitude, req.query.longitude);
+    } else {
+        list = InMemoryModule.SearchTerm(InMemoryModule.SearchRad(req.query.radius, req.query.latitude, req.query.longitude), req.query.term);
+    }
+    res.send(JSON.stringify(list));
+});
+
+app.get("/geotags/:id", function(req,res) {
+    res.send(JSON.stringify(InMemoryModule.ReturnGeoTag(req.params.id)));
+});
+
+app.delete("/geotags/:id", function(req,res) {
+    InMemoryModule.RemoveGeoTag(req.params.id);
+    res.send(null);
+});
+
+app.put("/geotags/:id", function(req,res) {
+    let json_string = JSON.stringify(req.body);
+    let tag = JSON.parse(json_string);
+    InMemoryModule.ChangeGeoTag(req.params.id, tag);
+    res.send(null);
+});
 
 /**
  * Setze Port und speichere in Express.
