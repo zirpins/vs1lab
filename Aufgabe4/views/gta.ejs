@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1.0" name="viewport">
+	<title>GeoTagApp</title>
+	<link href='./stylesheets/style.css' rel='stylesheet'/>
+</head>
+
+<body>
+
+<header>
+	<img alt="an image of a map and location" src="./images/location.png"
+		 width="100">
+	<h1>GeoTagApp</h1>
+	<nav>
+		<a href="#">About</a> | <a href="#">Help</a> | <a
+				href="/">Home</a>
+	</nav>
+</header>
+
+<main>
+	<div class="row">
+		<div class="col-2">
+			<section class="tagging">
+				<h2>Tagging</h2>
+				<!-- ############### Aufgabe1a Form1 Start -->
+				<form id="tag-form" action="/tagging" method="post">
+					<fieldset>
+						<legend><b>Enter new GeoTag</b></legend>
+						<label for="latitude">latitude</label>
+						<input id="latitude" name="latitude" placeholder="49.01379" type="number" step="any"
+							   value="<%= newLatitude %>"required>
+						<label for="longitude">longitude</label>
+						<input id="longitude" name="longitude" placeholder="8.404435" type="number" step="any"
+							   value="<%= newLongitude %>" required>
+						<label for="name">name</label>
+						<input id="name" name="name" placeholder="some name" type="text"
+							   pattern="[A-Z]\w{1,10}" required>
+						<label for="hashtag">hashtag</label>
+						<input id="hashtag" name="hashtag" placeholder="# + max. 10 letters"
+							   type="text" pattern="#+[A-Za-z]+" maxlength="11">
+						<label for="submit"></label>
+						<input id="submit" type="submit">
+					</fieldset>
+				</form>
+				<!-- ############### Aufgabe1a Form1 Ende -->
+			</section>
+		</div>
+		<div class="col-10">
+			<section class="discovery">
+				<h2>Discovery</h2>
+
+				<!-- ############### Aufgabe1a Form2 Start -->
+				<form id="filter-form" action="/discovery" method="post">
+					<fieldset>
+						<legend><b>Filter by Searchterm</b></legend>
+						<label for="search"></label>
+						<input id="search" name="search" placeholder="search term" type="text">
+						<input id="hidden_latitude" type="hidden" name="hidden_latitude" value="<%= newLatitude %>">
+						<input id="hidden_longitude" type="hidden" name="hidden_longitude" value="<%= newLongitude %>">
+						<label for="apply"></label>
+						<input id="apply" type="submit" value="apply">
+					</fieldset>
+				</form>
+				<!-- ############### Aufgabe1a Form2 Ende -->
+				<div class="row">
+					<div class="col-5">
+						<div class="taglist">
+							<ul id="results">
+								<% if (taglist !== undefined) taglist.forEach(function(gtag) { %>
+									<li><%= gtag.name %> ( <%= gtag.latitude %>,<%= gtag.longitude %>)
+										<%= gtag.hashtag %> </li>
+								<% }); %>
+							</ul>
+						</div>
+					</div>
+					<div class="col-7">
+						<div class="tagmap">
+							<img alt="a map with locations" id="result-img" src="./images/mapview.jpg"
+								 <%if (typeof TagListJSON !== 'undefined') {%>data-tags="<%=TagListJSON%>" <%}%>/>
+							<div class="caption">Result map</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+
+
+	</div>
+</main>
+
+<footer>
+	<span>2021 by LKIT</span>
+</footer>
+
+</body>
+<!-- Load JavaScripts
+    ================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="./javascripts/geotagging.js"></script>
+</html>
