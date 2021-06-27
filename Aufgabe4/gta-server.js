@@ -36,11 +36,12 @@ app.use(express.static(__dirname + "/public"));
  * GeoTag Objekte sollen min. alle Felder des 'tag-form' Formulars aufnehmen.
  */
 
-function Geotag(latitude, longitude, name, hashtag){
+function Geotag(latitude, longitude, name, hashtag, id){
     this.latitude = latitude;
     this.longitude = longitude;
     this.name = name;
     this.hashtag = hashtag;
+    this.identifier = id;
 }
 
 /**
@@ -196,6 +197,72 @@ app.get("/geotags", function (req, res) {
     res.json(taglist);
 
 });
+
+app.get('/geotags/read/:id', function(req, res){
+    console.log('Calling API to read Tag with id: ' + req.params.id);
+    if (req.params.id<geotagModule.getList().length) {
+        res.send(JSON.stringify(geotagModule.getList()[req.params.id]));
+    }
+    else {
+        res.sendStatus(404) //Fehler: Ressource nicht gefunden
+    }
+
+});
+
+app.post('/geotags/:id/delete', function(req, res){
+    console.log('Calling API to delete Tag with id: ' + req.params.id);
+    if (req.params.id<geotagModule.getList().length) {
+        geotagModule.deleteGeotag(req.params.id);
+        res.sendStatus(200) //erfolgreich gelöscht
+    }
+    else
+        res.sendStatus(404) //Fehler: Ressource nicht gefunden
+});
+
+app.post('/geotags/add', function(req, res){
+    geotagModule.addGeoTag(req.query);
+    console.log("Calling API to add new Tag");
+    res.sendStatus(201);    //HTTP Response Code ist 201 (Created)
+});
+
+app.put("/geotags/:id", bodyParser.json(), function (req, res) {
+    var list = geotagModule.getList();
+    var index = req.params.id;
+    let lat = req.body.latitude;
+    let long = req.body.longitude;
+    let name = req.body.name;
+    let hashtag = req.body.hashtag;
+    var found = false;
+    var newtag = new Geotag(lat, long, name, hashtag, index);
+    if(true){
+        list.every(function (tag, ind) {
+            if (index == tag.identifier) {
+                geotagModule.deleteGeotag(ind, newtag);
+                res.sendStatus(204);
+                found = true;
+                return false;
+            }
+            return true;
+        });
+        if(found == false)
+            res.sendStatus(404);
+    }else
+        res.sendStatus(400);
+
+
+});
+
+/*app.post('/geotags/:id/change', function(req, res){
+    console.log("Calling API to add change Tag with id: " + req.params.id);
+    if (req.params.id<geotagModule.getList().length) {
+        var ret = JSON.stringify(geotagModule.getList()[req.params.id]);
+        geotagModule.getList()[req.params.id]=new Geotag(req.query);
+        res.send(ret);
+    }
+    else {
+        res.sendStatus(404) //Fehler: Ressource nicht gefunden
+    }
+});*/
 /**
  * Setze Port und speichere in Express.
  */

@@ -148,7 +148,7 @@ var gtaLocator = (function GtaLocator(geoLocationApi) {
 
         readme: "Dieses Objekt enthält 'öffentliche' Teile des Moduls.",
 
-        updateLocation: function() {
+        updateLocation: function(tagList) {
             const latitudeElement = document.getElementById('latitude')
             const longitudeElement = document.getElementById('longitude')
             const hiddenLatitude = document.getElementById('hidden_latitude')
@@ -162,7 +162,6 @@ var gtaLocator = (function GtaLocator(geoLocationApi) {
             else {
                 var latitude = document.getElementById("latitude").value;
                 var longitude = document.getElementById("longitude").value;
-                var tagList = getTagList();
                 var returnurl = getLocationMapSrc(latitude, longitude, tagList);
                 document.getElementById("result-img").src = returnurl;
             }
