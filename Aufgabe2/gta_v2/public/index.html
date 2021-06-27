@@ -16,7 +16,7 @@
 	<h1>GeoTagApp</h1>
 	<nav>
 		<a href="#">About</a> | <a href="#">Help</a> | <a
-				href="/">Home</a>
+			href="/">Home</a>
 	</nav>
 </header>
 
@@ -30,11 +30,9 @@
 					<fieldset>
 						<legend><b>Enter new GeoTag</b></legend>
 						<label for="latitude">latitude</label>
-						<input id="latitude" name="latitude" placeholder="49.01379" type="number" step="any"
-							   value="<%= newLatitude %>"required>
+						<input id="latitude" name="latitude" placeholder="49.01379" type="number" step="any" required>
 						<label for="longitude">longitude</label>
-						<input id="longitude" name="longitude" placeholder="8.404435" type="number" step="any"
-							   value="<%= newLongitude %>" required>
+						<input id="longitude" name="longitude" placeholder="8.404435" type="number" step="any" required>
 						<label for="name">name</label>
 						<input id="name" name="name" placeholder="some name" type="text"
 							   pattern="[A-Z]\w{1,10}" required>
@@ -58,8 +56,8 @@
 						<legend><b>Filter by Searchterm</b></legend>
 						<label for="search"></label>
 						<input id="search" name="search" placeholder="search term" type="text">
-						<input id="hidden_latitude" type="hidden" name="hidden_latitude" value="<%= newLatitude %>">
-						<input id="hidden_longitude" type="hidden" name="hidden_longitude" value="<%= newLongitude %>">
+						<input id="hidden_latitude" type="hidden" name="hidden_latitude">
+						<input id="hidden_longitude" type="hidden" name="hidden_longitude">
 						<label for="apply"></label>
 						<input id="apply" type="submit" value="apply">
 					</fieldset>
@@ -69,17 +67,14 @@
 					<div class="col-5">
 						<div class="taglist">
 							<ul id="results">
-								<% if (taglist !== undefined) taglist.forEach(function(gtag) { %>
-									<li><%= gtag.name %> ( <%= gtag.latitude %>,<%= gtag.longitude %>)
-										<%= gtag.hashtag %> </li>
-								<% }); %>
+								<li>Castle (49.01379, 8.404435) #sight</li>
+								<li>IWI (49.01379, 8.390071) #edu</li>
 							</ul>
 						</div>
 					</div>
 					<div class="col-7">
 						<div class="tagmap">
-							<img alt="a map with locations" id="result-img" src="./images/mapview.jpg"
-								 <%if (typeof TagListJSON !== 'undefined') {%>data-tags="<%=TagListJSON%>" <%}%>/>
+							<img alt="a map with locations" id="result-img" src="./images/mapview.jpg"/>
 							<div class="caption">Result map</div>
 						</div>
 					</div>
