@@ -20,7 +20,7 @@ Nach der Aktualisierung kann die zweite Aufgabe vorbereitet werden.
 
 ### 2.1.1 Vorherige Lösungen übernehmen und IDE vorbereiten
 
-Da die Aufgaben aufeinander aufbauen, aber die Lösungen nicht vermischt werden sollen, muss die Lösung der ersten Aufgabe in die zweite Aufgabe übernommen werden:
+Da die Aufgaben aufeinander aufbauen, aber die Lösungen nicht vermischt werden sollen, muss die Lösung der ersten Aufgabe als Ausgangspunkt für die zweite Aufgabe übernommen werden:
 
 - Kopieren Sie die Datei `Aufgabe1/gta_v1/public/stylesheets/style.css` aus Aufgabe 1 nach `Aufgabe2/gta_v2/public/stylesheets/style.css`
 - Kopieren Sie die Datei `Aufgabe1/gta_v1/public/index.html` aus Aufgabe 1 nach `Aufgabe2/gta_v2/public/index.html` und öffnen Sie diese dann im **Editor**.
@@ -43,7 +43,7 @@ Die HTML Datei aus Aufgabe 1 muss nun noch etwas angepasst werden. Fügen sie al
 
 ## 2.2. Teilaufgaben
 
-### 1. Teilaufgabe: Koordinaten in das Formular eintragen
+### 1. Teilaufgabe: Koordinaten in die Formulare eintragen
 
 Das JavaScript enthält zunächst einige Klassen mit Hilfsfunktionen. Die Klasse `LocationHelper` erleichtert die Verwendung der HTML5 Geolocation API zur Bestimmung der Position. Die Funktion `findLocation` nimmt als Parameter eine *Callback Funktion* an, die bei Erfolg mit einem instanziierten LocationHelper Objekt 'zurückgerufen' wird. Das LocationHelper Objekt enthält dann die aktuellen Koordinaten als private Properties, die mit einer 'get'-Methode ausgelesen werden können. Beim Aufruf der Funktion muss die Callback Funktion übergeben werden.
 
@@ -65,3 +65,24 @@ Ergänzen sie ihre `updateLocation`-Funktion im wie folgt:
 - Rufen sie die Funktion `getMapUrl` mit den aktuellen Koordinaten auf. Das Ergebnis ist eine **URL** auf die Karte.
 - Suchen sie im DOM das **Image Element** auf der Webseite.
 - Ändern sie per DOM Aufruf das `src`-Attribut auf die neue URL.
+
+## Checkliste
+
+Zur Übersicht folgen noch mal alle Anforderungen in kompakter Form einer Checkliste.
+
+### 1. Teilaufgabe: Koordinaten bestimmen
+
+- [ ] Funktion `updateLocation` erstellen
+  - [ ] Nach dem Laden automatisch aufrufen
+  - [ ] Auslesen der Position mit `findLocation`
+  - [ ] Koordinaten in die Formulare eintragen
+    - [ ] `latitude` und `longitude` Felder
+    - [ ] Koordinaten in `value`-Attribute schreiben
+    - [ ] Auch versteckte Eingabefelder berücksichtigen
+
+### 2. Teilaufgabe: Karte darstellen
+
+- [ ] MapQuest API-Schlüssel besorgen und eintragen
+- [ ] `updateLocation`-Funktion ergänzen
+  - [ ] Funktion `getMapUrl` aufrufen
+  - [ ] URL im `src`-Attribut des Image Elements eintragen

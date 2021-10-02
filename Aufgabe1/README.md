@@ -160,7 +160,7 @@ Das Ergebnis könnte wie folgt aussehen:
 
 ## Checkliste
 
-Zur Übersicht folgen noch mal alle Anforderungen in kompakter Form einer Ckeckliste.
+Zur Übersicht folgen noch mal alle Anforderungen in kompakter Form einer Checkliste.
 
 ### Teil A: Formulare fertigstellen
 
