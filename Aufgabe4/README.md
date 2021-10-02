@@ -8,7 +8,7 @@ Die vierte Aufgabe hat folgende Ziele:
 
 Grundsätzlich soll die Funktionalität der Anwendung identisch erhalten bleiben, nur dass die Interaktion mit dem Server per AJAX wesentlich schneller und ohne störenden Aufbau einer neuen Seite abläuft. Die Seitennummerierung der GeoTag Liste ermöglicht den Umgang mit umfangreichen Ergebnismengen.
 
-Die Aufgabe vertieft die asynchrone Programmierung mit **Event-Listenern** und **Promises** sowie die Verwendung der **Fetch API** in Javascript. Zudem wird die **Struktur von REST APIs** sowie deren Umsetzung mit dem **HTTP-Protokoll** über **Express Routen** in Javascript eingeübt.
+Die Aufgabe vertieft die asynchrone Programmierung mit **Event-Listener** und **Promises** sowie die Verwendung der **Fetch API** in Javascript. Zudem wird die **Struktur von REST APIs** sowie deren Umsetzung mit dem **HTTP-Protokoll** über **Express Routen** in Javascript eingeübt.
 
 ## 4.1. Vorbereitung
 
@@ -35,32 +35,7 @@ Grundsätzlich benötigen sie als Ausgangspunkt für Aufgabe 4 eine Kopie der L�
 
 Die Umstellung auf AJAX-Aufrufe und REST Schnittstelle betrifft Client- und Serverseite.
 
-### 4.2.1 Clientseite (Browser)
-
-Für den AJAX Aufruf im Browser müssen Sie ihr Javascript `Aufgabe4/gta_v4/public/javascripts/geotagging.js` weiter anpassen.
-
-#### Auswertung der Formulare ändern
-
-Die Formulare für die Eingabe und das Filtern von Tags können grundsätzlich beibehalten werden, jedoch soll jeweils beim Klicken des Buttons ein AJAX-Aufruf erfolgen. Hierzu müssen Sie beim Laden der Seite Event-Listener erstellen und registrieren. Dies sollte direkt nach dem Laden einer Seite erfolgen. Daneben muss noch das standardmäßige Absenden der Formulare verhindert werden. Eine Möglichkeit hierzu wurde in der Vorlesung gezeigt.
-
-#### AJAX-Aufrufe hinzufügen
-
-Der AJAX-Aufruf soll mit der **Fetch API** realisiert werden (siehe entsprechende Folien). Verwenden sie bitte kein JQuery und auch nicht `XMLHttpRequest`.
-
-- Für das **Tagging Formular** soll der Aufruf *asynchron* ablaufen und die Daten per
-  *HTTP POST* in *JSON Format* an den Server senden.
-  - Tipp 1: Sie können hier den serverseitigen *GeoTag Konstruktor* aus Aufgabe 3
-    im Client Skript wiederverwenden.
-  - Tipp 2: spezifizieren sie einen geeigneten *MIME-Type* für JSON im
-    HTTP-Header `Content-Type`, damit der Server den Inhalt erkennt.
-- Für das **Filterformular** soll der Aufruf auch *asynchron* ablaufen aber per *HTTP
-  GET* mit *Query Parametern* erfolgen.
-
-#### Weitere Funktionen
-
-Auf der Clientseite muss noch eine Funktion zur Aktualisierung der Darstellung im Discovery-Widget erstellt werden. Diese soll die Ergebnisliste und die Karte aktualisieren. Die Aktualisierung soll sowohl beim Anlegen eines neuen Filters als auch eines neuen GeoTags erfolgen.
-
-### 4.2.2 Serverseite (Node.js)
+### 4.2.1 Serverseite (Node.js)
 
 Für die REST-Schnittstelle auf der Serverseite kann das Skript `./routers/index.js` weiterentwickelt werden. Hier müssen neue Routen für die AJAX-Aufrufe erstellt werden. Details zu den REST Endpunkten finden sie in der Dokumentation des Templates. Möglicherweise müssen Sie auch die Klasse `InMemoryGeoTagStore` aus der Datei `./models/geotag-store.js` erweitern, um eindeutige Keys (Primärschlüssel) für GeoTags zu unterstützen.
 
@@ -84,6 +59,29 @@ Demonstrieren sie alle Routen Ihrer REST API mit einem REST Client Ihrer Wahl. Z
 #### Tipps zur Verarbeitung von JSON im Express Server
 
 Die Vorverarbeitung des HTTP-Requests erfolgt mit einer in Express enthaltenen Middleware, die mit `express.json()` bereitgestellt wird (zu sehen in `./app.js`). Der Request muss den Header `Content-Type: application/json` enthalten. Der JSON-Inhalt lässt sich dann aus dem [Body des Request Objekts](http://expressjs.com/de/4x/api.html#req.body) entnehmen.
+
+### 4.2.2 Clientseite (Browser)
+
+Für den AJAX Aufruf im Browser müssen sie ihr Javascript `Aufgabe4/gta_v4/public/javascripts/geotagging.js` weiter anpassen.
+
+#### Auswertung der Formulare ändern
+
+Die Formulare für die Eingabe und das Filtern von Tags können grundsätzlich beibehalten werden, jedoch soll jeweils beim Klicken des Buttons ein AJAX-Aufruf erfolgen. Hierzu müssen Sie beim Laden der Seite Event-Listener erstellen und registrieren. Dies sollte direkt nach dem Laden einer Seite erfolgen. Daneben muss noch das standardmäßige Absenden der Formulare verhindert werden. Eine Möglichkeit hierzu wurde in der Vorlesung gezeigt. Achten sie darauf, dass die Validierung der Formulareingaben (aus Aufgabe 1) erhalten bleibt.
+
+#### AJAX-Aufrufe hinzufügen
+
+Der AJAX-Aufruf soll mit der **Fetch API** realisiert werden (siehe entsprechende Folien). Verwenden sie bitte kein JQuery und auch nicht `XMLHttpRequest`.
+
+- Für das **Tagging Formular** soll der Aufruf *asynchron* ablaufen und die Daten per *HTTP POST* in *JSON Format* an den Server senden.
+  - Tipp 1: Sie können hier den serverseitigen *GeoTag Konstruktor* aus Aufgabe 3
+    im Client Skript wiederverwenden.
+  - Tipp 2: spezifizieren sie einen geeigneten *MIME-Type* für JSON im
+    HTTP-Header `Content-Type`, damit der Server den Inhalt erkennt.
+- Für das **Discovery Formular** soll der Aufruf auch *asynchron* ablaufen aber per *HTTP GET* mit *Query Parametern* erfolgen.
+
+#### Weitere Funktionen
+
+Auf der Clientseite muss noch eine Funktion zur Aktualisierung der Darstellung im Discovery-Widget erstellt werden. Diese soll die Ergebnisliste und die Karte aktualisieren. Die Aktualisierung soll sowohl beim Anlegen eines neuen Filters als auch eines neuen GeoTags erfolgen.
 
 ## 4.3. Zusatzaufgabe
 
@@ -116,6 +114,43 @@ Ist man (wie in obiger Abbildung) auf der ersten Seite und möchte per Pfeil nac
 
 Zur Übersicht folgen noch mal alle Anforderungen in kompakter Form als Checkliste.
 
-### 1. Teilaufgabe: Server-Implementierung
+### 1. Teilaufgabe: Server-Erweiterung
 
-- [ ] **Skripte** für Backend Funktionen fertigstellen
+- [ ] Neue **Routen** realisieren (`./routers/index.js`)
+  - [ ] GET `/api/geotags`
+  - [ ] POST `/api/geotags`
+  - [ ] GET `/api/geotags/:id`
+  - [ ] PUT `/api/geotags/:id`
+  - [ ] DELETE `/api/geotags/:id`
+- [ ] **Servermodule erweitern**
+  - [ ] Klasse `InMemoryGeoTagStore` mit Primärschlüsseln für GeoTags
+- [ ] Backend **Demonstrator** mit **generischem HTTP-Client**
+  - [ ]  **Lebenszyklus** für GeoTag vorführen: Erstellen, Auslesen, Ändern, Suchen, Löschen
+
+### 2. Teilaufgabe: Client-Erweiterung
+
+- [ ] **Formularauswertung** ändern
+  - [ ] **Event-Listener** für beide Formulare registrieren
+  - [ ] **Absenden** der Formulare verhindern
+  - [ ] **Formular-Validierung** bleibt erhalten
+- [ ] **AJAX-Aufrufe** per **Fetch API** hinzufügen
+  - [ ] Aufruf im **Tagging Formular** *asynchron*
+    - [ ] *HTTP POST* mit Body in *JSON Format*
+  - [ ] Aufruf im **Discovery Formular** *asynchron*
+    - [ ] *HTTP GET* mit *Query Parametern* 
+- [ ] **Anzeigeaktualisierung** realisieren
+  - [ ] **Ergebnisliste** aktualisieren
+  - [ ] **Karte** aktualisieren
+
+### Zusatzaufgabe: Pagination
+
+- [ ] **HTTP-Endpunkte** (Routen) im Server mit Paging-Unterstützung
+  - [ ] Abfrage von Seiten/Bereichen der Ergebnisliste
+  - [ ] Demonstration mit generischem HTTP Client
+- [ ] **Paging-Ergebnisliste** im Client
+  - [ ] Anfangs erscheinen alle GeoTags (in der Nähe) als Seitenmenge
+  - [ ] Paging Widget im Client unter Ergebnisliste
+    - [ ] Vor- und Zurückblättern von Seiten
+    - [ ] Kein Blättern vor/nach der ersten/letzten Seite
+  - [ ] Discovery und Tagging Formulare ändern Seitenmenge
+  - [ ] Client lädt immer nur eine Seite vom Server
