@@ -68,7 +68,7 @@ Ergänzen sie ihre `updateLocation`-Funktion im wie folgt:
 
 ## Checkliste
 
-Zur Übersicht folgen noch mal alle Anforderungen in kompakter Form einer Checkliste.
+Zur Übersicht folgen noch mal alle Anforderungen in kompakter Form als Checkliste.
 
 ### 1. Teilaufgabe: Koordinaten bestimmen
 

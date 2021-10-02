@@ -111,3 +111,11 @@ Die Umsetzung der Aufgabe könnte nach folgender Methode erfolgen:
 Bei der Erstellung soll darauf geachtet werden, dass nur die GeoTags für die aktuell benötigte Seite geladen werden. Es sollen also **nicht** alle GeoTags angefragt, aber nur die aktuell sichtbaren (z.B. 10) angezeigt werden!
 
 Ist man (wie in obiger Abbildung) auf der ersten Seite und möchte per Pfeil nach links eine Seite zurück blättern, dann soll nichts geschehen. Dasselbe gilt für die letzte Seite mit Pfeil nach rechts.
+
+## Checkliste
+
+Zur Übersicht folgen noch mal alle Anforderungen in kompakter Form als Checkliste.
+
+### 1. Teilaufgabe: Server-Implementierung
+
+- [ ] **Skripte** für Backend Funktionen fertigstellen

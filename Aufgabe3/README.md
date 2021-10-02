@@ -37,6 +37,10 @@ Nach der Aktualisierung kann die zweite Aufgabe vorbereitet werden.
 
 ### 3.1.3 Node-js vorbereiten
 
+An dieser Stelle benötigen sie eine Node.js Umgebung. Falls sie die empfohlene Variante mit **Visual Studio Code** und **Remote Containers** Erweiterung nutzen, öffnen sie das `vs1lab`-Verzeichnis in einem Node.js-Container (siehe Laboranleitung). Alternativ kann Node.js lokal installiert werden.
+
+Mit gegebener Node.js Umgebung gehen sie wie folgt vor:
+
 1. Führen sie `npm install` im Verzeichnis `Aufgabe3/gta_v3/` aus, um die nötigen Module zu laden und zu installieren.
 2. Um die App später zu starten, führen sie `npm start` im Verzeichnis `Aufgabe3/gta_v3/` aus und öffnen sie [http://localhost:3000](http://localhost:3000) im **Browser**. Am Anfang funktioniert das aber noch nicht, da noch einige Änderungen gemacht werden müssen.
 
@@ -113,3 +117,38 @@ Der Server kann das Array mit GeoTag Objekten als `data-*`-Attribut einem geeign
 Auf der Clientseite können sie dann das Attribut aus dem DOM lesen und den string wieder in ein Array Objekt umwandeln. Für einen JSON-String `taglist_json` erzeugt der Aufruf `JSON.parse(taglist_json)` das korrespondierende JavaScript Array Objekt. Dieses Array Objekt können sie der `getMapUrl`-Methode als Parameter übergeben.
 
 **Aufgabe:** Erweitern Sie den Aufruf der `getMapUrl`-Methode aus der `updateLocation`-Funktion und übergeben sie neben der aktuellen Position des Clients zusätzlich einen Array von GeoTag Objekten des aktuellen Suchergebnisses im Discovery Widget. Auf der Karte sollen dann für alle Elemente der Ergebnisliste entsprechende Marker angezeigt werden.
+
+## Checkliste
+
+Zur Übersicht folgen noch mal alle Anforderungen in kompakter Form als Checkliste.
+
+### 1. Teilaufgabe: Server-Implementierung
+
+- [ ] **Skripte** für Backend Funktionen fertigstellen
+  - [ ] **Klasse für GeoTag Objekte** erstellen (`./model/geotag.js`)
+  - [ ] **Klasse zur GeoTag Speicherung** erstellen (`./model/geotag-store.js`)
+    - [ ] Privaten Array nutzen
+    - [ ] Methoden `addGeoTag`, `removeGeoTag`, `getNearbyGeoTags`, `searchNearbyGeoTags` realisieren
+  - [ ] **Beispieldaten für GeoTag Objekte** einlesen (`./model/geotag-examples.js`)
+
+- [ ] **Server Konfiguration und Routen** fertigstellen
+  - [ ] **Statische Dateien** bereitstellen (`./app.js`)
+  - [ ] Route `/tagging` zur **GeoTags Speicherung** erstellen. (`./routes/index.js`)
+  - [ ] Route `/discovery` zur **GeoTag Abfrage** erstellen. (`./routes/index.js`)
+
+- [ ] Server **Template** erweitern (`./views/index.ejs`)
+  - [ ] Koordinaten in Formulare eintragen
+
+### 2. Teilaufgabe: Client-Anpassung
+
+- [ ] Teil A: `MapManager` und `LocationHelper` **Klassen in eigene Skripte auslagern** (`./public/javascripts/geotagging.js`)
+- [ ] Teil B:  `updateLocation`-Funktion **optimieren**
+  - [ ] Auslesen von Formularfeldern mit Koordinaten
+  - [ ] Bedingte Ausführung von `LocationHelper.findLocation()`
+
+### 3. Teilaufgabe: Karten-Erweiterung
+
+- [ ] EJS-Template mit `data-*`-Attribut erweitern
+  - [ ] Im `img`-Element ein `data-tags`-Attribut erstellen und **Array mit GeoTag Objekten als JSON-String** einfügen
+- [ ] Aufruf von `getMapUrl` aus `updateLocation` erweitern
+  - [ ] Array mit GeoTag Objekten übergeben und **Map Marker anzeigen**

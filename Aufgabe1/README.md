@@ -160,7 +160,7 @@ Das Ergebnis könnte wie folgt aussehen:
 
 ## Checkliste
 
-Zur Übersicht folgen noch mal alle Anforderungen in kompakter Form einer Checkliste.
+Zur Übersicht folgen noch mal alle Anforderungen in kompakter Form als Checkliste.
 
 ### Teil A: Formulare fertigstellen
 
@@ -172,7 +172,7 @@ Zur Übersicht folgen noch mal alle Anforderungen in kompakter Form einer Checkl
   - [ ] Platzhalter für alle Felder
 - [ ] `fieldset` und `legend` zur Begrenzung des Formulars
 - [ ] Für jedes Formular ein Element zum Absenden
-- [ ] Formularvalidierung
+- [ ] Formular-Validierung
   - [ ] Latitude und Longitude mit festen Werten
   - [ ] Im Tagging-Formular: Name obligatorisch, Hashtag optional
   - [ ] Namen: max. 10 Buchstaben lang
