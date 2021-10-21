@@ -14,7 +14,7 @@
 
 <body>
     <header class="header">
-        <img src="./images/location.png" class="header__image" alt="an image of a map and location">
+        <img src="./images/location.png" class="header__image" alt="an image of a map and location" width="100px" height="100px">
         <h1 class="header__title">GeoTagApp</h1>
         <nav class="header__navigation">
             <a href="#">About</a> | <a href="#">Help</a> | <a href="/">Home</a>
@@ -27,9 +27,23 @@
 
             <!-- ############### VS1Lab 1a Form 1 Start -->
             <form id="tag-form" action="/tagging" method="post">
+                <fieldset>
+                    <legend>Add a new GeoTag</legend>
 
-                <!-- ... your code here ... -->
+                    <label for="tag-lattitude">lattitude</label>
+                    <input type="number" id="tag-lattitude" name="tag-lattitude">
 
+                    <label for="tag-longitude">longitude</label>
+                    <input type="number" id="tag-longitude" name="tag-longitude">
+
+                    <label>name</label>
+                    <input type="text" id="tag-name" name="tag-name" placeholder="Hochschule Karlsruhe">
+
+                    <label>hashtag</label>
+                    <input type="text" id="tag-hashtag" name="tag-hashtag" placeholder="#university">
+
+                    <input type="submit" id="tag-submit" name="tag-submit" value="submit &raquo;">
+            </fieldset>
             </form>
             <!-- ############### VS1Lab 1a Form 1 End -->
 
@@ -40,9 +54,11 @@
 
             <!-- ############### VS1Lab 1a Form 2 Start -->
             <form class="discovery__search" id="discoveryFilterForm" action="/discovery" method="post">
-
-                <!-- ... your code here ... -->
-
+                <fieldset>
+                    <legend>Search</legend>
+                    <input type="text" id="discover-search" name="discover-search" placeholder="search items">
+                    <input type="submit" id="discover-apply" name="discover-apply" value="apply &raquo;">
+                </fieldset>
             </form>
             <!-- ############### VS1Lab 1a Form 2 End -->
 
