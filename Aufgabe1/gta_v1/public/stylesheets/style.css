@@ -1,15 +1,52 @@
-/*
-  File origin: VS1LAB A1b  
-
-  CSS style is BEM. Classes used for CSS, IDs for JavaScript querying (future use).
-  CSS variables used for clarity and themability (e.g. through SSR). 
-  Inherited box sizing used for ease of including 3rd party content-box components. 
-*/
-
-/* Global styling */
-
 html {
   box-sizing: border-box;
+}
+
+@media only screen and (max-width:980px) {
+  .main__discovery, .main__tagging,.discovery__map,.row {
+    
+    
+    flex-direction: column;
+    width:100%;
+  }
+ 
+    
+}
+    
+
+button {
+  margin-top: 15px;
+  background: #F8F8F8;
+  color: black;
+  width: 100px;
+  padding: 5px;
+  font-weight: bold;
+  text-align: center;
+  border: 1px solid black;
+  width: 175px;
+  display: block;
+ }
+
+ button:hover {
+  color: white;
+  background: darkgray;
+ }
+
+ button:active {
+  border: 1px dashed black;
+ }
+
+input {
+  padding: 4px;
+}
+
+fieldset {
+  padding: 15px;
+}
+
+form label {
+  margin-top: 15px;
+  display: block;
 }
 
 * {
@@ -44,18 +81,12 @@ a {
   color: var(--link-color);
 }
 
-/* ### TODO ### Styles for other HTML elements */
-
-/* ... your code here ... */
-
-
 /* Grid styles (no changes required) */
-
 .row {
   width: 100%;
   display: flex;
   justify-content: space-between;
-  flex: 1;
+  flex: 1%;
 }
 
 .col-1 {
@@ -109,23 +140,46 @@ a {
 
 /* ### TODO ### Styles for Header Component */
 .header {
+  height: 90px;
   background-color: lightgray;
-  margin: 3%;
-  padding: 1%;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-bottom: black 1px solid;
+}
+
+.header__image {
+  margin-left: 3%;
+  float: left;
 }
 
 
+.header__navigation {
+  display:inline;
+  float: right;
+  padding-top: 25px;
+  margin-right: 3%;
+}
+.header__title {
+  display:inline;
+  float: left;
+  margin-left: 50px ;
+  padding-top: 15px;
+  
+}
+
 /* ### TODO ### Styles for Main Component */
 .main {
-  background-color: lightgray;
-  margin: 3%;
-  padding: 1%;
+  /* background-color: lightgray; */
+  margin-bottom: 10px;
+  padding: 10px;
 }
 
 
 /* ### TODO ### Styles for Tagging component */
 .main__tagging {
-  background-color:wheat;
+  width: 20%;
+  margin-left: 2.5%;
+  margin-right: 30px;
   float: left;
   padding: 1%;
 }
@@ -133,20 +187,53 @@ a {
 
 /* ### TODO ### Styles for Discovery component */
 .main__discovery {
-  background-color:wheat;
-  float: right;
+  margin-right: 2.5%;
+  width: 70%;
+  float: left;
   padding: 1%;
+}
+
+.discovery__results li {
+  height: 55px;
+  width: 200px;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color:#EFEFEF;
+  list-style: none;
+  color:deepskyblue;
+}
+
+.discovery__taglist {
+  float: left;
+  margin: 10px 10px 10px 0px;
+}
+
+.discovery__map {
+  margin: 10px 0px 10px 0px;
+  float: right;
+  display: block;
+  
+  
 }
 
 
 /* ### TODO ### Styles for Footer Component */
 .footer {
+  height: 60px;
   background-color: lightgray;
-  margin: 3%;
-  padding: 1%;
+  padding: 25px;
+  border-top: black 1px solid;
 }
 
 
-/* ### TODO ### Media Queries */
 
-/* ... your code here ... */
+
+#latitude_input {
+  background-color: #F8F8F8;
+}
+
+#longitude_input {
+  background-color: #F8F8F8;
+}
+
+/* ### TODO ### Media Queries */

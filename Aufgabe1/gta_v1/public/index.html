@@ -1,87 +1,89 @@
 <!DOCTYPE html>
-
-<!-- File origin: VS1LAB A1a -->
-
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GeoTagApp</title>
-    <link rel="stylesheet" href="./stylesheets/style.css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>GeoTagApp</title>
+	<link rel="stylesheet" href="./stylesheets/style.css" />
 </head>
 
 <body>
-    <header class="header">
-        <img src="./images/location.png" class="header__image" alt="an image of a map and location" width="100px" height="100px">
-        <h1 class="header__title">GeoTagApp</h1>
-        <nav class="header__navigation">
-            <a href="#">About</a> | <a href="#">Help</a> | <a href="/">Home</a>
-        </nav>
-    </header>
+	<!-- Load JavaScripts
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="./javascripts/geotagging.js"></script>
+	<header class="header">
+		<img src="./images/location.png" class="header__image" alt="an image of a map and location" width="65px" height="65px">
+		<h1 class="header__title">GeoTagApp</h1>
+		<nav class="header__navigation">
+			<a href="#">About</a> | <a href="#">Help</a> | <a href="/">Home</a>
+		</nav>
+	</header>
 
-    <main class="main">
-        <section class="main__tagging tagging">
-            <h2>Tagging</h2>
+	<main class="main row">
+		<section class="main__tagging tagging col-6">
+			<h2>Tagging</h2> <br>
 
-            <!-- ############### VS1Lab 1a Form 1 Start -->
-            <form id="tag-form" action="/tagging" method="post">
-                <fieldset>
-                    <legend>Add a new GeoTag</legend>
+			<!-- ############### VS1Lab 1a Form 1 Start -->
+			<form id="tag-form" action="/tagging" method="post" target="_blank">
+				<fieldset>
+					<legend><b>Add a new GeoTag</b></legend>
 
-                    <label for="tag-lattitude">lattitude</label>
-                    <input type="number" id="tag-lattitude" name="tag-lattitude">
+					<label for="latitude_input">Latitude:</label>
+					<input id="latitude_input" type="text" value="49.01379" readonly>
 
-                    <label for="tag-longitude">longitude</label>
-                    <input type="number" id="tag-longitude" name="tag-longitude">
+					<label for="longitude_input">Longitude:</label>
+					<input id="longitude_input" type="text" value="8.390071" readonly>
 
-                    <label>name</label>
-                    <input type="text" id="tag-name" name="tag-name" placeholder="Hochschule Karlsruhe">
+					<label for="name_input">Name:</label>
+					<input id="name_input" type="text" maxlength="10" placeholder="e.g. Berlin" required>
 
-                    <label>hashtag</label>
-                    <input type="text" id="tag-hashtag" name="tag-hashtag" placeholder="#university">
+					<label for="hashtag_input">Hashtag:</label>
+					<input id="hashtag_input" type="text" pattern="#[a-zA-Z]+" maxlength="11" placeholder="e.g. #ber">
 
-                    <input type="submit" id="tag-submit" name="tag-submit" value="submit &raquo;">
-            </fieldset>
-            </form>
-            <!-- ############### VS1Lab 1a Form 1 End -->
+					<button id="add_tag_button" value="0">Add Tag</button>
+				</fieldset>
+			</form>
+			<!-- ############### VS1Lab 1a Form 1 End -->
 
-        </section>
+		</section>
 
-        <section class="main__discovery discovery">
-            <h2 class="discovery__title">Discovery</h2>
+		<section class="main__discovery discovery col-6">
+			<h2 class="discovery__title">Discovery</h2> <br>
 
-            <!-- ############### VS1Lab 1a Form 2 Start -->
-            <form class="discovery__search" id="discoveryFilterForm" action="/discovery" method="post">
-                <fieldset>
-                    <legend>Search</legend>
-                    <input type="text" id="discover-search" name="discover-search" placeholder="search items">
-                    <input type="submit" id="discover-apply" name="discover-apply" value="apply &raquo;">
-                </fieldset>
-            </form>
-            <!-- ############### VS1Lab 1a Form 2 End -->
+			<!-- ############### VS1Lab 1a Form 2 Start -->
+			<form class="discovery__search" id="discoveryFilterForm" action="/discovery" method="post" target="_blank">
+				<fieldset class="form_fieldset">
+					<legend><b>Search</b></legend>
 
-            <div class="discovery__wrapper">
-                <div class="discovery__taglist">
-                    <ul class="discovery__results" id="discoveryResults">
-                        <li>Castle (49.01379, 8.404435) #sight</li>
-                        <li>IWI (49.01379, 8.390071) #edu</li>
-                    </ul>
-                </div>
+					<label for="search_input">Search term or keywords:</label>
+					<input id="search_input" type="text" placeholder="e.g. Berlin" readonly>
 
-                <div class="discovery__map">
-                    <img src="./images/mapview.jpg" alt="a map with locations" id="mapView" />
-                    <span>Result map</span>
-                </div>
-            </div>
-        </section>
+					<button id="search_button" value="0">Search</button>
+				</fieldset>
+			</form>
+			<!-- ############### VS1Lab 1a Form 2 End -->
 
-    </main>
+			<div class="discovery__wrapper">
+				<div class="discovery__taglist">
+					<ul class="discovery__results" id="discoveryResults">
+						<li>Castle (49.01379, 8.404435) <br> #sight</li>
+						<li>IWI (49.01379, 8.390071) <br> #edu</li>
+					</ul>
+				</div>
 
-    <footer class="footer">
-        <span>(c) 2021/22 HKA_IWI_VSYS</span>
-    </footer>
+				<div class="discovery__map">
+					<img src="./images/mapview.jpg" alt="a map with locations" id="mapView" width="375px" height="350px" /><br>
+					<span>Result map</span>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<footer class="footer">
+		<span>(c) 2021/22 HKA_IWI_VSYS</span>
+	</footer>
 </body>
 
 </html>
