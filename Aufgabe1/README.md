@@ -10,7 +10,7 @@ Für die Aufgabe existieren schon Templates auf
 **[GitHub](https://guides.github.com/activities/hello-world/)**:
 
 - [https://github.com/zirpins/vs1lab](https://github.com/zirpins/vs1lab).
-  
+
 Laden sie das ganze Repository von GitHub herunter. Wir zeigen hier durchgängig eine mögliche Methode zur Arbeit mit Git (Beispiel für Linux/Mac):
 
 ```bash
@@ -65,7 +65,7 @@ git commit -m 'first solution for web page' # führe commit durch mit Beispielko
 
 Commits sind feste Zwischenstände im Repository, zu denen sie immer wieder zurückkehren können. Geht in der Folge etwas schief, können sie alle Dateien leicht wieder zurücksetzen. Nach dem Commit können sie auch gefahrlos in einen anderen Zweig (z.B. 'master') wechseln.
 
-***Pro-Tipp:** Der Commit befindet sich in Ihrem 'dev'-Branch und ändert den 'master'-Branch nicht. Der 'master'-Branch sollte auch nicht verändert werden, damit Sie später ggf. Aktualisierungen aus dem ursprünglichen Repository nachträglich übernehmen können. Bitte schicken Sie auch niemals Commits an das ursprünglichen Repository zurück (git push), sondern arbeiten Sie immer lokal auf Ihrer eigenen Kopie. Falls Sie für die Gruppenarbeit ein geteiltes Repository benötigen, erstellen Sie zunächst eine Kopie davon auf GitHub (als 'Fork') und clonen sie dann den Fork. Dabei helfen wir Ihnen gerne.*
+**Pro-Tipp:** Der Commit befindet sich in Ihrem 'dev'-Branch und ändert den 'master'-Branch nicht. Der 'master'-Branch sollte auch nicht verändert werden, damit Sie später ggf. Aktualisierungen aus dem ursprünglichen Repository nachträglich übernehmen können. Bitte schicken Sie auch niemals Commits an das ursprünglichen Repository zurück (git push), sondern arbeiten Sie immer lokal auf Ihrer eigenen Kopie. Falls Sie für die Gruppenarbeit ein geteiltes Repository benötigen, erstellen Sie zunächst eine Kopie davon auf GitHub (als 'Fork') und clonen sie dann den Fork. Dabei helfen wir Ihnen gerne.*
 
 ### A.2. Teilaufgaben
 
@@ -190,4 +190,4 @@ Zur Übersicht folgen noch mal alle Anforderungen in kompakter Form als Checklis
 - [ ] Responsives Verhalten
   - [ ] Spalten relativ zur Bildschirmbreite anpassen
   - [ ] Ab min. Bildschirmbreite Spalten untereinander klappen
-    - [ ] Mit Media Query realisieren 
+    - [ ] Mit Media Query realisieren
