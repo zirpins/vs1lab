@@ -151,7 +151,6 @@ legend {
 }
 
 input[type=submit] {
-     width: 150px;
      padding: 4px 4px;
      margin: 5px 10px 10px;
      border: 1px solid var(--border-color);
