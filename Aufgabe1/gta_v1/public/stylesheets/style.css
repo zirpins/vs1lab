@@ -157,7 +157,7 @@ input[type=submit] {
      border: 1px solid;
      border-color: gray;
      box-sizing: border-box;
-     background-color: #e6e8eb;
+     background-color: var(--background-color);
      color: var(--gray-color);
      text-align: center;
 }
