@@ -159,7 +159,7 @@ input[type=submit] {
      box-sizing: border-box;
      background-color: #e6e8eb;
      font: 1em/1.25em Arial, Helvetica, sans-serif;
-     color: gray;
+     color: var(--gray-color);
      text-align: center;
 }
 
