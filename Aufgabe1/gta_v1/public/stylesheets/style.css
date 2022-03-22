@@ -112,6 +112,7 @@ a {
 /* ... your code here ... */
 
 
+
 /* ### TODO ### Styles for Main Component */
 
 /* ... your code here ... */
@@ -129,7 +130,11 @@ a {
 
 /* ### TODO ### Styles for Footer Component */
 
-/* ... your code here ... */
+.footer {
+  border-top: 2px solid var(--border-color);
+  padding: 2rem;
+  background-color: var(--background-color);
+}
 
 
 /* ### TODO ### Media Queries */
