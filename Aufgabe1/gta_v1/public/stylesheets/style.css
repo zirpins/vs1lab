@@ -154,7 +154,7 @@ input[type=submit] {
      width: 150px;
      padding: 4px 4px;
      margin: 5px 10px 10px;
-     border: 1px solid;
+     border: 1px solid var(--border-color);
      box-sizing: border-box;
      background-color: var(--background-color);
      color: var(--gray-color);
