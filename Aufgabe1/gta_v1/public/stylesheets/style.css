@@ -124,6 +124,50 @@ a {
 
 /* ### TODO ### Styles for Discovery component */
 
+
+input[type = text] {
+    width: 150px;
+    padding: 4px 6px;
+    margin: 10px 10px 5px;
+    border: 1px solid;
+    box-sizing: border-box;
+}
+
+fieldset {
+    border: 1px solid #000;
+    border-color: lightgray;
+    margin-top: 1.0em
+}
+
+label {
+    margin: 0px 0px 0px 10px;
+    color: gray;
+}
+
+legend {
+    margin-left: 10px;
+    font-size: small;
+    font-weight: 600;
+}
+
+input[type=submit] {
+     width: 150px;
+     padding: 4px 4px;
+     margin: 5px 10px 10px;
+     border: 1px solid;
+     border-color: gray;
+     box-sizing: border-box;
+     background-color: #e6e8eb;
+     font: 1em/1.25em Arial, Helvetica, sans-serif;
+     color: gray;
+     text-align: center;
+}
+
+input[type=text]::placeholder {
+    color: light-gray;
+    font-size: 1em;
+}
+
 /* ... your code here ... */
 
 
