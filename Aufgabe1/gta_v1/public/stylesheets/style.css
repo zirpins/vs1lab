@@ -135,7 +135,6 @@ input[type = text] {
 
 fieldset {
     border: 1px solid #000;
-    border-color: lightgray;
     margin-top: 1.0em
 }
 
