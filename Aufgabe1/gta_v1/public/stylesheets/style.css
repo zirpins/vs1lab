@@ -155,7 +155,6 @@ input[type=submit] {
      padding: 4px 4px;
      margin: 5px 10px 10px;
      border: 1px solid;
-     border-color: gray;
      box-sizing: border-box;
      background-color: var(--background-color);
      color: var(--gray-color);
