@@ -125,7 +125,7 @@ a {
 /* ### TODO ### Styles for Discovery component */
 
 
-input[type = text] {
+input[type=text] {
     padding: 4px 6px;
     margin: 10px 10px 5px;
     border: 1px solid var(--border-color);
