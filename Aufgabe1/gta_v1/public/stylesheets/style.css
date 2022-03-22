@@ -164,7 +164,7 @@ input[type=submit] {
 }
 
 input[type=text]::placeholder {
-    color: light-gray;
+    color: var(--background-color);
     font-size: 1em;
 }
 
