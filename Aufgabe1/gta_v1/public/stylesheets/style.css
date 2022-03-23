@@ -47,7 +47,7 @@ a {
 /* ### TODO ### Styles for other HTML elements */
 form input {
     display: block;
-    width: 100%;
+    width: calc(100% - 20px);
     padding: 0.5rem 0.75rem;
     margin: 0.25rem 0 0.5rem 0;
 }
@@ -134,7 +134,7 @@ form input {
 
 input[type=text] {
     padding: 4px 6px;
-    margin: 10px 10px 5px;
+    margin: 5px 10px;
     border: 1px solid var(--border-color);
     box-sizing: border-box;
 }
@@ -157,7 +157,7 @@ legend {
 
 input[type=submit] {
      padding: 4px 4px;
-     margin: 5px 10px 10px;
+     margin: 5px 10px;
      border: 1px solid var(--border-color);
      box-sizing: border-box;
      background-color: var(--background-color);
