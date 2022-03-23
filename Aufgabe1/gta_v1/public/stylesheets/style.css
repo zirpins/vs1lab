@@ -45,7 +45,12 @@ a {
 }
 
 /* ### TODO ### Styles for other HTML elements */
-
+form input {
+    display: block;
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    margin: 0.25rem 0 0.5rem 0;
+}
 /* ... your code here ... */
 
 
@@ -119,6 +124,8 @@ a {
 
 
 /* ### TODO ### Styles for Tagging component */
+
+
 
 /* ... your code here ... */
 
