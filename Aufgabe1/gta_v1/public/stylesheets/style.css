@@ -111,7 +111,33 @@ form input {
 
 
 /* ### TODO ### Styles for Header Component */
+.header {
+    border-bottom: 2px solid var(--border-color);
+    padding: 2rem;
+    background-color: var(--background-color);
+    display: flex;
+    align-items: center;
+}
 
+.header__image{
+    width: 100%;
+    height: auto;
+    max-width: 50px;
+}
+
+.header__title{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex: 1;
+}
+
+@media only screen and (max-width: 436px) {
+.header{
+    flex-direction: column;
+    gap: 10px;
+    }
+}
 /* ... your code here ... */
 
 
