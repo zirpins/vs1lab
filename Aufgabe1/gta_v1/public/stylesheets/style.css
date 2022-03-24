@@ -44,11 +44,49 @@ a {
 
 /* Styles for other HTML elements */
 
-form input {
+fieldset {
+    border: 1px solid var(--border-color);
+    margin-top: 1.0rem;
+    padding: 0.5rem 0;
+}
+
+legend {
+    margin-left: 0.6rem;
+    font-size: small;
+    font-weight: 600;
+}
+
+label {
+    margin: 0 0 0 0.6rem;
+    color: var(--gray-color);
+}
+
+input {
     display: block;
     width: calc(100% - 20px);
     padding: 0.5rem 0.75rem;
     margin: 0.25rem 0 0.5rem 0;
+}
+
+input[type=text] {
+    padding: 0.8rem 0.6rem 0.6rem 0.6rem;
+    margin: 0.3rem 0.6rem 1rem 0.6rem;
+    border: 1px solid var(--border-color);
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    margin: 0.3rem 0.6rem;
+    border: 1px solid var(--border-color);
+    box-sizing: border-box;
+    background-color: var(--background-color);
+    color: var(--gray-color);
+    text-align: center;
+}
+
+input[type=text]::placeholder {
+    color: var(--gray-color);
+    font-size: 1rem;
 }
 
 /* Grid styles (no changes required) */
@@ -121,7 +159,7 @@ form input {
 .header__image{
     width: 100%;
     height: auto;
-    max-width: 50px;
+    max-width: 3.125rem;
 }
 
 .header__title{
@@ -141,43 +179,32 @@ form input {
 
 /* Styles for Discovery component */
 
-fieldset {
+.discovery__search {
+    margin: 0 0 2rem 0;
+}
+
+.discovery__results {
+    list-style: none;
+}
+
+.discovery__results li {
+    padding: 1rem;
+    color: var(--link-color);
+    background: var(--background-color);
     border: 1px solid var(--border-color);
-    margin-top: 1.0rem;
-    padding: 0.5rem 0;
 }
 
-label {
-    margin: 0rem 0rem 0rem 0.6rem;
-    color: var(--gray-color);
+.discovery__results li:not(:last-of-type) {
+    margin: 0 0 1rem 0;
 }
 
-legend {
-    margin-left: 0.6rem;
-    font-size: small;
-    font-weight: 600;
+.discovery__map img {
+    width: 100%;
+    height: auto;
 }
 
-input[type=text] {
-    padding: 0.5rem 0.3rem;
-    margin: 0.3rem 0.6rem 1rem 0.6rem;
-    border: 1px solid var(--border-color);
-    box-sizing: border-box;
-}
-
-input[type=submit] {
-     padding: 0.2rem 0.2rem;
-     margin: 0.3rem 0.6rem;
-     border: 1px solid var(--border-color);
-     box-sizing: border-box;
-     background-color: var(--background-color);
-     color: var(--gray-color);
-     text-align: center;
-}
-
-input[type=text]::placeholder {
-    color: var(--background-color);
-    font-size: 1rem;
+.discovery__map span {
+    display: block;
 }
 
 /* Styles for Footer Component */
@@ -190,9 +217,29 @@ input[type=text]::placeholder {
 
 /* Media Queries */
 
-@media only screen and (max-width: 576px) {
+@media only screen and (max-width: 767px) {
     .header {
         flex-direction: column;
-        gap: 10px;
+        gap: 1rem;
+    }
+
+    .row {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .col-responsive {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    .row-inner {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .row-inner .col-responsive {
+        width: 100%;
     }
 }
