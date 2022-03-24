@@ -118,17 +118,24 @@ form input {
     align-items: center;
 }
 
-.header__image {
+.header__image{
     width: 100%;
     height: auto;
     max-width: 50px;
 }
 
-.header__title {
+.header__title{
     width: 100%;
     display: flex;
     justify-content: center;
     flex: 1;
+}
+
+@media only screen and (max-width: 436px) {
+.header{
+    flex-direction: column;
+    gap: 10px;
+    }
 }
 
 /* Styles for Main Component */
@@ -148,7 +155,7 @@ fieldset {
 }
 
 label {
-    margin: 0 0 0 0.6rem;
+    margin: 0rem 0rem 0rem 0.6rem;
     color: var(--gray-color);
 }
 
@@ -166,13 +173,13 @@ input[type=text] {
 }
 
 input[type=submit] {
-    padding: 0.2rem 0.2rem;
-    margin: 0.3rem 0.6rem;
-    border: 1px solid var(--border-color);
-    box-sizing: border-box;
-    background-color: var(--background-color);
-    color: var(--gray-color);
-    text-align: center;
+     padding: 0.2rem 0.2rem;
+     margin: 0.3rem 0.6rem;
+     border: 1px solid var(--border-color);
+     box-sizing: border-box;
+     background-color: var(--background-color);
+     color: var(--gray-color);
+     text-align: center;
 }
 
 input[type=text]::placeholder {
