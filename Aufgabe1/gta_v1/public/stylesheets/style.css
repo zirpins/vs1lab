@@ -157,31 +157,31 @@ form input {
 
 
 input[type=text] {
-    padding: 4px 6px;
-    margin: 5px 10px;
+    padding: 0.5rem 0.3rem;
+    margin: 0.3rem 0.6rem;
     border: 1px solid var(--border-color);
     box-sizing: border-box;
 }
 
 fieldset {
     border: 1px solid var(--border-color);
-    margin-top: 1.0em
+    margin-top: 1.0rem
 }
 
 label {
-    margin: 0px 0px 0px 10px;
+    margin: 0rem 0rem 0rem 0.6rem;
     color: var(--gray-color);
 }
 
 legend {
-    margin-left: 10px;
+    margin-left: 0.6rem;
     font-size: small;
     font-weight: 600;
 }
 
 input[type=submit] {
-     padding: 4px 4px;
-     margin: 5px 10px;
+     padding: 0.2rem 0.2rem;
+     margin: 0.3rem 0.6rem;
      border: 1px solid var(--border-color);
      box-sizing: border-box;
      background-color: var(--background-color);
@@ -191,7 +191,7 @@ input[type=submit] {
 
 input[type=text]::placeholder {
     color: var(--background-color);
-    font-size: 1em;
+    font-size: 1rem;
 }
 
 /* ... your code here ... */
