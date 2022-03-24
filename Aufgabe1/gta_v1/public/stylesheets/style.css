@@ -45,9 +45,51 @@ a {
 }
 
 /* ### TODO ### Styles for other HTML elements */
+header{
+  background-color: gray;
+}
 
-/* ... your code here ... */
+.header__image{
+  border : solid 3px green;
+  margin-left: 2%;
+  width: 4%;
+  height: auto;
+  float: left;
+  margin-top: 1%;
+  margin-bottom: 1%;
+}
 
+.header__title{
+  text-align: center;
+  margin-top: 1%;
+  margin-bottom: 1%;
+  margin-left: 33%;
+  margin-right: 33%;
+}
+
+.header__navigation{
+  float:right;
+  border: solid 2px blue; 
+  margin-top: 1%;
+  margin-bottom: 1%;
+  margin-right: 2%;
+}
+
+.block{
+  display:block;
+}
+
+.main__discovery{ 
+  border: solid 3px blue;
+}
+
+.discovery__map, .discovery__taglist{
+  border : dotted 3px red;
+}
+
+.discovery__results li{
+  border : solid 2px gray;
+}
 
 /* Grid styles (no changes required) */
 
