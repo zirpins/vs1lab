@@ -131,13 +131,6 @@ form input {
     flex: 1;
 }
 
-@media only screen and (max-width: 436px) {
-.header{
-    flex-direction: column;
-    gap: 10px;
-    }
-}
-
 /* Styles for Main Component */
 
 .main {
