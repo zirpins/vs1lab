@@ -55,7 +55,7 @@ header{
 
 .header__image{
   border : solid 3px green;
-  width: 3%;
+  width: 5%;
   height: auto;  
   margin-left: 5%;
 }
