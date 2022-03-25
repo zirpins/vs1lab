@@ -46,33 +46,27 @@ a {
 
 /* ### TODO ### Styles for other HTML elements */
 header{
-  background-color: gray;
+  background-color: lightgray;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 10vh;
 }
 
 .header__image{
   border : solid 3px green;
-  margin-left: 2%;
-  width: 4%;
-  height: auto;
-  float: left;
-  margin-top: 1%;
-  margin-bottom: 1%;
+  width: 3%;
+  height: auto;  
+  margin-left: 5%;
 }
 
 .header__title{
   text-align: center;
-  margin-top: 1%;
-  margin-bottom: 1%;
-  margin-left: 33%;
-  margin-right: 33%;
 }
 
 .header__navigation{
-  float:right;
   border: solid 2px blue; 
-  margin-top: 1%;
-  margin-bottom: 1%;
-  margin-right: 2%;
+  margin-right: 5%;
 }
 
 .block{
