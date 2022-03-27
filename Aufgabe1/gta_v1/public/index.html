@@ -20,7 +20,7 @@
         </nav>
     </header>
 
-    <main class="main row">
+    <main id="main" class="main row">
         <section class="main__tagging tagging col-4 col-responsive">
             <h2>Tagging</h2>
 
@@ -28,17 +28,17 @@
                 <fieldset>
                     <legend>Add a new GeoTag</legend>
 
-                    <label for="latitude">Latitude:</label>
-                    <input type="text" id="latitude" placeholder="49.01379" disabled />
+                    <label for="tagging_latitude">Latitude:</label>
+                    <input type="text" id="tagging_latitude" value="49.01379" disabled />
 
-                    <label for="longitude">Longitude:</label>
-                    <input type="text" id="longitude" placeholder="8.390071" disabled />
+                    <label for="tagging_longitude">Longitude:</label>
+                    <input type="text" id="tagging_longitude" value="8.390071" disabled />
 
-                    <label for="name">Name:</label>
-                    <input type="text" id="name" placeholder="e.g. Central Berlin" maxlength="10" required />
+                    <label for="tagging_name">Name:</label>
+                    <input type="text" id="tagging_name" placeholder="e.g. Central Berlin" maxlength="10" pattern="[A-Za-z]{1,10}" required />
 
-                    <label for="hashtag">Hashtag:</label>
-                    <input type="text" id="hashtag" placeholder="e.g. #ber" maxlength="10" />
+                    <label for="tagging_hashtag">Hashtag:</label>
+                    <input type="text" id="tagging_hashtag" placeholder="e.g. #ber" maxlength="11" pattern="[#][A-Za-z]{1,10}" />
 
                     <input type="submit" id="add_tag_button" value="Add Tag" />
                 </fieldset>
@@ -51,8 +51,15 @@
             <form class="discovery__search" id="discoveryFilterForm" action="/discovery" method="post">
                 <fieldset>
                     <legend>Search</legend>
-                        <label id="discovery_search_label" for="discovery_search_input">Search term or keywords:</label>
-                        <input type="text" id="discovery_search_input" placeholder="e.g. Berlin" required />
+                        <label id="discovery_search" for="discovery_searchterm">Search term or keywords:</label>
+                        <input type="text" id="discovery_searchterm" placeholder="e.g. Berlin" required />
+
+                        <label id="discovery_latitude" for="discovery_latitude_search" hidden>Latitude:</label>
+                        <input type="hidden" id="discovery_latitude_search" placeholder="49.01379" pattern="[0-9]{1,2}[.]?[0-9]{0,6}" />
+
+                        <label id="discovery_longitude" for="discovery_longitude_search" hidden>Longitude:</label>
+                        <input type="hidden" id="discovery_longitude_search" placeholder="8.390071" pattern="[0-9]{1,2}[.]?[0-9]{0,6}" />
+
                         <input type="submit" id="discovery_button" value="Search" />
                 </fieldset>
             </form>
