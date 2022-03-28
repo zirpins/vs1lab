@@ -45,44 +45,11 @@ a {
 }
 
 /* ### TODO ### Styles for other HTML elements */
-header{
-  background-color: lightgray;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 10vh;
-}
-
-.header__image{
-  border : solid 3px green;
-  width: 5%;
-  height: auto;  
-  margin-left: 5%;
-}
-
-.header__title{
-  text-align: center;
-}
-
-.header__navigation{
-  border: solid 2px blue; 
-  margin-right: 5%;
-}
 
 .block{
   display:block;
-}
-
-.main__discovery{ 
-  border: solid 3px blue;
-}
-
-.discovery__map, .discovery__taglist{
-  border : dotted 3px red;
-}
-
-.discovery__results li{
-  border : solid 2px gray;
+  margin-top: 1%;
+  margin-bottom: 1%;
 }
 
 /* Grid styles (no changes required) */
@@ -145,28 +112,58 @@ header{
 
 /* ### TODO ### Styles for Header Component */
 
-/* ... your code here ... */
+header{
+  background-color: lightgray;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 10vh;
+}
 
+.header__image{
+  border : solid 3px green;
+  width: 5%;
+  height: auto;  
+  margin-left: 5%;
+}
+
+.header__title{
+  text-align: center;
+}
+
+.header__navigation{
+  border: solid 2px blue; 
+  margin-right: 5%;
+}
 
 /* ### TODO ### Styles for Main Component */
 
-/* ... your code here ... */
 
 
 /* ### TODO ### Styles for Tagging component */
 
-/* ... your code here ... */
 
 
 /* ### TODO ### Styles for Discovery component */
 
-/* ... your code here ... */
+.main__discovery{ 
+  border: solid 3px blue;
+}
+
+.discovery__map, .discovery__taglist{
+  border : dotted 3px red;
+}
+
+.discovery__results li{
+  border : solid 2px gray;
+}
 
 
 /* ### TODO ### Styles for Footer Component */
 
-/* ... your code here ... */
-
+footer{
+  background-color: lightgray;
+}
 
 /* ### TODO ### Media Queries */
 
