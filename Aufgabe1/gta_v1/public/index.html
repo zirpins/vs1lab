@@ -31,32 +31,32 @@
 
                 <!-- ... your code here ... -->
                 <fieldset>
-                    <legend>Add a new GeoTag</legend>
+                    <legend><b>Add a new GeoTag</b></legend>
 
                   <label>Latitude :     
                       <br>
-                    <input type="text" name="latitude" size="10" id="latitude" pattern="[0-9"/>
+                    <input type="text" name="latitude" placeholder="e.g. 49.01455" size="35" id="latitude" pattern="[0-9]"/>
                 </label>
 
                 <br>
 
                 <label>Longitude :      
                     <br>
-                    <input type="text" name="longitude" size="10" id="longitude"/>
+                    <input type="text" name="longitude" placeholder="e.g. 8.39400" size="35" id="longitude"/>
                 </label>
 
                 <br>
 
                 <label>Name :      
                     <br>
-                    <input type="text" name="name" size="10" id="name"/>
+                    <input type="text" name="name" placeholder="e.g. Central Berlin" size="35" id="name"/>
                 </label>
 
                 <br>
 
                 <label>Hashtag :      
                     <br>
-                    <input type="text" name="hashtag" size="10" id="hashtag"/>
+                    <input type="text" name="hashtag" placeholder="e.g. #ber" size="35" id="hashtag"/>
                 </label>
                 </fieldset>
 
@@ -75,10 +75,10 @@
             <form class="discovery__search" id="discoveryFilterForm" action="/discovery" method="post">
 
                 <fieldset>
-                    <legend>Search</legend>
+                    <legend><b>Search</b></legend>
                     <lable>
-                        Search term or keywords:
-                        <input type="text" name="search" placeholder="eg. Berlin" size="10" id="search">
+                        Search term or keywords: <br>
+                        <input type="text" name="search" placeholder="e.g. Berlin" size="35" id="search">
                     </lable>
 
                 </fieldset>
