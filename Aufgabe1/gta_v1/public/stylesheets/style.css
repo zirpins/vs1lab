@@ -15,7 +15,6 @@ html {
 * {
     margin: 0;
     padding: 0;
-
     /* This approach prevents issues with 3rd party content-box components */
     box-sizing: inherit;
 }
@@ -42,8 +41,6 @@ a {
     color: var(--link-color);
 }
 
-/* Styles for other HTML elements */
-
 fieldset {
     border: 1px solid var(--border-color);
     margin-top: 1.0rem;
@@ -63,6 +60,7 @@ label {
 
 input {
     display: block;
+    font-size: 1rem;
     width: calc(100% - 20px);
     padding: 0.5rem 0.75rem;
     margin: 0.25rem 0 0.5rem 0;
@@ -171,7 +169,7 @@ input[type=text]::placeholder {
 
 /* Styles for Main Component */
 
-.main {
+#main { /* selector with # */
     padding: 2rem;
 }
 
