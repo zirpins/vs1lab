@@ -30,19 +30,19 @@
                    <fieldset>
                       <legend>Add a new GeoTag</legend>
                   
-                      <label for="latitude">Latitude:</label>
-                      <input class="block" type="text" id="latitude" placeholder="49.01379" disabled>
+                      <label class="tagging_item" for="latitude">Latitude:</label>
+                      <input class="block tagging_item" type="text" id="latitude" placeholder="49.01379" disabled>
 
-                      <label for="longitude">Longitude:</label>
-                      <input class="block" type="text" id="longitude" placeholder="8.390071" disabled>
+                      <label class="tagging_item" for="longitude">Longitude:</label>
+                      <input class="block tagging_item" type="text" id="longitude" placeholder="8.390071" disabled>
 
-                      <label for="name">Name:</label>
-                      <input class="block" type="text" id="name" placeholder="e.g. Central Berlin" pattern="[a-zA-Z]+" minlength="1" maxlength="10">
+                      <label class="tagging_item" for="name">Name:</label>
+                      <input class="block tagging_item" type="text" id="name" placeholder="e.g. Central Berlin" pattern="[a-zA-Z]+" minlength="1" maxlength="10">
 
-                      <label for="hashtag">Hashtag:</label>
-                      <input class="block" type="text" id="hashtag" placeholder="e.g. #ber" pattern="#[a-zA-Z]*" minlength="1" maxlength="11">
+                      <label class="tagging_item" for="hashtag">Hashtag:</label>
+                      <input class="block tagging_item" type="text" id="hashtag" placeholder="e.g. #ber" pattern="#[a-zA-Z]*" minlength="1" maxlength="11">
                   
-                      <input type="submit" id="addTag" value="Add Tag">
+                      <input class="tagging_item" type="submit" id="addTag" value="Add Tag">
                     
                     </fieldset>
             </form>
@@ -58,10 +58,10 @@
                 <fieldset>
                     <legend>Search</legend>
 
-                    <label for="searchvalue">Search term or keywords:</label>    
-                    <input class="block" type="text" id="searchvalue" placeholder="e.g. Berlin">
+                    <label class="discovery_search_item" for="searchvalue">Search term or keywords:</label>    
+                    <input class="block discovery_search_item" type="text" id="searchvalue" placeholder="e.g. Berlin">
                 
-                    <input type="submit" id="search" value="Search">
+                    <input class="discovery_search_item" type="submit" id="search" value="Search">
 
                 </fieldset>
             </form>
@@ -76,7 +76,7 @@
                 </div>
 
                 <div class="discovery__map col-8">
-                    <img src="./images/mapview.jpg" alt="a map with locations" id="mapView" class="block" />
+                    <img src="./images/mapview.jpg" alt="a map with locations" id="mapView" /> <br> 
                     <span>Result map</span>
                 </div>
             </div>
