@@ -54,12 +54,12 @@
 
                 <label>Hashtag :      
                     <br>
-                    <input type="text" name="hashtag" placeholder="e.g. #ber" size="35" id="hashtag" pattern="[#][A-Za-z]{11}"/>
+                    <input type="text" name="hashtag" placeholder="e.g. #ber" size="35" id="hashtag" maxlenght = "11" pattern="[#][A-Za-z]{1,10}"/>
                 </label>
 
                 <br>
 
-                <button type="button" id="addtag"/>Add Tag</button>
+                <input type="submit" id="addtag" value="Add Tag"/>
                 </fieldset>
 
 
@@ -82,7 +82,8 @@
                         Search term or keywords: <br>
                         <input type="text" name="search" placeholder="e.g. Berlin" size="35" id="search">
                     </lable>
-                    <button type="button" id="search"/>search</button>
+                    <br>
+                    <input type="submit" id="search" value="Search"/>
                 </fieldset>
 
                 </fieldset>
