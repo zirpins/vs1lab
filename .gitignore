@@ -196,6 +196,7 @@ dist
 .idea/**/usage.statistics.xml
 .idea/**/dictionaries
 .idea/**/shelf
+.idea/**/runConfigurations.xml
 
 # AWS User-specific
 .idea/**/aws.xml
