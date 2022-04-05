@@ -113,12 +113,12 @@ a {
 
   display:flex;
 
-  background:lightgrey;
-  border:1px solid grey;
+  background:#efefef;
+  border:1px solid lightgray;
 
   justify-content: space-between;
 
-  
+
   padding:40px;
 
 }
@@ -141,8 +141,6 @@ a {
   
   display: flex;
   align-items: center; 
-
-  
   
 }
 
@@ -165,8 +163,26 @@ a {
 
 /* ### TODO ### Styles for Footer Component */
 
-/* ... your code here ... */
+.footer{
 
+  display:flex;
+
+  background:#efefef;
+  border:1px solid lightgray; 
+
+    padding:40px;
+
+}
+
+.footer span{
+
+  display:flex;
+
+  align-items: center;
+
+  font-weight:bold;
+
+}
 
 /* ### TODO ### Media Queries */
 
