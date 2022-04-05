@@ -118,7 +118,8 @@ a {
 
   justify-content: space-between;
 
-  Height:100px;
+  
+  padding:40px;
 
 }
 .header__title{
@@ -131,15 +132,9 @@ a {
 }
 
 .header__image{
-  
-  
-  
-  position:relative;
 
-  left:40px;
-
-  max-width:60%;
-  max-height:60%;
+  width: auto;
+  height: 70px;
 
 }
 .header__navigation{
@@ -147,9 +142,7 @@ a {
   display: flex;
   align-items: center; 
 
-  position:relative;
-
-  right:40px;
+  
   
 }
 
