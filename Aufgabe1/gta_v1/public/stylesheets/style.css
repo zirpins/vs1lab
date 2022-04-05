@@ -109,7 +109,50 @@ a {
 
 /* ### TODO ### Styles for Header Component */
 
-/* ... your code here ... */
+.header{
+
+  display:flex;
+
+  background:lightgrey;
+  border:1px solid grey;
+
+  justify-content: space-between;
+
+  Height:100px;
+
+}
+.header__title{
+  
+  display: flex;
+  align-items: center;
+  
+  justify-content: space-between;
+  
+}
+
+.header__image{
+  
+  
+  
+  position:relative;
+
+  left:40px;
+
+  max-width:60%;
+  max-height:60%;
+
+}
+.header__navigation{
+  
+  display: flex;
+  align-items: center; 
+
+  position:relative;
+
+  right:40px;
+  
+}
+
 
 
 /* ### TODO ### Styles for Main Component */
