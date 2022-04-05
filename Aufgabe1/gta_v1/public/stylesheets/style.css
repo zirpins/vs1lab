@@ -109,7 +109,43 @@ a {
 
 /* ### TODO ### Styles for Header Component */
 
-/* ... your code here ... */
+.header{
+
+  display:flex;
+
+  background:lightgrey;
+  border:1px solid grey;
+
+  justify-content: space-between;
+
+  
+  padding:40px;
+
+}
+.header__title{
+  
+  display: flex;
+  align-items: center;
+  
+  justify-content: space-between;
+  
+}
+
+.header__image{
+
+  width: auto;
+  height: 70px;
+
+}
+.header__navigation{
+  
+  display: flex;
+  align-items: center; 
+
+  
+  
+}
+
 
 
 /* ### TODO ### Styles for Main Component */
