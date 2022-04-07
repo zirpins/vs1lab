@@ -257,7 +257,31 @@ a {
   }
   .discovery__taglist{
     padding: 7px;
-    margin: 5px;
+    border: 1px solid lightgray;
+    
+    
+
+  }
+  .discovery__results{
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    justify-content: space-evenly;
+
+  }
+
+  #Castel{
+    padding: 7px;
+    color:#00B7FF;
+    border:1px solid;
+    background-color:#efefef;
+    
+  }
+  #IWI{
+    padding: 7px;
+    color:#00B7FF;
+    border:1px solid;
+    background-color:#efefef;
   }
 
 /* ### TODO ### Styles for Footer Component */
