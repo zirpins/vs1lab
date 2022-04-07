@@ -147,7 +147,46 @@ a {
 
 
 /* ### TODO ### Styles for Main Component */
-
+/*Grid */
+.main{
+  padding: 10px;
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: 1f 2f;
+  grid-template-areas: 
+  "tagging discovery";
+}
+.main__tagging{
+  grid-area: tagging;
+}
+.main__discovery{
+  grid-area: discovery;
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-areas:
+  "discoveryTitle"
+  "search"
+  "wrapper";
+}
+.discovery__title{
+  grid-area: discoveryTitle;
+}
+.discovery__search{
+  grid-area: search;
+}
+.discovery__wrapper{
+  grid-area: wrapper;
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-areas:
+  "taglist map";
+}
+.discovery__taglist{
+  grid-area: taglist;
+}
+.discovery__map{
+  grid-area: map;
+}
 /* ... your code here ... */
 
 
