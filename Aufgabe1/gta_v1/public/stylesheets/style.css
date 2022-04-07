@@ -153,6 +153,8 @@ a {
   display: grid;
   grid-auto-flow: column;
   grid-template-columns: 1f 2f;
+  justify-content: flex-start;
+  column-gap: 70px;
   grid-template-areas: 
   "tagging discovery";
 }
@@ -186,12 +188,6 @@ a {
 }
 .discovery__map{
   grid-area: map;
-}
-
-@media only screen and (max-width: 400px) {
-  body {
-    background-color: lightblue;
-  }
 }
 
 @media only screen and (max-width: 1175px) {
