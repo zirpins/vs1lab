@@ -244,7 +244,21 @@ a {
 /* ... your code here ... */
 
 
-
+#search{
+  padding: 7px;
+  margin: 5px;
+  }
+  
+  #search_button{
+    width: 260px;
+    padding: 7px;
+    margin: 5px;
+    
+  }
+  .discovery__taglist{
+    padding: 7px;
+    margin: 5px;
+  }
 
 /* ### TODO ### Styles for Footer Component */
 
