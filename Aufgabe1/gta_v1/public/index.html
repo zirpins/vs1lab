@@ -28,33 +28,33 @@
             <!-- ############### VS1Lab 1a Form 1 Start -->
             <form id="tag-form" action="/tagging" method="post">
 
-                <fieldset>
+                <fieldset class="item_fieldset">
                     <legend><b>Add a new GeoTag</b></legend>
 
-                  <label>Latitude :     
+                  <label class="main__tagging_lables">Latitude :     
                       <br>
-                    <input type="text" name="latitude" placeholder="e.g. 49.01455" size="35" id="latitude" pattern="[0-9]" readonly/>
+                    <input class="tagging_input" type="text" name="latitude" placeholder="e.g. 49.01455" size="35" id="latitude" pattern="[0-9]" readonly/>
                 </label>
 
                 <br>
 
-                <label>Longitude :      
+                <label class="main__tagging_lables">Longitude :      
                     <br>
-                    <input type="text" name="longitude" placeholder="e.g. 8.39400" size="35" id="longitude" readonly/>
+                    <input class="tagging_input" type="text" name="longitude" placeholder="e.g. 8.39400" size="35" id="longitude" readonly/>
                 </label>
 
                 <br>
 
-                <label>Name :      
+                <label class="main__tagging_lables name">Name :      
                     <br>
-                    <input type="text" name="name" placeholder="e.g. Central Berlin" size="35" id="name" maxlength="10" required/>
+                    <input class="tagging_input" type="text" name="name" placeholder="e.g. Central Berlin" size="35" id="name" maxlength="10" required/>
                 </label>
 
                 <br>
 
-                <label>Hashtag :      
+                <label class="main__tagging_lables">Hashtag :      
                     <br>
-                    <input type="text" name="hashtag" placeholder="e.g. #ber" size="35" id="hashtag" maxlenght = "11" pattern="[#][A-Za-z]{1,10}"/>
+                    <input class="tagging_input" type="text" name="hashtag" placeholder="e.g. #ber" size="35" id="hashtag" maxlenght = "11" pattern="[#][A-Za-z]{1,10}"/>
                 </label>
 
                 <br>

@@ -156,9 +156,55 @@ a {
 /* ... your code here ... */
 
 
+.item_fieldset{
+
+  display: flex;
+  width: 0px;
+  flex-direction: column;
+  padding: 10px 30px 10px 10px;
+  /* margin: 20px; */
+}
+
+
+.main__tagging_lables{
+
+  padding:7px 7px 7px 0px;
+  font-weight:bold;
+  color:grey;
+
+}
+
+.tagging_input{
+  padding: 7px;
+  margin: 5px;
+}
+
+#latitude{
+ 
+  background-color:#efefef; 
+  border:1px solid lightgray;
+}
+
+#longitude{
+  
+  background-color:#efefef; 
+  border:1px solid lightgray;
+}
+
+#addtag{
+  width:260px;
+  padding:7px;
+  margin:5px;
+  justify-content:center;
+
+}
+
+
 /* ### TODO ### Styles for Discovery component */
 
 /* ... your code here ... */
+
+
 
 
 /* ### TODO ### Styles for Footer Component */
