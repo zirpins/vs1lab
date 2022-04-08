@@ -191,7 +191,7 @@ a {
   margin-top: 19px;
 }
 
-@media only screen and (max-width: 1070px) {
+@media only screen and (max-width: 1075px) {
   .discovery__wrapper {
     display: flex;
     flex-direction: column;
@@ -200,7 +200,7 @@ a {
   }
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 810px) {
   .main {
     display: flex;
     flex-direction: column;
@@ -287,8 +287,14 @@ a {
 
 
 #search{
-  padding: 7px;
-  margin: 5px;
+  
+  font-weight:bold;
+  color: gray;
+
+  }
+  #search_input{
+    padding: 7px;
+    margin: 5px;
   }
   
   #search_button{
@@ -299,11 +305,14 @@ a {
   }
   .discovery__taglist{
     padding: 7px 7px 7px 0px;
-  
-    
-    
-
   }
+
+.discovery_fieldset{
+  display: flex;
+  flex-direction: column;
+  padding: 10px 30px 10px 10px;
+}
+
   .discovery__results{
     display: flex;
     flex-direction: column;
