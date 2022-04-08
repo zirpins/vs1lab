@@ -153,6 +153,8 @@ a {
   display: grid;
   grid-auto-flow: column;
   grid-template-columns: 1f 2f;
+  justify-content: flex-start;
+  column-gap: 70px;
   grid-template-areas: 
   "tagging discovery";
 }
@@ -187,6 +189,27 @@ a {
 .discovery__map{
   grid-area: map;
 }
+
+@media only screen and (max-width: 1175px) {
+  .discovery__wrapper {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+   
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .main {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+   
+  }
+}
+
+
+
 /* ... your code here ... */
 
 
