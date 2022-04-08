@@ -188,6 +188,7 @@ a {
 }
 .discovery__map{
   grid-area: map;
+  margin-top: 19px;
 }
 
 @media only screen and (max-width: 1175px) {
@@ -292,8 +293,10 @@ a {
     justify-content: space-evenly;
 
   }
+  
 
   #Castel{
+    width: 260px;
     padding: 7px;
     color:#00B7FF;
     border:1px solid;
@@ -301,6 +304,7 @@ a {
     
   }
   #IWI{
+    width: 260px;
     padding: 7px;
     color:#00B7FF;
     border:1px solid;
