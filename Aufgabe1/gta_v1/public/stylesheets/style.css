@@ -209,6 +209,24 @@ a {
 }
 
 
+@media only screen and (max-width: 450px) {
+  .header__title {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+   
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .header__navigation {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+   
+  }
+}
+
 
 /* ... your code here ... */
 
