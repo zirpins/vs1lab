@@ -33,6 +33,30 @@ html {
 
 /* HTML element styles */
 
+/*HEADER*/
+
+header{
+  width: 100%;
+  background-color: rgb(194, 192, 192);
+
+}
+
+header img{
+  height: 50px;
+}
+
+header.header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 40px;
+  padding-right: 30px;
+  padding-bottom: 40px;
+  padding-left: 80px;
+}
+
+
+
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   display: flex;
@@ -46,7 +70,9 @@ a {
 
 /* ### TODO ### Styles for other HTML elements */
 
-/* ... your code here ... */
+body.h2 {
+  font: "Times New Roman", Times, serif;
+}
 
 
 /* Grid styles (no changes required) */
