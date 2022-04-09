@@ -126,8 +126,9 @@ a {
   
   display: flex;
   align-items: center;
-  
-  justify-content: space-between;
+
+justify-content: space-around;
+
   
 }
 
@@ -243,7 +244,7 @@ a {
   width: 0px;
   flex-direction: column;
   padding: 10px 30px 10px 10px;
-  /* margin: 20px; */
+  
 }
 
 
@@ -257,7 +258,7 @@ a {
 
 .tagging_input{
   padding: 7px;
-  margin: 5px;
+  margin: 5px 0px 0px 0px;
 }
 
 #latitude{
@@ -275,8 +276,7 @@ a {
 #addtag{
   width:260px;
   padding:7px;
-  margin:5px;
-  justify-content:center;
+  margin:5px 0px;
 
 }
 
@@ -290,17 +290,18 @@ a {
   
   font-weight:bold;
   color: gray;
+  
+}
 
-  }
   #search_input{
     padding: 7px;
-    margin: 5px;
+    margin:5px 0px 0px 0px;
   }
   
   #search_button{
     width: 260px;
     padding: 7px;
-    margin: 5px;
+    margin: 5px 0px;
     
   }
   .discovery__taglist{
