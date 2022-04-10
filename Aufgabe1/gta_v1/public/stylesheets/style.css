@@ -46,8 +46,50 @@ a {
 
 /* ### TODO ### Styles for other HTML elements */
 
-/* ... your code here ... */
+ 
+main {
+  padding: 40px;
+}
 
+h2 {
+  padding-bottom: 15px;
+  padding-top: 15px;
+}
+
+fieldset {
+  border: 1px solid var(--border-color);
+  color: var(--gray-color);
+  font-weight: bold;
+  padding: 13px;
+}
+
+legend {
+  color: black;
+}
+
+label {
+  display: block;                             /*breaks without </br>*/
+  padding-bottom: 5px;
+}
+
+input {
+  display: block;                             /*breaks without </br>*/
+  height: 35px;
+  margin-bottom: 15px;
+  width: 90%;
+  max-width: 200px;
+  padding-left: 5px;
+  font-weight: bold;
+}
+
+ul li {
+  color: var(--link-color);
+  list-style: none;                           /*hide list bullets*/
+  border: 1px solid var(--border-color);
+  background-color: var(--background-color);
+  padding: 20px;                              /*space inside the border*/
+  margin-bottom: 20px;                        /*space outside the border*/
+}
 
 /* Grid styles (no changes required) */
 
@@ -107,31 +149,55 @@ a {
 }
 
 
-/* ### TODO ### Styles for Header Component */
+/* ### DONE ### Styles for Header Component */
 
-/* ... your code here ... */
+header {
+  display: flex;
+  flex-direction: row;
+  background-color: var(--background-color);
+  padding: 3%;
+  align-items: center;                        /*positioning items on a line*/
+  justify-content: space-between;             /*even space between items*/
+}
+
+.header__image {
+  width: 40px;
+  height: 40px;
+}
+
+/* ### DONE ### Styles for Main Component */
+
+/* ### DONE ### Styles for Tagging component */
+
+/* ### DONE ### Styles for Discovery component */
+
+.discovery__wrapper {
+  padding-top: 30px;
+}
+
+#mapView {
+  width: 100%;
+}
+
+/* ### DONE ### Styles for Footer Component */
+
+footer {
+  display: flex;
+  flex-direction: row;
+  background-color: var(--background-color);
+  padding: 2%;
+}
 
 
-/* ### TODO ### Styles for Main Component */
+/* ### DONE ### Media Queries */
 
-/* ... your code here ... */
+@media screen and (max-width: 500px) {        /*If screen is smaller than 500px*/  
+  .row {
+    display: block;
+  }
 
+  .row :nth-child(n) {
+    width: 100%;
+  }
 
-/* ### TODO ### Styles for Tagging component */
-
-/* ... your code here ... */
-
-
-/* ### TODO ### Styles for Discovery component */
-
-/* ... your code here ... */
-
-
-/* ### TODO ### Styles for Footer Component */
-
-/* ... your code here ... */
-
-
-/* ### TODO ### Media Queries */
-
-/* ... your code here ... */
+}
