@@ -34,23 +34,6 @@ html {
 
 /* HTML element styles */
 
-/*HEADER*/
-
-header{
-  width: 100%;
-  background-color: pink;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 40px 30px 40px 80px;
-}
-
-header img{
-  height: 50px;
-}
-
-
-
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   display: flex;
@@ -129,48 +112,63 @@ body.h2 {
 
 /* ### TODO ### Styles for Header Component */
 
-/* ... your code here ... */
+header{
+  width: 100%;
+  background-color: pink;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px 30px;
+  border-bottom: 1px solid;
+}
+
+header img{
+  height: 50px;
+}
 
 
 /* ### TODO ### Styles for Main Component */
+/*.main{
+  display: flex;
+  padding: 20px;
+  background-color: oldlace;
+}
+*/
 
 /* ... your code here ... */
 
 
 /* ### TODO ### Styles for Tagging component */
 
-#tag-form{
+#tag-form {
   background-color: yellow;
   display: inline-flex;
 }
-#Hello{
+#tag-fieldset{
   background-color:orange;
-  padding: 0 20px 10px;
-  display: flex;
-  flex-direction: column;
+  padding: 5px 20px 10px;
+  /*display: flex;            NEED?*/
+  /*flex-direction: column;  NEED?*/
 }
-
 input {
   width:100%;
-  padding: 5px 0;
-  margin: 5px 1 ;
+  padding: 5px;
+  margin: 5px 0 ;
   background-color:fuchsia;
 }
 
-label{
-background-color:white;
-
-
+/* ### TODO ### Styles for Discovery component */
+#discoveryFilterForm {
+  background-color: blue;
+  flex-grow: 2;
 }
 
-/* ### TODO ### Styles for Discovery component */
 
-/* ... your code here ... */
-
-
+/* ### TODO ### Styles for Footer Component */
 footer{
   background-color: pink;
   padding: 30px;
+  border-top: 1px solid;
 }
 
 
