@@ -42,10 +42,7 @@ header{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: 40px;
-  padding-right: 30px;
-  padding-bottom: 40px;
-  padding-left: 80px;
+  padding: 40px 30px 40px 80px;
 }
 
 header img{
@@ -142,9 +139,11 @@ body.h2 {
 
 /* ### TODO ### Styles for Tagging component */
 
-.fieldset{
-  display: flex;
-  
+#tag-form{
+background-color: lightblue;
+display: inline-flex;
+flex-direction: row;
+padding: 20px;
 }
 
 
@@ -155,6 +154,7 @@ body.h2 {
 
 footer{
   background-color: pink;
+  padding: 30px;
 }
 
 
