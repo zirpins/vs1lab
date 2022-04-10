@@ -140,12 +140,28 @@ body.h2 {
 /* ### TODO ### Styles for Tagging component */
 
 #tag-form{
-background-color: lightblue;
-display: inline-flex;
-flex-direction: row;
-padding: 20px;
+  background-color: yellow;
+  display: inline-flex;
+}
+#Hello{
+  background-color:orange;
+  padding: 0 20px 10px;
+  display: flex;
+  flex-direction: column;
 }
 
+input {
+  width:100%;
+  padding: 5px 0;
+  margin: 5px 1 ;
+  background-color:fuchsia;
+}
+
+label{
+background-color:white;
+
+
+}
 
 /* ### TODO ### Styles for Discovery component */
 
