@@ -22,55 +22,59 @@
     </header>
 
     <main class="main">
-        <section class="tagging">
+        <section class="main__tagging tagging">
             <h2>Tagging</h2>
             <!-- ############### VS1Lab 1a Form 1 Start -->
             <form id="tag-form" action="/tagging" method="post">
-                <fieldset id="tag-fieldset">
+                <fieldset>
                     <legend>Add a new GeoTag</legend>
-            
-            
-                    <label for="latitude">Latitude:</label><br>
-                    <input type="number" name="latitude" id="latitude" placeholder="Enter Latitude here" />
-            
-                    <label for="longitude">Longitude:</label><br>
-                    <input type="number" name="longitude" id="longitude" placeholder="Enter Longitude here" />
-            
-                    <label for="name">Name:</label><br>
-                    <input type="text" name="name" id="name" maxlength="10" required placeholder="e.g. Karlsruhe Palace" />
-            
-                    <label for="hashtag">Hashtag:</label><br>
-                    <input type="text" name="hashtag" id="hashtag" pattern="[#{1}+[a-z]" maxlength="10" placeholder="e.g. #KAP" />
-            
-                    <input type="submit" value="Add Tag" />
+                    <div class="tagging-content">
+
+                        <label for="latitude">Latitude:</label>
+                        <input type="number" name="latitude" id="latitude" placeholder="Enter Latitude here" />
+
+                        <label for="longitude">Longitude:</label><br>
+                        <input type="number" name="longitude" id="longitude" placeholder="Enter Longitude here" />
+
+                        <label for="name">Name:</label><br>
+                        <input type="text" name="name" id="name" maxlength="10" placeholder="e.g. Karlsruhe Palace"
+                            required />
+
+                        <label for="hashtag">Hashtag:</label><br>
+                        <input type="text" name="hashtag" id="hashtag" pattern="[#[A-z]" maxlength="11"
+                            placeholder="e.g. #KAP" />
+
+                        <input type="submit" value="Add Tag" />
+                    </div>
                 </fieldset>
             </form>
-            </section>
-            <!-- ############### VS1Lab 1a Form 1 End -->
-        
+        </section>
+        <!-- ############### VS1Lab 1a Form 1 End -->
 
-        <section class="discovery">
+
+        <section class="main__discovery discovery">
             <h2 class="discovery__title">Discovery</h2>
 
             <!-- ############### VS1Lab 1a Form 2 Start -->
             <form class="discovery__search" id="discoveryFilterForm" action="/discovery" method="post">
-                <fieldset id="discovery-fieldset">
+                <fieldset>
                     <legend>Search</legend>
-            
-            
-                    <label for="searchterm">Search term or keywords:</label><br>
-                    <input type="search" name="searchterm" id="searchterm" placeholder="e.g. Karlsruhe" />
-            
-                    <label for="latitudeDis"></label><br>
-                    <input type="hidden" name="latitudeDis" id="latitudeDis" />
-            
-                    <label for="longitudeDis"></label><br>
-                    <input type="hidden" name="longitudeDis" id="longitudeDis" />
-            
-                    <input type="submit" value="Search">
+                    <div class="discovery-content">
+
+                        <label for="searchterm">Search term or keywords:</label>
+                        <input type="search" name="searchterm" id="searchterm" placeholder="e.g. Karlsruhe" />
+
+                        <label for="latitude"></label>
+                        <input type="hidden" name="latitude" id="latitude" hidden />
+
+                        <label for="longitude"></label>
+                        <input type="hidden" name="longitude" id="longitude" hidden />
+
+                        <input type="submit" value="Search">
+                    </div>
                 </fieldset>
             </form>
-           
+
             <!-- ############### VS1Lab 1a Form 2 End -->
 
             <div class="discovery__wrapper">
