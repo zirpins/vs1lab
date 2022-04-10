@@ -10,6 +10,7 @@
 
 html {
   box-sizing: border-box;
+  font: helvetica;
 }
 
 * {
@@ -37,15 +38,7 @@ html {
 
 header{
   width: 100%;
-  background-color: rgb(194, 192, 192);
-
-}
-
-header img{
-  height: 50px;
-}
-
-header.header{
+  background-color: pink;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -53,6 +46,10 @@ header.header{
   padding-right: 30px;
   padding-bottom: 40px;
   padding-left: 80px;
+}
+
+header img{
+  height: 50px;
 }
 
 
@@ -145,7 +142,10 @@ body.h2 {
 
 /* ### TODO ### Styles for Tagging component */
 
-/* ... your code here ... */
+.fieldset{
+  display: flex;
+  
+}
 
 
 /* ### TODO ### Styles for Discovery component */
@@ -153,11 +153,12 @@ body.h2 {
 /* ... your code here ... */
 
 
-/* ### TODO ### Styles for Footer Component */
-
-/* ... your code here ... */
+footer{
+  background-color: pink;
+}
 
 
 /* ### TODO ### Media Queries */
 
 /* ... your code here ... */
+
