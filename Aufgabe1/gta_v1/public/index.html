@@ -22,76 +22,77 @@
     </header>
 
     <main class="main">
-        <section class="main__tagging tagging">
-            <h2>Tagging</h2>
-            <!-- ############### VS1Lab 1a Form 1 Start -->
-            <form id="tag-form" action="/tagging" method="post">
-                <fieldset>
-                    <legend>Add a new GeoTag</legend>
-                    <div class="tagging-content">
+        <div class="col-3">
+            <section class="main__tagging tagging">
+                <h2>Tagging</h2>
+                <!-- ############### VS1Lab 1a Form 1 Start -->
+                <form id="tag-form" action="/tagging" method="post">
+                    <fieldset>
+                        <legend>Add a new GeoTag</legend>
+                        <div class="tagging-content">
 
-                        <label for="latitude">Latitude:</label>
-                        <input type="number" name="latitude" id="latitude" placeholder="Enter Latitude here" />
+                            <label for="latitude">Latitude:</label>
+                            <input type="number" name="latitude" id="latitude" placeholder="Enter Latitude here" />
 
-                        <label for="longitude">Longitude:</label><br>
-                        <input type="number" name="longitude" id="longitude" placeholder="Enter Longitude here" />
+                            <label for="longitude">Longitude:</label><br>
+                            <input type="number" name="longitude" id="longitude" placeholder="Enter Longitude here" />
 
-                        <label for="name">Name:</label><br>
-                        <input type="text" name="name" id="name" maxlength="10" placeholder="e.g. Karlsruhe Palace"
-                            required />
+                            <label for="name">Name:</label><br>
+                            <input type="text" name="name" id="name" maxlength="10" placeholder="e.g. Karlsruhe Palace" required />
 
-                        <label for="hashtag">Hashtag:</label><br>
-                        <input type="text" name="hashtag" id="hashtag" pattern="[#[A-z]" maxlength="11"
-                            placeholder="e.g. #KAP" />
+                            <label for="hashtag">Hashtag:</label><br>
+                            <input type="text" name="hashtag" id="hashtag" pattern="[#[A-z]" maxlength="11"
+                                placeholder="e.g. #KAP" />
 
-                        <input type="submit" value="Add Tag" />
-                    </div>
-                </fieldset>
-            </form>
-        </section>
+                            <input type="submit" value="Add Tag" />
+                        </div>
+                    </fieldset>
+                </form>
+            </section>
+        </div>
         <!-- ############### VS1Lab 1a Form 1 End -->
 
+        <div class="col-9">
+            <section class="main__discovery discovery">
+                <h2 class="discovery__title">Discovery</h2>
 
-        <section class="main__discovery discovery">
-            <h2 class="discovery__title">Discovery</h2>
+                <!-- ############### VS1Lab 1a Form 2 Start -->
+                <form class="discovery__search" id="discoveryFilterForm" action="/discovery" method="post">
+                    <fieldset>
+                        <legend>Search</legend>
+                        <div class="discovery-content">
 
-            <!-- ############### VS1Lab 1a Form 2 Start -->
-            <form class="discovery__search" id="discoveryFilterForm" action="/discovery" method="post">
-                <fieldset>
-                    <legend>Search</legend>
-                    <div class="discovery-content">
+                            <label for="searchterm">Search term or keywords:</label>
+                            <input type="search" name="searchterm" id="searchterm" placeholder="e.g. Karlsruhe" />
 
-                        <label for="searchterm">Search term or keywords:</label>
-                        <input type="search" name="searchterm" id="searchterm" placeholder="e.g. Karlsruhe" />
+                            <label for="latitude"></label>
+                            <input type="hidden" name="latitude" id="latitude" hidden />
 
-                        <label for="latitude"></label>
-                        <input type="hidden" name="latitude" id="latitude" hidden />
+                            <label for="longitude"></label>
+                            <input type="hidden" name="longitude" id="longitude" hidden />
 
-                        <label for="longitude"></label>
-                        <input type="hidden" name="longitude" id="longitude" hidden />
+                            <input type="submit" value="Search">
+                        </div>
+                    </fieldset>
+                </form>
 
-                        <input type="submit" value="Search">
+                <!-- ############### VS1Lab 1a Form 2 End -->
+
+                <div class="discovery__wrapper">
+                    <div class="discovery__taglist">
+                        <ul class="discovery__results" id="discoveryResults">
+                            <li>Castle (49.01379, 8.404435) #sight</li>
+                            <li>IWI (49.01379, 8.390071) #edu</li>
+                        </ul>
                     </div>
-                </fieldset>
-            </form>
 
-            <!-- ############### VS1Lab 1a Form 2 End -->
-
-            <div class="discovery__wrapper">
-                <div class="discovery__taglist">
-                    <ul class="discovery__results" id="discoveryResults">
-                        <li>Castle (49.01379, 8.404435) #sight</li>
-                        <li>IWI (49.01379, 8.390071) #edu</li>
-                    </ul>
+                    <div class="discovery__map">
+                        <img src="./images/mapview.jpg" alt="a map with locations" id="mapView" />
+                        <span>Result map</span>
+                    </div>
                 </div>
-
-                <div class="discovery__map">
-                    <img src="./images/mapview.jpg" alt="a map with locations" id="mapView" />
-                    <span>Result map</span>
-                </div>
-            </div>
-        </section>
-
+            </section>
+        </div>
     </main>
 
     <footer class="footer">
