@@ -10,7 +10,6 @@
 
 html {
   box-sizing: border-box;
-  font: helvetica;
 }
 
 * {
@@ -113,66 +112,116 @@ body.h2 {
 /* ### TODO ### Styles for Header Component */
 
 header{
-  width: 100%;
-  background-color: pink;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 40px 30px;
-  border-bottom: 1px solid;
+  padding: 3% 2%;
+  background-color: var(--background-color);
+  border-bottom: 1px solid var(--border-color);
 }
 
 header img{
-  height: 50px;
+  width: 5%;
+  height: relative;
 }
 
 
 /* ### TODO ### Styles for Main Component */
-/*.main{
+.main{
+  padding: 3%;
   display: flex;
-  padding: 20px;
-  background-color: oldlace;
 }
-*/
 
-/* ... your code here ... */
-
+h2{
+  margin-left: 0.5rem;
+  margin-bottom: 0.5rem;
+}
 
 /* ### TODO ### Styles for Tagging component */
 
-#tag-form {
-  background-color: yellow;
-  display: inline-flex;
+fieldset{
+  padding: 1rem;
+  margin: 0.5rem;
 }
-#tag-fieldset{
-  background-color:orange;
-  padding: 5px 20px 10px;
-  /*display: flex;            NEED?*/
-  /*flex-direction: column;  NEED?*/
+
+legend{
+  margin-left: 0.5rem;
 }
-input {
-  width:100%;
-  padding: 5px;
-  margin: 5px 0 ;
-  background-color:fuchsia;
+
+.tagging input {
+  height: 70%;
+  padding: 5%;
+  margin: 2% 0 0 0;
+  
+}
+
+.tagging label {
+  padding: 2% 0 0 0;
+  color: #666;
+  
+}
+
+.tagging-content{
+  display: grid;
+  grid-template-columns: auto;
+  padding: 0% 4%;
 }
 
 /* ### TODO ### Styles for Discovery component */
-#discoveryFilterForm {
-  background-color: blue;
-  flex-grow: 2;
+.discovery__wrapper{
+  display: flex;
+  justify-content: space-between;
 }
 
+.discovery-content{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.discovery-content label{
+  margin-bottom: 1%;
+  color: #666;
+}
+
+.discovery-content input{
+  margin-bottom: 2%;
+  height: 2rem;
+  width: 15rem;
+}
+
+.discovery__results li {
+  display: block;
+  padding: 8% 5% 8% 2%;
+  margin: 10% 0  2% 2%;
+  background-color: var(--background-color);
+  color: var(--link-color);
+  border: 1px solid var(--border-color);
+}
+
+.discovery__map{
+  display: flex;
+  margin-top: 3%;
+  flex-direction: column;
+  padding-right: 0.5rem;
+}
 
 /* ### TODO ### Styles for Footer Component */
 footer{
-  background-color: pink;
-  padding: 30px;
-  border-top: 1px solid;
+  padding: 3% 2%;
+  background-color: var(--background-color);
+  border-top: 1px solid var(--border-color);
 }
 
 
 /* ### TODO ### Media Queries */
 
-/* ... your code here ... */
+@media  (max-width: 768px) {
+  .main {
+    flex-direction:column;
+  }
 
+  .discovery__wrapper {
+    flex-direction:column;
+  }
+}
