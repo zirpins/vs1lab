@@ -115,9 +115,13 @@ var updateLocation = function(){
         hiddenLatitude.value = loc.latitude;
         hiddenLongitude.value = loc.longitude;
     }); 
-    var mapManager = new MapManager("cpdAIFsSCsjeXOGcB9YLuPFo0fBCD1oV");     
-    
-    var url = mapManager.getMapUrl(loc.latitude,loc.longitude, "",10);
+    var mapManager = new MapManager("6AB9OiZEGTfSzxH1j99rJ5gdz2NyKlGw");     
+    var tags = [{
+        latitude: 0,
+        longitude: 0,
+        name: ""
+    }];
+    var url = mapManager.getMapUrl(loc.latitude,loc.longitude, tags,10);
     var image = document.getElementById("mapView");
     image.setAttribute("src",url);
     } catch(error){
