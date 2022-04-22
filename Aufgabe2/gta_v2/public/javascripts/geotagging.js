@@ -110,9 +110,14 @@ var updateLocation = function(){
         latitudeInput.value = loc.latitude;
         var longitudeInput = document.getElementById("longitude");
         longitudeInput.value = loc.longitude;  
+        var hiddenLatitude = document.getElementById("hiddenLatitude");
+        var hiddenLongitude = document.getElementById("hiddenLongitude");
+        hiddenLatitude.value = loc.latitude;
+        hiddenLongitude.value = loc.longitude;
     }); 
     var mapManager = new MapManager("cpdAIFsSCsjeXOGcB9YLuPFo0fBCD1oV");     
-    var url = mapManager.getMapUrl(loc.latitude,loc.longitude,[],10);
+    
+    var url = mapManager.getMapUrl(loc.latitude,loc.longitude, "",10);
     var image = document.getElementById("mapView");
     image.setAttribute("src",url);
     } catch(error){
