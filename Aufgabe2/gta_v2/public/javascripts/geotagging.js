@@ -104,26 +104,29 @@ class MapManager {
  */
 var updateLocation = function(){
     try{
-    var loc = new LocationHelper();
+    var latitudeInput = document.getElementById("latitude");
+    var longitudeInput = document.getElementById("longitude");
+    var hiddenLatitude = document.getElementById("hiddenLatitude");
+    var hiddenLongitude = document.getElementById("hiddenLongitude");
+    
+    var latitudeValue;
+    var longitudeValue;
+        
     LocationHelper.findLocation(function(loc) {
-        var latitudeInput = document.getElementById("latitude");
-        latitudeInput.value = loc.latitude;
-        var longitudeInput = document.getElementById("longitude");
-        longitudeInput.value = loc.longitude;  
-        var hiddenLatitude = document.getElementById("hiddenLatitude");
-        var hiddenLongitude = document.getElementById("hiddenLongitude");
-        hiddenLatitude.value = loc.latitude;
-        hiddenLongitude.value = loc.longitude;
+        latitudeValue = loc.latitude;
+        longitudeValue = loc.longitude;
+
+        latitudeInput.setAttribute("value", latitudeValue);
+        longitudeInput.setAttribute("value", longitudeValue);
+        hiddenLatitude.setAttribute("value", latitudeValue);
+        hiddenLongitude.setAttribute("value", longitudeValue);
+    
+        var mapManager = new MapManager("6AB9OiZEGTfSzxH1j99rJ5gdz2NyKlGw");     
+
+        var url = mapManager.getMapUrl(latitudeValue,longitudeValue, [],10);
+        var image = document.getElementById("mapView");
+        image.setAttribute("src",url);
     }); 
-    var mapManager = new MapManager("6AB9OiZEGTfSzxH1j99rJ5gdz2NyKlGw");     
-    var tags = [{
-        latitude: 0,
-        longitude: 0,
-        name: ""
-    }];
-    var url = mapManager.getMapUrl(loc.latitude,loc.longitude, tags,10);
-    var image = document.getElementById("mapView");
-    image.setAttribute("src",url);
     } catch(error){
         alert(error);     
     }
