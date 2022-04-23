@@ -102,6 +102,13 @@ class MapManager {
  * A function to retrieve the current location and update the page.
  * It is called once the page has been fully loaded.
  */
+function updateMap(locationHelper) {
+    let mapManager = new MapManager("1B01AJ2nIgqKzmdYXhvgQbCVZltB6csW");
+    let mapUrl = mapManager.getMapUrl(locationHelper.latitude, locationHelper.longitude);
+    let img = document.getElementById("mapView");
+    img.setAttribute("src", mapUrl);
+}
+
 function updateLocation () {
     /* 1. Mit static function LocationHelper-Instanz holen (callback-function
           als Parameter die locationHelper Instanz liefert)
@@ -117,6 +124,8 @@ function updateLocation () {
         discoveryLongitude.setAttribute("value", locationHelper.longitude);
         taggingLatitude.setAttribute("value", locationHelper.latitude);
         taggingLongitude.setAttribute("value", locationHelper.longitude);
+
+        updateMap(locationHelper);
     })
 }
 
