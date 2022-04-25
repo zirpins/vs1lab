@@ -3,8 +3,8 @@
 /**
  * A class to help using the MapQuest map service.
  */
- // eslint-disable-next-line no-unused-vars
- class MapManager {
+// eslint-disable-next-line no-unused-vars
+class MapManager {
     #apiKey
 
     /**
@@ -20,19 +20,19 @@
      * @param {number} latitude The map center latitude
      * @param {number} longitude The map center longitude
      * @param {{latitude, longitude, name}[]} tags The map tags, defaults to just the current location
-     * @param {number} zoom The map zoom, defaults to 12
+     * @param {number} zoom The map zoom, defaults to 11
      * @returns {string} URL of generated map
      */
-    getMapUrl(latitude, longitude, tags = [], zoom = 12) {
+    getMapUrl(latitude, longitude, tags = [], zoom = 11) {
         if (!this.#apiKey) {
             console.log("No API key provided.");
             return "images/mapview.jpg";
         }
 
-        let tagList = `You,${latitude},${longitude}`;
-        tagList += tags.reduce((acc, tag) => `${acc}|${tag.name},${tag.location.latitude},${tag.location.longitude}`, "")
+        let tagList = `${latitude},${longitude}|marker-start`;
+        tagList += tags.reduce((acc, tag) => `${acc}||${tag.latitude},${tag.longitude}|flag-${tag.name}`, "");
 
-        const mapQuestUrl = `https://www.mapquestapi.com/staticmap/v4/getmap?key=${this.#apiKey}&size=600,400&zoom=${zoom}&center=${latitude},${longitude}&pois=${tagList}`;
+        const mapQuestUrl = `https://www.mapquestapi.com/staticmap/v5/map?key=${this.#apiKey}&size=600,400&zoom=${zoom}&center=${latitude},${longitude}&locations=${tagList}`;
         console.log("Generated MapQuest URL:", mapQuestUrl);
 
         return mapQuestUrl;
