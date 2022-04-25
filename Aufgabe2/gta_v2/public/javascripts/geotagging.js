@@ -33,7 +33,8 @@ class LocationHelper {
      * The 'findLocation' method requests the current location details through the geolocation API.
      * It is a static method that should be used to obtain an instance of LocationHelper.
      * Throws an exception if the geolocation API is not available.
-     * @param {*} callback a function that will be called with a LocationHelper instance as parameter, that has the current location details
+     * @param {*} callback a function that will be called with a LocationHelper instance as parameter,
+     * that has the current location details
      */
     static findLocation(callback) {
         const geoLocationApi = navigator.geolocation;
@@ -81,7 +82,7 @@ class MapManager {
      * @param {number} zoom The map zoom, defaults to 10
      * @returns {string} URL of generated map
      */
-    getMapUrl(latitude, longitude, tags = [], zoom = 10) {
+    getMapUrl(latitude, longitude, tags = [], zoom = 13) {
         if (this.#apiKey === '') {
             console.log("No API key provided.");
             return "images/mapview.jpg";
@@ -90,40 +91,40 @@ class MapManager {
         let tagList = `You,${latitude},${longitude}`;
         tagList += tags.reduce((acc, tag) => `${acc}|${tag.name},${tag.latitude},${tag.longitude}`, "");
 
-        const mapQuestUrl = `https://www.mapquestapi.com/staticmap/v4/getmap?key=${this.#apiKey}&size=600,400&zoom=${zoom}&center=${latitude},${longitude}&pois=${tagList}`;
+        const mapQuestUrl = `https://www.mapquestapi.com/staticmap/v4/getmap?key=${this.#apiKey}
+        &size=600,400&zoom=${zoom}&center=${latitude},${longitude}&pois=${tagList}`;
         console.log("Generated MapQuest URL:", mapQuestUrl);
 
         return mapQuestUrl;
     }
 }
 
-/**
- * TODO: 'updateLocation'
+/*
  * A function to retrieve the current location and update the page.
  * It is called once the page has been fully loaded.
  */
 function updateMap(locationHelper) {
     let mapManager = new MapManager("1B01AJ2nIgqKzmdYXhvgQbCVZltB6csW");
     let mapUrl = mapManager.getMapUrl(locationHelper.latitude, locationHelper.longitude);
-    let img = document.getElementById("mapView");
-    img.setAttribute("src", mapUrl);
+    document.getElementById("mapView").setAttribute("src", mapUrl);
 }
 
+/*
+ * (1) Mit static function LocationHelper-Instanz holen (callback-function als Parameter die locationHelper Instanz
+ * liefert)
+ * (2) Über document.getElementById Referenzen auf HTML holen (discovery + tagging jeweils longitude latitude)
+ * (3) Den Wert des Attribut value verändern mit Instanz von locationHelper und entsprechenden Coords
+ */
 function updateLocation () {
-    /* 1. Mit static function LocationHelper-Instanz holen (callback-function
-          als Parameter die locationHelper Instanz liefert)
-    *  2. Über document.getElemntById Referenzen auf HTML holen (discovery + tagging jeweils longitude
-    *     latitude)
-    *  3. Den Wert des Attribut value verändern mit Instanz von loactionHelper und entsprechenden Koords */
     LocationHelper.findLocation(function (locationHelper) {
-        let discoveryLatitude = document.getElementById("discovery_latitude");
-        let discoveryLongitude = document.getElementById("discovery_longitude");
-        let taggingLatitude = document.getElementById("tagging_latitude");
-        let taggingLongitude = document.getElementById("tagging_longitude");
-        discoveryLatitude.setAttribute("value", locationHelper.latitude);
-        discoveryLongitude.setAttribute("value", locationHelper.longitude);
-        taggingLatitude.setAttribute("value", locationHelper.latitude);
-        taggingLongitude.setAttribute("value", locationHelper.longitude);
+        document.getElementById("discovery_latitude")
+            .setAttribute("value", locationHelper.latitude);
+        document.getElementById("discovery_longitude")
+            .setAttribute("value", locationHelper.longitude);
+        document.getElementById("tagging_latitude")
+            .setAttribute("value", locationHelper.latitude);
+        document.getElementById("tagging_longitude")
+            .setAttribute("value", locationHelper.longitude);
 
         updateMap(locationHelper);
     })
