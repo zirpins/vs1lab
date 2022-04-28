@@ -34,9 +34,9 @@
                 <fieldset>
                     <legend>Add a new GeoTag</legend>
                     <label for="lat-input">Latitude: </label>
-                    <input type="number" name="lat-input" id="lat-input" placeholder="49.01379" disabled> <!-- disabled: inaccessible button -->
+                    <input type="number" name="tagging-lat-input" id="tagging-lat-input" placeholder="49.01379" disabled> <!-- disabled: inaccessible button -->
                     <label for="long-input">Longitude: </label>
-                    <input type="number" name="long-input" id="long-input" placeholder="8.390071" disabled> <!-- placeholder: text inside input -->
+                    <input type="number" name="tagging-long-input" id="tagging-long-input" placeholder="8.390071" disabled> <!-- placeholder: text inside input -->
                     <label for="name-input">Name: </label>
                     <input type="text" name="name-input" id="name-input" placeholder="e.g. Central Berlin" maxlength="10" required> <!-- required: mandatory to post the request -->
                     <label for="hashtag-input">Hashtag: </label>
@@ -59,7 +59,9 @@
                     <legend>Search</legend>
                     <label for="search-input">Search term or keywords: </label><br>
                     <input type="text" name="search-input" id="search-input" placeholder="e.g. Berlin">
-                    <input type="submit" name="search-button" id="search-button" value="Search">
+                    <input type="hidden" name="discovery-lat-input" id="discovery-lat-input">
+                    <input type="hidden" name="discovery-long-input" id="discovery-long-input">
+                    <input type="submit" name="discovery-search-button" id="search-button" value="Search">
                 </fieldset>
             </form>
             <!-- ############### VS1Lab 1a Form 2 End -->
