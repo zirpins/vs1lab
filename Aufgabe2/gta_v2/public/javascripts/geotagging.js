@@ -103,6 +103,13 @@ class MapManager {
  */
 function updateLocation() {
     LocationHelper.findLocation(setLocation);
+
+    let mapManager = new MapManager('37p52FyiX2zdpd7bYbOUhgUTiRp030A9')
+    let lat = document.getElementById("tagging-lat-input").value
+    let long = document.getElementById("tagging-long-input").value
+    let url = mapManager.getMapUrl(lat, long)
+    document.getElementById("mapView").src = url
+
 }
 
 

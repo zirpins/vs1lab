@@ -82,7 +82,7 @@ Zur Übersicht folgen noch mal alle Anforderungen in kompakter Form als Checklis
 
 ### 2. Teilaufgabe: Karte darstellen
 
-- [ ] MapQuest API-Schlüssel besorgen und eintragen
-- [ ] `updateLocation`-Funktion ergänzen
-  - [ ] Funktion `getMapUrl` aufrufen
-  - [ ] URL im `src`-Attribut des Image Elements eintragen
+- [x] MapQuest API-Schlüssel besorgen und eintragen
+- [x] `updateLocation`-Funktion ergänzen
+  - [x] Funktion `getMapUrl` aufrufen
+  - [x] URL im `src`-Attribut des Image Elements eintragen
