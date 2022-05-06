@@ -104,11 +104,6 @@ class MapManager {
 function updateLocation() {
     LocationHelper.findLocation(setLocation);
 
-    let mapManager = new MapManager('37p52FyiX2zdpd7bYbOUhgUTiRp030A9')
-    let lat = document.getElementById("tagging-lat-input").value
-    let long = document.getElementById("tagging-long-input").value
-    let url = mapManager.getMapUrl(lat, long)
-    document.getElementById("mapView").src = url
 
 }
 
@@ -126,6 +121,17 @@ function setLocation(locationHelper) {
 
     document.getElementById("discovery-lat-input").value = latitude;
     document.getElementById("discovery-long-input").value = longitude;
+
+    updateMap();
+}
+
+// This is a helper function employed because of the asynchronous nature of the javascript callback system. 
+function updateMap() {
+    let mapManager = new MapManager('37p52FyiX2zdpd7bYbOUhgUTiRp030A9')
+    let lat = document.getElementById("tagging-lat-input").value
+    let long = document.getElementById("tagging-long-input").value
+    let url = mapManager.getMapUrl(lat, long)
+    document.getElementById("mapView").src = url
 }
 
 // Wait for the page to fully load its DOM content, then call updateLocation
