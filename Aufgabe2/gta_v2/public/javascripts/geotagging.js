@@ -103,8 +103,26 @@ class MapManager {
  * It is called once the page has been fully loaded.
  */
 // ... your code here ...
+function updateLocation(){
+    var callback = (locationHelper) => {
+        latitude = locationHelper.latitude();
+        longitude = locationHelper.longitude();
+
+        document.getElementById("latitude").value = latitude();
+        document.getElementById("longitude").value = longitude();
+        document.getElementById("hidden_latitude").value = latitude();
+        document.getElementById("hidden_longitude").value = longitude();
+
+        url = mapManager.getMapUrl(latitude(), longitude);
+        console.log(url);
+        document.getElementById("mapView").setAttribute("src", url);
+    }
+    LocationHelper.findLocation(callback);
+}
 
 // Wait for the page to fully load its DOM content, then call updateLocation
 document.addEventListener("DOMContentLoaded", () => {
-    alert("oi oi oi");
+    mapManager = new MapManager("HF20WlIVS3fv6uPYij8lLAs3JdQerFbb")
+    updateLocation();
+    
 });
