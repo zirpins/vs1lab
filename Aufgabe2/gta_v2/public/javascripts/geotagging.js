@@ -120,7 +120,7 @@ function updateLocation(){
         document.getElementById("mapView").src = url;
     });
 }
-//HF20WlIVS3fv6uPYij8lLAs3JdQerFbb
+//HF20WlIVS3fv6uPYij8lLAs3JdQerFbb (alter key)
 
 // Wait for the page to fully load its DOM content, then call updateLocation
 document.addEventListener("DOMContentLoaded", () => {updateLocation();});
