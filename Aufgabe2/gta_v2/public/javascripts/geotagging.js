@@ -104,25 +104,23 @@ class MapManager {
  */
 // ... your code here ...
 function updateLocation(){
-    var callback = (locationHelper) => {
-        latitude = locationHelper.latitude();
-        longitude = locationHelper.longitude();
+    LocationHelper.findLocation(function(cback) {
+        var latitude = cback.latitude;
+        var longitude = cback.longitude;
 
-        document.getElementById("latitude").value = latitude();
-        document.getElementById("longitude").value = longitude();
-        document.getElementById("hidden_latitude").value = latitude();
-        document.getElementById("hidden_longitude").value = longitude();
+        document.getElementById("latitude").value = latitude;
+        document.getElementById("longitude").value = longitude;
 
-        url = mapManager.getMapUrl(latitude(), longitude);
-        console.log(url);
-        document.getElementById("mapView").setAttribute("src", url);
-    }
-    LocationHelper.findLocation(callback);
+        document.getElementById("hidden_latitude").value = latitude;
+        document.getElementById("hidden_longitude").value = longitude;
+
+        mapManager = new MapManager("INgE2DOxQWVpdxcCG5uywcOrMsY5J2Al");
+        url = mapManager.getMapUrl(latitude, longitude);
+
+        document.getElementById("mapView").src = url;
+    });
 }
+//HF20WlIVS3fv6uPYij8lLAs3JdQerFbb
 
 // Wait for the page to fully load its DOM content, then call updateLocation
-document.addEventListener("DOMContentLoaded", () => {
-    mapManager = new MapManager("HF20WlIVS3fv6uPYij8lLAs3JdQerFbb")
-    updateLocation();
-    
-});
+document.addEventListener("DOMContentLoaded", () => {updateLocation();});
