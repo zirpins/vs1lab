@@ -114,13 +114,12 @@ function updateLocation(){
         document.getElementById("hidden_latitude").value = latitude;
         document.getElementById("hidden_longitude").value = longitude;
 
-        mapManager = new MapManager("INgE2DOxQWVpdxcCG5uywcOrMsY5J2Al");
+        mapManager = new MapManager("NvYQsp2AmpFGtd0kG32v8GWb7edQ0Ygv");
         url = mapManager.getMapUrl(latitude, longitude);
 
         document.getElementById("mapView").src = url;
     });
 }
-//HF20WlIVS3fv6uPYij8lLAs3JdQerFbb (alter key)
-
+//INgE2DOxQWVpdxcCG5uywcOrMsY5J2Al Alex Key
 // Wait for the page to fully load its DOM content, then call updateLocation
 document.addEventListener("DOMContentLoaded", () => {updateLocation();});
