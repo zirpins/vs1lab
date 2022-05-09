@@ -25,8 +25,23 @@
  */
 class InMemoryGeoTagStore{
 
-    // TODO: ... your code here ...
+    array = new Array(GeoTag);
+    
+    addGeoTag(tag)
+    {
+        array.push(tag);
+    }
+    
+    deleteGeoTag(name)
+    {
+        for(let i =0; i< array.length; i++)
+        {
+            if(name === array[i].name) array.splice(i);
+        }
+    }
 
+
+    
 }
 
 module.exports = InMemoryGeoTagStore
