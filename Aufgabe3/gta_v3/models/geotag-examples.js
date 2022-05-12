@@ -12,6 +12,9 @@
  * 
  */
 class GeoTagExamples {
+    
+    testGeotag  = new InMemoryGeoTagStore();
+    
     /**
      * Provides some geoTag data
      */
@@ -30,6 +33,15 @@ class GeoTagExamples {
             ['Building K', 49.013190, 8.392090, '#campus'],
         ];
     }
+
+    constructor() {
+        arr = this.tagList;
+        arr.forEach(function(current){
+            var gt = new GeoTag(current[1],current[2],current[0],current[3]);
+            testGeotag.add(gt);
+        });
+    }
+
 }
 
 module.exports = GeoTagExamples;

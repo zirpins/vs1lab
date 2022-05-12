@@ -1,5 +1,7 @@
 // File origin: VS1LAB A3
 
+const GeoTag = require("./geotag");
+
 /**
  * This script is a template for exercise VS1lab/Aufgabe3
  * Complete all TODOs in the code documentation.
@@ -24,24 +26,74 @@
  * - Keyword matching should include partial matches from name or hashtag fields. 
  */
 class InMemoryGeoTagStore{
-
-    array = new Array(GeoTag);
     
+    #array= new Array(GeoTag);
+    
+    /**
+     * 
+     * @param {GeoTag} tag 
+     */
     addGeoTag(tag)
     {
         array.push(tag);
     }
     
-    deleteGeoTag(name)
+    /**
+     * 
+     * @param {String} name 
+     */
+    removeGeoTag(name)
     {
         for(let i =0; i< array.length; i++)
         {
-            if(name === array[i].name) array.splice(i);
+            if(name === array[i].name) 
+            {
+                array.splice(i);
+                break;
+            }
         }
     }
 
-
+    /**
+     * 
+     * @param {LocationHelper} loc 
+     * @param {Integer} radius 
+     */
+     getNearbyGeoTags(loc, radius)
+     {
+        var res = new Array(GeoTag);
+        var x = loc.latitude;
+        var y = loc.longitude;
+        array.forEach(function(current)
+        {
+            var curX = current.latitude-x;
+            var curY=current.longitude-y;
+            var sqrX = curX*curX ;
+            var sqrY =  curY*curY;
+            var sqrR = radius*radius;
+            if((sqrX+sqrY)<=sqrR) //im Bereich Zentrum +- radius
+            {
+                res.push(current);
+            }
+        });       
+        return res;
+     }
     
+    /**
+     * 
+     * @param {LocationHelper} loc 
+     * @param {Integer} radius 
+     * @param {String} keyword
+     */
+     searchNearbyGeoTags(loc, radius, keyword)
+     {
+         var arrGeotags = getNearbyGeoTags(loc, radius);
+         arrGeotags.forEach(function(current) 
+         {
+            if(current.name.includes(keyword) || current.hashtag.includes(keyword)) addGeoTag(current);
+         });
+     }
+      
 }
 
 module.exports = InMemoryGeoTagStore

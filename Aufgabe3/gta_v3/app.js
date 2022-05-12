@@ -14,6 +14,8 @@ const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
 const logger = require('morgan');
+const ejs = require('ejs');
+const fs = require('fs');
 
 const indexRouter = require('./routes/index');
 
@@ -42,8 +44,11 @@ app.use(express.urlencoded({ extended: false }));
  * Test the result in a browser here: 'http://localhost:3000/'.
  */
 
-// TODO: ... your code here ...
+  app.use(express.static(path.join(__dirname, 'public')));
 
+  app.use('/tagging', indexRouter);
+  app.use('/discovery', indexRouter);
+  
 // Set dedicated script for routing
 app.use('/', indexRouter);
 
