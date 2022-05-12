@@ -1,5 +1,126 @@
 <!-- TODO: HTML AUS AUFGABE2 HIERHER KOPIEREN UND DIE BEISPIEL-EINTRÄGE DER DISCOVERY-LISTE MIT DEN FOLGENDEN ZEILEN ERSETZEN -->
+<!DOCTYPE html>
 
-<% if (taglist !== undefined) taglist.forEach(function(gtag) { %>
-    <li><%= gtag.name %> ( <%= gtag.latitude %>,<%= gtag.longitude %>) <%= gtag.hashtag %> </li>
-<% }); %>
+<!-- File origin: VS1LAB A1a -->
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GeoTagApp</title>
+    <link rel="stylesheet" href="./stylesheets/style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <header class="header">
+        <img src="./images/location.png" class="header__image" alt="an image of a map and location">
+        <h1 class="header__title">GeoTagApp</h1>
+        <nav class="header__navigation">
+            <a href="#">About</a> | <a href="#">Help</a> | <a href="/">Home</a>
+        </nav>
+    </header>
+
+    <main class="main">
+        <section class="main__tagging tagging">
+            <h2>Tagging</h2>
+
+            <!-- ############### VS1Lab 1a Form 1 Start -->
+            <form id="tag-form" action="/tagging" method="post">
+
+                <fieldset class="item_fieldset">
+                    <legend><b>Add a new GeoTag</b></legend>
+
+                  <label class="main__tagging_lables">Latitude :     
+                      <br>
+                    <input class="tagging_input" type="text" name="latitude" placeholder="e.g. 49.01455" size="35" id="latitude" pattern="[0-9]" readonly/>
+                </label>
+
+                <br>
+
+                <label class="main__tagging_lables">Longitude :      
+                    <br>
+                    <input class="tagging_input" type="text" name="longitude" placeholder="e.g. 8.39400" size="35" id="longitude" readonly/>
+                </label>
+
+                <br>
+
+                <label class="main__tagging_lables name">Name :      
+                    <br>
+                    <input class="tagging_input" type="text" name="name" placeholder="e.g. Central Berlin" size="35" id="name" maxlength="10" required/>
+                </label>
+
+                <br>
+
+                <label class="main__tagging_lables">Hashtag :      
+                    <br>
+                    <input class="tagging_input" type="text" name="hashtag" placeholder="e.g. #ber" size="35" id="hashtag" maxlenght = "11" pattern="[#][A-Za-z]{1,10}"/>
+                </label>
+
+                <br>
+
+                <input type="submit" id="addtag" value="Add Tag"/>
+                </fieldset>
+
+
+
+
+            </form>
+            <!-- ############### VS1Lab 1a Form 1 End -->
+
+        </section>
+
+        <section class="main__discovery discovery">
+            <h2 class="discovery__title">Discovery</h2>
+
+            <!-- ############### VS1Lab 1a Form 2 Start -->
+            <form class="discovery__search" id="discoveryFilterForm" action="/discovery" method="post">
+
+                <fieldset class="discovery_fieldset">
+                    <legend><b>Search</b></legend>
+                    <lable  id="search" >
+                        Search term or keywords: <br>
+                        <input type="text" name="search" placeholder="e.g. Berlin" size="35" id="search_input">
+                    </lable>
+                    <br>
+                    <input type="submit" id="search_button" value="Search"/>
+                    <input type="hidden" id="hidden_latitude" value="0"/>
+                    <input type="hidden" id="hidden_longitude" value="0"/>
+                </fieldset>
+
+                </fieldset>
+                
+
+            </form>
+            <!-- ############### VS1Lab 1a Form 2 End -->
+
+            <div class="discovery__wrapper">
+                <div class="discovery__taglist">
+                    <ul class="discovery__results" id="discoveryResults">
+                        <% if (taglist !== undefined) taglist.forEach(function(gtag) { %>
+                            <li><%= gtag.name %> ( <%= gtag.latitude %>,<%= gtag.longitude %>) <%= gtag.hashtag %> </li>
+                        <% }); %>
+                    </ul>
+                </div>
+
+                <div class="discovery__map">
+                    <img src="./images/mapview.jpg" alt="a map with locations" id="mapView" />
+                    <br>
+                    <span>Result map</span>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <span>(c) 2021/22 HKA_IWI_VSYS</span>
+    </footer>
+    <!-- Load JavaScripts
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="./javascripts/geotagging.js"></script>
+</body>
+
+</html>
