@@ -32,6 +32,15 @@ const GeoTag = require('../models/geotag');
 const GeoTagStore = require('../models/geotag-store');
 
 /**
+ * The module "geotag-examples" ...
+ * ...
+ *
+ * TODO: implement the module in the file "../models/geotag-examples.js"
+ */
+// eslint-disable-next-line no-unused-vars
+const geoTagList = require("../models/geotag-examples");
+
+/**
  * Route '/' for HTTP 'GET' requests.
  * (http://expressjs.com/de/4x/api.html#app.get.method)
  *
@@ -60,7 +69,20 @@ router.get('/', (req, res) => {
  * by radius around a given location.
  */
 
-// TODO: ... your code here ...
+router.post('/tagging', (req, res) => {
+  let name = req.body.json().tagging_name;
+  let latitude = req.body.json().tagging_latitude;
+  let longitude = req.body.json().tagging_longitude;
+  let hashtag = req.body.json().tagging_hashtag;
+
+  let geoTagObject = new GeoTag(name, latitude, longitude, hashtag);
+
+  let memory = new GeoTagStore();
+
+  let tagsInMemory = memory.getNearbyGeoTags(geoTagObject);
+
+  res.render('index', { tagList: tagsInMemory })
+});
 
 /**
  * Route '/discovery' for HTTP 'POST' requests.
@@ -78,6 +100,18 @@ router.get('/', (req, res) => {
  * by radius and keyword.
  */
 
-// TODO: ... your code here ...
+router.post('/discovery', (req, res) => {
+  let searchterm = req.body.json().discovery_searchterm;
+  let latitude = req.body.json().discovery_latitude_search;
+  let longitude = req.body.json().discovery_longitude_search;
+
+  let geoTagObject = new GeoTag(searchterm, latitude, longitude);
+
+  let memory = new GeoTagStore();
+
+  let tagsInMemory = memory.searchNearbyGeoTags(searchterm);
+
+  res.render('index', { tagList: tagsInMemory })
+});
 
 module.exports = router;
