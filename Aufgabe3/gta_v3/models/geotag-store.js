@@ -33,7 +33,7 @@ class InMemoryGeoTagStore{
 
     removeGeoTag(name) {
         for (let i = 0; i < this.#geoTags.length - 1; i++) {
-               if (this.#geoTags[i] === name) {
+               if (this.#geoTags[i].name === name) {
                    this.#geoTags.splice(i, 1);
                }
             }
@@ -83,8 +83,7 @@ class InMemoryGeoTagStore{
         let fromY = from.longitude();
         let toX = to.latitude();
         let toY = to.longitude();
-        return Math.sqrt((Math.pow(toX, 2) - Math.pow(fromX,2)) +
-            (Math.pow(toY, 2) - Math.pow(fromY,2)));
+        return Math.sqrt(Math.pow(toX - fromX, 2) + Math.pow(toY - fromY, 2));
     }
 }
 
