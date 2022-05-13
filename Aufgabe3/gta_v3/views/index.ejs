@@ -29,10 +29,10 @@
                     <legend>Add a new GeoTag</legend>
 
                     <label for="tagging_latitude">Latitude:</label>
-                    <input type="text" id="tagging_latitude" value="49.01379" readonly />
+                    <input type="text" id="tagging_latitude" value='<%= userLatitude %>' readonly />
 
                     <label for="tagging_longitude">Longitude:</label>
-                    <input type="text" id="tagging_longitude" value="8.390071" readonly />
+                    <input type="text" id="tagging_longitude" value='<%= userLongitude %>' readonly />
 
                     <label for="tagging_name">Name:</label>
                     <input type="text" id="tagging_name" placeholder="e.g. Central Berlin" maxlength="10" pattern="[A-Za-z]{1,10}" required />
@@ -68,7 +68,7 @@
                 <div class="discovery__taglist col-4 col-responsive">
                     <ul class="discovery__results" id="discoveryResults">
                         <% if (taglist !== undefined) taglist.forEach(function(gtag) { %>
-                            <li><%= gtag.name %> ( <%= gtag.latitude %>,<%= gtag.longitude %>) <%= gtag.hashtag %> </li>
+                            <li><%= gtag.name %> (<%= gtag.latitude %>,<%= gtag.longitude %>) <%= gtag.hashtag %></li>
                         <% }); %>
                     </ul>
                 </div>

@@ -51,7 +51,7 @@ const geoTagList = require("../models/geotag-examples");
 
 // TODO: extend the following route example if necessary
 router.get('/', (req, res) => {
-  res.render('index', { taglist: [] })
+  res.render('index', { taglist: [], userLatitude: req.get(latitude), userLongitude: req.get(longitude) })
 });
 
 /**
@@ -94,22 +94,20 @@ router.post('/tagging', (req, res) => {
  *
  * As response, the ejs-template is rendered with geotag objects.
  * All result objects are located in the proximity of the given coordinates.
- * If a search term is given, the results are further filtered to contain 
+ * If a search term is given, the results are further filtered to contain
  * the term as a part of their names or hashtags. 
  * To this end, "GeoTagStore" provides methods to search geotags 
  * by radius and keyword.
  */
 
 router.post('/discovery', (req, res) => {
-  let searchterm = req.body.json().discovery_searchterm;
+  let keyword = req.body.json().discovery_searchterm;
   let latitude = req.body.json().discovery_latitude_search;
   let longitude = req.body.json().discovery_longitude_search;
 
-  let geoTagObject = new GeoTag(searchterm, latitude, longitude);
-
   let memory = new GeoTagStore();
 
-  let tagsInMemory = memory.searchNearbyGeoTags(searchterm);
+  let tagsInMemory = memory.searchNearbyGeoTags(keyword);
 
   res.render('index', { tagList: tagsInMemory })
 });
