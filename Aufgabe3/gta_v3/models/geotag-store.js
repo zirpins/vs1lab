@@ -75,6 +75,7 @@ class InMemoryGeoTagStore{
                 nearbyGeoTags.push(i);
             }
         }
+        nearbyGeoTags.push(geoTagMatching);
         return nearbyGeoTags;
     }
 

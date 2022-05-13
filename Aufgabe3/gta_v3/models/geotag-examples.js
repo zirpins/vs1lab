@@ -5,17 +5,24 @@
  * Complete all TODOs in the code documentation.
  */
 
+const InMemoryGeoTagStore = require("./geotag-store");
+const GeoTag = require("./geotag");
+
 /**
  * A class representing example geoTags at HKA
- * 
+ *
  * TODO: populate your InMemoryGeoTagStore with these tags
- * 
+ *
  */
+
 
 class GeoTagExamples {
     /**
      * Provides some geoTag data
      */
+
+    static inMemoryGeoTagStore;
+
     static get tagList() {
         return [
             ['Castle', 49.013790, 8.404435, '#sight'],
@@ -31,16 +38,15 @@ class GeoTagExamples {
             ['Building K', 49.013190, 8.392090, '#campus'],
         ];
     }
+
+    static populate() {
+        GeoTagExamples.inMemoryGeoTagStore = new InMemoryGeoTagStore();
+        for (let i in GeoTagExamples.tagList) {
+            GeoTagExamples.inMemoryGeoTagStore.addGeoTag(new GeoTag(i[0], i[1], i[2], i[3]));
+        }
+    }
 }
 
-//Populate?
-const GeoTag = require("./geotag");
-const InMemoryGeoTagStore = require("./geotag-store");
-
-let inMemoryGeoTagStore = new InMemoryGeoTagStore();
-
-for(let i in GeoTagExamples.tagList) {
-    inMemoryGeoTagStore.addGeoTag(new GeoTag(i[0],i[1],i[2],i[3]));
-}
+GeoTagExamples.populate();
 
 module.exports = GeoTagExamples;
