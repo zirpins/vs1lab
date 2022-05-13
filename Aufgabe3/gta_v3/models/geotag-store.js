@@ -8,23 +8,23 @@
 
 /**
  * A class for in-memory-storage of geotags
- * 
+ *
  * Use an array to store a multiset of geotags.
  * - The array must not be accessible from outside the store.
- * 
+ *
  * Provide a method 'addGeoTag' to add a geotag to the store.
- * 
+ *
  * Provide a method 'removeGeoTag' to delete geo-tags from the store by name.
- * 
+ *
  * Provide a method 'getNearbyGeoTags' that returns all geotags in the proximity of a location.
  * - The location is given as a parameter.
  * - The proximity is computed by means of a radius around the location.
- * 
+ *
  * Provide a method 'searchNearbyGeoTags' that returns all geotags in the proximity of a location that match a keyword.
  * - The proximity constrained is the same as for 'getNearbyGeoTags'.
- * - Keyword matching should include partial matches from name or hashtag fields. 
+ * - Keyword matching should include partial matches from name or hashtag fields.
  */
-class InMemoryGeoTagStore{
+class InMemoryGeoTagStore {
     #geoTags = [];
 
     addGeoTag(geotag) {
@@ -33,13 +33,13 @@ class InMemoryGeoTagStore{
 
     removeGeoTag(name) {
         for (let i = 0; i < this.#geoTags.length - 1; i++) {
-               if (this.#geoTags[i].name === name) {
-                   this.#geoTags.splice(i, 1);
-               }
+            if (this.#geoTags[i].name === name) {
+                this.#geoTags.splice(i, 1);
             }
         }
+    }
 
-    getNearbyGeoTags(location){
+    getNearbyGeoTags(location) {
         let nearbyGeoTags = [];
         let distance;
 
@@ -64,7 +64,7 @@ class InMemoryGeoTagStore{
         for (let i in this.#geoTags) {
             geoTagName = i.name;
             stringMatch = geoTagName.match(regExp);
-            if(stringMatch.length >= 1) {
+            if (stringMatch.length >= 1) {
                 geoTagMatching = i;
             }
         }
@@ -87,7 +87,6 @@ class InMemoryGeoTagStore{
         return Math.sqrt(Math.pow(toX - fromX, 2) + Math.pow(toY - fromY, 2));
     }
 }
-
 
 
 module.exports = InMemoryGeoTagStore
