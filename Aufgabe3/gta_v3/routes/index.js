@@ -38,7 +38,12 @@ const GeoTagStore = require('../models/geotag-store');
  * TODO: implement the module in the file "../models/geotag-examples.js"
  */
 // eslint-disable-next-line no-unused-vars
-const geoTagList = require("../models/geotag-examples");
+const GeoTagExamples = require("../models/geotag-examples");
+
+let tagStore = new GeoTagStore();
+
+tagStore.populate();
+
 
 /**
  * Route '/' for HTTP 'GET' requests.
@@ -51,7 +56,7 @@ const geoTagList = require("../models/geotag-examples");
 
 // TODO: extend the following route example if necessary
 router.get('/', (req, res) => {
-  res.render('index', { taglist: [], userLatitude: req.get(latitude), userLongitude: req.get(longitude) })
+  res.render('index', { taglist: [], userLatitude: "", userLongitude: "" })
 });
 
 /**
@@ -70,10 +75,10 @@ router.get('/', (req, res) => {
  */
 
 router.post('/tagging', (req, res) => {
-  let name = req.body.json().tagging_name;
-  let latitude = req.body.json().tagging_latitude;
-  let longitude = req.body.json().tagging_longitude;
-  let hashtag = req.body.json().tagging_hashtag;
+  let name = req.body.tagging_name;
+  let latitude = req.body.tagging_latitude;
+  let longitude = req.body.tagging_longitude;
+  let hashtag = req.body.tagging_hashtag;
 
   let geoTagObject = new GeoTag(name, latitude, longitude, hashtag);
 
@@ -81,7 +86,7 @@ router.post('/tagging', (req, res) => {
 
   let tagsInMemory = memory.getNearbyGeoTags(geoTagObject);
 
-  res.render('index', { tagList: tagsInMemory })
+  res.render('index', { taglist: tagsInMemory, userLatitude: req.body.tagging_latitude, userLongitude: req.body.tagging_longitude  })
 });
 
 /**
@@ -101,15 +106,14 @@ router.post('/tagging', (req, res) => {
  */
 
 router.post('/discovery', (req, res) => {
-  let keyword = req.body.json().discovery_searchterm;
-  let latitude = req.body.json().discovery_latitude_search;
-  let longitude = req.body.json().discovery_longitude_search;
+  let keyword = req.body.discovery_searchterm;
+
 
   let memory = new GeoTagStore();
 
   let tagsInMemory = memory.searchNearbyGeoTags(keyword);
 
-  res.render('index', { tagList: tagsInMemory })
+  res.render('index', { taglist: tagsInMemory, userLatitude: req.body.discovery_latitude, userLongitude: req.body.discovery_longitude })
 });
 
 module.exports = router;

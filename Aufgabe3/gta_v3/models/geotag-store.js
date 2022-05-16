@@ -6,6 +6,9 @@
  */
 
 
+const GeoTag = require("./geotag");
+const GeoTagExamples = require("./geotag-examples");
+
 /**
  * A class for in-memory-storage of geotags
  *
@@ -24,7 +27,9 @@
  * - The proximity constrained is the same as for 'getNearbyGeoTags'.
  * - Keyword matching should include partial matches from name or hashtag fields.
  */
+
 class InMemoryGeoTagStore {
+
     #geoTags = [];
 
     addGeoTag(geotag) {
@@ -86,7 +91,13 @@ class InMemoryGeoTagStore {
         let toY = to.longitude();
         return Math.sqrt(Math.pow(toX - fromX, 2) + Math.pow(toY - fromY, 2));
     }
+
+   populate() {
+        for (let i in GeoTagExamples.tagList) {
+            this.addGeoTag(new GeoTag(i[0], i[1], i[2], i[3]));
+        }
+    }
 }
 
 
-module.exports = InMemoryGeoTagStore
+module.exports = InMemoryGeoTagStore;
