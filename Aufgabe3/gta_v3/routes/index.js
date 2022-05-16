@@ -40,9 +40,7 @@ const GeoTagStore = require('../models/geotag-store');
 // eslint-disable-next-line no-unused-vars
 const GeoTagExamples = require("../models/geotag-examples");
 
-let tagStore = new GeoTagStore();
 
-tagStore.populate();
 
 
 /**
@@ -56,7 +54,9 @@ tagStore.populate();
 
 // TODO: extend the following route example if necessary
 router.get('/', (req, res) => {
-  res.render('index', { taglist: [], userLatitude: "", userLongitude: "" })
+  let tagStore = new GeoTagStore();
+  tagStore.populate();
+  res.render('index', { taglist: tagStore.geoTags, userLatitude: "", userLongitude: "" })
 });
 
 /**
@@ -80,11 +80,13 @@ router.post('/tagging', (req, res) => {
   let longitude = req.body.tagging_longitude;
   let hashtag = req.body.tagging_hashtag;
 
+  let tagStore = new GeoTagStore();
+  tagStore.populate();
+
   let geoTagObject = new GeoTag(name, latitude, longitude, hashtag);
 
-  let memory = new GeoTagStore();
-
-  let tagsInMemory = memory.getNearbyGeoTags(geoTagObject);
+  let tagsInMemory = tagStore.getNearbyGeoTags(geoTagObject);
+  tagsInMemory.push(geoTagObject);
 
   res.render('index', { taglist: tagsInMemory, userLatitude: req.body.tagging_latitude, userLongitude: req.body.tagging_longitude  })
 });
@@ -108,10 +110,10 @@ router.post('/tagging', (req, res) => {
 router.post('/discovery', (req, res) => {
   let keyword = req.body.discovery_searchterm;
 
+  let tagStore = new GeoTagStore();
+  tagStore.populate();
 
-  let memory = new GeoTagStore();
-
-  let tagsInMemory = memory.searchNearbyGeoTags(keyword);
+  let tagsInMemory = tagStore.searchNearbyGeoTags(keyword);
 
   res.render('index', { taglist: tagsInMemory, userLatitude: req.body.discovery_latitude, userLongitude: req.body.discovery_longitude })
 });

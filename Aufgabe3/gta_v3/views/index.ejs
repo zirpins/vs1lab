@@ -35,10 +35,10 @@
                     <input name="tagging_longitude" type="text" id="tagging_longitude" value='<%= userLongitude %>' readonly />
 
                     <label for="tagging_name">Name:</label>
-                    <input type="text" id="tagging_name" placeholder="e.g. Central Berlin" maxlength="10" pattern="[A-Za-z]{1,10}" required />
+                    <input name="tagging_name" type="text" id="tagging_name" placeholder="e.g. Central Berlin" maxlength="10" pattern="[A-Za-z]{1,10}" required />
 
                     <label for="tagging_hashtag">Hashtag:</label>
-                    <input type="text" id="tagging_hashtag" placeholder="e.g. #ber" maxlength="11" pattern="[#][A-Za-z]{1,10}" />
+                    <input name="tagging_hashtag" type="text" id="tagging_hashtag" placeholder="e.g. #ber" maxlength="11" pattern="[#][A-Za-z]{1,10}" />
 
                     <input type="submit" id="add_tag_button" value="Add Tag" />
                 </fieldset>
@@ -52,13 +52,13 @@
                 <fieldset>
                     <legend>Search</legend>
                         <label id="discovery_search" for="discovery_searchterm">Search term or keywords:</label>
-                        <input type="text" id="discovery_searchterm" placeholder="e.g. Berlin" required />
+                        <input name="discovery_searchterm" type="text" id="discovery_searchterm" placeholder="e.g. Berlin" required />
 
                         <label id="discovery_latitude" for="discovery_latitude_search" hidden>Latitude:</label>
-                        <input type="hidden" id="discovery_latitude_search" placeholder="49.01379" pattern="[0-9]{1,2}[.]?[0-9]{0,6}" />
+                        <input name="discovery_latitude" type="hidden" id="discovery_latitude_search" placeholder="49.01379" pattern="[0-9]{1,2}[.]?[0-9]{0,6}" />
 
                         <label id="discovery_longitude" for="discovery_longitude_search" hidden>Longitude:</label>
-                        <input type="hidden" id="discovery_longitude_search" placeholder="8.390071" pattern="[0-9]{1,2}[.]?[0-9]{0,6}" />
+                        <input name="discovery_longitude" type="hidden" id="discovery_longitude_search" placeholder="8.390071" pattern="[0-9]{1,2}[.]?[0-9]{0,6}" />
 
                         <input type="submit" id="discovery_button" value="Search"  />
                 </fieldset>

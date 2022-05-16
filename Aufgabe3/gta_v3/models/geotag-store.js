@@ -32,6 +32,10 @@ class InMemoryGeoTagStore {
 
     #geoTags = [];
 
+    get geoTags() {
+        return this.#geoTags;
+    }
+
     addGeoTag(geotag) {
         this.#geoTags.push(geotag);
     }
@@ -48,53 +52,53 @@ class InMemoryGeoTagStore {
         let nearbyGeoTags = [];
         let distance;
 
-        for (let i in this.#geoTags) {
-            distance = this.calculateDistance(location, i);
-            if (distance < 10) {
-                nearbyGeoTags.push(i);
+        for (let i = 0; i < this.#geoTags.length; i++) {
+            console.log(this.#geoTags[i]);
+            distance = this.calculateDistance(location, this.#geoTags[i]);
+            if (distance < 0.282) {
+                nearbyGeoTags.push(this.#geoTags[i]);
             }
         }
+        console.log(nearbyGeoTags);
         return nearbyGeoTags;
     }
 
     searchNearbyGeoTags(keyword) {
-        let distance;
         let geoTagMatching;
         let nearbyGeoTags = [];
         let stringMatch;
         let geoTagName;
 
-        let regExp = new RegExp(keyword, 'gi') //Ignores Case + returns Array for each time finding keyword string in geoTagName
+        let regExp = new RegExp(keyword, 'gi') //Ignores Case + returns value in Array for each time finding keyword string in geoTagName
 
-        for (let i in this.#geoTags) {
-            geoTagName = i.name;
+        for (let i = 0; i < this.#geoTags.length; i++) {
+            geoTagName = this.#geoTags[i].name;
             stringMatch = geoTagName.match(regExp);
-            if (stringMatch.length >= 1) {
-                geoTagMatching = i;
+
+            if(stringMatch != null) {
+                geoTagMatching = this.#geoTags[i];
+               // let array = this.getNearbyGeoTags(geoTagMatching);
+
+                nearbyGeoTags.push(geoTagMatching);
             }
         }
 
-        for (let i in this.#geoTags) {
-            distance = this.calculateDistance(geoTagMatching, i);
-            if (distance < 10) {
-                nearbyGeoTags.push(i);
-            }
-        }
-        nearbyGeoTags.push(geoTagMatching);
         return nearbyGeoTags;
     }
 
     calculateDistance(from, to) {
-        let fromX = from.latitude();
-        let fromY = from.longitude();
-        let toX = to.latitude();
-        let toY = to.longitude();
+        let fromX = from.latitude;
+        let fromY = from.longitude;
+        let toX = to.latitude;
+        let toY = to.longitude;
         return Math.sqrt(Math.pow(toX - fromX, 2) + Math.pow(toY - fromY, 2));
     }
 
    populate() {
-        for (let i in GeoTagExamples.tagList) {
-            this.addGeoTag(new GeoTag(i[0], i[1], i[2], i[3]));
+        let tagList = GeoTagExamples.tagList;
+        // TODO Mach die ÖLF raus!
+        for (var i = 0; i < 11; i++) {
+                this.addGeoTag(new GeoTag(tagList[i][0], tagList[i][1], tagList[i][2], tagList[i][3]));
         }
     }
 }
