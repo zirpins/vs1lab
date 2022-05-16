@@ -26,7 +26,26 @@
 class InMemoryGeoTagStore{
 
     // TODO: ... your code here ...
+    #geoTagsStore=[];
+
+    addGeoTag(geotag){
+        geoTagsStore.push(geotag);
+    }
+
+    removeGeoTag(name){
+    for(var i = 0; i < geoTagsStore.length; i++){
+        if(geoTagsStore[i].name == name){
+            geoTagsStore.splice(i, 1);
+        }
+    }
+    }
+
+
+    getNearbyGeoTags(hidden_latitude,hidden_longitude)
+    {
+        
+
+    }
 
 }
-
 module.exports = InMemoryGeoTagStore
