@@ -13,7 +13,7 @@
  */
 class GeoTagExamples {
     
-    testGeotag  = new InMemoryGeoTagStore();
+    static geotags  = new InMemoryGeoTagStore();
     
     /**
      * Provides some geoTag data
@@ -38,7 +38,7 @@ class GeoTagExamples {
         arr = this.tagList;
         arr.forEach(function(current){
             var gt = new GeoTag(current[1],current[2],current[0],current[3]);
-            testGeotag.add(gt);
+            geotags.add(gt);
         });
     }
 

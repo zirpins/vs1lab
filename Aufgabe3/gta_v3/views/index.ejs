@@ -31,16 +31,16 @@
                       <legend>Add a new GeoTag</legend>
                   
                       <label class="tagging_item" for="latitude">Latitude:</label>
-                      <input class="block tagging_item" type="text" id="latitude" placeholder="//49.01379" readonly >
+                      <input class="block tagging_item" name="userLat" type="text" id="latitude" placeholder="//49.01379" value='<%= userLat %>' readonly >
 
                       <label class="tagging_item" for="longitude">Longitude:</label>
-                      <input class="block tagging_item" type="text" id="longitude"  placeholder="//8.390071" readonly >
+                      <input class="block tagging_item" name="userLong" type="text" id="longitude"  placeholder="//8.390071" value='<%= userLong %>' readonly >
 
                       <label class="tagging_item" for="name">Name:</label>
-                      <input class="block tagging_item" type="text" id="name" placeholder="e.g. Central Berlin" pattern="[a-zA-Z]+" maxlength="10" required> 
+                      <input class="block tagging_item" name="name" type="text" id="name" placeholder="e.g. Central Berlin" pattern="[a-zA-Z]+" maxlength="10" required> 
 
                       <label class="tagging_item" for="hashtag">Hashtag:</label>
-                      <input class="block tagging_item" type="text" id="hashtag" placeholder="e.g. #ber" pattern="#[a-zA-Z]*" maxlength="11">
+                      <input class="block tagging_item"  name="hashtag" type="text" id="hashtag" placeholder="e.g. #ber" pattern="#[a-zA-Z]*" maxlength="11">
                   
                       <input class="tagging_item" type="submit" id="addTag" value="Add Tag">
                     
@@ -59,7 +59,7 @@
                     <legend>Search</legend>
 
                     <label class="discovery_search_item" for="searchvalue">Search term or keywords:</label>    
-                    <input class="block discovery_search_item" type="text" id="searchvalue" placeholder="e.g. Berlin">
+                    <input class="block discovery_search_item" name="search" type="text" id="searchvalue" placeholder="e.g. Berlin">
                 
                     <input class="discovery_search_item" type="submit" id="search" value="Search">
 
@@ -68,8 +68,8 @@
             <!-- ############### VS1Lab 1a Form 2 End -->
 
             <div class="discovery__wrapper row">
-                <input type="hidden" id="hiddenLatitude" value=<%= tagging %>>
-                <input type="hidden" id="hiddenLongitude" >
+                <input type="hidden" id="hiddenLatitude" name="hiddenUserLat" value='<%= userLat %>'>
+                <input type="hidden" id="hiddenLongitude" name="hiddenUserLong"  value='<%= userLong %>'>
                     
                 <div class="discovery__taglist col-4">
                     <ul class="discovery__results" id="discoveryResults">

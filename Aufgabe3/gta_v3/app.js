@@ -46,9 +46,7 @@ app.use(express.urlencoded({ extended: false }));
 
   app.use(express.static(path.join(__dirname, 'public')));
 
-  app.use('/tagging', indexRouter);
-  app.use('/discovery', indexRouter);
-  
+
 // Set dedicated script for routing
 app.use('/', indexRouter);
 

@@ -25,30 +25,26 @@ const GeoTag = require("./geotag");
  * - The proximity constrained is the same as for 'getNearbyGeoTags'.
  * - Keyword matching should include partial matches from name or hashtag fields. 
  */
-class InMemoryGeoTagStore{
-    
-    #array= new Array(GeoTag);
-    
+class InMemoryGeoTagStore {
+
+    #array = [];
+
     /**
      * 
      * @param {GeoTag} tag 
      */
-    addGeoTag(tag)
-    {
-        array.push(tag);
+    addGeoTag(tag) {
+        this.#array.push(tag);
     }
-    
+
     /**
      * 
      * @param {String} name 
      */
-    removeGeoTag(name)
-    {
-        for(let i =0; i< array.length; i++)
-        {
-            if(name === array[i].name) 
-            {
-                array.splice(i);
+    removeGeoTag(name) {
+        for (let i = 0; i < this.#array.length; i++) {
+            if (name === this.#array[i].name) {
+                this.array.splice(i);
                 break;
             }
         }
@@ -56,16 +52,13 @@ class InMemoryGeoTagStore{
 
     /**
      * 
-     * @param {LocationHelper} loc 
      * @param {Integer} radius 
      */
-     getNearbyGeoTags(loc, radius)
-     {
-        var res = new Array(GeoTag);
-        var x = loc.latitude;
-        var y = loc.longitude;
-        array.forEach(function(current)
-        {
+    getNearbyGeoTags(latitude, longitude, radius) {
+        var res = [];
+        var x = latitude;
+        var y = longitude;
+        this.#array.forEach(function (current) {
             var curX = current.latitude-x;
             var curY=current.longitude-y;
             var sqrX = curX*curX ;
@@ -75,25 +68,24 @@ class InMemoryGeoTagStore{
             {
                 res.push(current);
             }
-        });       
+        });
         return res;
-     }
-    
+    }
+
     /**
-     * 
-     * @param {LocationHelper} loc 
-     * @param {Integer} radius 
-     * @param {String} keyword
+     *
+     * @param {String} searchVal
      */
-     searchNearbyGeoTags(loc, radius, keyword)
-     {
-         var arrGeotags = getNearbyGeoTags(loc, radius);
-         arrGeotags.forEach(function(current) 
-         {
-            if(current.name.includes(keyword) || current.hashtag.includes(keyword)) addGeoTag(current);
-         });
-     }
-      
+    searchNearbyGeoTags(latitude, longitude, searchVal) {
+        var newArray = [];
+        console.log("Sval" + searchVal);
+        this.#array.forEach(function (current) {
+            if (current.name.includes(searchVal) ||  current.hashtag.includes(searchVal)) newArray.push(current); 
+        });
+        console.log(newArray);
+        return newArray;
+    }
+
 }
 
 module.exports = InMemoryGeoTagStore
