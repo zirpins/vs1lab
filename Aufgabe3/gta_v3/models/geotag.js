@@ -13,6 +13,32 @@ class GeoTag {
 
     // TODO: ... your code here ...
     
+    constructor(latitude,longitude,name,hashtag) {
+        this.latitude =latitude;
+        this.longitude =longitude;
+        this.name = name;
+        this.hashtag = hashtag;
+    }
+
+    getName(){
+        return this.#name;
+    }
+    
+    getLongitude(){
+        return this.#longitude;
+    }
+
+    getLatitude(){
+        return this.#latitude;
+    }
+
+    getHashtag(){
+        return this.#hashtag;
+    }
+
+    toJASON(){
+        return {"name": getName(), "longitude": this.getLongitude(), "latitude": this.getLatitude(), "hashtag": getHashtag()};
+    }
 }
 
 module.exports = GeoTag;
