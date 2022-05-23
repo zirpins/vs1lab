@@ -28,6 +28,11 @@ class InMemoryGeoTagStore{
     // TODO: ... your code here ...
     #geoTagsStore=[];
 
+    constructor(){
+        GeoTagStore = new InMemoryGeoTagStore;
+        GeoTagStore.push(tagList());  
+    }
+
     addGeoTag(geotag){
         geoTagsStore.push(geotag);
     }
@@ -44,18 +49,17 @@ class InMemoryGeoTagStore{
     getNearbyGeoTags(hidden_latitude,hidden_longitude)
     {
         foundGeoTags =[];
+        
 
-        min_latitude = hidden_latitude - 0.5;
-        max_latitude = hidden_latitude + 0.5;
+    
 
-        min_longitude = hidden_longitude - 0.5;
-        max_longitude = hidden_longitude + 0.5;
         for(var i = 0; i< geoTagsStore.length; i++){
+            dx = 71.5 * (hidden_longitude - geoTagsStore[i].longitude)
+            dy = 111.3 * (hidden_latitude - geoTagsStore[i].latitude)
 
-            if(min_latitude <= geoTagsStore[i].latitude <= max_latitude){
-                if(min_longitude <= geoTagsStore[i].longitude <= max_longitude){
-                    foundGeoTags.push(geoTagsStore[i]);
-                }
+            distance = Math.sqrt(dx * dx + dy * dy);
+            if( distance <= 10){
+                foundGeoTags.push(geoTagsStore[i]);
             }
 
         }
@@ -63,23 +67,12 @@ class InMemoryGeoTagStore{
     }
 
     searchNearbyGeoTags(key,hidden_longitude,hidden_latitude){
-        foundGeoTags =[];
-
-        min_latitude = hidden_latitude - 0.5;
-        max_latitude = hidden_latitude + 0.5;
-
-        min_longitude = hidden_longitude - 0.5;
-        max_longitude = hidden_longitude + 0.5;
-        for(var i = 0; i< geoTagsStore.length; i++){
-
-            if(min_latitude <= geoTagsStore[i].latitude <= max_latitude){
-                if(min_longitude <= geoTagsStore[i].longitude <= max_longitude){
-                    if (geoTagsStore[i].name.substring(0,4) == key.substring(0,4) || geoTagsStore[i].hashtag.substring(0,2) == key.substring(0,2)){
-                        foundGeoTags.push(geoTagsStore[i]);
-                    }
-
-                }
-            }
+         NearbyGeotags = foundgetNearbyGeoTags(hidden_longitude,hidden_latitude);
+         foundGeoTags = [];
+        for(var i= 0;i< NearbyGeotags.length; i++){
+         if (NearbyGeotags[i].name.substring(0,4) == key.substring(0,4) || NearbyGeotags[i].hashtag.substring(0,2) == key.substring(0,2)){
+             foundGeoTags.push(NearbyGeotags[i]);
+             }
         }
         return foundGeoTags;
     }
