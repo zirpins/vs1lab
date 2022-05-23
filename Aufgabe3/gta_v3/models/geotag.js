@@ -21,19 +21,19 @@ class GeoTag {
     }
 
     getName(){
-        return this.#name;
+        return this.name;
     }
     
     getLongitude(){
-        return this.#longitude;
+        return this.longitude;
     }
 
     getLatitude(){
-        return this.#latitude;
+        return this.latitude;
     }
 
     getHashtag(){
-        return this.#hashtag;
+        return this.hashtag;
     }
 
     toJASON(){
