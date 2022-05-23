@@ -43,9 +43,45 @@ class InMemoryGeoTagStore{
 
     getNearbyGeoTags(hidden_latitude,hidden_longitude)
     {
-        
+        foundGeoTags =[];
 
+        min_latitude = hidden_latitude - 0.5;
+        max_latitude = hidden_latitude + 0.5;
+
+        min_longitude = hidden_longitude - 0.5;
+        max_longitude = hidden_longitude + 0.5;
+        for(var i = 0; i< geoTagsStore.length; i++){
+
+            if(min_latitude <= geoTagsStore[i].latitude <= max_latitude){
+                if(min_longitude <= geoTagsStore[i].longitude <= max_longitude){
+                    foundGeoTags.push(geoTagsStore[i]);
+                }
+            }
+
+        }
+        return foundGeoTags;
     }
 
+    searchNearbyGeoTags(key,hidden_longitude,hidden_latitude){
+        foundGeoTags =[];
+
+        min_latitude = hidden_latitude - 0.5;
+        max_latitude = hidden_latitude + 0.5;
+
+        min_longitude = hidden_longitude - 0.5;
+        max_longitude = hidden_longitude + 0.5;
+        for(var i = 0; i< geoTagsStore.length; i++){
+
+            if(min_latitude <= geoTagsStore[i].latitude <= max_latitude){
+                if(min_longitude <= geoTagsStore[i].longitude <= max_longitude){
+                    if (geoTagsStore[i].name.substring(0,4) == key.substring(0,4) || geoTagsStore[i].hashtag.substring(0,2) == key.substring(0,2)){
+                        foundGeoTags.push(geoTagsStore[i]);
+                    }
+
+                }
+            }
+        }
+        return foundGeoTags;
+    }
 }
 module.exports = InMemoryGeoTagStore
