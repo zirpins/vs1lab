@@ -20,6 +20,7 @@ console.log("The geoTagging script is going to start...");
 function updateLocation(){
     hid_long = document.getElementById("hidden_longitude").value;
     hid_lati = document.getElementById("hidden_latitude").value;
+    
     if (hid_long === "null" && hid_lati === "null"){
         LocationHelper.findLocation(function(cback) {
             var latitude = cback.latitude;

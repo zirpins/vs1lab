@@ -1,5 +1,7 @@
 // File origin: VS1LAB A3
 
+const GeoTagExamples = require("./geotag-examples");
+
 /**
  * This script is a template for exercise VS1lab/Aufgabe3
  * Complete all TODOs in the code documentation.
@@ -29,8 +31,8 @@ class InMemoryGeoTagStore{
     #geoTagsStore=[];
 
     constructor(){
-        GeoTagStore = new InMemoryGeoTagStore;
-        GeoTagStore.push(tagList());  
+        GeoTagExamples = new GeoTagExamples();
+        geoTagStore.push(GeoTagExamples.tagList());  
     }
 
     addGeoTag(geotag){
@@ -50,9 +52,6 @@ class InMemoryGeoTagStore{
     {
         foundGeoTags =[];
         
-
-    
-
         for(var i = 0; i< geoTagsStore.length; i++){
             dx = 71.5 * (hidden_longitude - geoTagsStore[i].longitude)
             dy = 111.3 * (hidden_latitude - geoTagsStore[i].latitude)
@@ -67,7 +66,7 @@ class InMemoryGeoTagStore{
     }
 
     searchNearbyGeoTags(key,hidden_longitude,hidden_latitude){
-         NearbyGeotags = foundgetNearbyGeoTags(hidden_longitude,hidden_latitude);
+         NearbyGeotags = DgetNearbyGeoTags(hidden_longitude,hidden_latitude);
          foundGeoTags = [];
         for(var i= 0;i< NearbyGeotags.length; i++){
          if (NearbyGeotags[i].name.substring(0,4) == key.substring(0,4) || NearbyGeotags[i].hashtag.substring(0,2) == key.substring(0,2)){
