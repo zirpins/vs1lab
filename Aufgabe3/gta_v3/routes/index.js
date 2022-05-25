@@ -14,7 +14,7 @@ const express = require('express');
 const router = express.Router();
 
 /**
- * The module "geotag" exports a class GeoTagStore. 
+ * The module "geotag" exports a class GeoTag. 
  * It represents geotags.
  * 
  * TODO: implement the module in the file "../models/geotag.js"
@@ -42,8 +42,10 @@ const GeoTagStore = require('../models/geotag-store');
 
 // TODO: extend the following route example if necessary
 router.get('/', (req, res) => {
+  GeoTagStore = new GeoTagStore();
   res.render('index', { taglist: [] })
 });
+
 
 /**
  * Route '/tagging' for HTTP 'POST' requests.
@@ -61,7 +63,12 @@ router.get('/', (req, res) => {
  */
 
 // TODO: ... your code here ...
-
+router.post('/tagging', (req, res) => {
+  //geoTag = new GeoTag();
+ // GeoTagStore.addGeoTag(geotag);
+  res.send('hello');
+  
+});
 /**
  * Route '/discovery' for HTTP 'POST' requests.
  * (http://expressjs.com/de/4x/api.html#app.post.method)
@@ -79,5 +86,9 @@ router.get('/', (req, res) => {
  */
 
 // TODO: ... your code here ...
-
+router.post('/discovery',(req, res) => {
+  res.GeoTagStore.searchNearbyGeoTags(document.getElementById("search_input").value,
+                                      document.getElementById("hidden_longitude").value,
+                                      document.getElementById("hidden_latitude").value);
+});
 module.exports = router;
