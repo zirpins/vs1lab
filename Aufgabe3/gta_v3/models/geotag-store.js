@@ -28,6 +28,7 @@ const GeoTag = require("./geotag");
 class InMemoryGeoTagStore {
 
     #array = [];
+    #radius = 100;
 
     /**
      * 
@@ -50,11 +51,9 @@ class InMemoryGeoTagStore {
         }
     }
 
-    /**
-     * 
-     * @param {Integer} radius 
-     */
-    getNearbyGeoTags(latitude, longitude, radius) {
+    
+    getNearbyGeoTags(latitude, longitude) {
+        var radius = this.#radius;
         var res = [];
         var x = latitude;
         var y = longitude;
@@ -63,7 +62,7 @@ class InMemoryGeoTagStore {
             var curY=current.longitude-y;
             var sqrX = curX*curX ;
             var sqrY =  curY*curY;
-            var sqrR = radius*radius;
+            var sqrR = radius * radius;
             if((sqrX+sqrY)<=sqrR) //im Bereich Zentrum +- radius
             {
                 res.push(current);
@@ -76,11 +75,10 @@ class InMemoryGeoTagStore {
      *
      * @param {String} searchVal
      */
-    searchNearbyGeoTags(latitude, longitude, searchVal) {
+    searchNearbyGeoTags(searchVal) {
         var newArray = [];
-        console.log("Sval" + searchVal);
         this.#array.forEach(function (current) {
-            if (current.name.includes(searchVal) ||  current.hashtag.includes(searchVal)) newArray.push(current); 
+            if (current.name.includes(searchVal) | current.hashtag.includes(searchVal)) newArray.push(current); 
         });
         console.log(newArray);
         return newArray;

@@ -5,8 +5,8 @@
  * It's a template for exercise VS1lab/Aufgabe3
  * Complete all TODOs in the code documentation.
  */
-const kk = require('../models/geotag-store');
-const memory = new kk();
+const gtStore = require('../models/geotag-store');
+const memory = new gtStore();
 /**
  * Define module dependencies.
  */
@@ -43,7 +43,8 @@ const GeoTagStore = require('../models/geotag-store');
 
 // TODO: extend the following route example if necessary
 router.get('/', (req, res) => {
-  res.render('index', { taglist: [] , userLat: "//", userLong: "//"})
+  var json = JSON.stringify(req.body.image);
+  res.render('index', { taglist: [] , userLat: "//", userLong: "//", tags:json})
 });
 
 /**
@@ -63,7 +64,7 @@ router.get('/', (req, res) => {
 router.post(`/tagging`, function(req, res){
     
   memory.addGeoTag(new GeoTag(req.body.userLat, req.body.userLong, req.body.name, req.body.hashtag));
-  let x = memory.getNearbyGeoTags(req.body.userLat, req.body.userLong, 100);
+  let x = memory.getNearbyGeoTags(req.body.userLat, req.body.userLong);
   console.log(req.body);
     res.render("index", { 
       taglist: x,
@@ -89,13 +90,12 @@ router.post(`/tagging`, function(req, res){
  */
  router.post(`/discovery`, function(req, res){
   var kw = req.body.search;
-  var arr = memory.searchNearbyGeoTags(req.body.hiddenUserLat, req.body.hiddenUserLong, kw);
+  var arr = memory.searchNearbyGeoTags(kw);
   res.render("index", { 
     taglist: arr,
     userLat: req.body.hiddenUserLat,
-    userLong: req.body.hiddenUserLong
+    userLong: req.body.hiddenUserLong,
   });   
 });
-
 
 module.exports = router;
