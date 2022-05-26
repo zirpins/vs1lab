@@ -1,7 +1,7 @@
 // File origin: VS1LAB A3
 
 const GeoTag = require("./geotag");
-
+const GeoTagExamples = require("./geotag-examples");
 /**
  * This script is a template for exercise VS1lab/Aufgabe3
  * Complete all TODOs in the code documentation.
@@ -27,10 +27,29 @@ const GeoTag = require("./geotag");
  */
 class InMemoryGeoTagStore {
 
-    #array = [];
+    loadExamples()
+    {
+        var res=[];
+        var arr =  GeoTagExamples.tagList;
+        arr.forEach(function (current) {
+            res.push(new GeoTag(current[1],current[2],current[0],current[3])); 
+        });
+        return res;
+
+    }
+
+    
+    #array = this.loadExamples();
     #radius = 100;
 
+    getArr()
+    {
+        return this.#array;
+    }
+
+
     /**
+     * 
      * 
      * @param {GeoTag} tag 
      */

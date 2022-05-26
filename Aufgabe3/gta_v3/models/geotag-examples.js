@@ -13,8 +13,6 @@
  */
 class GeoTagExamples {
     
-    static geotags  = new InMemoryGeoTagStore();
-    
     /**
      * Provides some geoTag data
      */
@@ -32,14 +30,6 @@ class GeoTagExamples {
             ['Building B', 49.016843, 8.391372, '#campus'],
             ['Building K', 49.013190, 8.392090, '#campus'],
         ];
-    }
-
-    constructor() {
-        arr = this.tagList;
-        arr.forEach(function(current){
-            var gt = new GeoTag(current[1],current[2],current[0],current[3]);
-            geotags.add(gt);
-        });
     }
 
 }

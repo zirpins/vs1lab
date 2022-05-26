@@ -31,10 +31,10 @@
                       <legend>Add a new GeoTag</legend>
                   
                       <label class="tagging_item" for="latitude">Latitude:</label>
-                      <input class="block tagging_item" name="userLat" type="text" id="latitude" placeholder="//49.01379" value='<%= userLat %>' readonly >
+                      <input class="block tagging_item" name="userLat" type="text" id="latitude" placeholder="//49.01379" value='<%= userLat %>' >
 
                       <label class="tagging_item" for="longitude">Longitude:</label>
-                      <input class="block tagging_item" name="userLong" type="text" id="longitude"  placeholder="//8.390071" value='<%= userLong %>' readonly >
+                      <input class="block tagging_item" name="userLong" type="text" id="longitude"  placeholder="//8.390071" value='<%= userLong %>' >
 
                       <label class="tagging_item" for="name">Name:</label>
                       <input class="block tagging_item" name="name" type="text" id="name" placeholder="e.g. Central Berlin" pattern="[a-zA-Z]+" maxlength="10" required> 
@@ -80,7 +80,7 @@
                 </div>
 
                 <div class="discovery__map col-8">
-                    <img src="./images/mapview.jpg" name="image" data-tags='<% tags %>'' alt="a map with locations" id="mapView" /> 
+                    <img src="./images/mapview.jpg" name="image"  alt="a map with locations" id="mapView" /> 
                     <span class="block">Result map</span>
                 </div>
             </div>

@@ -5,8 +5,10 @@
  * It's a template for exercise VS1lab/Aufgabe3
  * Complete all TODOs in the code documentation.
  */
-const gtStore = require('../models/geotag-store');
-const memory = new gtStore();
+ const gtStore = require('../models/geotag-store');
+ const memory = new gtStore();
+ const gtExs = require('../models/geotag-examples');
+ 
 /**
  * Define module dependencies.
  */
@@ -31,6 +33,7 @@ const GeoTag = require('../models/geotag');
  */
 // eslint-disable-next-line no-unused-vars
 const GeoTagStore = require('../models/geotag-store');
+const GeoTagExamples= require('../models/geotag-examples');
 
 /**
  * Route '/' for HTTP 'GET' requests.
@@ -43,8 +46,8 @@ const GeoTagStore = require('../models/geotag-store');
 
 // TODO: extend the following route example if necessary
 router.get('/', (req, res) => {
-  var json = JSON.stringify(req.body.image);
-  res.render('index', { taglist: [] , userLat: "//", userLong: "//", tags:json})
+  var x = memory.getArr();
+  res.render('index', { taglist: x , userLat: "//", userLong: "//"})
 });
 
 /**
@@ -91,6 +94,7 @@ router.post(`/tagging`, function(req, res){
  router.post(`/discovery`, function(req, res){
   var kw = req.body.search;
   var arr = memory.searchNearbyGeoTags(kw);
+  
   res.render("index", { 
     taglist: arr,
     userLat: req.body.hiddenUserLat,
