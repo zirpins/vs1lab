@@ -26,24 +26,22 @@ const GeoTagExamples = require("./geotag-examples");
  * - Keyword matching should include partial matches from name or hashtag fields. 
  */
 class InMemoryGeoTagStore {
+    
     #array = [];
+    #radius = 1000; 
 
     loadExamples()
     {
-        let tagList = GeoTagExamples.tagList;
-        for (let i = 0; i < (GeoTagExamples.tagList).length; i++) {
-                this.addGeoTag(new GeoTag(tagList[i][0], tagList[i][1], tagList[i][2], tagList[i][3]));
-        }
-    }
-
-    
-    #radius = 1000;
+        var arr =  GeoTagExamples.tagList;
+        arr.forEach(function (current) {
+            this.#array.push(new GeoTag(current[1],current[2],current[0],current[3])); 
+        });
+    }  
 
     getArr()
     {
         return this.#array;
     }
-
 
     /**
      * 

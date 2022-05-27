@@ -31,10 +31,10 @@
                       <legend>Add a new GeoTag</legend>
                   
                       <label class="tagging_item" for="latitude">Latitude:</label>
-                      <input class="block tagging_item" name="userLat" type="text" id="tagLatitude" value='<%= userLatvalue %>' />
+                      <input class="block tagging_item" name="userLat" type="text" id="latitude" value='<%= userLatValue %>' />
 
                       <label class="tagging_item" for="longitude">Longitude:</label>
-                      <input class="block tagging_item" name="userLong" type="text" id="tagLongitude" value='<%= userLongvalue %>' />
+                      <input class="block tagging_item" name="userLong" type="text" id="longitude" value='<%= userLongValue %>' />
 
                       <label class="tagging_item" for="name">Name:</label>
                       <input class="block tagging_item" name="name" type="text" id="name" placeholder="e.g. Central Berlin" pattern="[a-zA-Z]+" maxlength="10" required> 
@@ -59,17 +59,17 @@
                     <legend>Search</legend>
 
                     <label class="discovery_search_item" for="searchvalue">Search term or keywords:</label>    
-                    <input class="block discovery_search_item" name="search" type="text" id="searchvalue" placeholder="e.g. Berlin">
+                    <input class="block discovery_search_item" name="search" type="text" id="searchvalue" placeholder="e.g. Berlin"/>
                 
-                    <input class="discovery_search_item" type="submit" id="search" value="Search">
+                    <input class="discovery_search_item" type="submit" id="search" value="Search"/>
 
                 </fieldset>
             </form>
             <!-- ############### VS1Lab 1a Form 2 End -->
 
             <div class="discovery__wrapper row">
-                <input type="hidden" id="hiddenLatitude" name="hiddenUserLat" value='<%= userLatvalue %>'/>
-                <input type="hidden" id="hiddenLongitude" name="hiddenUserLong"  value='<%= userLongvalue %>'/>
+                <input type="hidden" id="hiddenLatitude" name="hiddenUserLat" value='<%= userLatValue %>'/>
+                <input type="hidden" id="hiddenLongitude" name="hiddenUserLong"  value='<%= userLongValue %>'/>
                     
                 <div class="discovery__taglist col-4">
                     <ul class="discovery__results" id="discoveryResults">
@@ -80,7 +80,7 @@
                 </div>
 
                 <div class="discovery__map col-8">
-                    <img src="./images/mapview.jpg" name="image" alt="a map with locations" id="mapView" data-tags='<%= tagGeoTag %>'/>  
+                    <img src="./images/mapview.jpg" name="image" data-tags='<%= tags %>' alt="a map with locations" id="mapView" />  
                     <span class="block">Result map</span>
                 </div>
             </div>
@@ -95,9 +95,9 @@
     <!-- Load JavaScripts
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
+    <script src="./javascripts/geotagging.js"></script>
     <script src="./javascripts/location-helper.js"></script>
     <script src="./javascripts/map-manager.js"></script>
-    <script src="./javascripts/geotagging.js"></script>
 </body>
 
 </html>
