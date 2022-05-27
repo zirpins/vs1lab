@@ -43,7 +43,7 @@ var updateLocation = function(){
             var image = document.getElementById("mapView");
             var mapManager = new MapManager("6AB9OiZEGTfSzxH1j99rJ5gdz2NyKlGw");   
             var tags = JSON.parse(image.getAttribute("data-tags"));      
-            var url = mapManager.getMapUrl(latitudeValue,longitudeValue,[],10);
+            var url = mapManager.getMapUrl(latitudeValue,longitudeValue,tags,10);
             
             image.setAttribute("src",url);            
         });
@@ -55,7 +55,7 @@ var updateLocation = function(){
         var image = document.getElementById("mapView");
         var mapManager = new MapManager("6AB9OiZEGTfSzxH1j99rJ5gdz2NyKlGw");     
         var tags = JSON.parse(image.getAttribute("data-tags"));
-        var url = mapManager.getMapUrl(latitudeValue,longitudeValue,[],10);
+        var url = mapManager.getMapUrl(latitudeValue,longitudeValue,tags,10);
         image.setAttribute("src",url);            
 
     }
