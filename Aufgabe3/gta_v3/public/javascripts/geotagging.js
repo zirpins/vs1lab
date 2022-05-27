@@ -31,7 +31,7 @@ var updateLocation = function(){
     var longitudeValue;
 
     if((latitudeInput.getAttribute("value").startsWith("//") && longitudeInput.getAttribute("value").startsWith("//")))
-    {   
+    {
         LocationHelper.findLocation(function(loc) {
             latitudeValue = loc.latitude;
             longitudeValue = loc.longitude;
@@ -39,26 +39,16 @@ var updateLocation = function(){
             longitudeInput.setAttribute("value", longitudeValue);
             hiddenLatitude.setAttribute("value", latitudeValue);
             hiddenLongitude.setAttribute("value", longitudeValue);
-            
-            var image = document.getElementById("mapView");
-            var mapManager = new MapManager("6AB9OiZEGTfSzxH1j99rJ5gdz2NyKlGw");   
-            var tags = JSON.parse(image.getAttribute("data-tags"));      
-            var url = mapManager.getMapUrl(latitudeValue,longitudeValue,tags,10);
-            
-            image.setAttribute("src",url);            
         });
-    }else
-    {
-        latitudeValue = latitudeInput.value;
+    }
+       latitudeValue = latitudeInput.value;
         longitudeValue = longitudeInput.value;
         
         var image = document.getElementById("mapView");
         var mapManager = new MapManager("6AB9OiZEGTfSzxH1j99rJ5gdz2NyKlGw");     
         var tags = JSON.parse(image.getAttribute("data-tags"));
         var url = mapManager.getMapUrl(latitudeValue,longitudeValue,tags,10);
-        image.setAttribute("src",url);            
-
-    }
+        image.setAttribute("src",url);           
 
     } catch(error){
     alert(error);     
