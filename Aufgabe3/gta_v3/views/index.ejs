@@ -31,10 +31,10 @@
                       <legend>Add a new GeoTag</legend>
                   
                       <label class="tagging_item" for="latitude">Latitude:</label>
-                      <input class="block tagging_item" name="userLat" type="text" id="tagLatitude" value='<%= userLatvalue %>' />
+                      <input class="block tagging_item" name="userLat" type="text" id="tagLatitude" value='<%= userLatValue %>' />
 
                       <label class="tagging_item" for="longitude">Longitude:</label>
-                      <input class="block tagging_item" name="userLong" type="text" id="tagLongitude" value='<%= userLongvalue %>' />
+                      <input class="block tagging_item" name="userLong" type="text" id="tagLongitude" value='<%= userLongValue %>' />
 
                       <label class="tagging_item" for="name">Name:</label>
                       <input class="block tagging_item" name="name" type="text" id="name" placeholder="e.g. Central Berlin" pattern="[a-zA-Z]+" maxlength="10" required> 
@@ -68,8 +68,8 @@
             <!-- ############### VS1Lab 1a Form 2 End -->
 
             <div class="discovery__wrapper row">
-                <input type="hidden" id="hiddenLatitude" name="hiddenUserLat" value='<%= userLatvalue %>'/>
-                <input type="hidden" id="hiddenLongitude" name="hiddenUserLong"  value='<%= userLongvalue %>'/>
+                <input type="hidden" id="hiddenLatitude" name="hiddenUserLat" value='<%= userLatValue %>'/>
+                <input type="hidden" id="hiddenLongitude" name="hiddenUserLong"  value='<%= userLongValue %>'/>
                     
                 <div class="discovery__taglist col-4">
                     <ul class="discovery__results" id="discoveryResults">

@@ -7,7 +7,8 @@
  */
  const gtStore = require('../models/geotag-store');
  const memory = new gtStore();
- memory.loadExamples();
+ const gtExs = require('../models/geotag-examples');
+ 
 /**
  * Define module dependencies.
  */
@@ -31,7 +32,8 @@ const GeoTag = require('../models/geotag');
  * TODO: implement the module in the file "../models/geotag-store.js"
  */
 // eslint-disable-next-line no-unused-vars
-//const GeoTagExamples= require('../models/geotag-examples');
+const GeoTagStore = require('../models/geotag-store');
+const GeoTagExamples= require('../models/geotag-examples');
 
 /**
  * Route '/' for HTTP 'GET' requests.
@@ -41,10 +43,10 @@ const GeoTag = require('../models/geotag');
  *
  * As response, the ejs-template is rendered without geotag objects.
  */
-
 // TODO: extend the following route example if necessary
 router.get('/', (req, res) => {
-  res.render('index', { taglist: memory.getArr() , userLatvalue: "", userLongvalue: "", tagGeoTag: JSON.stringify(memory.getArr())});
+  memory .loadExamples();
+  res.render('index', { taglist: memory.getArr() , userLatValue: "", userLongValue: "", tagGeoTag: JSON.stringify(memory.getArr())})
 });
 
 /**
@@ -61,13 +63,13 @@ router.get('/', (req, res) => {
  * To this end, "GeoTagStore" provides a method to search geotags 
  * by radius around a given location.
  */
-router.post('/tagging', function(req, res){    
-  memory.addGeoTag(new GeoTag(req.body.name, req.body.userLat, req.body.userLong, req.body.hashtag));
+router.post(`/tagging`, function(req, res){    
+  memory.addGeoTag(new GeoTag(req.body.userLat, req.body.userLong, req.body.name, req.body.hashtag));
   let x = memory.getNearbyGeoTags(req.body.userLat, req.body.userLong);
     res.render("index", { 
       taglist: x,
-      userLatvalue: req.body.userLat,
-      userLongvalue: req.body.userLong,
+      userLatValue: req.body.userLat,
+      userLongValue: req.body.userLong,
       tagGeoTag: JSON.stringify(x)
     });   
 });
@@ -87,14 +89,14 @@ router.post('/tagging', function(req, res){
  * To this end, "GeoTagStore" provides methods to search geotags 
  * by radius and keyword.
  */
- router.post('/discovery', function(req, res){
+ router.post(`/discovery`, function(req, res){
   var kw = req.body.search;
   var arr = memory.searchNearbyGeoTags(kw);
   
   res.render("index", { 
     taglist: arr,
-    userLatvalue: req.body.hiddenUserLat,
-    userLongvalue: req.body.hiddenUserLong,
+    userLatValue: req.body.hiddenUserLat,
+    userLongValue: req.body.hiddenUserLong,
     tagGeoTag: JSON.stringify(arr)
   });   
 });
