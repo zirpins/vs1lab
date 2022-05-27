@@ -64,8 +64,7 @@ router.get('/', (req, res) => {
  * To this end, "GeoTagStore" provides a method to search geotags 
  * by radius around a given location.
  */
-router.post(`/tagging`, function(req, res){
-    
+router.post(`/tagging`, function(req, res){    
   memory.addGeoTag(new GeoTag(req.body.userLat, req.body.userLong, req.body.name, req.body.hashtag));
   let x = memory.getNearbyGeoTags(req.body.userLat, req.body.userLong);
   console.log(req.body);

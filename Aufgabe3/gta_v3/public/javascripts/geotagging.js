@@ -1,5 +1,7 @@
 // File origin: VS1LAB A2
 
+const GeoTag = require("../../models/geotag");
+
 /* eslint-disable no-unused-vars */
 
 // This script is executed when the browser loads index.html.
@@ -40,10 +42,8 @@ var updateLocation = function(){
             
             var image = document.getElementById("mapView");
             var mapManager = new MapManager("6AB9OiZEGTfSzxH1j99rJ5gdz2NyKlGw");   
-            var map = document.getElementById("mapView");
-            var tags = JSON.parse(map.getAttribute("data-tags"));
-            console.log(tags);           
-            var url = mapManager.getMapUrl(latitudeValue,longitudeValue, tags,10);
+            var tags = JSON.parse(image.getAttribute("data-tags"));      
+            var url = mapManager.getMapUrl(latitudeValue,longitudeValue,[],10);
             
             image.setAttribute("src",url);            
         });
@@ -52,11 +52,10 @@ var updateLocation = function(){
         latitudeValue = latitudeInput.value;
         longitudeValue = longitudeInput.value;
         
-        var mapManager = new MapManager("6AB9OiZEGTfSzxH1j99rJ5gdz2NyKlGw");     
-        var map = document.getElementById("mapView");
-        var tags = JSON.parse(map.getAttribute("data-tags"));
-        url = mapManager.getMapUrl(latitudeValue,longitudeValue, tags,10);
         var image = document.getElementById("mapView");
+        var mapManager = new MapManager("6AB9OiZEGTfSzxH1j99rJ5gdz2NyKlGw");     
+        var tags = JSON.parse(image.getAttribute("data-tags"));
+        var url = mapManager.getMapUrl(latitudeValue,longitudeValue,[],10);
         image.setAttribute("src",url);            
 
     }

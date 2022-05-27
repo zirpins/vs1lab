@@ -35,7 +35,6 @@ class InMemoryGeoTagStore {
             res.push(new GeoTag(current[1],current[2],current[0],current[3])); 
         });
         return res;
-
     }
 
     
@@ -99,7 +98,6 @@ class InMemoryGeoTagStore {
         this.#array.forEach(function (current) {
             if (current.name.includes(searchVal) | current.hashtag.includes(searchVal)) newArray.push(current); 
         });
-        console.log(newArray);
         return newArray;
     }
 
