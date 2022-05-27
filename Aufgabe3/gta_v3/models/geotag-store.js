@@ -39,7 +39,7 @@ class InMemoryGeoTagStore {
 
     
     #array = this.loadExamples();
-    #radius = 100;
+    #radius = 1000;
 
     getArr()
     {
@@ -81,7 +81,7 @@ class InMemoryGeoTagStore {
             var sqrX = curX*curX ;
             var sqrY =  curY*curY;
             var sqrR = radius * radius;
-            if((sqrX+sqrY)<=sqrR) //im Bereich Zentrum +- radius
+            if((sqrX+sqrY) <= sqrR) 
             {
                 res.push(current);
             }

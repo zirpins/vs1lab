@@ -46,8 +46,7 @@ const GeoTagExamples= require('../models/geotag-examples');
 
 // TODO: extend the following route example if necessary
 router.get('/', (req, res) => {
-  var x = memory.getArr();
-  res.render('index', { taglist: x , userLat: "//", userLong: "//"})
+  res.render('index', { taglist: memory.getArr() , userLat: "", userLong: "", tags: JSON.stringify(memory.getArr())})
 });
 
 /**
@@ -67,11 +66,11 @@ router.get('/', (req, res) => {
 router.post(`/tagging`, function(req, res){    
   memory.addGeoTag(new GeoTag(req.body.userLat, req.body.userLong, req.body.name, req.body.hashtag));
   let x = memory.getNearbyGeoTags(req.body.userLat, req.body.userLong);
-  console.log(req.body);
     res.render("index", { 
       taglist: x,
       userLat: req.body.userLat,
-      userLong: req.body.userLong
+      userLong: req.body.userLong,
+      tags: JSON.stringify(x)
     });   
 });
 
@@ -98,6 +97,7 @@ router.post(`/tagging`, function(req, res){
     taglist: arr,
     userLat: req.body.hiddenUserLat,
     userLong: req.body.hiddenUserLong,
+    tags: JSON.stringify(arr)
   });   
 });
 
