@@ -44,8 +44,8 @@ const GeoTagExamples= require('../models/geotag-examples');
  * As response, the ejs-template is rendered without geotag objects.
  */
 // TODO: extend the following route example if necessary
+memory .loadExamples();
 router.get('/', (req, res) => {
-  memory .loadExamples();
   res.render('index', { taglist: memory.getArr() , userLatValue: "", userLongValue: "", tagGeoTag: JSON.stringify(memory.getArr())})
 });
 
@@ -64,7 +64,7 @@ router.get('/', (req, res) => {
  * by radius around a given location.
  */
 router.post(`/tagging`, function(req, res){    
-  memory.addGeoTag(new GeoTag(req.body.userLat, req.body.userLong, req.body.name, req.body.hashtag));
+  memory.addGeoTag(new GeoTag(req.body.name, req.body.userLong, req.body.userLat, req.body.hashtag));
   let x = memory.getNearbyGeoTags(req.body.userLat, req.body.userLong);
     res.render("index", { 
       taglist: x,
