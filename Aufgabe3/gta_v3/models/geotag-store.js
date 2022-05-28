@@ -30,13 +30,12 @@ class InMemoryGeoTagStore {
 
     loadExamples()
     {
-        let tagList = GeoTagExamples.tagList;
-        for (let i = 0; i < (GeoTagExamples.tagList).length; i++) {
-                this.addGeoTag(new GeoTag(tagList[i][0], tagList[i][1], tagList[i][2], tagList[i][3]));
+        let array = GeoTagExamples.tagList;
+        for (let i = 0; i < array.length; i++) {
+                this.addGeoTag(new GeoTag(array[i][0], array[i][1],array[i][2],array[i][3]));
         }
     }
 
-    
     #radius = 1000;
 
     getArr()

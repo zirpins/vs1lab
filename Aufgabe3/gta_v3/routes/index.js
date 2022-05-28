@@ -64,7 +64,7 @@ router.get('/', (req, res) => {
  * by radius around a given location.
  */
 router.post(`/tagging`, function(req, res){    
-  memory.addGeoTag(new GeoTag(req.body.name, req.body.userLong, req.body.userLat, req.body.hashtag));
+  memory.addGeoTag(new GeoTag(req.body.name, req.body.userLat, req.body.userLong, req.body.hashtag));
   let x = memory.getNearbyGeoTags(req.body.userLat, req.body.userLong);
     res.render("index", { 
       taglist: x,
