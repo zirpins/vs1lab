@@ -1,6 +1,6 @@
 # 3. Aufgabe - serverseitige Anwendung erstellen
 
-Die dritte Aufgabe beschäftigt sich mit dem **GTA-Server**. Der GTA-Server verwaltet die GeoTags und bietet dem Client Funktionen zum Abfragen und Hinzufügen. Dabei kann der Server das HTML-Gerüst der App dynamisch aus einem **EJS-Template** erzeugen, um darin die aktuellen GeoTags und Koordinaten einzubetten. Daneben stellt der Server **statische Dateien** zum Abruf per HTTP zur Verfügung. Dazu gehören z.B. Bilder und das clientseitige Skript.
+Die dritte Aufgabe beschäftigt sich mit dem **GTA-Server**. Der GTA-Server verwaltet die GeoTags und bietet dem Client Funktionen zum Abfragen und Hinzufügen dieser Daten. Dabei kann der Server das HTML-Gerüst der App dynamisch aus einem **EJS-Template** erzeugen, um darin die aktuellen GeoTags und Koordinaten einzubetten. Daneben stellt der Server **statische Dateien** zum Abruf per HTTP zur Verfügung. Dazu gehören z.B. Bilder und clientseitige Skripte.
 
 Die Aufgabe übt die Programmierung von **Modulen**, **Klassen**, **Funktionen** und **Arrays** mit **JavaScript** ein. Zudem werden serverseitige JavaScript-Technologien - insbesondere der Aufbau von **Express Apps**, die Erstellung einfacher **Express Routen**, sowie die Verwendung von **EJS Templates** - vertieft.
 
@@ -46,7 +46,7 @@ Mit gegebener Node.js Umgebung gehen sie wie folgt vor:
 
 ## 3.2. Teilaufgaben
 
-Die Aufgabe besteht nun in der Entwicklung der Serverskripte. Die Clientseite (Browserskript) muss nur leicht angepasst werden.
+Die Aufgabe besteht nun in der Entwicklung der Serverskripte. Die Clientseite (Browserskripte) muss nur leicht angepasst werden.
 
 ### 3.2.1 Implementierung des Servers
 
@@ -59,6 +59,7 @@ Die Serverimplementierung hat die folgende Struktur:
 - `models` (Ordner für JavaScript-Module zur anwendungsspezifischen Datenhaltung und -verarbeitung)
   - `geotag.js` (JavaScript Modul für die GeoTag Klasse)
   - `geotag-store.js` (JavaScript Modul für die Speicherung von GeoTag Objekten)
+  - `geotag-examples.js` (JavaScript Modul für die Erstellung von GeoTag-Beispieldaten)
 - `public` (Ordner für statische Inhalte)
   - `images` (Ordner für Bilder der Webseite)
   - `javascripts` (Ordner für clientseitige JavaScript-Module)
@@ -94,7 +95,7 @@ Die erste (und umfangreichste) Teilaufgabe besteht in der Vervollständigung ein
 
 Die Routen im Serverskript verwenden das EJS-Template `./views/index.ejs`, um die nächste Sicht der Browser-GUI als HTML-Dokument zu erstellen. EJS-Direktiven zur Füllung der Ergebnisliste haben wir darin schon vorbereitet (siehe 3.1.2).
 
-**Aufgabe:** Ergänzen sie nun noch EJS-Direktiven, um in die entsprechenden `input`-Elemente in den Tagging- und Discovery-Formularen `value`-Attribute für die aktuellen Koordinatenwerte einzusetzen. Die Koordinatenwerte müssen sie dazu aus dem Skript an das Template übergeben (Bei der Anfrage liefert der Client seine aktuellen Koordinaten immer als Formularfelder mit).
+**Aufgabe:** Ergänzen sie nun noch EJS-Direktiven, um in die entsprechenden `input`-Elemente in den Tagging- und Discovery-Formularen `value`-Attribute für die aktuellen Koordinatenwerte einzusetzen. Die Koordinatenwerte müssen sie dazu aus dem Skript an das Template übergeben (Ab der 2. Anfrage liefert der Client seine aktuellen Koordinaten immer als Formularfelder mit).
 
 ### 3.2.2 Anpassung des Clients
 
