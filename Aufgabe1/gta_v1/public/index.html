@@ -37,10 +37,11 @@
                         <input id="tag-longitude" type="text" name="tag-longitude" placeholder="8.8098522" input>
 
                         Enter Tag-name:
-                        <input id="tag-name" type="text" name="tag-name" placeholder="Ötisheim">
+                        <input id="tag-name" type="text" name="tag-name" placeholder="Ötisheim" maxlength="10" required>
 
                         Enter Hashtag:
-                        <input id="tag-hashtag" type="text" name="tag-hashtag" placeholder="#Aize">
+                        <input id="tag-hashtag" type="text" name="tag-hashtag" placeholder="#Aize" maxlength="11"
+                            pattern="#{1}.{0,10}">
 
                         <input id="tag-submit" type="submit" name="tag-submit" input>
                     </label>
@@ -61,7 +62,7 @@
                 <fieldset>
                     <legend> Search a GeoTag</legend>
                     <label>
-                        <input id="discoverySearch" type="search">
+                        <input id="discoverySearch" type="search" name="discoverySearch" placeholder="Ötisheim">
 
                         <input id="discoverySubmit" type="submit" name="tag-submit" input>
                     </label>
