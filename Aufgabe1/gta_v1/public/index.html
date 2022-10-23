@@ -27,7 +27,24 @@
 
             <!-- ############### VS1Lab 1a Form 1 Start -->
             <form id="tag-form" action="/tagging" method="post">
+                <fieldset>
+                    <legend>Enter a GeoTag</legend>
+                    <label>
+                        Enter Latitude:
+                        <input id="tag-latitude" type="text" name="tag-latitude" placeholder="48.9631045" input>
 
+                        Enter Longitude:
+                        <input id="tag-longitude" type="text" name="tag-longitude" placeholder="8.8098522" input>
+
+                        Enter Tag-name:
+                        <input id="tag-name" type="text" name="tag-name" placeholder="Ötisheim">
+
+                        Enter Hashtag:
+                        <input id="tag-hashtag" type="text" name="tag-hashtag" placeholder="#Aize">
+
+                        <input id="tag-submit" type="submit" name="tag-submit" input>
+                    </label>
+                </fieldset>
                 <!-- ... your code here ... -->
 
             </form>
@@ -41,6 +58,14 @@
             <!-- ############### VS1Lab 1a Form 2 Start -->
             <form class="discovery__search" id="discoveryFilterForm" action="/discovery" method="post">
 
+                <fieldset>
+                    <legend> Search a GeoTag</legend>
+                    <label>
+                        <input id="discoverySearch" type="search">
+
+                        <input id="discoverySubmit" type="submit" name="tag-submit" input>
+                    </label>
+                </fieldset>
                 <!-- ... your code here ... -->
 
             </form>
