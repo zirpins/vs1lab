@@ -28,22 +28,24 @@
             <!-- ############### VS1Lab 1a Form 1 Start -->
             <form id="tag-form" action="/tagging" method="post">
                 <fieldset>
-                    <legend>Enter a GeoTag</legend>
+                    <legend>Add a new GeoTag</legend>
                     <label>
-                        Enter Latitude:
-                        <input id="tag-latitude" type="text" name="tag-latitude" placeholder="48.9631045" input>
+                        Latitude:
+                        <input id="tag-latitude" type="number" name="tag-latitude" value="48.9631045"
+                            readonly="readonly" input>
 
-                        Enter Longitude:
-                        <input id="tag-longitude" type="text" name="tag-longitude" placeholder="8.8098522" input>
+                        Longitude:
+                        <input id="tag-longitude" type="number" name="tag-longitude" value="8.8098522"
+                            readonly="readonly" input>
 
-                        Enter Tag-name:
+                        Name:
                         <input id="tag-name" type="text" name="tag-name" placeholder="Ötisheim" maxlength="10" required>
 
-                        Enter Hashtag:
+                        Hashtag:
                         <input id="tag-hashtag" type="text" name="tag-hashtag" placeholder="#Aize" maxlength="11"
                             pattern="#{1}.{0,10}">
 
-                        <input id="tag-submit" type="submit" name="tag-submit" input>
+                        <input id="tag-submit" type="submit" name="tag-submit" value="Add Tag" input>
                     </label>
                 </fieldset>
                 <!-- ... your code here ... -->
@@ -62,9 +64,10 @@
                 <fieldset>
                     <legend> Search a GeoTag</legend>
                     <label>
+                        Search term or keywords:
                         <input id="discoverySearch" type="search" name="discoverySearch" placeholder="Ötisheim">
 
-                        <input id="discoverySubmit" type="submit" name="tag-submit" input>
+                        <input id="discoverySubmit" type="submit" name="tag-submit" value="Search" input>
                     </label>
                 </fieldset>
                 <!-- ... your code here ... -->
