@@ -28,15 +28,13 @@
             <!-- ############### VS1Lab 1a Form 1 Start -->
             <form id="tag-form" action="/tagging" method="post">
                 <fieldset> <legend>Add a new GeoTag</legend>
-                    <label>Latitude:<input type="text" id="Lat" name="Lat" placeholder="e.g. 9.1938759"><br><br> </label>
-                    <label>Longitude:<input type="text" id="Long" name="Long"placeholder="e.g 49.81492"><br><br></label>
+                    <label>Latitude:<input type="text" id="Lat" name="Lat" value="9.1938759" readonly="readonly" ><br><br> </label>
+                    <label>Longitude:<input type="text" id="Long" name="Long" value="49.81492" readonly="readonly"><br><br></label>
                     <label>Name:<input type="text" id="name" name="Name" maxlength=10 placeholder="e.g. Central Berlin"><br><br></label>
                     <label>Hashtag:<input type="text" id="Hashtag" name="Hashtag" maxlength=10 pattern="#([A-Z])\w+" placeholder="e.g. #ber"><br><br></label>
-                    <button type="button"> Add Tag </button>
+                    <button type="submit"> Add Tag </button>
                 </fieldset>
 
-
-                <!-- ... your code here ... -->
             </form>
             <!-- ############### VS1Lab 1a Form 1 End -->
 
@@ -49,10 +47,10 @@
             <form class="discovery__search" id="discoveryFilterForm" action="/discovery" method="post">
 
                 <fieldset> <legend>Search</legend>
-                        <label>Search term or keyword:<input type="text" id="discoveryText" name="searchDiscovery" value="e.g. Berlin"> </label>
-                        <button>Search</button>
-                        <input type="number" id="latitudeZahl" name="latitudeDiscovery" hidden>
-                        <input type="number" id="longitudeZahl" name="longitudeDiscovery" hidden>
+                        <label>Search term or keyword:<input type="text" id="discoveryText" name="searchDiscovery" placeholder="e.g. Berlin"> </label>
+                        <button type="submit">Search</button>
+                        <label><input type="number" id="latitudeZahl" name="latitudeDiscovery" hidden></label>
+                        <label><input type="number" id="longitudeZahl" name="longitudeDiscovery" hidden></label>
                 </fieldset>
 
             </form>
