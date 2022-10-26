@@ -154,17 +154,33 @@ nav.header__navigation{
 /* ### TODO ### Styles for Main Component */
 
 /* ... your code here ... */
-
-
+.main{
+  display: flex;
+  justify-content: space-between;
+  padding: 1px;
+  border:  1px;
+  margin: 1px;
+}
 /* ### TODO ### Styles for Tagging component */
 
 /* ... your code here ... */
+.main__tagging{
+  display: block;
 
-
+}
 /* ### TODO ### Styles for Discovery component */
 
 /* ... your code here ... */
+.main__discovery{
+  display: block;
+  justify-content: space-between;
 
+}
+
+.discovery__wrapper{
+  display: flex;
+  justify-content: space-between;
+}
 
   footer {
     
