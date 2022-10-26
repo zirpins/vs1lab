@@ -142,7 +142,7 @@ img.header__image{
 	}
 nav.header__navigation{
 	text-align:right;
-	
+	display: inline-block;
 	
 	
 }
