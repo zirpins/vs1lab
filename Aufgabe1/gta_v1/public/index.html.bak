@@ -27,19 +27,13 @@
 
             <!-- ############### VS1Lab 1a Form 1 Start -->
             <form id="tag-form" action="/tagging" method="post">
-				<p>Latitude:</p>
-				<label for="Lat"></label>
-				<input type="text" id="Lat" name="Lat"><br><br>
-				<p>Longitude:</p>
-				<label for="Long"></label>
-				<input type="text" id="Long" name="Long"><br><br>
-				<p>Name:</p>
-				<label for="name"></label>
-				<input type="text" id="name" name="Name" maxlength=10><br><br>
-				<p>Hashtag:</p>
-				<label for="Hashtag"></label>
-				<input type="text" id="Hashtag" name="Hashtag"><br><br>
-
+                <fieldset> <legend>Add a new GeoTag</legend>
+                    <label>Latitude:<input type="text" id="Lat" name="Lat"><br><br> </label>
+                    <label>Longitude:<input type="text" id="Long" name="Long"><br><br></label>
+                    <label>Name:<input type="text" id="name" name="Name" maxlength=10><br><br></label>
+                    <label>Hashtag:<input type="text" id="Hashtag" name="Hashtag" maxlength=10 pattern="#([A-Z])\w+" ><br><br></label>
+                    <button type="button"> Add Tag </button>
+                </fieldset>
 
 
                 <!-- ... your code here ... -->
@@ -54,7 +48,12 @@
             <!-- ############### VS1Lab 1a Form 2 Start -->
             <form class="discovery__search" id="discoveryFilterForm" action="/discovery" method="post">
 
-                <!-- ... your code here ... -->
+                <fieldset> <legend>Search</legend>
+                        <label>Search term or keyword:<input type="text" id="discoveryText" name="searchDiscovery" value="e.g. Berlin"> </label>
+                        <button>Search</button>
+                        <input type="number" id="latitudeZahl" name="latitudeDiscovery" hidden>
+                        <input type="number" id="longitudeZahl" name="longitudeDiscovery" hidden>
+                </fieldset>
 
             </form>
             <!-- ############### VS1Lab 1a Form 2 End -->
