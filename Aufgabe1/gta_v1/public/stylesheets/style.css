@@ -128,7 +128,11 @@ a {
 		
 		
 	}
+h1.header__title{
+	position: relative;
+	top:-40px;
 	
+}
 img.header__image{
 		width: auto;
 		height: auto;
@@ -137,14 +141,15 @@ img.header__image{
 		margin-left:2.5%;
 		margin-right:97.5%;
 		margin-top:50px;
-		display: inline-block;
+	
 		
 	}
 nav.header__navigation{
 	text-align:right;
 	
-	
-	
+	position: relative;
+	top:-58px;
+	padding-right: 3%;
 }
 /* ### TODO ### Styles for Main Component */
 
