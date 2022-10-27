@@ -108,7 +108,6 @@ a {
 
 
 /* ### TODO ### Styles for Header Component */
-
 /* ... your code here ... */
 	header {
 	
@@ -155,31 +154,24 @@ nav.header__navigation{
 
 /* ... your code here ... */
 .main{
-  display: flex;
-  justify-content: space-between;
-  padding: 1px;
-  border:  1px;
-  margin: 1px;
+  padding: 2rem;
+
 }
 /* ### TODO ### Styles for Tagging component */
 
-/* ... your code here ... */
+
 .main__tagging{
-  display: block;
+
 
 }
 /* ### TODO ### Styles for Discovery component */
 
-/* ... your code here ... */
 .main__discovery{
-  display: block;
-  justify-content: space-between;
 
 }
 
 .discovery__wrapper{
-  display: flex;
-  justify-content: space-between;
+
 }
 
   footer {
