@@ -110,13 +110,64 @@ a {
 /* ### TODO ### Styles for Header Component */
 
 /* ... your code here ... */
+.header {
+  background-color: lightgrey;
+  padding: 20px 10px;
+  text-align: center;
+  display: flex;
+}
+.header__title {
 
+  float: right;
+  justify-content: center;
+}
+.header img {
+  display: flex;
+  width: 5%;
+  padding: 2px;
+}
+.header__navigation {
+  float: right;
+  flex-direction: row;
+  text-align: right;
+  margin:0px 0px 0px auto;
+}
 
 /* ### TODO ### Styles for Main Component */
+/*.main__discovery  {
+  display: flex;
+  align-items: center;
+}*/
 
 /* ... your code here ... */
 
+label {
+  display: block; 
+}
+.main {
+  display: flex;
+  flex-wrap: nowrap;
+  
+}
+legend {
+  background-color: white;
+  color: black;
+  padding: 3px 6px;
+  
+}
+.block {
+  display: block;
+  border: 1px solid lightgrey;
+  padding: 4px 2px;
+  text-align: center;
+}
+.block2 {
+  display: block;
+  border: 1px solid lightgrey;
+  padding: 4px 2px;
+  text-align: center;
 
+}
 /* ### TODO ### Styles for Tagging component */
 
 /* ... your code here ... */
@@ -125,13 +176,27 @@ a {
 /* ### TODO ### Styles for Discovery component */
 
 /* ... your code here ... */
-
-
+.discovery__map img {
+  width: 100%;
+ margin: 20px;
+}
+.discovery__results {
+  display: flex;
+ 
+}
+ul li {
+  border: 1px solid lightblue;
+  padding: 2px 2px;
+  background: rgb(236, 235, 235);
+  list-style-type: none;
+}
 /* ### TODO ### Styles for Footer Component */
 
 /* ... your code here ... */
-
-
+.footer {
+  background-color: lightgrey;
+  
+}
 /* ### TODO ### Media Queries */
 
 /* ... your code here ... */
