@@ -171,7 +171,9 @@ legend {
 /* ### TODO ### Styles for Tagging component */
 
 /* ... your code here ... */
-
+.main__tagging {
+  margin: 10px 100px 50px 100px;
+}
 
 /* ### TODO ### Styles for Discovery component */
 
