@@ -3,9 +3,7 @@
 <!-- File origin: VS1LAB A1a -->
 
 <html lang="en">
-qwarsefhwiadqoaisdhqergiuhgfois
-sfiugadaidlhqohsdp
-dwjhsgu
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,6 +27,19 @@ dwjhsgu
 
             <!-- ############### VS1Lab 1a Form 1 Start -->
             <form id="tag-form" action="/tagging" method="post">
+                <fieldset>
+                <legend>Add a new GeoTag</legend>
+                <label for="latitude">Latitude:</label>
+                <input id="latitude" type="number" placeholder="Please type in the latitude: " name="latitude" readonly value="49.01379" >
+                <label for="longitude">Longitude:</label>
+                <input id="longitude" type="number" placeholder="Please type in the longitude: " name="longitude" readonly value="8.390071">
+                <label for="name">Name:</label>
+                <input id="name" type="text" maxlength="10" placeholder="e.g. Central Berlin  " name="name" pattern="[A-Za-z]{0,10}" required> 
+                <label for="hashtag">Hashtag:</label>
+                <input id="hashtag" type="text" placeholder="e.g. #ber" name="hashtag" value="#" pattern="#{1}+[A-Za-z]{10}$" maxlength="11">
+                <button class="block" type="submit">Add Tag</button>
+</fieldset>
+
 
                 <!-- ... your code here ... -->
 
@@ -36,7 +47,7 @@ dwjhsgu
             <!-- ############### VS1Lab 1a Form 1 End -->
 
         </section>
-
+        
         <section class="main__discovery discovery">
             <h2 class="discovery__title">Discovery</h2>
 
@@ -45,6 +56,14 @@ dwjhsgu
 
                 <!-- ... your code here ... -->
 
+                <fieldset>
+                    <legend>Search</legend>
+                    <label for="searchterm">Search term or keywords: </label>
+                    <input type="text" placeholder="e.g. Berlin" id="searchterm" name="searchterm">
+                    <button class ="block2" type="submit">Search</button>
+                    <input id="latitude" type="hidden" name="latitude">
+                    <input id="longitude" type="hidden" name="longitude">
+                </fieldset>
             </form>
             <!-- ############### VS1Lab 1a Form 2 End -->
 
