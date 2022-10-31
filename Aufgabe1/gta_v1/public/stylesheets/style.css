@@ -109,46 +109,28 @@ a {
 
 /* ### TODO ### Styles for Header Component */
 /* ... your code here ... */
-	header {
-	
-	
-	
-	
-    text-align: center;
-    width: 100%;
-    background-color: #efefef;
-    background-size: cover;
-    padding-bottom: 2%;
-    padding-top: 2%;
-    padding-left: 3%;
-		
-		
-		
-		
-		
-	}
+	header {display: flex;align-items: center;
+			width: 100%;height: 200px;
+			background-color: #efefef;background-size: cover;
+		   }
 h1.header__title{
-	position: relative;
-	top:-40px;
 	
+	width: 65%;
+	text-align: center;
 }
 img.header__image{
-		width: auto;
-		height: auto;
-		max-width: 50px;
-		max-height: 50px;
-		margin-left:2.5%;
-		margin-right:97.5%;
-		margin-top:50px;
-	
+		
+		margin-left: 10%;
+		margin-right: 10%;
+		width: 10%;
 		
 	}
 nav.header__navigation{
-	text-align:right;
-	
-	position: relative;
-	top:-58px;
-	padding-right: 3%;
+
+	float: right;
+	justify-content: right;
+
+	width: 25%;
 }
 /* ### TODO ### Styles for Main Component */
 
@@ -175,12 +157,14 @@ nav.header__navigation{
 }
 
   footer {
-    
+    position: relative;
+	left: 0;
+    bottom: 0;
     text-align: left;
     width: 100%;
     background-color: #efefef;
     background-size: cover;
-    padding-bottom: 2%;
+    padding-bottom: 1rem;
     padding-top: 2%;
     padding-left: 3%;
   }
