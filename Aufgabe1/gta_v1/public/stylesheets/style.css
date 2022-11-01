@@ -114,16 +114,15 @@ a {
 			background-color: #efefef;background-size: cover;
 		   }
 h1.header__title{
-	
-	width: 65%;
+    width: 65%;
 	text-align: center;
 }
 img.header__image{
-		
+
 		margin-left: 10%;
 		margin-right: 10%;
 		width: 10%;
-		
+
 	}
 nav.header__navigation{
 
