@@ -154,9 +154,8 @@ nav.header__navigation {
 
     justify-content: space-between;
     display: block;
-    padding: 10px;
-    margin: 5px;
-
+    padding: 4rem;
+    margin: 2rem;
 }
 
 #tag-form label {
@@ -166,11 +165,11 @@ nav.header__navigation {
 
 #tagging_legend {
 
-    margin: 10px;
+    margin: 1rem;
 }
 
 .tagging_input {
-    margin: 5px 20px 5px 10px;
+    margin: 0.5rem 0.5rem 0.5rem 1rem;
     height: 2.1rem;
     text-align: left;
     padding: 0.5rem;
@@ -194,10 +193,68 @@ nav.header__navigation {
 
 .main__discovery {
 
+    width: 100%;
+    margin-top: 4rem;
+    margin-right: -2rem;
+    padding: 0;
+
 }
+
 
 .discovery__wrapper {
 
+}
+
+.discovery__search {
+
+    margin: 2rem;
+}
+
+.discovery__search input {
+
+    width: 25%;
+    height: 2rem;
+    margin: 0.5rem;
+    padding: 0.5rem;
+}
+
+.discovery__search label {
+    display: block;
+    padding: 0.7rem;
+}
+
+#discovery_flex {
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    /* ### TODO Map #### scaling fix*/
+
+    padding: 0;
+}
+
+#discovery_results {
+
+    text-align: left;
+}
+
+ul {
+    list-style-type: none;
+    color: dodgerblue;
+
+}
+
+li {
+    background-color: lightgray;
+    padding: 1.5rem;
+    margin: 1rem;
+    width: 30%;
+}
+
+.discovery__map {
+    display-direction: column;
+    display: block;
+    float: right;
 }
 
 footer {
