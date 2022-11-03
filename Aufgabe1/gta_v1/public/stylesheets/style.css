@@ -20,7 +20,6 @@ html {
   box-sizing: inherit;
 }
 
-
 /* Variables (example: see declaration for "a" below) */
 
 :root {
@@ -29,7 +28,6 @@ html {
   --border-color: #cdcdcd;
   --gray-color: #666;
 }
-
 
 /* HTML element styles */
 
@@ -110,27 +108,38 @@ a {
 /* ### TODO ### Styles for Header Component */
 
 /* ... your code here ... */
-.header {
+
+fieldset{
+  margin: 20px  10;
+}
+
+.flex-item-head {
+  width: 100%;
+  height: 100px;
   background-color: lightgrey;
   padding: 20px 10px;
-  text-align: center;
-  display: flex;
 }
-.header__title {
 
-  float: right;
+.header__text {
+  position: relative;
+  margin-top: 20px;
+  text-align: center;
   justify-content: center;
 }
+
 .header img {
-  display: flex;
-  width: 5%;
-  padding: 2px;
+  height: 5%;
+  position:absolute;
+  justify-content: center;
+  
 }
+
 .header__navigation {
-  float: right;
-  flex-direction: row;
+  position:absolute;
+  width:95%;
   text-align: right;
-  margin:0px 0px 0px auto;
+  justify-content: center;
+  bottom: 90%;
 }
 
 /* ### TODO ### Styles for Main Component */
@@ -138,9 +147,46 @@ a {
   display: flex;
   align-items: center;
 }*/
+.flex-container {
 
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap-reverse;
+
+  flex-flow: row wrap;
+  
+  justify-content: space-around;
+  
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+
+.flex-item-1 {
+ 
+  width: 200px;
+  height: 600px;
+  margin-top: 10px;
+  order:auto;
+  align-items: stretch;
+  
+}
+.flex-item-2 {
+ 
+  height: 150px;
+  margin-top: 10px;
+  order:auto;
+  align-items: stretch;
+}
 /* ... your code here ... */
-
+fieldset::content{
+  position: relative;
+  text-align: left;
+  left: 3%;
+  
+  
+}
 label {
   display: block; 
 }
@@ -153,45 +199,47 @@ legend {
   background-color: white;
   color: black;
   padding: 3px 6px;
+  margin-left: 1%;
   
 }
 .block {
-  display: block;
-  border: 1px solid lightgrey;
-  padding: 4px 2px;
+  display: inline-block;
+  border: 2px solid #666;
+  background-color: #cdcdcd;
+  color: black;
   text-align: center;
-}
-.block2 {
-  display: block;
-  border: 1px solid lightgrey;
-  padding: 4px 2px;
-  text-align: center;
+  width: 85%;
 
 }
+
 /* ### TODO ### Styles for Tagging component */
-
-/* ... your code here ... */
-.main__tagging {
-  margin: 10px 100px 50px 100px;
+.main__tagging
+{
+  margin: 1%;
 }
+.main__discovery
+{
+  margin: 1%;
+}
+/* ... your code here ... */
+
 
 /* ### TODO ### Styles for Discovery component */
 
 /* ... your code here ... */
 .discovery__map img {
   width: 100%;
- margin: 20px;
 }
 .discovery__results {
   display: flex;
  
 }
-ul li {
+/*ul li {
   border: 1px solid lightblue;
   padding: 2px 2px;
   background: rgb(236, 235, 235);
   list-style-type: none;
-}
+}*/
 /* ### TODO ### Styles for Footer Component */
 
 /* ... your code here ... */

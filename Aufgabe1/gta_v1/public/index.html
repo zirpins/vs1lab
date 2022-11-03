@@ -3,6 +3,7 @@
 <!-- File origin: VS1LAB A1a -->
 
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,33 +13,44 @@
 </head>
 
 <body>
+    
+    <ul class="flex-container">
+    
+    <li class="flex-item-head">
     <header class="header">
         <img src="./images/location.png" class="header__image" alt="an image of a map and location">
-        <h1 class="header__title">GeoTagApp</h1>
+        <nav class="header__text"><h1>GeoTagApp</h1></nav>
         <nav class="header__navigation">
             <a href="#">About</a> | <a href="#">Help</a> | <a href="/">Home</a>
         </nav>
     </header>
-
+</li>
     <main class="main">
-        <section class="main__tagging tagging">
+        <section class="main__tagging">
             <h2>Tagging</h2>
 
             <!-- ############### VS1Lab 1a Form 1 Start -->
             <form id="tag-form" action="/tagging" method="post">
+                
+                <li class="flex-item-1">
+                
                 <fieldset>
+                 
                 <legend>Add a new GeoTag</legend>
+                
                 <label for="latitude">Latitude:</label>
                 <input id="latitude" type="number" placeholder="Please type in the latitude: " name="latitude" readonly value="49.01379" >
-                <label for="longitude">Longitude:</label>
+                <label for="longitude"S>Longitude:</label>
                 <input id="longitude" type="number" placeholder="Please type in the longitude: " name="longitude" readonly value="8.390071">
                 <label for="name">Name:</label>
                 <input id="name" type="text" maxlength="10" placeholder="e.g. Central Berlin  " name="name" pattern="[A-Za-z]{0,10}" required> 
                 <label for="hashtag">Hashtag:</label>
-                <input id="hashtag" type="text" placeholder="e.g. #ber" name="hashtag" value="#" pattern="#{1}+[A-Za-z]{10}$" maxlength="11">
+                <input id="hashtag" type="text" placeholder="e.g. #ber" name="hashtag" value="#" pattern="^#{1}[A-Za-z]{0,10}$" maxlength="11">
                 <button class="block" type="submit">Add Tag</button>
-</fieldset>
-
+                
+                </fieldset>
+                
+                </li>
 
                 <!-- ... your code here ... -->
 
@@ -47,22 +59,29 @@
 
         </section>
         
-        <section class="main__discovery discovery">
+        <section class="main__discovery">
             <h2 class="discovery__title">Discovery</h2>
 
             <!-- ############### VS1Lab 1a Form 2 Start -->
             <form class="discovery__search" id="discoveryFilterForm" action="/discovery" method="post">
 
                 <!-- ... your code here ... -->
-
+                <div class="col-12">
+                <li class="flex-item-2">
+                    
                 <fieldset>
+                    
                     <legend>Search</legend>
                     <label for="searchterm">Search term or keywords: </label>
                     <input type="text" placeholder="e.g. Berlin" id="searchterm" name="searchterm">
-                    <button class ="block2" type="submit">Search</button>
+                    <button class ="block" type="submit">Search</button>
                     <input id="latitude" type="hidden" name="latitude">
                     <input id="longitude" type="hidden" name="longitude">
+                    
                 </fieldset>
+            
+            </li>
+            </div>
             </form>
             <!-- ############### VS1Lab 1a Form 2 End -->
 
@@ -80,12 +99,19 @@
                 </div>
             </div>
         </section>
+        
 
     </main>
+    
+    
+        
+    </ul>
 
+    
     <footer class="footer">
         <span>(c) 2021/22 HKA_IWI_VSYS</span>
     </footer>
+    
 </body>
 
 </html>
