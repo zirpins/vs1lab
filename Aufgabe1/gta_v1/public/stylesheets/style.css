@@ -108,23 +108,24 @@ a {
 
 
 /* ### TODO ### Styles for Header Component */
-/* ... your code here ... */
 header {
     display: flex;
+    padding-top: 3%;
+    padding-right: 5%;
+    padding-left: 5%;
+    padding-bottom: 2%;
     align-items: center;
-    width: 100%;
-    height: 200px;
     background-color: #efefef;
     background-size: cover;
 }
 
 h1.header__title {
-    width: 65%;
+    margin: auto;
+    flex-grow: 20;
     text-align: center;
 }
 
 img.header__image {
-
     margin-left: 10%;
     margin-right: 10%;
     width: 10%;
@@ -132,11 +133,9 @@ img.header__image {
 }
 
 nav.header__navigation {
-
     float: right;
     justify-content: right;
-
-    width: 25%;
+    margin: auto;
 }
 
 /* ### TODO ### Styles for Main Component */
