@@ -140,9 +140,11 @@ nav.header__navigation {
 
 /* ### TODO ### Styles for Main Component */
 
-/* ... your code here ... */
+
 .main {
-    padding: 2rem;
+    padding: 30px;
+    align-self: center;
+    max-width: 1200px;
 
 }
 
@@ -269,7 +271,6 @@ footer {
     padding-left: 3%;
 }
 
-/* ... your code here ... */
 
 
 /* ### TODO ### Media Queries */
