@@ -43,10 +43,15 @@ a {
 }
 
 /* ### TODO ### Styles for other HTML elements */
-
 /* ... your code here ... */
+
+
+//TODO: header ist bei Zoom zu groß
+//TODO: Discovery Search muss untereinander sein!!!
+//TODO: Beim Verkleinern sind die einzelnen inputs nicht mehr untereinander!!!
+//TODO: https://stackoverflow.com/questions/38133315/flex-direction-column-property-is-not-working
 form > *{
-/*//TODO: groeßer gleich Stern nachschauen*/
+//TODO: groeßer gleich Stern nachschauen
     display: block;
 }
 
