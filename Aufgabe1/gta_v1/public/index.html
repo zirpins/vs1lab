@@ -51,9 +51,9 @@
 
             <fieldset>
                 <legend>Search</legend>
-                <label>Search term or keyword:<input type="text" id="discoveryText" name="searchDiscovery"
+                <label>Search term or keyword:<input class="col-4" type="text" id="discoveryText" name="searchDiscovery"
                                                      placeholder="e.g. Berlin"> </label>
-                <button type="submit">Search</button>
+                <button class="col-4" type="submit">Search</button>
                 <label><input type="number" id="latitudeZahl" name="latitudeDiscovery" hidden></label>
                 <label><input type="number" id="longitudeZahl" name="longitudeDiscovery" hidden></label>
             </fieldset>
@@ -63,13 +63,13 @@
         <flexbox id="discovery_flex">
 
             <div class="discovery__wrapper row">
-                <div class="discovery__taglist col-4">
+                <div class="discovery__taglist col-5">
                     <ul class="discovery__results" id="discoveryResults">
                         <li>Castle (49.01379, 8.404435) #sight</li>
                         <li>IWI (49.01379, 8.390071) #edu</li>
                     </ul>
                 </div>
-                <div class="discovery__map col-9">
+                <div class="discovery__map col-7">
                     <img src="./images/mapview.jpg" alt="a map with locations" id="mapView"/>
                     <span>Result map</span>
                 </div>
