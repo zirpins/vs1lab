@@ -109,9 +109,7 @@ a {
 
 /* ... your code here ... */
 
-fieldset{
-  margin: 20px  10;
-}
+
 
 .flex-item-head {
   width: 100%;
@@ -180,13 +178,12 @@ fieldset{
   align-items: stretch;
 }
 /* ... your code here ... */
-fieldset::content{
-  position: relative;
-  text-align: left;
-  left: 3%;
-  
-  
+
+fieldset{
+  padding: 5%;
+  color: grey;
 }
+
 label {
   display: block; 
 }
