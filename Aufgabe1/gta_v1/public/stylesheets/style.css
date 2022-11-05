@@ -45,13 +45,14 @@ a {
 /* ### TODO ### Styles for other HTML elements */
 /* ... your code here ... */
 
-
-//TODO: header ist bei Zoom zu groß
+/*
+//TODO: header ist bei Zoom zu groß (Ist normal)
 //TODO: Discovery Search muss untereinander sein!!!
 //TODO: Beim Verkleinern sind die einzelnen inputs nicht mehr untereinander!!!
 //TODO: https://stackoverflow.com/questions/38133315/flex-direction-column-property-is-not-working
+ */
 form > *{
-//TODO: groeßer gleich Stern nachschauen
+//TODO: groeßer gleich Stern nachschauen https://kulturbanause.de/blog/css-selektoren/
     display: block;
 }
 
@@ -251,13 +252,17 @@ footer {
     .main__tagging{
         width: calc(100% - 1rem);
     }
+    #tag-form *{
+        display: block;
+    }
 
-    .main__discovery{
+    .main__discovery *{
         width: calc(100% - 1rem);
     }
 
     .discovery__search > * {
         width: calc(100% - 1rem);
+        display: block;
     }
 
     .discovery__wrapper{
