@@ -45,14 +45,7 @@ a {
 /* ### TODO ### Styles for other HTML elements */
 /* ... your code here ... */
 
-/*
-//TODO: header ist bei Zoom zu groß (Ist normal)
-//TODO: Discovery Search muss untereinander sein!!!
-//TODO: Beim Verkleinern sind die einzelnen inputs nicht mehr untereinander!!!
-//TODO: https://stackoverflow.com/questions/38133315/flex-direction-column-property-is-not-working
- */
 form > *{
-//TODO: groeßer gleich Stern nachschauen https://kulturbanause.de/blog/css-selektoren/
     display: block;
 }
 
@@ -66,6 +59,7 @@ input[type="submit"]{
 }
 
 input[type = "text"]{
+    width: 11.1rem;
     padding: 7px;
     margin: 5px;
     height: 1.75rem;
@@ -220,10 +214,12 @@ li {
 }
 
 .discovery__map {
-    //width: 100%;
+    margin-top: 1rem;
     display: block;
     float: right;
-    //TODO:
+    flex-shrink: 1;
+    flex-flow: column wrap;
+    width: max-content;
 }
 
 footer {
@@ -238,8 +234,6 @@ footer {
     padding-top: 2%;
     padding-left: 3%;
 }
-
-
 
 /* ### TODO ### Media Queries */
 
@@ -269,7 +263,7 @@ footer {
         flex-direction: column;
     }
 
-    .discovery__wrapper > *{
+    .discovery__wrapper > * {
         width: calc(100% - 1rem);
     }
 }
