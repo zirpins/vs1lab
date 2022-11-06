@@ -14,9 +14,9 @@
 
 <body>
     
-    <ul class="flex-container">
     
-    <li class="flex-item-head">
+    
+   
     <header class="header">
         <img src="./images/location.png" class="header__image" alt="an image of a map and location">
         <nav class="header__text"><h1>GeoTagApp</h1></nav>
@@ -24,22 +24,24 @@
             <a href="#">About</a> | <a href="#">Help</a> | <a href="/">Home</a>
         </nav>
     </header>
-</li>
+    <div class="flex-container">
     <main class="main">
-        <section class="main__tagging">
-            <h2>Tagging</h2>
+        <section class="main__tagging col-3">
+            
+           <li class="flex-item-1">
+             <h2>Tagging</h2>
 
             <!-- ############### VS1Lab 1a Form 1 Start -->
             <form id="tag-form" action="/tagging" method="post">
                 
-                <li class="flex-item-1">
+                
                 
                 <fieldset>
                  
                 <legend>Add a new GeoTag</legend>
                 
                 <label for="latitude">Latitude:</label>
-                <input id="latitude" type="number" placeholder="Please type in the latitude: " name="latitude" readonly value="49.01379" >
+                <input id="latitude" type="number" placeholder="Please type in the latitude: " name="latitude" readonly value="49.01379"; >
                 <label for="longitude"S>Longitude:</label>
                 <input id="longitude" type="number" placeholder="Please type in the longitude: " name="longitude" readonly value="8.390071">
                 <label for="name">Name:</label>
@@ -51,7 +53,7 @@
                 </fieldset>
                 
                 </li>
-
+            
                 <!-- ... your code here ... -->
 
             </form>
@@ -59,50 +61,57 @@
 
         </section>
         
-        <section class="main__discovery">
-            <h2 class="discovery__title">Discovery</h2>
+        <section class="main__discovery col-9">
+            
+            <li class="flex-item-2">
+                <h2 class="discovery__title">Discovery</h2>
 
             <!-- ############### VS1Lab 1a Form 2 Start -->
             <form class="discovery__search" id="discoveryFilterForm" action="/discovery" method="post">
 
                 <!-- ... your code here ... -->
-                <div class="col-12">
-                <li class="flex-item-2">
+                
+                
                     
                 <fieldset>
                     
                     <legend>Search</legend>
                     <label for="searchterm">Search term or keywords: </label>
-                    <input type="text" placeholder="e.g. Berlin" id="searchterm" name="searchterm">
-                    <button class ="block" type="submit">Search</button>
+                    <input type="text" class="col-4" placeholder="e.g. Berlin" id="searchterm" name="searchterm"><br>
+                    <button class ="block col-4" type="submit">Search</button>
                     <input id="latitude" type="hidden" name="latitude">
                     <input id="longitude" type="hidden" name="longitude">
                     
                 </fieldset>
             
             </li>
-            </div>
+            
+            
             </form>
             <!-- ############### VS1Lab 1a Form 2 End -->
+            
+    
+            
 
             <div class="discovery__wrapper">
-                <div class="discovery__taglist">
+                <div class="discovery__taglist col-5">
                     <ul class="discovery__results" id="discoveryResults">
-                        <li>Castle (49.01379, 8.404435) #sight</li>
-                        <li>IWI (49.01379, 8.390071) #edu</li>
+                        <li class="flex-item-3">Castle (49.01379, 8.404435) #sight </li>
+                        <li class="flex-item-4">IWI (49.01379, 8.390071) #edu</li>
                     </ul>
                 </div>
-
-                <div class="discovery__map">
+                <li class="flex-item-5">
+                <div class="discovery__map col-6">
                     <img src="./images/mapview.jpg" alt="a map with locations" id="mapView" />
                     <span>Result map</span>
                 </div>
+                </li>
             </div>
         </section>
         
 
     </main>
-    
+    </div>
     
         
     </ul>
