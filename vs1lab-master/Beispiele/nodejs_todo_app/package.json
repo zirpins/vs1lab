@@ -1,0 +1,14 @@
+{
+  "name": "nodejs_todo_app",
+  "version": "1.0.0",
+  "description": "A very simple example of a 'single page' web app",
+  "main": "todo-server.js",
+  "scripts": {
+    "start": "node todo-server.js"
+  },
+  "author": "lkit",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

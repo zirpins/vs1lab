@@ -1,0 +1,17 @@
+{
+    "name": "nodejs_ejs",
+    "version": "1.0.0",
+    "description": "ejs example",
+    "main": "ejs-express.js",
+    "dependencies": {
+        "ejs": "^3.1.8",
+        "express": "^4.17.1"
+    },
+    "devDependencies": {},
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node ./ejs-express.js"
+    },
+    "author": "",
+    "license": "ISC"
+}
