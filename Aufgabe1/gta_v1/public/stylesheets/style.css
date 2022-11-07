@@ -20,6 +20,7 @@ html {
   box-sizing: inherit;
 }
 
+
 /* Variables (example: see declaration for "a" below) */
 
 :root {
@@ -28,6 +29,7 @@ html {
   --border-color: #cdcdcd;
   --gray-color: #666;
 }
+
 
 /* HTML element styles */
 
@@ -46,46 +48,44 @@ a {
 
 /* ... your code here ... */
 
-fieldset{
-  padding: 7%;
-  color: grey;
-  margin-top: 10px;
+form>* {
+  display: block;
 }
 
-input{
-  padding: 2%;
-  border: 1px solid #666;
-  margin: 2%;
-  color: grey;
+input[type="button"] {
+  background-color: var(--background-color);
+  border: 2px solid var(--border-color);
+  text-align: center;
+  display: inline-block;
+  font-size: 100%;
+  line-height: 1.63em;
 }
 
-button{
-  padding: 2%;
-  margin: 2%;
-}
-
-label {
-  display: block; 
+fieldset {
+  padding: 20px;
+  color: var(--gray-color);
 }
 
 legend {
-  background-color: white;
   color: black;
-  padding: 3px 6px;
-  margin: 1%;
+  padding: 5px;
 }
 
-li{
-  list-style:none;
+input {
+  margin: 2%;
+  padding: 2%;
 }
 
-.block {
+div {
+  margin-top: 2%;
+  margin-bottom: 2%;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+label {
   display: inline-block;
-  border: 1px solid #666;
-  background-color: #cdcdcd;
-  color: black;
-  text-align: center;
-  width: 150px;
+  width: 120px;
 }
 
 /* Grid styles (no changes required) */
@@ -95,6 +95,8 @@ li{
   display: flex;
   justify-content: space-between;
   flex: 1;
+  grid-gap: 1rem;
+  column-gap: 20px;
 }
 
 .col-1 {
@@ -150,32 +152,28 @@ li{
 
 /* ... your code here ... */
 
+
 header {
   display: flex;
-  background-color: lightgrey;
-  padding-top: 3%;
-  padding-right: 5%;
-  padding-left: 5%;
-  padding-bottom: 2%;
-  padding: 20px;
-}
-
-.header__text {
-  margin: auto;
-  text-align: center;
-  flex-grow: 6;
-}
-
-.header img {
-  flex-shrink: 1;
-  width: 4%;
-  height: 4%;
+  align-items: center;
+  width: 100%;
+  height: 100px;
+  background-color: var(--background-color);
+  border: 1px solid var(--border-color);
 }
 
 .header__navigation {
-  text-align: right;
-  flex-grow: 1;
-  padding: 1%;
+  margin: 2%;
+}
+
+.header__image {
+  width: 34px;
+  margin: 2%;
+}
+
+.header__title {
+  margin: auto;
+  text-align: center;
 }
 
 /* ### TODO ### Styles for Main Component */
@@ -183,137 +181,114 @@ header {
 /* ... your code here ... */
 
 .main {
-  display: flex;
-  flex-wrap: nowrap; 
-  padding-top: 10px;
+  padding: 2%;
+  margin-left: 5%;
+  margin-right: 5%;
+
+  order: auto;
+  align-items: stretch;
+
+  align-self: center;
+  max-width: 1200px;
 }
 
-.main section {
-  margin: 10px;
-}
-
-.flex-container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap-reverse;
-  flex-flow: row wrap;
-  padding: 0;
-  margin-left: 2%;
-}
 
 
 /* ### TODO ### Styles for Tagging component */
 
 /* ... your code here ... */
-.main__tagging{
-  margin: 1%;
-}
 
-.flex-item-1 { 
-  width: 200px;
-  order:auto;
-  align-items: stretch;
-  flex-wrap: wrap;
-}
-
-#tag-form > * {
+#tag-form>* {
   width: calc(100% - 1rem);
 }
+
 
 /* ### TODO ### Styles for Discovery component */
 
 /* ... your code here ... */
 
+.flexbox{
+  height: 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  align-items: auto;
 
-.main__discovery{
-  margin: 1%;
 }
 
-.discovery__wrapper > * {
-  margin: 10px;
+#mapView {
+  width: 400px;
+  height: 400px;
+
 }
 
+.discovery__results>* {
+  color: var(--link-color);
+  font-size: 100%;
+  justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  text-align: center;
 
-.discovery__map img {
+ 
+  justify-content: center;
+  background-color: var(--background-color);
+  border: 1px solid var(--border-color);
   width: 100%;
-  
-}
+  height: 100px;
 
-.flex-item-2 {
-  order:auto;
-  align-items: stretch;
-}
-
-.flex-item-3 {
-  margin-top: 20px;
-  background-color: #cdcdcd;
-  border: 2px solid #666;
-  padding: 5%;
-  text-align: center;
-  justify-content: center;
-  color: #00B7FF;
-}
-
-.flex-item-4 {
-  margin-top: 10px;
-  background-color: #cdcdcd;
-  border: 2px solid #666;
-  padding: 5%;
-  text-align: center;
-  justify-content: center;
-  color: #00B7FF;
-}
-
-.flex-item-5 {
-  margin-top: 10px;
-  align-items: right;
-  
-  
-}
-
-.discovery__results > * {
   display: block;
-  padding: 10px;
-  margin: 5px;
+  padding: 8%;
+  margin: 2%;
 }
+
 
 
 /* ### TODO ### Styles for Footer Component */
 
 /* ... your code here ... */
+
 footer {
   display: flex;
   align-items: center;
-  height: 95px;
-  padding: 1%;
-  background-color: lightgrey;
-  
+  background-color: var(--background-color);
+  border: 1px solid var(--border-color);
+  width: 100%;
+  height: 100px;
+  padding: 2%;
 }
+
+
 /* ### TODO ### Media Queries */
 
 /* ... your code here ... */
 
-@media only screen and (max-width: 1000px) {
+@media (max-width: 1000px) {
+
   .main {
-    flex-direction:column;
+    flex-direction: column;
   }
 
   .tagging {
     width: calc(100% - 1rem);
   }
+  
   .discovery {
     width: calc(100% - 1rem);
+
   }
 
-  .discovery__search > * {
-    width: calc(100% - 1rem);
+  .discovery__search>* {
+    width: calc(75% - 1rem);
   }
 
   .discovery__wrapper {
-    flex-direction:column;
+    flex-direction: column;
   }
 
-  .discovery__wrapper > * {
+  .discovery__wrapper>* {
     width: calc(100% - 1rem);
   }
 }

@@ -13,114 +13,85 @@
 </head>
 
 <body>
-    
-    
-    
-   
     <header class="header">
         <img src="./images/location.png" class="header__image" alt="an image of a map and location">
-        <nav class="header__text"><h1>GeoTagApp</h1></nav>
+        <h1 class="header__title">GeoTagApp</h1>
         <nav class="header__navigation">
             <a href="#">About</a> | <a href="#">Help</a> | <a href="/">Home</a>
         </nav>
     </header>
-    <div class="flex-container">
-    <main class="main">
-        <section class="main__tagging col-3">
-            
-           <li class="flex-item-1">
-             <h2>Tagging</h2>
+
+    <main class="main row">
+        <section class="main__tagging tagging col-3">
+            <h2>Tagging</h2>
 
             <!-- ############### VS1Lab 1a Form 1 Start -->
-            <form id="tag-form" action="/tagging" method="post">
-                
-                
-                
-                <fieldset>
-                 
-                <legend>Add a new GeoTag</legend>
-                
-                <label for="latitude">Latitude:</label>
-                <input id="latitude" type="number" placeholder="Please type in the latitude: " name="latitude" readonly value="49.01379"; >
-                <label for="longitude"S>Longitude:</label>
-                <input id="longitude" type="number" placeholder="Please type in the longitude: " name="longitude" readonly value="8.390071">
-                <label for="name">Name:</label>
-                <input id="name" type="text" maxlength="10" placeholder="e.g. Central Berlin  " name="name" pattern="[A-Za-z]{0,10}" required> 
-                <label for="hashtag">Hashtag:</label>
-                <input id="hashtag" type="text" placeholder="e.g. #ber" name="hashtag" value="#" pattern="^#{1}[A-Za-z]{0,10}$" maxlength="11">
-                <button class="block" type="submit">Add Tag</button>
-                
-                </fieldset>
-                
-                </li>
-            
-                <!-- ... your code here ... -->
 
-            </form>
-            <!-- ############### VS1Lab 1a Form 1 End -->
+            <fieldset>
+                <legend>Add&nbsp;a&nbsp;new&nbsp;GeoTag</legend>
+                <form id="tag-form" action="/tagging" method="post">
 
-        </section>
-        
-        <section class="main__discovery col-9">
-            
-            <li class="flex-item-2">
-                <h2 class="discovery__title">Discovery</h2>
+                    <!-- ... your code here ... -->
+                    <label for="lat"> Latitude: </label>
+                    <input id="lat" type="text" name="lat" value="49.01379" disabled required>
+
+                    <label for="long"> Longitude: </label>
+                    <input id="long" type="text" name="long" value="8.390071" disabled required>
+
+                    <label for="name"> Name: </label>
+                    <input id="name" type="text" name="name" placeholder="e. g. Central Berlin" maxlength="10" required>
+
+                    <label for="hashtag"> Hashtag: </label>
+                    <input id="hashtag" type="text" name="hashtag" maxlength="11" pattern="#([A-z])+"
+                        placeholder="e. g. #ber">
+
+                    <input id="add tag" type="button" value="Add Tag" name="button">
+
+
+                </form>
+                <!-- ############### VS1Lab 1a Form 1 End -->
+            </fieldset>
+        </section><br>
+
+        <section class="main__discovery discovery col-9">
+            <h2 class="discovery__title">Discovery</h2>
 
             <!-- ############### VS1Lab 1a Form 2 Start -->
-            <form class="discovery__search" id="discoveryFilterForm" action="/discovery" method="post">
+            <fieldset>
+                <legend>Search</legend>
+                <form class="discovery__search" id="discoveryFilterForm" action="/discovery" method="post">
 
-                <!-- ... your code here ... -->
-                
-                
-                    
-                <fieldset>
-                    
-                    <legend>Search</legend>
-                    <label for="searchterm">Search term or keywords: </label>
-                    <input type="text" class="col-4" placeholder="e.g. Berlin" id="searchterm" name="searchterm"><br>
-                    <button class ="block col-4" type="submit">Search</button>
-                    <input id="latitude" type="hidden" name="latitude">
-                    <input id="longitude" type="hidden" name="longitude">
-                    
-                </fieldset>
-            
-            </li>
-            
-            
-            </form>
+                    <!-- ... your code here ... -->
+
+                    <label for="s..">Search&nbsp;term&nbsp;or&nbsp;keywords: </label>
+                    <input id="search" class="col-4" name="search" type="text" placeholder="e. g. Berlin"
+                        pattern="[A-Z]{10}$" required>
+                    <input id="applysearch" class="col-4" name="applysearch" type="button" value="Search">
+
+                </form>
+            </fieldset>
             <!-- ############### VS1Lab 1a Form 2 End -->
-            
-    
-            
 
-            <div class="discovery__wrapper">
-                <div class="discovery__taglist col-5">
+            <div class="flexbox">
+                <div>
                     <ul class="discovery__results" id="discoveryResults">
-                        <li class="flex-item-3">Castle (49.01379, 8.404435) #sight </li>
-                        <li class="flex-item-4">IWI (49.01379, 8.390071) #edu</li>
+
+                        <li>Castle (49.01379, 8.404435) #sight</li>
+                        <li>IWI (49.01379, 8.390071) #edu</li>
                     </ul>
                 </div>
-                <li class="flex-item-5">
-                <div class="discovery__map col-6">
-                    <img src="./images/mapview.jpg" alt="a map with locations" id="mapView" />
+                
+                <div>
+                    <img src="./images/mapview.jpg" alt="a map with locations" id="mapView" /><br>
                     <span>Result map</span>
                 </div>
-                </li>
             </div>
         </section>
-        
-
     </main>
-    </div>
-    
-        
-    </ul>
 
-    
     <footer class="footer">
         <span>(c) 2021/22 HKA_IWI_VSYS</span>
     </footer>
-    
 </body>
 
 </html>
