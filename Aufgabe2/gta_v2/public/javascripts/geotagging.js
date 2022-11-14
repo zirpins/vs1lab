@@ -111,8 +111,8 @@ class MapManager {
         //Discovery
         document.getElementById("latitudeZahl").value = callbackValue.latitude;
         document.getElementById("longitudeZahl").value = callbackValue.longitude;
-        var MapManager = new MapManager("Gw7bY1FFm0uj813p5gaSZroP4lGKROBs");
-        document.getElementById("mapView").src= MapManager.getMapUrl(callbackValue.latitude, callbackValue.longitude);
+        var mapManager = new MapManager("Gw7bY1FFm0uj813p5gaSZroP4lGKROBs");
+        document.getElementById("mapView").src= mapManager.getMapUrl(callbackValue.latitude, callbackValue.longitude);
     });
 }
 
