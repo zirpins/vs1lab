@@ -170,7 +170,7 @@ header {
     width: calc(100% - 1rem);
 }
 
-.main__tagging {
+.taggingclass input{
     display: block;
 }
 
@@ -188,9 +188,11 @@ legend {
 
 /* ### TODO ### Styles for Discovery component */
 
-.main__discovery {
-    width: 100%;
+.discoveryclass2 input{
+    display: block;
+
 }
+
 
 .discovery__wrapper {
     margin: 10px;
