@@ -10,9 +10,12 @@
  * GeoTag objects should contain at least all fields of the tagging form.
  */
 class GeoTag {
-
-    // TODO: ... your code here ...
-    
+    constructor(lat, long, name, hash) {
+        this.latitude = lat;
+        this.longitude = long;
+        this.name = name;
+        this.hashtag = hash;
+    }
 }
 
 module.exports = GeoTag;

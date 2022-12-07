@@ -5,6 +5,8 @@
  * Complete all TODOs in the code documentation.
  */
 
+const GeoTag = require("./geotag");
+
 /**
  * A class for in-memory-storage of geotags
  * 
@@ -24,9 +26,48 @@
  * - Keyword matching should include partial matches from name or hashtag fields. 
  */
 class InMemoryGeoTagStore{
+     #geotags = [];
 
-    // TODO: ... your code here ...
+
+    addGeoTag(lat, long, name, hash){
+        this.#geotags.push(new GeoTag(lat, long, name, hash));
+
+    }
+
+    removeGeoTag(name){
+       for(var x = 0; x < this.#geotags.length; x++){
+           if(name === this.#geotags[x].name){
+               this.#geotags.splice(x,1);
+           }
+       }
+    }
+
+    getNearbyGeoTags(lat, long, radius){
+        return this.#geotags.filter((tag) => {
+            return this.#calculateDifference(tag.latitude, lat, tag.longitude,long) <= radius;
+        });
+
+    }
+    #calculateDifference(lat1, lat2, long1, long2){
+        const difflat = Math.pow(lat1 - lat2, 2);
+        const difflong = Math.pow(long1- long2, 2);
+       return  Math.sqrt((difflat + difflong));
+
+
+    }
+    searchNearbyGeoTags(lat, long, searchterm, radius){
+        return this.getNearbyGeoTags(lat, long, radius).filter((tag) => {
+            return tag.name.toLowerCase().includes(searchterm) || tag.hashtag.toLowerCase().includes(searchterm);
+        });
+
+
+
+    }
+
+
 
 }
+
+
 
 module.exports = InMemoryGeoTagStore
