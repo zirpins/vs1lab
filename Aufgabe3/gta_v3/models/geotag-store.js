@@ -26,7 +26,11 @@ const GeoTag = require("./geotag");
  * - Keyword matching should include partial matches from name or hashtag fields. 
  */
 class InMemoryGeoTagStore{
-     #geotags = [];
+     static #geotags = [];
+
+     static get getGeoTag(){
+         return this.#geotags;
+     }
 
 
     addGeoTag(lat, long, name, hash){
@@ -59,15 +63,8 @@ class InMemoryGeoTagStore{
         return this.getNearbyGeoTags(lat, long, radius).filter((tag) => {
             return tag.name.toLowerCase().includes(searchterm) || tag.hashtag.toLowerCase().includes(searchterm);
         });
-
-
-
     }
 
-
-
 }
-
-
 
 module.exports = InMemoryGeoTagStore
