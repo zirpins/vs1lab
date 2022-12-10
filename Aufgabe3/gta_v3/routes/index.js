@@ -17,7 +17,7 @@ const router = express.Router();
  * The module "geotag" exports a class GeoTagStore. 
  * It represents geotags.
  * 
- * TODO: implement the module in the file "../models/geotag.js"
+ *
  */
 // eslint-disable-next-line no-unused-vars
 const GeoTag = require('../models/geotag');
@@ -26,7 +26,7 @@ const GeoTag = require('../models/geotag');
  * The module "geotag-store" exports a class GeoTagStore. 
  * It provides an in-memory store for geotag objects.
  * 
- * TODO: implement the module in the file "../models/geotag-store.js"
+ *
  */
 // eslint-disable-next-line no-unused-vars
 const GeoTagStore = require('../models/geotag-store');
@@ -59,8 +59,13 @@ router.get('/', (req, res) => {
  * To this end, "GeoTagStore" provides a method to search geotags 
  * by radius around a given location.
  */
-
-// TODO: ... your code here ...
+router.post('/tagging', (req,res) => {
+  let lat = Document.getElementById('latitude');
+  let long;
+  let name;
+  let hash;
+  res.end();
+});
 
 /**
  * Route '/discovery' for HTTP 'POST' requests.
