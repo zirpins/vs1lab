@@ -101,5 +101,4 @@ router.post('/discovery', (req, res) => {
         ejs_mapTagList: JSON.stringify(tempTagList)});
 });
 
-
 module.exports = router;
