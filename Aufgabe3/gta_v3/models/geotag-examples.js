@@ -38,6 +38,9 @@ class GeoTagExamples {
         }
         return temp;
     }
+
+
 }
 
 module.exports = GeoTagExamples;
+
