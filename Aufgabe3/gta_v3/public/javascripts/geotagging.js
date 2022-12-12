@@ -68,6 +68,5 @@ console.log("The geoTagging script is going to start...");
 // Wait for the page to fully load its DOM content, then call updateLocation
 document.addEventListener("DOMContentLoaded", () => {
     updateLocation();
-
 });*/
     document.addEventListener("DOMContentLoaded", updateLocation, true);
