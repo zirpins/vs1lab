@@ -58,7 +58,7 @@ console.log("The geoTagging script is going to start...");
         document.getElementById("longitudeZahl").value = callbackValue.longitude;
         var mapManager = new MapManager("Gw7bY1FFm0uj813p5gaSZroP4lGKROBs");
 
-        lat map[] = JSON.parse(document.getElementById("mapView").src);
+        let map[] = JSON.parse(document.getElementById("mapView").src);
 
         document.getElementById("mapView").src= mapManager.getMapUrl(callbackValue.latitude, callbackValue.longitude, map);
     });
