@@ -48,8 +48,8 @@
                     <label>Search term or keyword:<input type="text" id="discoveryText" name="searchDiscovery"
                                                          placeholder="e.g. Berlin"> </label>
                     <input type="submit" value="search">
-                    <label><input type="hidden" id="latitudeZahl" name="latitudeDiscovery" value="<%=ejs_latitude%>"></label>
-                    <label><input type="hidden" id="longitudeZahl" name="longitudeDiscovery"value="<%=ejs_longitude%>"></label>
+                    <label><input type="hidden" id="latitudeZahl" name="latitudeDiscovery" value="<%= ejs_latitude%>"></label>
+                    <label><input type="hidden" id="longitudeZahl" name="longitudeDiscovery"value="<%= ejs_longitude%>"></label>
                 </fieldset>
 
             </form>
@@ -63,7 +63,7 @@
                     </ul>
                 </div>
                 <div class="discovery__map col-8">
-                    <img src="./images/mapview.jpg" alt="a map with locations" id="mapView" data-tags="<%=ejs_mapTagList%>" />
+                    <img src="./images/mapview.jpg" alt="a map with locations" id="mapView"/>
                     <span>Result map</span>
                 </div>
             </div>
