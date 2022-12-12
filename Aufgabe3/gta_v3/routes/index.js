@@ -107,7 +107,7 @@ router.post('/discovery', (req, res) => {
     let long = req.body["longitude"];
     let searchTerm = req.body["query"];
 
-    let tempTagList = getStoreTag.searchNearbyGeoTags(let, long, searchTerm, 5);
+    let tempTagList = getStoreTag.searchNearbyGeoTags(lat, long, searchTerm, 5);
 
     res.render('index', {
         taglist: tempTagList, ejs_latitude: lat, ejs_longitude: long,
