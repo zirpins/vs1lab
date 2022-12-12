@@ -27,9 +27,9 @@
         <form class="taggingclass" id="tag-form" action="/tagging" method="post">
             <fieldset>
                 <legend id="tagging_legend">Add a new GeoTag</legend>
-                <label>Latitude:<input type="text" class="tagging_input" id="latitude" name="Lat" value="<%= ejs_latitude%>" readonly="readonly">
+                <label>Latitude:<input type="text" class="tagging_input" id="latitude" name="Lat" value="<%=ejs_latitude%>" readonly="readonly">
                 </label>
-                <label>Longitude:<input type="text" class="tagging_input" id="longitude" name="Long" value="<%= ejs_longitude%>" readonly="readonly"></label>
+                <label>Longitude:<input type="text" class="tagging_input" id="longitude" name="Long" value="<%=ejs_longitude%>" readonly="readonly"></label>
                 <label>Name:<input type="text"  class="tagging_input" id="name" name="Name" maxlength=10 placeholder="e.g. Central Berlin" required></label>
                 <label>Hashtag:<input type="text" class="tagging_input" id="Hashtag" name="Hashtag" maxlength=10 pattern="#([A-Z])\w+"
                                       placeholder="e.g. #Ber"></label>
@@ -48,8 +48,8 @@
                     <label>Search term or keyword:<input type="text" id="discoveryText" name="searchDiscovery"
                                                          placeholder="e.g. Berlin"> </label>
                     <input type="submit" value="search">
-                    <label><input type="hidden" id="latitudeZahl" name="latitudeDiscovery" value="<%= ejs_latitude%>"></label>
-                    <label><input type="hidden" id="longitudeZahl" name="longitudeDiscovery"value="<%= ejs_longitude%>"></label>
+                    <label><input type="hidden" id="latitudeZahl" name="latitudeDiscovery" value="<%=ejs_latitude%>"></label>
+                    <label><input type="hidden" id="longitudeZahl" name="longitudeDiscovery"value="<%=ejs_longitude%>"></label>
                 </fieldset>
 
             </form>
@@ -57,13 +57,13 @@
             <div class="discovery__wrapper row">
                 <div class="discovery__taglist col-4">
                     <ul class="discovery__results" id="discoveryResults">
-                        <% if (tempTagList !== undefined) tempTagList.forEach(function(gtag) { %>
+                        <% if (taglist !== undefined) taglist.forEach(function(gtag) { %>
                             <li><%= gtag.name %> ( <%= gtag.latitude %>,<%= gtag.longitude %>) <%= gtag.hashtag %> </li>
                         <% }); %>
                     </ul>
                 </div>
                 <div class="discovery__map col-8">
-                    <img src="./images/mapview.jpg" alt="a map with locations" id="mapView"/>
+                    <img src="./images/mapview.jpg" alt="a map with locations" id="mapView" data-tags="<%=ejs_mapTagList%>" />
                     <span>Result map</span>
                 </div>
             </div>

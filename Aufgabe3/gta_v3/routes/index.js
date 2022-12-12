@@ -41,8 +41,18 @@ const GeoTagStore = require('../models/geotag-store');
  */
 
 // TODO: extend the following route example if necessary
+/*
 router.get('/', (req, res) => {
     res.render('index', {taglist: []})
+});
+*/
+router.get('/', (req, res) => {
+    res.render('index', {
+        taglist: GeoTagStore.geoTags,
+        ejs_latitude: "",
+        ejs_longitude: "",
+        ejs_mapTagList: JSON.stringify(GeoTagStore.geoTags)
+    })
 });
 
 /**
@@ -68,8 +78,10 @@ router.post('/tagging', (req, res) => {
     getStoreTag.addGeoTag(lat, long, name, hash);
     let tempTagList = getStoreTag.getNearbyGeoTags(lat, long, 100);
 
-    res.render('index', {taglist: tempTagList, ejs_latitude: lat, ejs_longitude: long,
-        ejs_mapTagList: JSON.stringify(tempTagList)});
+    res.render('index', {
+        taglist: tempTagList, ejs_latitude: lat, ejs_longitude: long,
+        ejs_mapTagList: JSON.stringify(tempTagList)
+    });
 });
 
 /**
@@ -97,8 +109,10 @@ router.post('/discovery', (req, res) => {
 
     let tempTagList = getStoreTag.searchNearbyGeoTags(let, long, searchTerm, 5);
 
-    res.render('index', {taglist: tempTagList, ejs_latitude: lat, ejs_longitude: long,
-        ejs_mapTagList: JSON.stringify(tempTagList)});
+    res.render('index', {
+        taglist: tempTagList, ejs_latitude: lat, ejs_longitude: long,
+        ejs_mapTagList: JSON.stringify(tempTagList)
+    });
 });
 
 module.exports = router;

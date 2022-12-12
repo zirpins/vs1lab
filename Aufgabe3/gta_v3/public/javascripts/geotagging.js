@@ -9,26 +9,6 @@
 // Try to find this output in the browser...
 console.log("The geoTagging script is going to start...");
 
-/**
- * A class to help using the HTML5 Geolocation API.
- */
-class LocationHelper {
-    // Location values for latitude and longitude are private properties to protect them from changes.
-    #latitude = '';
-
-    /**
-     * Getter method allows read access to privat location property.
-     */
-    get latitude() {
-        return this.#latitude;
-    }
-
-    #longitude = '';
-
-    get longitude() {
-        return this.#longitude;
-    }
-
     /**
      * The 'findLocation' method requests the current location details through the geolocation API.
      * It is a static method that should be used to obtain an instance of LocationHelper.
@@ -59,43 +39,7 @@ class LocationHelper {
     }
 }
 
-/**
- * A class to help using the MapQuest map service.
- */
-class MapManager {
-    #apiKey = '';
 
-    /**
-     * Create a new MapManager instance.
-     * @param {string} apiKey Your MapQuest API Key
-     */
-    constructor(apiKey) {
-        this.#apiKey = apiKey;
-    }
-
-    /**
-     * Generate a MapQuest image URL for the specified parameters.
-     * @param {number} latitude The map center latitude
-     * @param {number} longitude The map center longitude
-     * @param {{latitude, longitude, name}[]} tags The map tags, defaults to just the current location
-     * @param {number} zoom The map zoom, defaults to 10
-     * @returns {string} URL of generated map
-     */
-    getMapUrl(latitude, longitude, tags = [], zoom = 10) {
-        if (this.#apiKey === '') {
-            console.log("No API key provided.");
-            return "images/mapview.jpg";
-        }
-
-        let tagList = `${latitude},${longitude}|marker-start`;
-        tagList += tags.reduce((acc, tag) => `${acc}||${tag.latitude},${tag.longitude}|flag-${tag.name}`, "");
-
-        const mapQuestUrl = `https://www.mapquestapi.com/staticmap/v5/map?key=${this.#apiKey}&size=600,400&zoom=${zoom}&center=${latitude},${longitude}&locations=${tagList}`;
-        console.log("Generated MapQuest URL:", mapQuestUrl);
-
-        return mapQuestUrl;
-    }
-}
 
 
 /**
@@ -104,6 +48,7 @@ class MapManager {
  * It is called once the page has been fully loaded.
  */
     function updateLocation() {
+        if(document.getElementById("latitude").value === null || document.getElementById("longitude").value === null) {
     LocationHelper.findLocation(function (callbackValue) {
         //Tagging
         document.getElementById("latitude").value = callbackValue.latitude;
@@ -112,11 +57,17 @@ class MapManager {
         document.getElementById("latitudeZahl").value = callbackValue.latitude;
         document.getElementById("longitudeZahl").value = callbackValue.longitude;
         var mapManager = new MapManager("Gw7bY1FFm0uj813p5gaSZroP4lGKROBs");
-        document.getElementById("mapView").src= mapManager.getMapUrl(callbackValue.latitude, callbackValue.longitude);
-    });
-}
 
+        lat map[] = JSON.parse(document.getElementById("mapView").src);
+
+        document.getElementById("mapView").src= mapManager.getMapUrl(callbackValue.latitude, callbackValue.longitude, map);
+    });
+        }
+}
+/*
 // Wait for the page to fully load its DOM content, then call updateLocation
 document.addEventListener("DOMContentLoaded", () => {
     updateLocation();
-});
+
+});*/
+    document.addEventListener("DOMContentLoaded", updateLocation, true);
