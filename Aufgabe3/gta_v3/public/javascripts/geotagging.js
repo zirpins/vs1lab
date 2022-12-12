@@ -20,28 +20,34 @@ function updateMap(lat, long) {
 }
 
 
-
-
 /**
  * TODO: 'updateLocation'
  * A function to retrieve the current location and update the page.
  * It is called once the page has been fully loaded.
  */
-    function updateLocation() {
-        if(document.getElementById("latitude").value === null || document.getElementById("longitude").value === null) {
-    LocationHelper.findLocation(function (callbackValue) {
-        //Tagging
-        document.getElementById("latitude").value = callbackValue.latitude;
-        document.getElementById("longitude").value = callbackValue.longitude;
-        //Discovery
-        document.getElementById("latitudeZahl").value = callbackValue.latitude;
-        document.getElementById("longitudeZahl").value = callbackValue.longitude;
-        var mapManager = new MapManager("Gw7bY1FFm0uj813p5gaSZroP4lGKROBs");
+function updateLocation() {
+    if (document.getElementById("latitude").getAttribute("value" ) === "" ||
+        document.getElementById("longitude").getAttribute("value")=== "" ) {
+        LocationHelper.findLocation(function (locationHelper) {
+            document.getElementById("discovery_latitude")
+                .setAttribute("value", locationHelper.latitude);
+            document.getElementById("tagging_latitude")
+                .setAttribute("value", locationHelper.latitude);
+            document.getElementById("discovery_longitude")
+                .setAttribute("value", locationHelper.longitude);
+            document.getElementById("tagging_longitude")
+                .setAttribute("value", locationHelper.longitude);
+            updateMap(locationHelper.latitude, locationHelper.longitude);
+
+        })}
+    else
+        {
+            let lat = document.getElementById("tagging_latitude").getAttribute("value");
+            let long = document.getElementById("tagging_longitude").getAttribute("value");
+            updateMap(lat, long);
 
 
 
-        document.getElementById("mapView").src= mapManager.getMapUrl(callbackValue.latitude, callbackValue.longitude, map);
-    });
         }
-}
-document.addEventListener("DOMContentLoaded", updateLocation, true);
+    }
+    document.addEventListener("DOMContentLoaded", updateLocation, true);
