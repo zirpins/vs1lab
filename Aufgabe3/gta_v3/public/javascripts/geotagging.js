@@ -14,7 +14,7 @@ console.log("The geoTagging script is going to start...");
 
 function updateMap(lat, long) {
     let nearTaglist = JSON.parse(document.getElementById("mapView").getAttribute("data-tags"));
-    let mapManager = new MapManager("1B01AJ2nIgqKzmdYXhvgQbCVZltB6csW");
+    let mapManager = new MapManager("Gw7bY1FFm0uj813p5gaSZroP4lGKROBs");
     let mapUrl = mapManager.getMapUrl(lat, long, nearTaglist);
     document.getElementById("mapView").setAttribute("src", mapUrl);
 }
@@ -29,13 +29,13 @@ function updateLocation() {
     if (document.getElementById("latitude").getAttribute("value" ) === "" ||
         document.getElementById("longitude").getAttribute("value")=== "" ) {
         LocationHelper.findLocation(function (locationHelper) {
-            document.getElementById("discovery_latitude")
+            document.getElementById("latitudeZahl")
                 .setAttribute("value", locationHelper.latitude);
-            document.getElementById("tagging_latitude")
+            document.getElementById("latitude")
                 .setAttribute("value", locationHelper.latitude);
-            document.getElementById("discovery_longitude")
+            document.getElementById("longitudeZahl")
                 .setAttribute("value", locationHelper.longitude);
-            document.getElementById("tagging_longitude")
+            document.getElementById("longitude")
                 .setAttribute("value", locationHelper.longitude);
             updateMap(locationHelper.latitude, locationHelper.longitude);
 
