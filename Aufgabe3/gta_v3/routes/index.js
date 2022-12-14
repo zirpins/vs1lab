@@ -46,9 +46,11 @@ router.get('/', (req, res) => {
     res.render('index', {taglist: []})
 });
 */
+var tagStore = new GeoTagStore();
+
 router.get('/', (req, res) => {
     res.render('index', {
-        taglist: GeoTagStore.geoTags,
+        taglist: tagStore.getGeoTag,
         ejs_latitude: "",
         ejs_longitude: "",
         ejs_mapTagList: JSON.stringify(GeoTagStore.geoTags)

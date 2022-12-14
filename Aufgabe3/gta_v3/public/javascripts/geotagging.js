@@ -9,7 +9,6 @@
 // Try to find this output in the browser...
 
 
-
 console.log("The geoTagging script is going to start...");
 
 function updateMap(lat, long) {
@@ -26,28 +25,24 @@ function updateMap(lat, long) {
  * It is called once the page has been fully loaded.
  */
 function updateLocation() {
-    if (document.getElementById("latitude").getAttribute("value" ) === "" ||
-        document.getElementById("longitude").getAttribute("value")=== "" ) {
-        LocationHelper.findLocation(function (locationHelper) {
-            document.getElementById("latitudeZahl")
-                .setAttribute("value", locationHelper.latitude);
-            document.getElementById("latitude")
-                .setAttribute("value", locationHelper.latitude);
-            document.getElementById("longitudeZahl")
-                .setAttribute("value", locationHelper.longitude);
-            document.getElementById("longitude")
-                .setAttribute("value", locationHelper.longitude);
-            updateMap(locationHelper.latitude, locationHelper.longitude);
-
-        })}
-    else
-        {
-            let lat = document.getElementById("tagging_latitude").getAttribute("value");
-            let long = document.getElementById("tagging_longitude").getAttribute("value");
-            updateMap(lat, long);
-
-
-
-        }
+    LocationHelper.findLocation(function (locationHelper) {
+        document.getElementById("latitudeZahl")
+            .setAttribute("value", locationHelper.latitude);
+        document.getElementById("latitude")
+            .setAttribute("value", locationHelper.latitude);
+        document.getElementById("longitudeZahl")
+            .setAttribute("value", locationHelper.longitude);
+        document.getElementById("longitude")
+            .setAttribute("value", locationHelper.longitude);
+        updateMap(locationHelper.latitude, locationHelper.longitude);
+    )
     }
-    document.addEventListener("DOMContentLoaded", updateLocation, true);
+else
+    {
+        let lat = document.getElementById("tagging_latitude").getAttribute("value");
+        let long = document.getElementById("tagging_longitude").getAttribute("value");
+        updateMap(lat, long);
+    }
+}
+
+document.addEventListener("DOMContentLoaded", updateLocation, true);

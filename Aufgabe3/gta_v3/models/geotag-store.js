@@ -6,7 +6,7 @@
  */
 
 const GeoTag = require("./geotag");
-
+const GeoTagExamples = require("./geotag-examples");
 /**
  * A class for in-memory-storage of geotags
  * 
@@ -26,16 +26,23 @@ const GeoTag = require("./geotag");
  * - Keyword matching should include partial matches from name or hashtag fields. 
  */
 class InMemoryGeoTagStore{
-     static #geotags = [];
+     #geotags = [];
 
-     static get getGeoTag(){
+     constructor(){
+         GeoTagExamples.tagList.forEach(tag => {
+             this.addGeoTag(tag[1], tag[2], tag[0], tag[3]);
+         })
+     }
+
+     //getNearby stattdessen verwenden!!!
+     //get Funktionen brauchen keine Klammern!!!
+     getGeoTag(){
          return this.#geotags;
      }
 
 
     addGeoTag(lat, long, name, hash){
         this.#geotags.push(new GeoTag(lat, long, name, hash));
-
     }
 
     removeGeoTag(name){
