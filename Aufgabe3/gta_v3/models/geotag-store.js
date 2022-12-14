@@ -28,7 +28,7 @@ const GeoTagExamples = require("./geotag-examples");
 class InMemoryGeoTagStore{
      #geotags = [];
 
-     constructor(){
+     fillExamples(){
          GeoTagExamples.tagList.forEach(tag => {
              this.addGeoTag(tag[1], tag[2], tag[0], tag[3]);
          })
