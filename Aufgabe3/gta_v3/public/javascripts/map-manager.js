@@ -5,7 +5,7 @@
  */
 // eslint-disable-next-line no-unused-vars
 class MapManager {
-    #apiKey
+    #apiKey = '';
 
     /**
      * Create a new MapManager instance
