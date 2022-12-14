@@ -31,6 +31,9 @@ const GeoTag = require('../models/geotag');
 // eslint-disable-next-line no-unused-vars
 const GeoTagStore = require('../models/geotag-store');
 
+var tagStore = new GeoTagStore();
+tagStore.fillExamples();
+
 /**
  * Route '/' for HTTP 'GET' requests.
  * (http://expressjs.com/de/4x/api.html#app.get.method)
@@ -40,20 +43,13 @@ const GeoTagStore = require('../models/geotag-store');
  * As response, the ejs-template is rendered without geotag objects.
  */
 
-// TODO: extend the following route example if necessary
-/*
-router.get('/', (req, res) => {
-    res.render('index', {taglist: []})
-});
-*/
-var tagStore = new GeoTagStore();
 
 router.get('/', (req, res) => {
     res.render('index', {
-        taglist: tagStore.getGeoTag,
+        taglist: tagStore.geotags,
         ejs_latitude: "",
         ejs_longitude: "",
-        ejs_mapTagList: JSON.stringify(GeoTagStore.geoTags)
+        ejs_mapTagList: JSON.stringify(tagStore.geotags)
     })
 });
 
@@ -72,13 +68,13 @@ router.get('/', (req, res) => {
  * by radius around a given location.
  */
 router.post('/tagging', (req, res) => {
-    let getStoreTag = GeoTagStore.getGeoTag();
+    let getStoreTag = tagStore.geotags;
     let lat = req.body["latitude"];
     let long = req.body["longitude"];
     let name = req.body["name"];
     let hash = req.body["hash"];
-    getStoreTag.addGeoTag(lat, long, name, hash);
-    let tempTagList = getStoreTag.getNearbyGeoTags(lat, long, 100);
+    tagStore.addGeoTag(lat, long, name, hash);
+    let tempTagList = getStoreTag.getNearbyGeoTags(lat, long, 50); /*ToDo: Radius traken*/
 
     res.render('index', {
         taglist: tempTagList, ejs_latitude: lat, ejs_longitude: long,
@@ -101,15 +97,12 @@ router.post('/tagging', (req, res) => {
  * To this end, "GeoTagStore" provides methods to search geotags
  * by radius and keyword.
  */
-
-// TODO: ... your code here ...
 router.post('/discovery', (req, res) => {
-    let getStoreTag = GeoTagStore.getGeoTag();
     let lat = req.body["latitude"];
     let long = req.body["longitude"];
     let searchTerm = req.body["query"];
 
-    let tempTagList = getStoreTag.searchNearbyGeoTags(lat, long, searchTerm, 5);
+    let tempTagList = tagStore.searchNearbyGeoTags(lat, long, searchTerm, 50);
 
     res.render('index', {
         taglist: tempTagList, ejs_latitude: lat, ejs_longitude: long,
