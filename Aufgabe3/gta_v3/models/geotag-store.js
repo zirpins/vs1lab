@@ -73,7 +73,7 @@ class InMemoryGeoTagStore{
         let temp = [];
         for(let i = 0; i < this.#geotags.length; i++) {
             let difference = this.#calculateDifference(this.#geotags[i].latitude, lat, this.#geotags[i].longitude, long);
-            if(difference <= radius && this.#geotags[i].name === searchterm) {
+            if(difference <= radius && (this.#geotags[i].name === searchterm || this.#geotags[i].hashtag === searchterm)) {
                 temp.push(this.#geotags[i]);
             }
         }
