@@ -42,7 +42,7 @@ a {
     color: var(--link-color);
 }
 
-/* ### TODO ### Styles for other HTML elements */
+
 /* ... your code here ... */
 
 form > *{
@@ -123,7 +123,7 @@ input[type = "text"]{
 }
 
 
-/* ### TODO ### Styles for Header Component */
+
 header {
     display: flex;
     padding: 3% 5% 2%;
@@ -151,7 +151,7 @@ header {
     margin: auto;
 }
 
-/* ### TODO ### Styles for Main Component */
+
 
 
 .main {
@@ -160,7 +160,7 @@ header {
     max-width: 1200px;
 }
 
-/* ### TODO ### Styles for Tagging component */
+
 
 .main section{
     margin: 10px;
@@ -186,7 +186,7 @@ legend {
     text-align: left;
 }
 
-/* ### TODO ### Styles for Discovery component */
+
 
 .discovery2 {
     flex-direction: column;
@@ -244,7 +244,7 @@ footer {
     padding-left: 3%;
 }
 
-/* ### TODO ### Media Queries */
+
 
 /* Kann man auf alle col- zugreifen
 [class*="col-"] {

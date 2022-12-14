@@ -74,7 +74,8 @@ router.post('/tagging', (req, res) => {
     let name = req.body.Name;
     let hash = req.body.Hashtag;
     tagStore.addGeoTag(lat, long, name, hash);
-    let tempTagList = tagStore.getNearbyGeoTags(lat, long, 5000); /*ToDo: Radius traken*/
+    let tempTagList = tagStore.getNearbyGeoTags(lat, long, 500);
+    tempTagList.push(new GeoTag(lat, long, name, hash));
 
     res.render('index', {
         taglist: tempTagList, ejs_latitude: lat, ejs_longitude: long,
@@ -98,12 +99,10 @@ router.post('/tagging', (req, res) => {
  * by radius and keyword.
  */
 router.post('/discovery', (req, res) => {
-    let lat = req.body.Lat;
-    let long = req.body.Long;
+    let lat = req.body.latitudeDiscovery;
+    let long = req.body.longitudeDiscovery;
     let searchTerm = req.body.searchDiscovery;
-
-    let tempTagList = tagStore.searchNearbyGeoTags(lat, long, searchTerm, 5000);
-
+    let tempTagList = tagStore.searchNearbyGeoTags(lat, long, searchTerm, 500);
     res.render('index', {
         taglist: tempTagList, ejs_latitude: lat, ejs_longitude: long,
         ejs_mapTagList: JSON.stringify(tempTagList)

@@ -53,30 +53,31 @@ class InMemoryGeoTagStore{
        }
     }
 
-    getNearbyGeoTags(lat, long, radius){ /*Todo: Check */
+    getNearbyGeoTags(lat, long, radius){
          let temp = [];
          for(let i = 0; i < this.#geotags.length - 1; i++) {
              let difference = this.#calculateDifference(this.#geotags[i].latitude, lat, this.#geotags[i].longitude, long);
-             console.log(difference);
              if(difference <= radius)
                  temp.push(this.#geotags[i]);
          }
          return temp;
     }
     #calculateDifference(lat1, lat2, long1, long2){
-         console.log("Ich werde aufgerufen");
         const difflat = Math.pow(lat1 - lat2, 2);
-        console.log("difflat =" + difflat);
         const difflong = Math.pow(long1- long2, 2);
-        console.log("difflong =" + difflong);
        return  Math.sqrt((difflat + difflong));
 
 
     }
-    searchNearbyGeoTags(lat, long, searchterm, radius){ /* Todo: Check*/
-        return this.getNearbyGeoTags(lat, long, radius).filter((tag) => {
-            return tag.name.toLowerCase().includes(searchterm) || tag.hashtag.toLowerCase().includes(searchterm);
-        });
+    searchNearbyGeoTags(lat, long, searchterm, radius){
+        let temp = [];
+        for(let i = 0; i < this.#geotags.length; i++) {
+            let difference = this.#calculateDifference(this.#geotags[i].latitude, lat, this.#geotags[i].longitude, long);
+            if(difference <= radius && this.#geotags[i].name === searchterm) {
+                temp.push(this.#geotags[i]);
+            }
+        }
+        return temp;
     }
 
 }
