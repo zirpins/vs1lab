@@ -36,7 +36,7 @@ class InMemoryGeoTagStore{
 
      //getNearby stattdessen verwenden!!!
      //get Funktionen brauchen keine Klammern!!!
-     getGeoTag(){
+     get geotags(){
          return this.#geotags;
      }
 
@@ -46,14 +46,14 @@ class InMemoryGeoTagStore{
     }
 
     removeGeoTag(name){
-       for(var x = 0; x < this.#geotags.length; x++){
+       for(let x = 0; x < this.#geotags.length - 1; x++){
            if(name === this.#geotags[x].name){
                this.#geotags.splice(x,1);
            }
        }
     }
 
-    getNearbyGeoTags(lat, long, radius){
+    getNearbyGeoTags(lat, long, radius){ /*Todo: Check */
         return this.#geotags.filter((tag) => {
             return this.#calculateDifference(tag.latitude, lat, tag.longitude,long) <= radius;
         });
@@ -66,7 +66,7 @@ class InMemoryGeoTagStore{
 
 
     }
-    searchNearbyGeoTags(lat, long, searchterm, radius){
+    searchNearbyGeoTags(lat, long, searchterm, radius){ /* Todo: Check*/
         return this.getNearbyGeoTags(lat, long, radius).filter((tag) => {
             return tag.name.toLowerCase().includes(searchterm) || tag.hashtag.toLowerCase().includes(searchterm);
         });

@@ -10,8 +10,8 @@
  * GeoTag objects should contain at least all fields of the tagging form.
  */
 class GeoTag {
-    latitude = "";
-    longitude = "";
+    latitude = 0;
+    longitude = 0;
     name = "";
     hashtag = "";
 

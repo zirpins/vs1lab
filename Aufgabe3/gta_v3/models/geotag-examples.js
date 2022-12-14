@@ -30,14 +30,6 @@ class GeoTagExamples {
             ['Building K', 49.013190, 8.392090, '#campus'],
         ];
     }
-    static get GeoTagList() {
-        let temp = [];
-        for(let x in this.tagList()) {
-            let geotag = new Geotag(x[1],x[2],x[0],x[3]);
-            temp.push(geotag);
-        }
-        return temp;
-    }
 
 
 }
