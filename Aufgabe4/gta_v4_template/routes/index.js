@@ -27,6 +27,8 @@ const GeoTag = require('../models/geotag');
 // eslint-disable-next-line no-unused-vars
 const GeoTagStore = require('../models/geotag-store');
 
+var tagStore = new GeoTagStore();
+tagStore.fillExamples();
 // App routes (A3)
 
 /**
@@ -39,7 +41,7 @@ const GeoTagStore = require('../models/geotag-store');
  */
 
 router.get('/', (req, res) => {
-  res.render('index', { taglist: [] })
+  res.render('index', {taglist: [] })
 });
 
 // API routes (A4)
@@ -56,8 +58,17 @@ router.get('/', (req, res) => {
  * If 'latitude' and 'longitude' are available, it will be further filtered based on radius.
  */
 
-// TODO: ... your code here ...
-
+// TODO:Nicht ganz fertig
+router.get('/discovery', (req, res) => {
+  let lat = req.body.latitudeDiscovery;
+  let long = req.body.longitudeDiscovery;
+  let searchTerm = req.body.searchDiscovery;
+  let tempTagList = tagStore.searchNearbyGeoTags(lat, long, searchTerm, 500);
+  res.render('index', {
+    taglist: tempTagList, ejs_latitude: lat, ejs_longitude: long,
+    ejs_mapTagList: JSON.stringify(tempTagList)
+  });
+});
 
 /**
  * Route '/api/geotags' for HTTP 'POST' requests.
@@ -70,8 +81,22 @@ router.get('/', (req, res) => {
  * The new resource is rendered as JSON in the response.
  */
 
-// TODO: ... your code here ...
+// TODO:Nicht ganz fertig
+router.post('/tagging', (req, res) => {
+  let lat = req.body.Lat;
+  console.log("req.body=" + lat);
+  let long = req.body.Long;
+  let name = req.body.Name;
+  let hash = req.body.Hashtag;
+  tagStore.addGeoTag(lat, long, name, hash);
+  let tempTagList = tagStore.getNearbyGeoTags(lat, long, 500);
+  tempTagList.push(new GeoTag(lat, long, name, hash));
 
+  res.render('index', {
+    taglist: tempTagList, ejs_latitude: lat, ejs_longitude: long,
+    ejs_mapTagList: JSON.stringify(tempTagList)
+  });
+});
 
 /**
  * Route '/api/geotags/:id' for HTTP 'GET' requests.
