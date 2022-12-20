@@ -27,6 +27,7 @@ const GeoTagExamples = require("./geotag-examples");
  */
 class InMemoryGeoTagStore{
      #geotags = [];
+     #count = 0;
 
      fillExamples(){
          GeoTagExamples.tagList.forEach(tag => {
@@ -42,7 +43,8 @@ class InMemoryGeoTagStore{
 
 
     addGeoTag(lat, long, name, hash){
-        this.#geotags.push(new GeoTag(lat, long, name, hash));
+        this.#geotags.push(new GeoTag(lat, long, name, hash, this.#count));
+        this.#count++;
     }
 
     removeGeoTag(name){
@@ -78,6 +80,21 @@ class InMemoryGeoTagStore{
             }
         }
         return temp;
+    }
+    searchGeotagByID(id) {
+         let temp = [];
+         for(let i = 0; i< this.geotags.length;i++) {
+             if(this.#geotags[i].id === id)
+                 temp.push(this.#geotags[i]);
+         }
+         return temp;
+    }
+
+    putGeotag(geotag, id) {
+        for(let i = 0; i< this.geotags.length;i++) {
+            if(this.#geotags[i].id === id)
+                this.#geotags[i] = geotag;
+        }
     }
 
 }
