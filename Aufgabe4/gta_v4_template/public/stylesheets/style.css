@@ -1,0 +1,262 @@
+/*
+  File origin: VS1LAB A1b
+
+  CSS style is BEM. Classes used for CSS, IDs for JavaScript querying (future use).
+  CSS variables used for clarity and themability (e.g. through SSR).
+  Inherited box sizing used for ease of including 3rd party content-box components.
+*/
+
+/* Global styling */
+
+html {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    /* This approach prevents issues with 3rd party content-box components */
+    box-sizing: inherit;
+}
+
+
+/* Variables (example: see declaration for "a" below) */
+
+:root {
+    --link-color: #00B7FF;
+    --background-color: #efefef;
+    --border-color: #cdcdcd;
+    --gray-color: #666;
+}
+
+/* HTML element styles */
+
+body {
+    font: 14px "Helvetica", Helvetica, Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+a {
+    color: var(--link-color);
+}
+
+
+/* ... your code here ... */
+
+form > *{
+    display: block;
+}
+
+input[type="submit"]{
+    text-align: center;
+    margin-left: 7px;
+    margin-bottom: 1rem;
+    width: 11.1rem;
+    height: 1.75rem;
+    margin-top: 7px;
+}
+
+input[type = "text"]{
+    width: 11.1rem;
+    padding: 7px;
+    margin: 5px;
+    height: 1.75rem;
+}
+
+/* Grid styles (no changes required) */
+
+.row {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex: 1;
+}
+
+.col-1 {
+    width: calc(8.33% - 1rem);
+}
+
+.col-2 {
+    width: calc(16.66% - 1rem);
+}
+
+.col-3 {
+    width: calc(25% - 1rem);
+}
+
+.col-4 {
+    width: calc(33.33% - 1rem);
+}
+
+.col-5 {
+    width: calc(41.66% - 1rem);
+}
+
+.col-6 {
+    width: calc(50% - 1rem);
+}
+
+.col-7 {
+    width: calc(58.33% - 1rem);
+}
+
+.col-8 {
+    width: calc(66.66% - 1rem);
+}
+
+.col-9 {
+    width: calc(75% - 1rem);
+}
+
+.col-10 {
+    width: calc(83.33% - 1rem);
+}
+
+.col-11 {
+    width: calc(91.66% - 1rem);
+}
+
+.col-12 {
+    width: calc(100% - 1rem);
+}
+
+
+
+header {
+    display: flex;
+    padding: 3% 5% 2%;
+    align-items: center;
+    background-color: #efefef;
+    background-size: cover;
+}
+
+.header__title {
+    margin: auto;
+    text-align: center;
+}
+
+.header__image {
+    margin-left: 10%;
+    margin-right: 10%;
+    width: 5%;
+    height: 5%;
+    flex-shrink: 1;
+}
+
+.header__navigation {
+    float: right;
+    justify-content: right;
+    margin: auto;
+}
+
+
+
+
+.main {
+    padding: 30px;
+    align-self: center;
+    max-width: 1200px;
+}
+
+
+
+.main section{
+    margin: 10px;
+}
+
+#tag-form > * {
+    width: calc(100% - 1rem);
+}
+
+.taggingclass input{
+    display: block;
+}
+
+#tag-form label {
+    color: gray;
+}
+
+legend {
+    margin: 0.5rem;
+}
+
+.main__tagging.h2 {
+    text-align: left;
+}
+
+
+
+.discovery2 {
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.discovery__fieldset input {
+    display: block;
+}
+
+.discovery__wrapper {
+    justify-content: normal;
+    margin: 10px;
+}
+
+#discovery_results > * {
+    display: block;
+    text-align: left;
+    user-select: none;
+}
+
+ul {
+    list-style-type: none;
+    color: dodgerblue;
+}
+
+li {
+    background-color: lightgray;
+    padding: 1.5rem;
+    margin: 1rem;
+}
+
+.discovery__map {
+    display: block;
+    margin-top: 1rem;
+    float: right;
+    margin-right:-3.5rem;
+}
+#mapView {
+    display: block;
+    width: 100%;
+}
+
+footer {
+    position: relative;
+    left: 0;
+    bottom: 0;
+    text-align: left;
+    width: 100%;
+    background-color: #efefef;
+    background-size: cover;
+    padding-bottom: 1rem;
+    padding-top: 2%;
+    padding-left: 3%;
+}
+
+
+
+/* Kann man auf alle col- zugreifen
+[class*="col-"] {
+}
+
+/* ... your code here ... */
+@media (max-width: 850px){
+    .row {
+        flex-direction: column;
+    }
+
+    [class*="col-"], input {
+        width: 100%;
+    }
+}
