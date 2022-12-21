@@ -34,8 +34,6 @@ class InMemoryGeoTagStore{
          })
      }
 
-     //getNearby stattdessen verwenden!!!
-     //get Funktionen brauchen keine Klammern!!!
      get geotags(){
          return this.#geotags;
      }
