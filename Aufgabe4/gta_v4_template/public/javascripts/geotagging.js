@@ -46,4 +46,40 @@ function updateLocation() {
     }
 }
 
+/*Fetch*/
+async function postAdd(geotag){
+    let res = await fetch("http://localhost:3000/geotags",{
+        methode:"POST",
+        headers: {"Conetent-Type": "application/json"},
+        body: Json.stringify(geotag),
+
+    });
+    return await res.jscon();
+
+}
+
+async function getTagList(searchTerm){
+    let geoTag = await fetch("http://localhost:3000/geotags" + searchTerm);
+    console.log()
+    geoTag = await geoTag.json();
+    geoTag = JSON.parse(geoTag);
+
+    let latitude = geoTag.location.latitude;
+    let longitude = geoTag.location.longitude;
+    let res = await fetch("http://localhost:3000/api/geotags?latitude=" + latitude + "&longitude=" + longitude + "&searchterm=" + searchTerm);
+    return await res.json();
+}
+
+
+
+/*Event Listener*/
+
+document.getElementById("tagging_button").addEventListener("submit", function (event){
+    event.preventDefault();
+)}
+
+document.getElementById("discovery_button").addEventListener("submit", function (event){
+    event.preventDefault();
+)}
+
 document.addEventListener("DOMContentLoaded", updateLocation, true);

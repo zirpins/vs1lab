@@ -32,6 +32,7 @@ class InMemoryGeoTagStore{
      fillExamples(){
          GeoTagExamples.tagList.forEach(tag => {
              this.addGeoTag(tag[1], tag[2], tag[0], tag[3]);
+             this.#count++;
          })
      }
 
@@ -81,6 +82,8 @@ class InMemoryGeoTagStore{
         }
         return temp;
     }
+
+    /*Ein Element wird nur gesucht und kann direkt ausgegeben werden */
     searchGeotagByID(id) {
          let temp = [];
          for(let i = 0; i< this.geotags.length;i++) {
@@ -96,7 +99,6 @@ class InMemoryGeoTagStore{
                 this.#geotags[i] = geotag;
         }
     }
-
 }
 
 module.exports = InMemoryGeoTagStore

@@ -97,7 +97,7 @@ router.get('/api/geotags', (req, res) => {
     let taglist;
     if (searchterm !== undefined && (lat !== undefined && long !== undefined)) {
         taglist = tagStore.searchNearbyGeoTags(lat, long, searchterm, 10);
-    } else if (lat !== undefined || long !== undefined) {
+    } else if (lat !== undefined && long !== undefined) {                                   /*Von Oder zu && geändert*/
         taglist = tagStore.getNearbyGeoTags(lat, long, 10);
     }
     res.status(200).json(JSON.stringify(taglist));

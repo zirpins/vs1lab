@@ -244,13 +244,6 @@ footer {
     padding-left: 3%;
 }
 
-
-
-/* Kann man auf alle col- zugreifen
-[class*="col-"] {
-}
-
-/* ... your code here ... */
 @media (max-width: 850px){
     .row {
         flex-direction: column;
