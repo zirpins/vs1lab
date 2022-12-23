@@ -134,7 +134,7 @@ router.post('/api/geotags', (req, res) => {
  *
  * The requested tag is rendered as JSON in the response.
  */
-router.get("/api/geotags/:id?", (req, res) => {
+router.get("/api/geotags/:id", (req, res) => {
 
     // TODO:Aus meiner Sicht fertig, bitte überprüfen (P.)
     let id = req.params.id;
@@ -156,9 +156,9 @@ router.get("/api/geotags/:id?", (req, res) => {
  * Changes the tag with the corresponding ID to the sent value.
  * The updated resource is rendered as JSON in the response.
  */
-router.put("/api/geotags/:id?", (req, res) => {
+router.put("/api/geotags/:id", (req, res) => {
     // TODO:Aus meiner Sicht fertig, bitte überprüfen (P.)
-    id = req.body.id;
+    let id = req.body.id;
     let lat = req.body.Lat;
     let long = req.body.Long;
     let name = req.body.Name;
@@ -180,7 +180,7 @@ router.put("/api/geotags/:id?", (req, res) => {
  * The deleted resource is rendered as JSON in the response.
  */
 
-router.delete("/api/geotags/:id?", (req, res) => {
+router.delete("/api/geotags/:id", (req, res) => {
     // TODO:Aus meiner Sicht fertig, bitte überprüfen (P.)
     let id = req.params.id;
     let foundGeotag = tagStore.searchGeotagByID(id);
