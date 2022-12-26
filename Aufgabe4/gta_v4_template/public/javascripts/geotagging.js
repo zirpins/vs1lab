@@ -37,7 +37,6 @@ function updateLocation() {
             document.getElementById("longitude")
                 .setAttribute("value", locationHelper.longitude);
             updateMap(locationHelper.latitude, locationHelper.longitude);
-
         })
     } else {
         let lat = document.getElementById("latitude").getAttribute("value");
@@ -46,41 +45,53 @@ function updateLocation() {
     }
 }
 
-/*Fetch*/
-async function postAdd(geotag){
+/*Fetch Tagging*/
+async function postAdd(newGeotag){
     let res = await fetch("http://localhost:3000/geotags",{
         methode:"POST",
         headers: {"Content-Type": "application/json"},
-        body: Json.stringify(geotag),
-
+        body: Json.stringify(newGeotag),
     });
-    return await res.jscon();
-
-}
-
-async function getTagList(searchTerm){
-    let geoTag = await fetch("http://localhost:3000/geotags" + searchTerm, {
-        method: "GET",
-        headers: {"Content-Type": "application/json"},
-    });
-    geoTag = await geoTag.json();
-    geoTag = JSON.parse(geoTag);
-
-    let latitude = geoTag.location.latitude;
-    let longitude = geoTag.location.longitude;
-    let res = await fetch("http://localhost:3000/api/geotags?latitude=" + latitude + "&longitude=" + longitude + "&searchterm=" + searchTerm);
     return await res.json();
 }
 
+//Fetch fuer discovery
+async function getTagList(searchTerm){
+    let geoTags = await fetch("http://localhost:3000/geotags" + searchTerm, {
+        method: "GET",
+        headers: {"Content-Type": "application/json"},
+    });
 
+    let latitude = geoTag.location.latitude;
+    let longitude = geoTag.location.longitude;
+    //Aufruf der Route mit allen Paramtern
+    geoTags = await fetch("http://localhost:3000/api/geotags?latitude=" + latitude + "&longitude=" + longitude + "&searchterm=" + searchTerm);
+    return await geoTags.json();
+}
 
-/*Event Listener*/
-document.getElementById("tagging_button").addEventListener("submit", function (event) {
+/*Event Listener TaggingButton*/
+document.getElementById("tagging_button").addEventListener("submit", function (event){
+        event.preventDefault();
+        let Latitude = document.getElementById("latitude").getAttribute("value");
+        let logitude = document.getElementById("longitude").getAttribute("value");
+        let name =  document.getElementById("name").getAttribute("value");
+        let hash = document.getElementById("Hashtag").getAttribute("value");//Todo: id Fragezeichen
+        let newgeoTag =  new GeoTag(Latitude, logitude, name, hash);
+
+        postAdd(newgeoTag).then(updateList).then(response => response.json()).catch(error => console.error("Fehler"));
+    }
+)}
+
+/*Event Listener DiscoveryButton*/
+document.getElementById("discovery_button").addEventListener("submit", function (event){
     event.preventDefault();
-});
+    let searchTerm = document.getElementById("discoveryText").value;
+    getTagList(searchTerm).then(updateList).then(updateMap).catch(error => alert("Search Term doen't exist"));
+)}
 
-document.getElementById("discovery_button").addEventListener("submit", function (event) {
-    event.preventDefault();
-});
+function updateList(geoliste) {
+    let actualTaglist = JSON.parse(geoliste);
+    return parseInt(document.getElementById("discoveryResults").innerHTML);
+}
 
-document.addEventListener("DOMContentLoaded", updateLocation, true);
+document.addEventListener("DOMContentLoaded", updateLocation);
