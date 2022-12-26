@@ -7,7 +7,7 @@
 // "console.log" writes to the browser's console. 
 // The console window must be opened explicitly in the browser.
 // Try to find this output in the browser...
-const GeoTag = require("../../models/geotag")
+const GeoTag = require("../../models/geotag");
 
 console.log("The geoTagging script is going to start...");
 
@@ -50,7 +50,7 @@ function updateLocation() {
 async function postAdd(geotag){
     let res = await fetch("http://localhost:3000/geotags",{
         methode:"POST",
-        headers: {"Conetent-Type": "application/json"},
+        headers: {"Content-Type": "application/json"},
         body: Json.stringify(geotag),
 
     });
@@ -59,8 +59,10 @@ async function postAdd(geotag){
 }
 
 async function getTagList(searchTerm){
-    let geoTag = await fetch("http://localhost:3000/geotags" + searchTerm);
-    console.log()
+    let geoTag = await fetch("http://localhost:3000/geotags" + searchTerm, {
+        method: "GET",
+        headers: {"Content-Type": "application/json"},
+    });
     geoTag = await geoTag.json();
     geoTag = JSON.parse(geoTag);
 
@@ -73,7 +75,6 @@ async function getTagList(searchTerm){
 
 
 /*Event Listener*/
-
 document.getElementById("tagging_button").addEventListener("submit", function (event) {
     event.preventDefault();
 });
