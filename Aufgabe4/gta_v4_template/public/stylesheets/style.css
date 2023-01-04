@@ -49,7 +49,6 @@ form > *{
     display: block;
 }
 
-//Bisschen schöner
 input:hover{
     background: honeydew;
     color: chartreuse;
