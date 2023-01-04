@@ -7,7 +7,8 @@
 // "console.log" writes to the browser's console. 
 // The console window must be opened explicitly in the browser.
 // Try to find this output in the browser...
-const GeoTag = require("../../models/geotag");
+//TODO: require is not defined
+//const GeoTag = require("../../models/geotag");
 
 console.log("The geoTagging script is going to start...");
 
@@ -61,7 +62,6 @@ async function getTagList(searchTerm){
         method: "GET",
         headers: {"Content-Type": "application/json"},
     });
-
     let latitude = geoTag.location.latitude;
     let longitude = geoTag.location.longitude;
     //Aufruf der Route mit allen Paramtern
@@ -79,15 +79,14 @@ document.getElementById("tagging_button").addEventListener("submit", function (e
         let newgeoTag =  new GeoTag(Latitude, logitude, name, hash);
 
         postAdd(newgeoTag).then(updateList).then(response => response.json()).catch(error => console.error("Fehler"));
-    }
-)}
+    });
 
 /*Event Listener DiscoveryButton*/
-document.getElementById("discovery_button").addEventListener("submit", function (event){
-    event.preventDefault();
-    let searchTerm = document.getElementById("discoveryText").value;
-    getTagList(searchTerm).then(updateList).then(updateMap).catch(error => alert("Search Term doen't exist"));
-)}
+document.getElementById("discovery_button").addEventListener("submit", function (event) {
+        event.preventDefault();
+        let searchTerm = document.getElementById("discoveryText").value;
+        getTagList(searchTerm).then(updateList).then(updateMap).catch(error => alert("Search Term doen't exist"));
+    });
 
 function updateList(geoliste) {
     let actualTaglist = JSON.parse(geoliste);
