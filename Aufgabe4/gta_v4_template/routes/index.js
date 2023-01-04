@@ -64,7 +64,7 @@ router.post('/tagging', (req, res) => {
     });
 });
 
-router.get('/discovery', (req, res) => {
+router.post('/discovery', (req, res) => {
     let lat = req.body.latitudeDiscovery;
     let long = req.body.longitudeDiscovery;
     let searchTerm = req.body.searchDiscovery;
@@ -91,15 +91,26 @@ router.get('/discovery', (req, res) => {
 
 // TODO:Aus meiner Sicht fertig, bitte überprüfen (P.)
 router.get('/api/geotags', (req, res) => {
-    let lat = req.body.latitudeDiscovery;
-    let long = req.body.longitudeDiscovery;
-    let searchterm = req.body.searchDiscovery;
+    let disLat = req.query.latitudeDiscovery;
+    let disLong = req.query.longitudeDiscovery;
+    let searchterm = req.query.searchDiscovery;
+    let location = {
+        latitude: disLat,
+        longitude: disLong
+    }
     let taglist;
+
+
     if (searchterm !== undefined && (lat !== undefined && long !== undefined)) {
         taglist = tagStore.searchNearbyGeoTags(lat, long, searchterm, 10);
-    } else if (lat !== undefined && long !== undefined) {                                   /*Von Oder zu && geändert*/
+
+    }else if (lat !== undefined && long !== undefined) {                                   /*Von Oder zu && geändert*/
+
         taglist = tagStore.getNearbyGeoTags(lat, long, 10);
     }
+
+
+
     res.status(200).json(JSON.stringify(taglist));
 });
 
@@ -158,11 +169,11 @@ router.get("/api/geotags/:id", (req, res) => {
  */
 router.put("/api/geotags/:id", (req, res) => {
     // TODO:Aus meiner Sicht fertig, bitte überprüfen (P.)
-    let id = req.body.id;
-    let lat = req.body.Lat;
-    let long = req.body.Long;
-    let name = req.body.Name;
-    let hash = req.body.Hashtag;
+    let id = req.query.id;
+    let lat = req.query.Lat;
+    let long = req.query.Long;
+    let name = req.query.Name;
+    let hash = req.query.Hashtag;
     newGeotag = GeoTag(lat, long, name, hash)
     tagStore.putGeotag(newGeotag, id);
     res.status(202).json(JSON.stringify(tagStore.geotags));
