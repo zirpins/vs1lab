@@ -49,6 +49,16 @@ form > *{
     display: block;
 }
 
+//Bisschen schöner
+input:hover{
+    background: honeydew;
+    color: chartreuse;
+}
+
+input:active{
+    color: mediumvioletred;
+}
+
 input[type="submit"]{
     text-align: center;
     margin-left: 7px;

@@ -7,7 +7,6 @@
 // "console.log" writes to the browser's console. 
 // The console window must be opened explicitly in the browser.
 // Try to find this output in the browser...
-//const GeoTag = require("../../models/geotag");
 
 console.log("The geoTagging script is going to start...");
 
@@ -16,13 +15,11 @@ function updateMap(lat, long) {
     let mapManager = new MapManager("Gw7bY1FFm0uj813p5gaSZroP4lGKROBs");
     let mapUrl = mapManager.getMapUrl(lat, long, nearTaglist);
     document.getElementById("mapView").setAttribute("src", mapUrl);
-
 }
 
 function getUpdateMap(geotags) {
     let mapManager = new MapManager("Gw7bY1FFm0uj813p5gaSZroP4lGKROBs");
     let lat = parseFloat(document.getElementById("latitude").getAttribute("value"));
-    console.log(lat);
     let long = parseFloat(document.getElementById("longitude").getAttribute("value"));
     let mapUrl = mapManager.getMapUrl(lat, long, JSON.parse(geotags));
     document.getElementById("mapView").setAttribute("src", mapUrl);
@@ -59,7 +56,7 @@ function updateLocation() {
 
 /*Fetch Tagging*/
 async function postAdd(newGeotag){
-    let res = await fetch("http://localhost:3000/geotags",{
+    let res = await fetch("http://localhost:3000/api/geotags",{
         methode:"POST",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify(newGeotag),
@@ -69,7 +66,7 @@ async function postAdd(newGeotag){
 
 //Fetch fuer discovery
 async function getTagList(searchTerm){
-    let geoTags = await fetch("http://localhost:3000/geotags" + searchTerm, {
+    let geoTags = await fetch("http://localhost:3000/api/geotags" + searchTerm, {
         method: "GET",
         headers: {"Content-Type": "application/json"},
     });
@@ -84,20 +81,14 @@ async function getTagList(searchTerm){
 /*Event Listener TaggingButton*/
 document.getElementById("tagging_button").addEventListener("submit", function (event){
         event.preventDefault();
-
-        let Latitude = document.getElementById("latitude").getAttribute("value");
-        let logitude = document.getElementById("longitude").getAttribute("value");
-        let name =  document.getElementById("name").getAttribute("value");
-        let hash = document.getElementById("Hashtag").getAttribute("value");//Todo: id Fragezeichen
         let newgeoTag = {
-            name: name,
-            latitude: Latitude,
-            longitude: logitude,
-            hashtag: hash
+            name: document.getElementById("name").getAttribute("value"),
+            latitude: document.getElementById("latitude").getAttribute("value"),
+            longitude: document.getElementById("longitude").getAttribute("value"),
+            hashtag: document.getElementById("Hashtag").getAttribute("value")
+            //Todo: id Fragezeichen
         }
-
-
-        postAdd(newgeoTag).then(updateList).then(getUpdateMap).then(response => response.json()).catch(error => console.error("Fehler"));
+        postAdd(newgeoTag).then(getUpdateMap).then(updateList).then(response => response.json()).catch(error => console.error("Fehler"));
     });
 
 /*Event Listener DiscoveryButton*/
