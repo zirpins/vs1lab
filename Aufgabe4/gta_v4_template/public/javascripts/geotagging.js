@@ -71,16 +71,24 @@ async function getTagList(searchTerm){
         headers: {"Content-Type": "application/json"},
     });
 
-    let latitude = geoTag.location.latitude;
-    let longitude = geoTag.location.longitude;
+    geoTags = await geoTags.json();
+    geoTags = JSON.parse(geoTags);
+
+    let latitude = geoTags.location.latitude;
+    let longitude = geoTags.location.longitude;
     //Aufruf der Route mit allen Paramtern
-    geoTags = await fetch("http://localhost:3000/api/geotags?latitude=" + latitude + "&longitude=" + longitude + "&searchterm=" + searchTerm);
-    return await geoTags.json();
+    let response = await fetch("http://localhost:3000/api/geotags?latitude=" + latitude + "&longitude=" + longitude + "&searchterm=" + searchTerm);
+    return await response.json();
 }
 
 /*Event Listener TaggingButton*/
 document.getElementById("tagging_button").addEventListener("submit", function (event){
         event.preventDefault();
+
+        let Latitude = document.getElementById("latitude").getAttribute("value");
+        let logitude = document.getElementById("longitude").getAttribute("value");
+        let name =  document.getElementById("name").getAttribute("value");
+        let hash = document.getElementById("Hashtag").getAttribute("value");//Todo: id Fragezeichen
         let newgeoTag = {
             name: document.getElementById("name").getAttribute("value"),
             latitude: document.getElementById("latitude").getAttribute("value"),
