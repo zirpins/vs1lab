@@ -1,0 +1,39 @@
+###
+GET http://localhost:3000/api/geotags
+
+###
+POST http://localhost:3000/api/geotags
+Content-Type: application/json
+
+{
+  "name": "HalloWorld",
+  "Lat": "87.204",
+  "Long": "56.209",
+  "hashtag": "#Man"
+}
+
+
+###
+POST http://localhost:3000/api/geotags
+Content-Type: application/json
+
+{
+  "name": "Foo",
+  "Lat": "67.204",
+  "Long": "75.209",
+  "hashtag": "#Foo"
+}
+
+
+###
+GET http://localhost:3000/api/geotags
+
+
+###
+GET http://localhost:3000/api/geotags/:1
+
+###
+
+DELETE http://localhost:3000/api/geotags/
+
+
