@@ -36,8 +36,6 @@ class InMemoryGeoTagStore{
          })
      }
 
-     //getNearby stattdessen verwenden!!!
-     //get Funktionen brauchen keine Klammern!!!
      get geotags(){
          return this.#geotags;
      }
@@ -86,7 +84,7 @@ class InMemoryGeoTagStore{
     /*Ein Element wird nur gesucht und kann direkt ausgegeben werden */
     searchGeotagByID(id) {
          let temp = [];
-         for(let i = 0; i< this.geotags.length;i++) {
+         for(let i = 0; i < this.geotags.length;i++) {
              if(this.#geotags[i].id === id)
                  temp.push(this.#geotags[i]);
          }

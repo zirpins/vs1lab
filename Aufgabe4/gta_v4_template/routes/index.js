@@ -100,17 +100,12 @@ router.get('/api/geotags', (req, res) => {
     }
     let taglist;
 
-
-    if (searchterm !== undefined && (lat !== undefined && long !== undefined)) {
+    if (searchterm !== undefined && (disLat !== undefined && disLong !== undefined)) {
         taglist = tagStore.searchNearbyGeoTags(lat, long, searchterm, 10);
 
-    }else if (lat !== undefined && long !== undefined) {                                   /*Von Oder zu && geändert*/
-
-        taglist = tagStore.getNearbyGeoTags(lat, long, 10);
+    }else if (disLat !== undefined && disLong !== undefined) {                                   /*Von Oder zu && geändert*/
+        taglist = tagStore.getNearbyGeoTags(disLat, disLong, 10);
     }
-
-
-
     res.status(200).json(JSON.stringify(taglist));
 });
 
@@ -128,8 +123,8 @@ router.get('/api/geotags', (req, res) => {
 // TODO:Aus meiner Sicht fertig, bitte überprüfen (P.)
 router.post('/api/geotags', (req, res) => {
     let name = req.body.name;
-    let lat = req.body.Lat;
-    let long = req.body.Long;
+    let lat = req.body.lat;//Stimmen die Bezeichner???
+    let long = req.body.long;
     let hashtag = req.body.hashtag;
     tagStore.addGeoTag(name, lat, long, hashtag);
     res.append("URL", "api/geotags/" + name);
@@ -145,11 +140,12 @@ router.post('/api/geotags', (req, res) => {
  *
  * The requested tag is rendered as JSON in the response.
  */
-router.get("/api/geotags/:id", (req, res) => {
+router.get("/api/geotags/:id", (req, res) => {//TODO: Funktioniert nicht!!!
 
     // TODO:Aus meiner Sicht fertig, bitte überprüfen (P.)
     let id = req.params.id;
-    let foundGeotag = tagStore.searchGeotagByID(id);
+    let foundGeotag = tagStore.searchGeotagByID(id);//SearchGeoTagByID funktioneriert nicht!!!
+    console.log(foundGeotag);
     res.status(200).json(JSON.stringify(foundGeotag));
 });
 
@@ -174,7 +170,7 @@ router.put("/api/geotags/:id", (req, res) => {
     let long = req.query.Long;
     let name = req.query.Name;
     let hash = req.query.Hashtag;
-    newGeotag = GeoTag(lat, long, name, hash)
+    newGeotag = GeoTag(lat, long, name, hash);
     tagStore.putGeotag(newGeotag, id);
     res.status(202).json(JSON.stringify(tagStore.geotags));
 });
