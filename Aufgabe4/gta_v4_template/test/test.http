@@ -4,8 +4,8 @@ POST http://localhost:3000/api/geotags
 Content-Type: application/json
 
 {
-  "lat": "87.204",
-  "long": "56.209",
+  "lat": 87.204,
+  "long": 56.209,
   "name": "HalloWorld",
   "hashtag": "#Man"
 }
@@ -19,18 +19,73 @@ POST http://localhost:3000/api/geotags
 Content-Type: application/json
 
 {
-  "lat": "67.204",
-  "long": "75.209",
+  "lat": 67.204,
+  "long": 75.209,
   "name": "Foo",
   "hashtag": "#Foo"
 }
 
 ###
-GET http://localhost:3000/api/geotags?latitudeDiscovery="67.204"&longitudeDiscovery="75.209"
+POST http://localhost:3000/api/geotags
+Content-Type: application/json
+
+{
+  "lat": 67.204,
+  "long": 75.209,
+  "name": "Foo",
+  "hashtag": "#Foo"
+}
+
+###
+POST http://localhost:3000/api/geotags
+Content-Type: application/json
+
+{
+  "lat": 67.204,
+  "long": 75.209,
+  "name": "Foo",
+  "hashtag": "#Foo"
+}
+
+###
+POST http://localhost:3000/api/geotags
+Content-Type: application/json
+
+{
+  "lat": 67.204,
+  "long": 75.209,
+  "name": "Foo",
+  "hashtag": "#Foo"
+}
+
+###
+GET http://localhost:3000/api/geotags
+
+###
+GET http://localhost:3000/api/geotags?latitudeDiscovery=67.20&longitudeDiscovery=75.29
 
 
 ###
-GET http://localhost:3000/api/geotags/1
+GET http://localhost:3000/api/geotags/2
 
+###
+DELETE http://localhost:3000/api/geotags/1
+
+###
+GET  http://localhost:3000/api/geotags
+
+###
+PUT http://localhost:3000/api/geotags/3
+Content-Type: application/json
+
+{
+  "lat": 447.204,
+  "long": 755.209,
+  "name": "Joahnnes",
+  "hash": "#ohanss"
+}
+
+###
+GET http://localhost:3000/api/geotags/3
 
 

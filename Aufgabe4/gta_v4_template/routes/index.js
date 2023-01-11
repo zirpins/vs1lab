@@ -91,22 +91,16 @@ router.post('/discovery', (req, res) => {
 
 // TODO:Aus meiner Sicht fertig, bitte überprüfen (P.)
 router.get('/api/geotags', (req, res) => {
-    let disLat = req.query.latitudeDiscovery;
-    let disLong = req.query.longitudeDiscovery;
+    let disLat = parseFloat(req.query.latitudeDiscovery);
+    let disLong = parseFloat(req.query.longitudeDiscovery);
     let searchterm = req.query.searchDiscovery;
-    console.log("disLat: ",disLat, "disLot ", disLong, )
-
-    let taglist = [];//leere Liste
-
-
+    let taglist = [];
 
     if (searchterm !== undefined && (disLat !== undefined && disLong !== undefined)) {
-        taglist = tagStore.searchNearbyGeoTags(disLat, disLong, searchterm, 4000000);
+        taglist = tagStore.searchNearbyGeoTags(disLat, disLong, searchterm, 20);
 
     }else if (disLat !== undefined && disLong !== undefined) {/*Von Oder zu && geändert*/
-        taglist = tagStore.getNearbyGeoTags(disLat, disLong, 4000000);
-        console.log("console.log(taglist)");
-        console.log(taglist);
+        taglist = tagStore.getNearbyGeoTags(disLat, disLong, 20);
     }
     res.status(200).json(JSON.stringify(taglist));
 });
@@ -128,8 +122,6 @@ router.post('/api/geotags', (req, res) => {
     let lat = req.body.lat;//Stimmen die Bezeichner???
     let long = req.body.long;
     let hashtag = req.body.hashtag;
-    console.log("Lat: ", lat);
-    console.log("Long: ", long);
     tagStore.addGeoTag(lat, long, name, hashtag);
     res.append("URL", "api/geotags/" + name);
     res.status(201).json(JSON.stringify(tagStore.geotags));
@@ -144,13 +136,11 @@ router.post('/api/geotags', (req, res) => {
  *
  * The requested tag is rendered as JSON in the response.
  */
-router.get("/api/geotags/:id", (req, res) => {//TODO: Funktioniert nicht!!!
-    console.log("GEt ID");
-    // TODO:Aus meiner Sicht fertig, bitte überprüfen (P.)
+router.get("/api/geotags/:id", (req, res) => {
+
+
     let id = req.params.id;
-    console.log("id", id);
     let foundGeotag = tagStore.searchGeotagByID(id);//SearchGeoTagByID funktioneriert nicht!!!
-    console.log(foundGeotag);
     res.status(200).json(JSON.stringify(foundGeotag));
 });
 
@@ -170,12 +160,13 @@ router.get("/api/geotags/:id", (req, res) => {//TODO: Funktioniert nicht!!!
  */
 router.put("/api/geotags/:id", (req, res) => {
     // TODO:Aus meiner Sicht fertig, bitte überprüfen (P.)
-    let id = req.body.id;
+    let id = req.params.id;
+
     let lat = req.body.lat;
     let long = req.body.long;
     let name = req.body.name;
     let hash = req.body.hash;
-    newGeotag = GeoTag(lat, long, name, hash);
+    newGeotag = new GeoTag(lat, long, name, hash, id);
     tagStore.putGeotag(newGeotag, id);
     res.status(202).json(JSON.stringify(tagStore.geotags));
 });
@@ -193,13 +184,13 @@ router.put("/api/geotags/:id", (req, res) => {
  */
 
 router.delete("/api/geotags/:id", (req, res) => {
-    // TODO:Aus meiner Sicht fertig, bitte überprüfen (P.)
+
     let id = req.params.id;
     let foundGeotag = tagStore.searchGeotagByID(id);
     if (foundGeotag === undefined || tagStore.geotags === undefined)
         res.status(400);
     else {
-        tagStore.removeGeoTag(foundGeotag[0].name);
+        tagStore.removeGeoTag(foundGeotag.name);
         res.status(203).json(JSON.stringify(tagStore));
     }
 });
