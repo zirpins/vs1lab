@@ -36,6 +36,8 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    background: lightyellow;
+    counter-reset: countTags;
 }
 
 a {
@@ -56,6 +58,22 @@ input:hover{
 
 input:active{
     color: mediumvioletred;
+}
+
+li:nth-of-type(2n){
+    background: blue;
+    color: white;
+}
+
+
+li:nth-of-type(2n+1){
+    background: white;
+    color: blue;
+}
+
+li::before{
+    counter-increment: countTags;
+    content: counter(countTags) ". Tag";
 }
 
 input[type="submit"]{

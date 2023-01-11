@@ -43,6 +43,7 @@ class InMemoryGeoTagStore{
 
     addGeoTag(lat, long, name, hash){
         this.#geotags.push(new GeoTag(lat, long, name, hash, this.#count));
+        console.log("Neues GeoTAg: ", this.#geotags);
         this.#count++;
     }
 
@@ -56,16 +57,29 @@ class InMemoryGeoTagStore{
 
     getNearbyGeoTags(lat, long, radius){
          let temp = [];
-         for(let i = 0; i < this.#geotags.length - 1; i++) {
-             let difference = this.#calculateDifference(this.#geotags[i].latitude, lat, this.#geotags[i].longitude, long);
-             if(difference <= radius)
+         for(let i = 0; i < this.#geotags.length; i++) {
+             let difference =  this.#calculateDifference(this.#geotags[i].latitude, lat, this.#geotags[i].longitude, long);
+             console.log("Radius:", radius);
+             console.log("Difference:", difference);
+
+             if(difference <= radius){
                  temp.push(this.#geotags[i]);
+             }
          }
          return temp;
     }
     #calculateDifference(lat1, lat2, long1, long2){
+        lat1 = parseFloat(lat1);
+        lat2 = parseFloat(lat2);
+        long1 = parseFloat(long1);
+        long2 = parseFloat(long2);
+
+        console.log("lat1", lat1);
+        console.log("lat2", lat2);
         const difflat = Math.pow(lat1 - lat2, 2);
         const difflong = Math.pow(long1- long2, 2);
+        console.log("difflat", difflat);
+        console.log("difflong", difflong);
        return  Math.sqrt((difflat + difflong));
 
 
@@ -74,7 +88,8 @@ class InMemoryGeoTagStore{
         let temp = [];
         for(let i = 0; i < this.#geotags.length; i++) {
             let difference = this.#calculateDifference(this.#geotags[i].latitude, lat, this.#geotags[i].longitude, long);
-            if(difference <= radius && (this.#geotags[i].name === searchterm || this.#geotags[i].hashtag === searchterm)) {
+            console.log("difference: ", difference);
+            if(difference <= radius && (this.#geotags[i].name == searchterm || this.#geotags[i].hashtag == searchterm)) {
                 temp.push(this.#geotags[i]);
             }
         }
@@ -85,8 +100,12 @@ class InMemoryGeoTagStore{
     searchGeotagByID(id) {
          let temp = [];
          for(let i = 0; i < this.geotags.length;i++) {
-             if(this.#geotags[i].id === id)
+             console.log(this.#geotags[i].id);
+             if(this.#geotags[i].id == id){
+                 console.log("Gefunden", id);
+                 console.log(this.#geotags[id]);
                  temp.push(this.#geotags[i]);
+             }
          }
          return temp;
     }
