@@ -56,7 +56,7 @@ router.post('/tagging', (req, res) => {
     let hash = req.body.Hashtag;
     tagStore.addGeoTag(lat, long, name, hash);
     let tempTagList = tagStore.getNearbyGeoTags(lat, long, 500);
-    tempTagList.push(new GeoTag(lat, long, name, hash));
+
 
     res.render('index', {
         taglist: tempTagList, ejs_latitude: lat, ejs_longitude: long,
