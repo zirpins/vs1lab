@@ -79,8 +79,8 @@ PUT http://localhost:3000/api/geotags/4
 Content-Type: application/json
 
 {
-  "lat": 447.204,
-  "long": 755.209,
+  "lat": 40.204,
+  "long": 40.209,
   "name": "Joahnnes",
   "hash": "#ohanss"
 }

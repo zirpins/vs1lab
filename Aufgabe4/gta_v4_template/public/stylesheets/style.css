@@ -73,7 +73,7 @@ li:nth-of-type(2n+1){
 
 li::before{
     counter-increment: countTags;
-    content: counter(countTags) ". Tag";
+    content: counter(countTags) ". Tag ";
 }
 
 input[type="submit"]{
