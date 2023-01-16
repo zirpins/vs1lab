@@ -4,12 +4,6 @@
 
 // This script is executed when the browser loads index.html.
 
-// "console.log" writes to the browser's console. 
-// The console window must be opened explicitly in the browser.
-// Try to find this output in the browser...
-
-console.log("The geoTagging script is going to start...");
-
 function updateMap(lat, long) {
     let nearTaglist = JSON.parse(document.getElementById("mapView").getAttribute("data-tags"));
     let mapManager = new MapManager("Gw7bY1FFm0uj813p5gaSZroP4lGKROBs");
@@ -54,17 +48,14 @@ function updateLocation() {
 
 //Fetch fuer discovery
 async function getTagList(searchTerm){
-    let lat =document.getElementById("latitudeZahl").getAttribute("value");
+    let lat = document.getElementById("latitudeZahl").getAttribute("value");
     let long = document.getElementById("longitudeZahl").getAttribute("value");
     let geoTags = await fetch("http://localhost:3000/api/geotags?lat=" + lat +"&long=" + long + "&search=" + searchTerm);
-//TODO: Discovery funk. nicht ganz
     //keine Ahnung was da nicht geht
-    console.log(geoTags);
     return await geoTags.body;
 }
 
 async function postAdd(newGeotag){
-    console.log(newGeotag);
     let response = await fetch("http://localhost:3000/api/geotags", {
         method: "POST",
         headers: {"Content-Type": "application/json"},
@@ -85,7 +76,6 @@ function updateList(geoliste) {
     ul.innerHTML = "";
     // loop through the list of geotag elements and create a list entry for each
     list.forEach(function (gtag){
-        console.log(gtag);
         let li = document.createElement("li");
         li.innerHTML = gtag.name + "</br> (" + lat + "," + long + ") </br>" + gtag.hashtag;
         li.classList.add("listElement");
@@ -104,7 +94,6 @@ document.addEventListener("DOMContentLoaded", function () {
             longitude: parseFloat(document.getElementById("longitude").value),
             hashtag: document.getElementById("Hashtag").value
         }
-        console.log(newgeoTag.latitude + newgeoTag.longitude + newgeoTag.name + newgeoTag.hashtag);
         postAdd(newgeoTag).then(getUpdateMap).then(updateList).catch(error => console.error(error));
         event.preventDefault();
     });
