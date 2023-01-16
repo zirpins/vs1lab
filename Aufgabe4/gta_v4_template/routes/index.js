@@ -89,11 +89,12 @@ router.post('/discovery', (req, res) => {
  * If 'latitude' and 'longitude' are available, it will be further filtered based on radius.
  */
 
-// TODO:Aus meiner Sicht fertig, bitte überprüfen (P.)
 router.get('/api/geotags', (req, res) => {
     let disLat = parseFloat(req.query.latitudeDiscovery);
     let disLong = parseFloat(req.query.longitudeDiscovery);
     let searchterm = req.query.searchDiscovery;
+    console.log(disLat);
+    console.log(searchterm);
     let taglist = [];
 
     if (searchterm !== undefined && (disLat !== undefined && disLong !== undefined)) {

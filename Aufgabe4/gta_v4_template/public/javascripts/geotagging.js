@@ -54,10 +54,9 @@ function updateLocation() {
 
 //Fetch fuer discovery
 async function getTagList(searchTerm){
-    let geoTags = await fetch("http://localhost:3000/api/geotags" + searchTerm, {
-        method: "GET",
-        headers: {"Content-Type": "application/json"},
-    });
+    let lat =document.getElementById("latitudeZahl").getAttribute("value");
+    let long = document.getElementById("longitudeZahl").getAttribute("value");
+    let geoTags = await fetch("http://localhost:3000/api/geotags:?lat=" + lat +"&long=" + long + "&search=" + searchTerm);
 //TODO: Discovery funk. nicht ganz
     //keine Ahnung was da nicht geht
     return await geoTags.json();
