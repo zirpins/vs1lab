@@ -55,7 +55,7 @@ class InMemoryGeoTagStore{
 
     getNearbyGeoTags(lat, long, radius){
          let temp = [];
-         for(let i = 0; i < this.#geotags.length - 1; i++) {
+         for(let i = 0; i < this.#geotags.length; i++) {
              let difference = this.#calculateDifference(this.#geotags[i].latitude, lat, this.#geotags[i].longitude, long);
              if(difference <= radius)
                  temp.push(this.#geotags[i]);

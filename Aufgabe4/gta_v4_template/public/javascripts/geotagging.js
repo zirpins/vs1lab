@@ -56,10 +56,11 @@ function updateLocation() {
 async function getTagList(searchTerm){
     let lat =document.getElementById("latitudeZahl").getAttribute("value");
     let long = document.getElementById("longitudeZahl").getAttribute("value");
-    let geoTags = await fetch("http://localhost:3000/api/geotags:?lat=" + lat +"&long=" + long + "&search=" + searchTerm);
+    let geoTags = await fetch("http://localhost:3000/api/geotags?lat=" + lat +"&long=" + long + "&search=" + searchTerm);
 //TODO: Discovery funk. nicht ganz
     //keine Ahnung was da nicht geht
-    return await geoTags.json();
+    console.log(geoTags);
+    return await geoTags.body;
 }
 
 async function postAdd(newGeotag){
@@ -97,16 +98,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
     /*Event Listener TaggingButton*/
     document.getElementById("tag-form").addEventListener("submit", async function (event) {
-        console.log("Post anfang");
         let newgeoTag = {
             name: document.getElementById("name").value,
-            latitude: document.getElementById("latitude").value,
-            longitude: document.getElementById("longitude").value,
-            hashtag: document.getElementById("Hashtag").value,
+            latitude: parseFloat(this.getElementById("latitude").value),
+            longitude: parseFloat(document.getElementById("longitude").value),
+            hashtag: document.getElementById("Hashtag").value
         }
         console.log(newgeoTag.latitude + newgeoTag.longitude + newgeoTag.name + newgeoTag.hashtag);
         postAdd(newgeoTag).then(getUpdateMap).then(updateList).catch(error => console.error(error));
-        console.log("Post richtig");
         event.preventDefault();
     });
 
