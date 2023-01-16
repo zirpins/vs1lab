@@ -28,7 +28,7 @@ const GeoTag = require('../models/geotag');
 const GeoTagStore = require('../models/geotag-store');
 
 var tagStore = new GeoTagStore();
-//tagStore.fillExamples();
+tagStore.fillExamples();
 // App routes (A3)
 
 /**
@@ -102,6 +102,7 @@ router.get('/api/geotags', (req, res) => {
         taglist = tagStore.getNearbyGeoTags(disLat, disLong, 100);
     }
     console.log(taglist);
+    res.append("URL", "api/geotags/");
     res.status(200).json(JSON.stringify(taglist));
 });
 
@@ -116,7 +117,6 @@ router.get('/api/geotags', (req, res) => {
  * The new resource is rendered as JSON in the response.
  */
 
-// TODO:Aus meiner Sicht fertig, bitte überprüfen (P.)
 router.post('/api/geotags', (req, res) => {
     let name = req.body.name;
     let lat = req.body.lat;//Stimmen die Bezeichner???
@@ -159,7 +159,6 @@ router.get("/api/geotags/:id", (req, res) => {
  * The updated resource is rendered as JSON in the response.
  */
 router.put("/api/geotags/:id", (req, res) => {
-    // TODO:Aus meiner Sicht fertig, bitte überprüfen (P.)
     let id = req.params.id;
 
     let lat = req.body.lat;
