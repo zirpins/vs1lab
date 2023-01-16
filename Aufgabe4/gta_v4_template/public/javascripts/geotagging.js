@@ -52,7 +52,7 @@ async function getTagList(searchTerm){
     let long = document.getElementById("longitudeZahl").getAttribute("value");
     let geoTags = await fetch("http://localhost:3000/api/geotags?lat=" + lat +"&long=" + long + "&search=" + searchTerm);
     //keine Ahnung was da nicht geht
-    return await geoTags.body;
+    return await geoTags.json();
 }
 
 async function postAdd(newGeotag){
