@@ -18,7 +18,7 @@ Auf einem Entwicklungsrechner brauchen sie zur Lösung der Aufgaben verschiedene
 
 - Eine **[Java Script IDE](https://en.wikipedia.org/wiki/Comparison_of_integrated_development_environments#JavaScript)** oder ein **[Code Editor](https://en.wikipedia.org/wiki/Source_code_editor)** (z.B. [Visual Studio Code](https://code.visualstudio.com), [WebStorm](https://www.jetbrains.com/webstorm/), [Atom](https://atom.io) etc.).
   - Wir empfehlen aktuell [Visual Studio Code](https://code.visualstudio.com)
-    - Microsoft beschreibt Grundlagen zu [JavaScrip in VS Code](https://code.visualstudio.com/docs/languages/javascript)
+    - Microsoft beschreibt Grundlagen zu [JavaScript in VS Code](https://code.visualstudio.com/docs/languages/javascript)
     - Die Erweiterung [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) ist sehr nützlich zur Entwicklung von HTML, CSS und clientseitigem JavaScript  
     - Für die Server-Entwicklung mit Node.js in VS Code empfehlen wir die Erweiterung [Remote Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
 - Ein **[Web Browser](https://en.wikipedia.org/wiki/Source_code_editor)** (nach Belieben [Chrome](https://en.wikipedia.org/wiki/Google_Chrome), [Firefox](https://en.wikipedia.org/wiki/Firefox), [Safari](https://en.wikipedia.org/wiki/Safari_(web_browser)), [Edge](https://en.wikipedia.org/wiki/Microsoft_Edge) etc.)
