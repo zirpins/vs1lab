@@ -1,11 +1,11 @@
 HALLo ICh bin cool
 
-
+aweawe
 # 1. Aufgabe - Web App strukturieren und gestalten
 
 In der ersten Aufgabe soll die **Web-Oberfläche** der GT-App entstehen. Dazu gehört ein **HTML-Dokument** zur Strukturierung der Inhalte und ein **CSS-Stylesheet** für Layout und Gestaltung.
 
-Die Aufgabe vertieft den Umgang mit **HTML** und besonders mit **HTML-Formularen** und zeigt deren Zusammenhang mit **CSS3** durch verschiedene **Selektoren** sowie die Funktionsweise von **Flexbox**.
+Die Aufgabe vertieft den Umgang mit **HTML** und besonders mit **HTML-Formularen** und zeigt deren Zusammenhang mit **CSS3** durch verschiedene **Selektoren** sowie die Funktionsweise von **Flexbox**
 
 ## Vorbereitung
 
