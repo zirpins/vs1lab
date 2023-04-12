@@ -14,7 +14,7 @@ Für die Aufgabe existieren schon Templates auf
 Laden sie das ganze Repository von GitHub herunter. Wir zeigen hier durchgängig eine mögliche Methode zur Arbeit mit Git (Beispiel für Linux/Mac):
 
 ```bash
-mkdir ~/git # lege Verzeichnis git im Honeverzeichnis an
+mkdir ~/git # lege Verzeichnis git im Homeverzeichnis an
 cd ~/git # wechsle in das neue Verzeichnis
 git clone https://github.com/zirpins/vs1lab.git # git befehl zum Herunterladen des Repo
 ```
