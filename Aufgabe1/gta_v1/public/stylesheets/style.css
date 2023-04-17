@@ -20,6 +20,29 @@ html {
   box-sizing: inherit;
 }
 
+input {
+  border: #cdcdcd 1px solid;
+  border-radius: 5px;
+}
+
+input[type=text]:enabled{
+  border: #666 1px solid;
+}
+
+legend {
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+label {
+  font-weight: 600;
+  color: #666;
+}
+
+fieldset {
+  border-radius: 5px;
+}
+
 
 /* Variables (example: see declaration for "a" below) */
 
@@ -29,7 +52,6 @@ html {
   --border-color: #cdcdcd;
   --gray-color: #666;
 }
-
 
 /* HTML element styles */
 
@@ -46,8 +68,9 @@ a {
 
 /* ### TODO ### Styles for other HTML elements */
 
-/* ... your code here ... */
-
+form fieldset {
+  margin-top: 12px;
+}
 
 /* Grid styles (no changes required) */
 
@@ -106,32 +129,154 @@ a {
   width: calc(100% - 1rem);
 }
 
-
 /* ### TODO ### Styles for Header Component */
 
-/* ... your code here ... */
+.header {
+  background-color: #e9e9e9;
+  height: 120px;
+  display: flex;  
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 30px;  
+  align-items: center;
+}
 
+.header__image{
+  height: 40px;
+}
+
+.header__title {
+  text-align: center;
+}
+
+.header__navigation{
+  text-align: right;
+}
 
 /* ### TODO ### Styles for Main Component */
 
-/* ... your code here ... */
-
+.main {
+  width: 93%;
+  margin-left: 3.5%;
+  margin-top: 3.5%;
+}
 
 /* ### TODO ### Styles for Tagging component */
 
-/* ... your code here ... */
+#tag-form fieldset{
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
 
+#tag-form fieldset input:not(#addTag) {
+  height: 35px;
+  padding-left: 8px;
+}
+
+#addTag {
+  height: 35px;
+}
+
+#tag-form fieldset input {
+  margin-bottom: 15px;
+  margin-top: 3px;
+}
+
+#tag-form fieldset input:disabled {
+  background-color: #f1f1f1;
+}
 
 /* ### TODO ### Styles for Discovery component */
 
-/* ... your code here ... */
+.discovery__search fieldset{
+  padding: 20px;
+}
 
+.discovery__search fieldset input{
+  margin-top: 3px;
+  display: block;
+  height: 35px;
+}
+
+#searchField {
+  padding-left: 8px;
+}
+
+#searchSubmit{
+  margin-top: 20px;
+}
+
+.discovery img{
+  margin-top: 20px;
+}
+
+/* Tags*/
+
+.discovery__taglist ul{
+  list-style-type: none;
+}
+
+.discovery__taglist ul li{
+  border-radius: 5px;
+  margin-top: 20px;
+  padding-left: 9px;
+  height: 50px;
+  line-height: 50px;
+  background-color: #f1f1f1;
+  border: #cdcdcd 1px solid;
+  color: #00B7FF;
+}
+
+.discovery__map span{
+  display: block;
+}
 
 /* ### TODO ### Styles for Footer Component */
 
-/* ... your code here ... */
+.footer {
+  height: 100px;
+  background-color: #e9e9e9;
+  margin-top: 30px;
+}
 
+.footer span {
+  line-height: 100px;
+  margin-left: 50px;
+  font-weight: bold;
+}
 
 /* ### TODO ### Media Queries */
 
-/* ... your code here ... */
+@media (max-width: 800px){
+  .main {
+    display: block;
+  }
+
+  .discovery{
+    margin-top: 20px;
+    display: block;
+    width: 100%;
+  }
+
+  .tagging {
+    margin-top: 5px;
+    width: 100%;
+  }
+
+  #searchField {
+    width: 100%;
+  }
+
+  #searchSubmit {
+    width: 100%;
+  }
+
+  .discovery__taglist {
+    width: 100%;
+  }
+
+  #mapView {
+    width: 100%;
+  }
+}
