@@ -36,17 +36,44 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    background: lightyellow;
+    counter-reset: countTags;
 }
 
 a {
     color: var(--link-color);
 }
 
-/* ### TODO ### Styles for other HTML elements */
+
 /* ... your code here ... */
 
 form > *{
     display: block;
+}
+
+input:hover{
+    background: honeydew;
+    color: chartreuse;
+}
+
+input:active{
+    color: mediumvioletred;
+}
+
+li:nth-of-type(2n){
+    background: blue;
+    color: white;
+}
+
+
+li:nth-of-type(2n+1){
+    background: white;
+    color: blue;
+}
+
+li::before{
+    counter-increment: countTags;
+    content: counter(countTags) ". Tag ";
 }
 
 input[type="submit"]{
@@ -122,7 +149,8 @@ input[type = "text"]{
     width: calc(100% - 1rem);
 }
 
-/* ### TODO ### Styles for Header Component */
+
+
 header {
     display: flex;
     padding: 3% 5% 2%;
@@ -133,7 +161,6 @@ header {
 
 .header__title {
     margin: auto;
-    
     text-align: center;
 }
 
@@ -151,7 +178,7 @@ header {
     margin: auto;
 }
 
-/* ### TODO ### Styles for Main Component */
+
 
 
 .main {
@@ -160,7 +187,7 @@ header {
     max-width: 1200px;
 }
 
-/* ### TODO ### Styles for Tagging component */
+
 
 .main section{
     margin: 10px;
@@ -170,7 +197,7 @@ header {
     width: calc(100% - 1rem);
 }
 
-.main__tagging {
+.taggingclass input{
     display: block;
 }
 
@@ -186,13 +213,20 @@ legend {
     text-align: left;
 }
 
-/* ### TODO ### Styles for Discovery component */
 
-.main__discovery {
-    width: 100%;
+
+.discovery2 {
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.discovery__fieldset input {
+    display: block;
 }
 
 .discovery__wrapper {
+    justify-content: normal;
     margin: 10px;
 }
 
@@ -214,12 +248,14 @@ li {
 }
 
 .discovery__map {
-    margin-top: 1rem;
     display: block;
-   float: right;
-	margin-right:-3.5rem;
-  
-   
+    margin-top: 1rem;
+    float: right;
+    margin-right:-3.5rem;
+}
+#mapView {
+    display: block;
+    width: 100%;
 }
 
 footer {
@@ -235,44 +271,12 @@ footer {
     padding-left: 3%;
 }
 
-/* ### TODO ### Media Queries */
-
-/* ... your code here ... */
 @media (max-width: 850px){
-    /*
-    .row{
+    .row {
         flex-direction: column;
     }
 
-     */
-
-    .main{
-        flex-direction: column;
+    [class*="col-"], input {
+        width: 100%;
     }
-
-    .main__tagging{
-        width: calc(100% - 1rem);
-    }
-    #tag-form *{
-        display: block;
-    }
-
-    .main__discovery *{
-        width: calc(100% - 1rem);
-    }
-
-    .discovery__search > * {
-        width: calc(100% - 1rem);
-        display: block;
-    }
-
-    .discovery__wrapper{
-        flex-direction: column;
-    }
-
-    .discovery__wrapper > * {
-        width: calc(100% - 1rem);
-    }
-
-
 }

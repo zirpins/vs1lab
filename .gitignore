@@ -1,9 +1,10 @@
 
 # Created by https://www.toptal.com/developers/gitignore/api/visualstudiocode,macos,linux,windows,node,webstorm
 # Edit at https://www.toptal.com/developers/gitignore?templates=visualstudiocode,macos,linux,windows,node,webstorm
-
+*.bak
 ### Linux ###
 *~
+
 
 # temporary files which can be created if a process still has a handle open of a deleted file
 .fuse_hidden*

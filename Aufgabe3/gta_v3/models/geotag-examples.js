@@ -1,5 +1,5 @@
 // File origin: VS1LAB A3
-
+const Geotag = require("./geotag");
 /**
  * This script is a template for exercise VS1lab/Aufgabe3
  * Complete all TODOs in the code documentation.
@@ -8,7 +8,7 @@
 /**
  * A class representing example geoTags at HKA
  * 
- * TODO: populate your InMemoryGeoTagStore with these tags
+ *
  * 
  */
 class GeoTagExamples {
@@ -30,6 +30,9 @@ class GeoTagExamples {
             ['Building K', 49.013190, 8.392090, '#campus'],
         ];
     }
+
+
 }
 
 module.exports = GeoTagExamples;
+

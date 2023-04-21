@@ -5,6 +5,8 @@
  * Complete all TODOs in the code documentation.
  */
 
+const GeoTag = require("./geotag");
+const GeoTagExamples = require("./geotag-examples");
 /**
  * A class for in-memory-storage of geotags
  * 
@@ -24,8 +26,59 @@
  * - Keyword matching should include partial matches from name or hashtag fields. 
  */
 class InMemoryGeoTagStore{
+     #geotags = [];
 
-    // TODO: ... your code here ...
+     fillExamples(){
+         GeoTagExamples.tagList.forEach(tag => {
+             this.addGeoTag(tag[1], tag[2], tag[0], tag[3]);
+         })
+     }
+
+     //getNearby stattdessen verwenden!!!
+     //get Funktionen brauchen keine Klammern!!!
+     get geotags(){
+         return this.#geotags;
+     }
+
+
+    addGeoTag(lat, long, name, hash){
+        this.#geotags.push(new GeoTag(lat, long, name, hash));
+    }
+
+    removeGeoTag(name){
+       for(let x = 0; x < this.#geotags.length - 1; x++){
+           if(name === this.#geotags[x].name){
+               this.#geotags.splice(x,1);
+           }
+       }
+    }
+
+    getNearbyGeoTags(lat, long, radius){
+         let temp = [];
+         for(let i = 0; i < this.#geotags.length; i++) {
+             let difference = this.#calculateDifference(this.#geotags[i].latitude, lat, this.#geotags[i].longitude, long);
+             if(difference <= radius)
+                 temp.push(this.#geotags[i]);
+         }
+         return temp;
+    }
+    #calculateDifference(lat1, lat2, long1, long2){
+        const difflat = Math.pow(lat1 - lat2, 2);
+        const difflong = Math.pow(long1- long2, 2);
+       return  Math.sqrt((difflat + difflong));
+
+
+    }
+    searchNearbyGeoTags(lat, long, searchterm, radius){
+        let temp = [];
+        for(let i = 0; i < this.#geotags.length; i++) {
+            let difference = this.#calculateDifference(this.#geotags[i].latitude, lat, this.#geotags[i].longitude, long);
+            if(difference <= radius && (this.#geotags[i].name === searchterm || this.#geotags[i].hashtag === searchterm)) {
+                temp.push(this.#geotags[i]);
+            }
+        }
+        return temp;
+    }
 
 }
 

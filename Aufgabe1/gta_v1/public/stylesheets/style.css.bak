@@ -217,7 +217,7 @@ li {
     margin-top: 1rem;
     display: block;
    float: right;
-	margin-right:-3.5rem;
+	margin-inline:inherit;
   
    
 }
@@ -239,13 +239,6 @@ footer {
 
 /* ... your code here ... */
 @media (max-width: 850px){
-    /*
-    .row{
-        flex-direction: column;
-    }
-
-     */
-
     .main{
         flex-direction: column;
     }
@@ -273,6 +266,4 @@ footer {
     .discovery__wrapper > * {
         width: calc(100% - 1rem);
     }
-
-
 }
