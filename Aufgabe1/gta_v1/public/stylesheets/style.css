@@ -109,29 +109,136 @@ a {
 
 /* ### TODO ### Styles for Header Component */
 
-/* ... your code here ... */
+.header {
+  /*max-height: 5rem;*/
+  display: flex;
+  justify-content: space-between;
+  background: var(--background-color);
+  border-bottom: var(--border-color) solid 1px;
+  align-items: center;
+  padding: 1rem;
+}
 
+.header__image{
+  height: 2em;
+}
 
 /* ### TODO ### Styles for Main Component */
+.inset {
+  padding: 1rem;
+}
 
-/* ... your code here ... */
-
+fieldset {
+  border: var(--border-color) solid 1px ;
+}
 
 /* ### TODO ### Styles for Tagging component */
 
 /* ... your code here ... */
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.button {
+
+  height: 4vh;
+  width: 18vw;
+  margin-bottom: 1rem;
+}
+
+.button:last-child {
+  margin-bottom: 0;
+}
+
+.label {
+  margin-bottom: 0.3rem;
+}
+
+input[type='text'] {
+  padding-left: .5rem;
+  height: 4vh;
+  width: 18vw;
+}
 
 
 /* ### TODO ### Styles for Discovery component */
 
-/* ... your code here ... */
+.discovery__wrapper {
+  margin-top: 2rem;
+  width: 100%;
+  display: flex;
+  gap: 2rem;
+}
 
+.discovery__results li {
+  border: var(--border-color) solid 1px;
+  height: 3rem;
+  text-align: start;
+  width: 15rem;
+  padding: .5rem;
+  list-style: none;
+  color: var(--link-color);
+  background: var(--background-color);
+
+}
+
+.discovery__results {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+#mapView {
+  width: 100%;
+}
 
 /* ### TODO ### Styles for Footer Component */
 
-/* ... your code here ... */
+.footer{
+  background: var(--background-color);
+  border-top: var(--border-color) solid 1px;
+  padding: 1rem;
+}
 
 
 /* ### TODO ### Media Queries */
 
-/* ... your code here ... */
+@media screen and (max-width: 750px) {
+  /*Tagging*/
+  .row {
+    display: block;
+  }
+
+  .col-3 {
+    width: 100%;
+  }
+
+  .button {
+    width: 100%;
+  }
+
+  input[type="text"] {
+    width: 100%;
+  }
+
+  /*Discovery*/
+  .col-9 {
+    width: 100%;
+  }
+
+  .discovery__wrapper {
+    display: block;
+  }
+
+  .discovery__results li {
+    width: 100%;
+    text-align: center;
+  }
+
+  #mapView {
+    margin-top: 1rem;
+    width: 100%;
+  }
+
+}
