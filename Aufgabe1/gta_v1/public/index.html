@@ -29,14 +29,14 @@
             <!-- ... your code here ... -->
             <fieldset class="form inset" >
                 <legend>Add a new GeoTag</legend>
-                <label class="label">Latitude:</label>
-                <input class="button" type="text" value="49.01379" disabled>
-                <label class="label">Longitude:</label>
-                <input class="button" type="text" value="9.390071" disabled>
-                <label class="label">Name:</label>
-                <input class="button" type="text" placeholder="e.g. Central Berlin" required maxlength="10">
-                <label class="label">Hashtag:</label>
-                <input class="button" type="text" placeholder="e.g. #ber" pattern="#[A-Za-z]{1,10}">
+                <label for="lat" class="label">Latitude:</label>
+                <input id="lat" class="button" type="text" value="49.01379" disabled>
+                <label for="long" class="label">Longitude:</label>
+                <input id="long" class="button" type="text" value="9.390071" disabled>
+                <label for="name" class="label">Name:</label>
+                <input id="name" class="button" type="text" placeholder="e.g. Central Berlin" required maxlength="10">
+                <label for="tags" class="label">Hashtag:</label>
+                <input id="tags" class="button" type="text" placeholder="e.g. #ber" pattern="#[A-Za-z]{1,10}">
                 <input class="button" type="submit" value="Add Tag">
             </fieldset>
         </form>
@@ -52,8 +52,8 @@
 
             <fieldset class="form inset">
                 <legend>Search</legend>
-                <label class="label">Search term or keywords:</label>
-                <input class="button" type="text" placeholder="e.g. Berlin" disabled>
+                <label for="searchterm" class="label">Search term or keywords:</label>
+                <input id="searchterm" class="button" type="text" placeholder="e.g. Berlin" disabled>
                 <input class="button" type="submit" value="Search">
             </fieldset>
 
