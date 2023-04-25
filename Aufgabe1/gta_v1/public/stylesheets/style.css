@@ -46,8 +46,6 @@ a {
 
 /* ### TODO ### Styles for other HTML elements */
 
-/* ... your code here ... */
-
 
 /* Grid styles (no changes required) */
 
@@ -110,12 +108,40 @@ a {
 /* ### TODO ### Styles for Header Component */
 
 /* ... your code here ... */
+header{
+  background-color: lightgray;
+}
 
+.header__image{
+  width: 50px;
+  height: auto;
+}
 
 /* ### TODO ### Styles for Main Component */
 
 /* ... your code here ... */
 
+fieldset label,
+fieldset input{
+  display: block;
+ 
+}
+
+input,
+button{
+  width: 75%;
+  box-sizing: border-box;
+  font-size: 25px;
+  padding: 1%;
+}
+
+button{
+  background-color: rgb(230, 230, 230);
+}
+
+button:hover{
+  background-color: rgb(169, 169, 169);
+}
 
 /* ### TODO ### Styles for Tagging component */
 
@@ -131,6 +157,9 @@ a {
 
 /* ... your code here ... */
 
+footer{
+  background-color: lightgray;
+}
 
 /* ### TODO ### Media Queries */
 
