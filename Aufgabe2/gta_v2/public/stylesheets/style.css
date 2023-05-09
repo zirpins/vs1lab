@@ -109,7 +109,7 @@ a {
 
 /* ... your code here ... */
 header {
-  background-color: var(--link-color);
+  background-color: #10a37f;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -348,7 +348,7 @@ ul li {
 
 footer {
   display: flex;
-  background-color: lightgray;
+  background-color: #10a37f;
   position: relative;
   height: 70px;
   align-items: center;
