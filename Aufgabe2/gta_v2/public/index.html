@@ -38,7 +38,7 @@
                                 <label for="name">Name:</label>
                                 <input type="text" name="name" id="name" placeholder="e.g. Central Berlin" maxlength="10" required>
                                 <label for="hashtag">Hashtag</label>
-                                <input type="text" name="hashtag" id="hashtag" placeholder="e.g. #ber" pattern="#" maxlength="11">
+                                <input type="text" name="hashtag" id="hashtag" placeholder="e.g. #ber" pattern="#.*" title="Die Eingabe muss mit einem '#' beginnen." maxlength="11">
                                 <button name="AddTagButton" id=addTagButton>Add Tag</button>
                             </fieldset>
                         </form>

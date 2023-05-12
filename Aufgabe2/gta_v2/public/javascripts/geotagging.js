@@ -104,7 +104,42 @@ class MapManager {
  */
 // ... your code here ...
 
-// Wait for the page to fully load its DOM content, then call updateLocation
-document.addEventListener("DOMContentLoaded", () => {
-    alert("Please change the script 'geotagging.js'");
-});
+function updateLocation() {
+    LocationHelper.findLocation((location) => {
+        // Zugriff auf die Eingabefelder des Tagging-Formulars
+        const taggingLatitudeInput = document.getElementById('latitude');
+        const taggingLongitudeInput = document.getElementById('longitude');
+
+        // Überprüfung, ob die Eingabefelder vorhanden sind
+        if (taggingLatitudeInput && taggingLongitudeInput) {
+            // Aktualisieren der Eingabefeldwerte mit den Koordinaten
+            taggingLatitudeInput.value = location.latitude;
+            taggingLongitudeInput.value = location.longitude;
+        }
+
+        // Zugriff auf die versteckten Eingabefelder des Discovery-Formulars
+        const discoveryLatitudeInput = document.getElementById('discoveryResults');
+        const discoveryLongitudeInput = document.getElementById('discoveryResults');
+
+        // Überprüfung, ob die versteckten Eingabefelder vorhanden sind
+        if (discoveryLatitudeInput && discoveryLongitudeInput) {
+            // Aktualisieren der Eingabefeldwerte mit den Koordinaten
+            discoveryLatitudeInput.value = location.latitude;
+            discoveryLongitudeInput.value = location.longitude;
+        }
+        const mapManager = new MapManager('7kGi1FF3n2jNRPac0JDJVAk84steZjnn');
+
+        // Koordinaten abrufen und Karten-URL generieren
+        const latitude = location.latitude;
+        const longitude = location.longitude;
+        const mapUrl = mapManager.getMapUrl(latitude, longitude);
+
+        // Image-Element suchen und das src-Attribut aktualisieren
+        const mapImage = document.getElementById('mapView');
+        if (mapImage) {
+            mapImage.src = mapUrl;
+        }
+    });
+}
+// Rufen Sie die 'updateLocation'-Funktion nach dem Laden des Dokuments automatisch auf
+document.addEventListener("DOMContentLoaded", updateLocation);
