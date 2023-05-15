@@ -92,7 +92,6 @@ class MapManager {
 
         const mapQuestUrl = `https://www.mapquestapi.com/staticmap/v5/map?key=${this.#apiKey}&size=600,400&zoom=${zoom}&center=${latitude},${longitude}&locations=${tagList}`;
         console.log("Generated MapQuest URL:", mapQuestUrl);
-
         return mapQuestUrl;
     }
 }
@@ -103,8 +102,21 @@ class MapManager {
  * It is called once the page has been fully loaded.
  */
 // ... your code here ...
+function updateLocation() {
+    LocationHelper.findLocation((helper) => {
+        document.getElementById("lat").value = helper.latitude
+        document.getElementById("long").value = helper.longitude
+        document.getElementById("latHidden").value = helper.latitude
+        document.getElementById("longHidden").value = helper.longitude
+        const mapManager = new MapManager('Ikx9sjyYJtIj09QQ4NPE7j8NVIjyFY0F')
+        const mapUrl = mapManager.getMapUrl(helper.latitude, helper.longitude, [], 15)
+        const mapView = document.getElementById("mapView")
+        mapView.src = mapUrl
+    })
+}
 
 // Wait for the page to fully load its DOM content, then call updateLocation
 document.addEventListener("DOMContentLoaded", () => {
-    alert("Please change the script 'geotagging.js'");
+    // alert("Please change the script 'geotagging.js'");
+    updateLocation()
 });
