@@ -56,8 +56,10 @@
                             <form class="discovery__search" id="discoveryFilterForm" action="/discovery" method="post">
                                 <fieldset>
                                     <legend><h3>Search</h3></legend>
-                                    <label for="search">Search term or Keywords</label>
+                                    <label for="search">Searchterm or Keywords</label>
                                     <input type="text" name="search" id="search" placeholder="e.g. Berlin">
+                                    <input type="hidden" name="longitude-hidden" id="longitude-hidden">
+                                    <input type="hidden" name="latitude-hidden" id="latitude-hidden">
                                     <button name="SearchButton" id="searchButton">Search</button>
                                 </fieldset>
                             </form>

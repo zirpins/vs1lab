@@ -259,7 +259,7 @@ label {
   border-radius: 5px;
   width: 75%;
   height: 50px;
-  background-color: var(--link-color);
+  background-color: #396f96;
   color: #fff;
   font-size: 1.1rem;
   padding: 10px 20px;
@@ -270,7 +270,7 @@ label {
 }
 
 .main__tagging button:hover {
-  background-color: rgb(0, 132, 255);
+  background-color: #255b81;
 }
 
 
@@ -303,7 +303,7 @@ label {
   margin-bottom: 2%;
   font-size: 150%;
   width: 23%;
-  background-color: var(--link-color);
+  background-color: #396f96;;
   color: #fff;
   font-size: 1.1rem;
   padding: 1.15% 2%;
@@ -315,7 +315,7 @@ label {
 }
 
 .main__discovery button:hover {
-  background-color: rgb(0, 132, 255);
+  background-color: #255b81;
 }
 
 .discovery__map {

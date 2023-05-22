@@ -107,8 +107,8 @@ class MapManager {
 function updateLocation() {
     LocationHelper.findLocation((location) => {
         // Zugriff auf die Eingabefelder des Tagging-Formulars
-        const taggingLatitudeInput = document.getElementById('latitude');
-        const taggingLongitudeInput = document.getElementById('longitude');
+        let taggingLatitudeInput = document.getElementById('latitude');
+        let taggingLongitudeInput = document.getElementById('longitude');
 
         // Überprüfung, ob die Eingabefelder vorhanden sind
         if (taggingLatitudeInput && taggingLongitudeInput) {
@@ -118,8 +118,8 @@ function updateLocation() {
         }
 
         // Zugriff auf die versteckten Eingabefelder des Discovery-Formulars
-        const discoveryLatitudeInput = document.getElementById('discoveryResults');
-        const discoveryLongitudeInput = document.getElementById('discoveryResults');
+        let discoveryLatitudeInput = document.getElementById('latitude-hidden');
+        let discoveryLongitudeInput = document.getElementById('longitude-hidden');
 
         // Überprüfung, ob die versteckten Eingabefelder vorhanden sind
         if (discoveryLatitudeInput && discoveryLongitudeInput) {
@@ -142,4 +142,4 @@ function updateLocation() {
     });
 }
 // Rufen Sie die 'updateLocation'-Funktion nach dem Laden des Dokuments automatisch auf
-document.addEventListener("DOMContentLoaded", updateLocation);
+window.addEventListener("load", updateLocation);

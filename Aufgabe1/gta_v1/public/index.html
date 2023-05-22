@@ -38,7 +38,7 @@
                                 <label for="name">Name:</label>
                                 <input type="text" name="name" id="name" placeholder="e.g. Central Berlin" maxlength="10" required>
                                 <label for="hashtag">Hashtag</label>
-                                <input type="text" name="hashtag" id="hashtag" placeholder="e.g. #ber" pattern="#" maxlength="11">
+                                <input type="text" name="hashtag" id="hashtag" placeholder="e.g. #ber" pattern="#.*" title="Die Eingabe muss mit einem '#' beginnen." maxlength="11">
                                 <button name="AddTagButton" id=addTagButton>Add Tag</button>
                             </fieldset>
                         </form>
@@ -56,8 +56,10 @@
                             <form class="discovery__search" id="discoveryFilterForm" action="/discovery" method="post">
                                 <fieldset>
                                     <legend><h3>Search</h3></legend>
-                                    <label for="search">Search term or Keywords</label>
+                                    <label for="search">Searchterm or Keywords</label>
                                     <input type="text" name="search" id="search" placeholder="e.g. Berlin">
+                                    <input type="hidden" name="longitude-hidden" id="longitude-hidden">
+                                    <input type="hidden" name="latitude-hidden" id="latitude-hidden">
                                     <button name="SearchButton" id="searchButton">Search</button>
                                 </fieldset>
                             </form>
@@ -87,6 +89,7 @@
     <footer class="footer">
         <span class="footer-text">(c) 2021/22 HKA_IWI_VSYS</span>
     </footer>
+    <script src="./javascripts/geotagging.js"></script>
 </body>
 
 </html>
