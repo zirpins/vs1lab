@@ -29,14 +29,15 @@
             <!-- ... your code here ... -->
             <fieldset class="form inset">
                 <legend>Add a new GeoTag</legend>
-                <label for="lat" class="label">Latitude:</label>
-                <input id="lat" class="button" type="text" value="49.01379" disabled>
-                <label for="long" class="label">Longitude:</label>
-                <input id="long" class="button" type="text" value="9.390071" disabled>
+                <label for="lat" class="label" >Latitude:</label>
+                <input id="lat" class="button" name="lat"type="text" value="49.01379" readonly>
+                <label for="long" class="label" >Longitude:</label>
+                <input id="long" class="button" name="long" type="text" value="9.390071" readonly>
                 <label for="name" class="label">Name:</label>
                 <input id="name" class="button" type="text" placeholder="e.g. Central Berlin" required maxlength="10">
                 <label for="tags" class="label">Hashtag:</label>
-                <input id="tags" class="button" type="text" placeholder="e.g. #ber" pattern="#[A-Za-z]{1,10}">
+                <input id="tags" class="button" name="tag" type="text" placeholder="e.g. #ber"
+                       pattern="#[A-Za-z]{1,10}">
                 <input class="button" type="submit" value="Add Tag">
             </fieldset>
         </form>

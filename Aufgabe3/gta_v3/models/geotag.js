@@ -10,8 +10,14 @@
  * GeoTag objects should contain at least all fields of the tagging form.
  */
 class GeoTag {
-
     // TODO: ... your code here ...
+    //['Castle', 49.013790, 8.404435, '#sight'],
+    constructor(geotag) {
+        this.name = geotag[0]
+        this.lat = geotag[1]
+        this.long = geotag[2]
+        this.tag = geotag[3]
+    }
     
 }
 

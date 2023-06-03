@@ -61,7 +61,10 @@ router.get('/', (req, res) => {
  */
 
 // TODO: ... your code here ...
-
+router.post('/tagging', function (req, res, next) {
+  console.log(req.body)
+  res.render('index', { taglist: [] })
+})
 /**
  * Route '/discovery' for HTTP 'POST' requests.
  * (http://expressjs.com/de/4x/api.html#app.post.method)

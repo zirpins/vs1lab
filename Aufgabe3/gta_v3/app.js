@@ -43,6 +43,8 @@ app.use(express.urlencoded({ extended: false }));
  */
 
 // TODO: ... your code here ...
+// Include static file from 'public' folder
+app.use(express.static(__dirname+ '/public'))
 
 // Set dedicated script for routing
 app.use('/', indexRouter);
