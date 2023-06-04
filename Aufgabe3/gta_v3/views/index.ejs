@@ -30,13 +30,13 @@
             <fieldset class="form inset">
                 <legend>Add a new GeoTag</legend>
                 <label for="lat" class="label" >Latitude:</label>
-                <input id="lat" class="button" name="lat"type="text" value="49.01379" readonly>
+                <input id="lat" class="button" name="lat" type="text" value='<%= latcoord %>' readonly>
                 <label for="long" class="label" >Longitude:</label>
-                <input id="long" class="button" name="long" type="text" value="9.390071" readonly>
+                <input id="long" class="button" name="long" type="text" value='<%= longcoord %>' readonly>
                 <label for="name" class="label">Name:</label>
-                <input id="name" class="button" type="text" placeholder="e.g. Central Berlin" required maxlength="10">
-                <label for="tags" class="label">Hashtag:</label>
-                <input id="tags" class="button" name="tag" type="text" placeholder="e.g. #ber"
+                <input id="name" class="button" name="name" type="text" placeholder="e.g. Central Berlin" required maxlength="10">
+                <label for="hashtag" class="label">Hashtag:</label>
+                <input id="hashtag" class="button" name="hashtag" type="text" placeholder="e.g. #ber"
                        pattern="#[A-Za-z]{1,10}">
                 <input class="button" type="submit" value="Add Tag">
             </fieldset>
@@ -54,10 +54,10 @@
             <fieldset class="form inset">
                 <legend>Search</legend>
                 <label for="searchterm" class="label">Search term or keywords:</label>
-                <input id="searchterm" class="button" type="text" placeholder="e.g. Berlin" disabled>
+                <input id="searchterm" class="button" name="keyword" type="text" placeholder="e.g. Berlin">
                 <input class="button" type="submit" value="Search">
-                <input id="latHidden" hidden>
-                <input id="longHidden" hidden>
+                <input id="latHidden" name="latH" hidden>
+                <input id="longHidden" name="longH" hidden>
             </fieldset>
 
         </form>
@@ -67,13 +67,13 @@
             <div class="discovery__taglist">
                 <ul class="discovery__results" id="discoveryResults">
                     <% if (taglist !== undefined) taglist.forEach(function(gtag) { %>
-                        <li><%= gtag.name %> ( <%= gtag.latitude %>,<%= gtag.longitude %>) <%= gtag.hashtag %> </li>
+                        <li><%= gtag.name %> (<%= gtag.lat %>,<%= gtag.long %>) <%= gtag.hashtag %> </li>
                     <% }); %>
                 </ul>
             </div>
             <!-- TODO: Spacer between -->
             <div class="discovery__map">
-                <img src="./images/mapview.jpg" alt="a map with locations" id="mapView"/>
+                <img src="./images/mapview.jpg" alt="a map with locations" id="mapView" data-tags="<%=geoTagList%>"/>
                 <span>Result map</span>
             </div>
         </div>
@@ -84,6 +84,8 @@
 <footer class="footer">
     <span>(c) 2021/22 HKA_IWI_VSYS</span>
 </footer>
+<script src="./javascripts/location-helper.js"></script>
+<script src="./javascripts/map-manager.js"></script>
 <script src="./javascripts/geotagging.js"></script>
 </body>
 

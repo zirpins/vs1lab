@@ -16,7 +16,7 @@ class GeoTag {
         this.name = geotag[0]
         this.lat = geotag[1]
         this.long = geotag[2]
-        this.tag = geotag[3]
+        this.hashtag = geotag[3]
     }
     
 }

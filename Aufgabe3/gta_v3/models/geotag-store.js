@@ -29,13 +29,17 @@ class InMemoryGeoTagStore {
 
     // TODO: ... your code here ...
     #geoTags = []
-    #proximity = 0.1 // distance in km
+    #proximity = 3 // distance in km
 
     constructor() {
-        const examples = GeoTagExamples.tagList()
+        const examples = GeoTagExamples.tagList
         examples.forEach((geotag) => {
             this.#geoTags.push(new GeoTag(geotag));
         })
+    }
+
+    getAllGeoTags() {
+        return this.#geoTags
     }
 
     addGeoTag(geoTag) {
@@ -48,12 +52,18 @@ class InMemoryGeoTagStore {
     }
 
     getNearbyGeoTags(location) {
-            return this.#geoTags.filter(element => this.#distance(location, element) < this.#proximity)
+        // console.log(this.#geoTags.filter(element => this.#distance(location, element) < this.#proximity).length)
+        // console.log(location)
+        return this.#geoTags.filter(element => this.#distance(location, element) < this.#proximity)
     }
 
     searchNearbyGeoTags(location, keyword) {
+
         const filteredByDistance = this.getNearbyGeoTags(location)
-        return filteredByDistance.filter(element=> (element.tag === keyword || element.name===keyword))
+
+        const x = filteredByDistance.filter(element => (element.hashtag === keyword || element.name === keyword))
+
+        return x
     }
 
     #distance(loc1, loc2) {
