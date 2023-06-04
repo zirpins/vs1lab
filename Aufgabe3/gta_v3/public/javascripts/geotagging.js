@@ -22,6 +22,7 @@ function updateLocation() {
     const lat = document.getElementById("lat").value
     const long = document.getElementById("long").value
     if (lat !== '' && long !== '') {
+        console.log(lat)
         mapUpdate(lat, long)
     } else {
         LocationHelper.findLocation((helper) => {
@@ -30,7 +31,6 @@ function updateLocation() {
             document.getElementById("latHidden").value = helper.latitude
             document.getElementById("longHidden").value = helper.longitude
             mapUpdate(helper.latitude, helper.longitude)
-
         })
     }
 }

@@ -106,21 +106,21 @@ router.post('/tagging', function (req, res, next) {
 
 // TODO: ... your code here ...
 router.post('/discovery', function (req, res, next) {
-    const newLoc = ["temp", req.body.latH, req.body.longH, ""]
+    const newLoc = ["temp", req.body.latHidden, req.body.longHidden, ""]
     const currentPos = new GeoTag(newLoc)
 
     if (req.body.keyword !== '') {
         res.render('index', {
             taglist: GeoTagStorageObject.searchNearbyGeoTags(currentPos, req.body.keyword),
-            latcoord: req.body.latH,
-            longcoord: req.body.longH,
+            latcoord: req.body.latHidden,
+            longcoord: req.body.longHidden,
             geoTagList: JSON.stringify(GeoTagStorageObject.searchNearbyGeoTags(currentPos, req.body.keyword))
         })
     } else {
         res.render('index', {
             taglist: GeoTagStorageObject.getNearbyGeoTags(currentPos),
-            latcoord: req.body.latH,
-            longcoord: req.body.longH,
+            latcoord: req.body.latHidden,
+            longcoord: req.body.longHidden,
             geoTagList: JSON.stringify(GeoTagStorageObject.getNearbyGeoTags(currentPos))
         })
     }
