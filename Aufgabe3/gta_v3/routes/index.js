@@ -30,6 +30,7 @@ const GeoTag = require('../models/geotag');
  */
 // eslint-disable-next-line no-unused-vars
 const GeoTagStore = require('../models/geotag-store');
+const InMemoryGeoTagStore = require('../models/geotag-store');
 
 /**
  * Route '/' for HTTP 'GET' requests.
@@ -42,7 +43,8 @@ const GeoTagStore = require('../models/geotag-store');
 
 // TODO: extend the following route example if necessary
 router.get('/', (req, res) => {
-  res.render('index', { taglist: [] })
+  GeoTagStore.addGeoTagExamples();
+  res.render('index', { taglist: InMemoryGeoTagStore.geoTags });
 });
 
 /**
@@ -60,9 +62,18 @@ router.get('/', (req, res) => {
  * by radius around a given location.
  */
 
-// TODO: ... your code here ...
+router.post('/tagging', (req, res) => {
 
-/**
+  var latitude = req.body.latitude;
+  var longitude = req.body.longitude;
+  var name = req.body.name;
+  var hashtag = req.body.hashtag;
+
+  InMemoryGeoTagStore.addGeoTag(latitude, longitude, name, hashtag);
+  res.render('index', { taglist: InMemoryGeoTagStore.getNearbyGeoTags(latitude, longitude, 10) });
+});
+
+/*
  * Route '/discovery' for HTTP 'POST' requests.
  * (http://expressjs.com/de/4x/api.html#app.post.method)
  *
@@ -78,6 +89,15 @@ router.get('/', (req, res) => {
  * by radius and keyword.
  */
 
-// TODO: ... your code here ...
+router.post('/discovery', (req, res) => {
+  var latitude = req.body.latitudeSearch;
+  var longitude = req.body.longitudeSearch;
+  var search = req.body.searchField;
+
+  if (search == "undefined"){
+    search = "";
+  }
+  res.render('index', { taglist: InMemoryGeoTagStore.searchNearbyGeoTags(latitude, longitude, 10, search)});
+});
 
 module.exports = router;

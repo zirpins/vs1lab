@@ -4,7 +4,7 @@
  * A class to help using the MapQuest map service.
  */
 // eslint-disable-next-line no-unused-vars
-class MapManager {
+export class MapManager {
     #apiKey
 
     /**
