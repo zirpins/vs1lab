@@ -16,6 +16,7 @@ console.log("The geoTagging script is going to start...");
  * It is called once the page has been fully loaded.
  */
 // ... your code here ...
+//########## findLocation wird nur noch aufgerufen, wenn lat und long felder '' sind
 function updateLocation() {
     //Todo: call LocationHelper.findLocation only when coord doesn't exist yet
     const lat = document.getElementById("lat").value
