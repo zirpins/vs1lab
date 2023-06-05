@@ -35,11 +35,10 @@
                 <fieldset class="row">
                     <legend>Add a new GeoTag</legend>   
                     
-                    <label for="latitude">Latiude:</label>
-                    <input name="latitude" readonly type="text" id="latitude">
-                    
+                    <label for="latitude">Latitude:</label>
+                    <input name="latitude" readonly type="text" id="latitude" value="<%=lat%>">
                     <label for="longitude">Longitude:</label>
-                    <input name="longitude" readonly type="text" id="longitude">
+                    <input name="longitude" readonly type="text" id="longitude" value="<%=long%>">
                     
                     <label for="name">Name:</label>
                     <input name="name" type="text" id="name" placeholder="e.g. Central Berlin" required>
@@ -65,9 +64,9 @@
                     <label for="searchField">Search term or keywords:</label>
                     <input name="searchField" class="col-4" type="text" id="searchField" placeholder="e.g. Berlin">
 
-
-                    <input name="latitudeSearch" type="hidden" id="latitudeSearch" value="">
-                    <input name="longitudeSearch" type="hidden" id="longitudeSearch" value="">
+                    
+                    <input name="latitudeSearch" type="hidden" id="latitudeSearch" value="<%=lat%>">
+                    <input name="longitudeSearch" type="hidden" id="longitudeSearch" value="<%=long%>">
 
                     <input class="col-4" type="submit" id="searchSubmit" value="Search">
 
@@ -79,7 +78,7 @@
                 <div class="discovery__taglist col-6">
                     <ul class="discovery__results" id="discoveryResults">
                         <% if (taglist !== undefined) taglist.forEach(function(gtag) { %>
-                            <li><%= gtag.name %> (<%= gtag.latitude %> ,<%= gtag.longitude %>) <%= gtag.hashtag %> </li>
+                            <li><%= gtag.name %> (<%= gtag.latitude %>, <%= gtag.longitude %>) <%= gtag.hashtag %> </li>
                         <% }); %>
 
                     </ul>

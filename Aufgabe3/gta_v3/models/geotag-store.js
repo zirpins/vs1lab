@@ -69,13 +69,14 @@ class InMemoryGeoTagStore{
 
     static getNearbyGeoTags(lat, long, radius){
         // return array of all geotags within radius of positon ([latitude], [longitude])
+        radius*=100;
         var arr = [];
         for (var i = 0; i < this.geoTags.length; i++){
             if (this.dist(this.geoTags[i].latitude, this.geoTags[i].longitude, lat, long) <= radius){
                 arr.push(this.geoTags[i]);
             }
         } 
-        return this.arr;
+        return arr;
     }
 
     static dist(lat1, lon1, lat2, lon2){
@@ -99,6 +100,7 @@ class InMemoryGeoTagStore{
         // get array of all geotags within radius of positon ([latitude], [longitude])
         // then add to [arr2] any geotags with partial string in keyword 
         var arr = this.getNearbyGeoTags(lat, long, radius);
+        console.log(arr);
         var arr2 = [];
         for (var i = 0; i < arr.length; i++){
             if (arr[i].name.toLowerCase().indexOf(keyword.toLowerCase()) > -1 || arr[i].hashtag.toLowerCase().indexOf(keyword.toLowerCase()) > -1 ){

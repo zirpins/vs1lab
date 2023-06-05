@@ -44,7 +44,7 @@ const InMemoryGeoTagStore = require('../models/geotag-store');
 // TODO: extend the following route example if necessary
 router.get('/', (req, res) => {
   GeoTagStore.addGeoTagExamples();
-  res.render('index', { taglist: InMemoryGeoTagStore.geoTags });
+  res.render('index', { taglist: InMemoryGeoTagStore.geoTags, lat: "", long: ""});
 });
 
 /**
@@ -70,7 +70,7 @@ router.post('/tagging', (req, res) => {
   var hashtag = req.body.hashtag;
 
   InMemoryGeoTagStore.addGeoTag(latitude, longitude, name, hashtag);
-  res.render('index', { taglist: InMemoryGeoTagStore.getNearbyGeoTags(latitude, longitude, 10) });
+  res.render('index', { taglist: InMemoryGeoTagStore.getNearbyGeoTags(latitude, longitude, 600), lat: latitude, long: longitude});
 });
 
 /*
@@ -92,12 +92,14 @@ router.post('/tagging', (req, res) => {
 router.post('/discovery', (req, res) => {
   var latitude = req.body.latitudeSearch;
   var longitude = req.body.longitudeSearch;
+  console.log("[POST] --> " + latitude + " | " + longitude);
   var search = req.body.searchField;
 
   if (search == "undefined"){
     search = "";
   }
-  res.render('index', { taglist: InMemoryGeoTagStore.searchNearbyGeoTags(latitude, longitude, 10, search)});
+
+  res.render('index', { taglist: InMemoryGeoTagStore.searchNearbyGeoTags(latitude, longitude, 600, search), lat: latitude, long: longitude});
 });
 
 module.exports = router;
