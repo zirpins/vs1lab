@@ -44,7 +44,6 @@ class InMemoryGeoTagStore{
 
     static addGeoTag(lat, long, nm, ht){
         // If GeoTag latitude, longitude, name, hashtag is provided, create new GeoTag, then add to [geoTags] array
-        console.log(lat + " | " + long + " | " + nm + " | " + ht);
         var tag = new GeoTag(lat, long, nm, ht);
         this.geoTags.push(tag);
     }
@@ -72,13 +71,11 @@ class InMemoryGeoTagStore{
         // return array of all geotags within radius of positon ([latitude], [longitude])
         var arr = [];
         for (var i = 0; i < this.geoTags.length; i++){
-            var a = (this.geoTags[i].longitude - long);
-            var b = (this.geoTags[i].latitude - lat);
-            if (this.dist(this.geoTags[i].latitude, this.geoTags[i].longitude, lat, long) <= 11){
+            if (this.dist(this.geoTags[i].latitude, this.geoTags[i].longitude, lat, long) <= radius){
                 arr.push(this.geoTags[i]);
             }
         } 
-        return this.geoTags;
+        return this.arr;
     }
 
     static dist(lat1, lon1, lat2, lon2){
@@ -103,7 +100,6 @@ class InMemoryGeoTagStore{
         // then add to [arr2] any geotags with partial string in keyword 
         var arr = this.getNearbyGeoTags(lat, long, radius);
         var arr2 = [];
-        console.log(arr);
         for (var i = 0; i < arr.length; i++){
             if (arr[i].name.toLowerCase().indexOf(keyword.toLowerCase()) > -1 || arr[i].hashtag.toLowerCase().indexOf(keyword.toLowerCase()) > -1 ){
                 arr2.push(arr[i]);
