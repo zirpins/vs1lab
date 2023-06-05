@@ -27,29 +27,25 @@ const GeoTagExamples = require("./geotag-examples");
  * - Keyword matching should include partial matches from name or hashtag fields. 
  */
 class InMemoryGeoTagStore{
-    static geoTags = [];
-
-    get geoTags(){
-        return this.geoTags;
-    }
+    static #geoTags = [];
 
     static addGeoTag(tag){
         // If GeoTag is provided, check if it's actually GeoTag, then add to [geoTags] array
         if (typeof(tag) != GeoTag){
             throw error;
         } else {
-            this.geoTags.push(tag);
+            this.#geoTags.push(tag);
         }
     }
 
     static addGeoTag(lat, long, nm, ht){
         // If GeoTag latitude, longitude, name, hashtag is provided, create new GeoTag, then add to [geoTags] array
         var tag = new GeoTag(lat, long, nm, ht);
-        this.geoTags.push(tag);
+        this.#geoTags.push(tag);
     }
 
     static addGeoTagExamples(){
-        if (this.geoTags.length == 0){
+        if (this.#geoTags.length == 0){
             var v = GeoTagExamples.tagList;
             for (let i = 0; i < v.length; i++){
                 this.addGeoTag(v[i][1], v[i][2], v[i][0], v[i][3]);
@@ -59,9 +55,9 @@ class InMemoryGeoTagStore{
 
     static removeGeoTag(name){
         // remove Element by name from [geoTags] array 
-        for (var v = 0; v < this.geoTags.length; v++){
-            if (this.geoTags[v].name == name){
-                this.geoTags = this.geoTags.splice(v, 1);
+        for (var v = 0; v < this.#geoTags.length; v++){
+            if (this.#geoTags[v].name == name){
+                this.#geoTags = this.#geoTags.splice(v, 1);
                 break;
             }
         }
@@ -69,11 +65,10 @@ class InMemoryGeoTagStore{
 
     static getNearbyGeoTags(lat, long, radius){
         // return array of all geotags within radius of positon ([latitude], [longitude])
-        radius*=100;
         var arr = [];
-        for (var i = 0; i < this.geoTags.length; i++){
-            if (this.dist(this.geoTags[i].latitude, this.geoTags[i].longitude, lat, long) <= radius){
-                arr.push(this.geoTags[i]);
+        for (var i = 0; i < this.#geoTags.length; i++){
+            if (this.dist(this.#geoTags[i].latitude, this.#geoTags[i].longitude, lat, long) <= radius){
+                arr.push(this.#geoTags[i]);
             }
         } 
         return arr;
@@ -100,7 +95,6 @@ class InMemoryGeoTagStore{
         // get array of all geotags within radius of positon ([latitude], [longitude])
         // then add to [arr2] any geotags with partial string in keyword 
         var arr = this.getNearbyGeoTags(lat, long, radius);
-        console.log(arr);
         var arr2 = [];
         for (var i = 0; i < arr.length; i++){
             if (arr[i].name.toLowerCase().indexOf(keyword.toLowerCase()) > -1 || arr[i].hashtag.toLowerCase().indexOf(keyword.toLowerCase()) > -1 ){

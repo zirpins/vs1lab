@@ -44,7 +44,7 @@ const InMemoryGeoTagStore = require('../models/geotag-store');
 // TODO: extend the following route example if necessary
 router.get('/', (req, res) => {
   GeoTagStore.addGeoTagExamples();
-  res.render('index', { taglist: InMemoryGeoTagStore.geoTags, lat: "", long: ""});
+  res.render('index', { taglist: [], lat: "", long: ""});
 });
 
 /**
