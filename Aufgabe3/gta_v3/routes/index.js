@@ -70,8 +70,9 @@ router.post('/tagging', (req, res) => {
   var hashtag = req.body.hashtag;
 
   InMemoryGeoTagStore.addGeoTag(latitude, longitude, name, hashtag);
+
   res.render('index', { taglist: InMemoryGeoTagStore.getNearbyGeoTags(latitude, longitude, 600), lat: latitude, long: longitude});
-});
+}); //läd nur das neu was neu ist
 
 /*
  * Route '/discovery' for HTTP 'POST' requests.

@@ -25,8 +25,8 @@ function updateLocation(){
 
             console.log("if---> " + latitude + " " + longitude);
             var mapManager = new MapManager("jSDyDl8WcMaEG0bQrr55wCuOQmEbNjwy");
-            var taglist_json = document.getElementById("mapView").dataset.tags;
-            document.getElementById("mapView").src = mapManager.getMapUrl(latitude, longitude, JSON.parse(taglist_json));
+            var taglist_json = document.getElementById("mapView").dataset.tags; // tags werden aus der ejs datei ausgelesen
+            document.getElementById("mapView").src = mapManager.getMapUrl(latitude, longitude, JSON.parse(taglist_json)); // String in Array umwandeln und auf map anzeigen
         });   
     }else {
         latitude = document.getElementById("latitude").value;

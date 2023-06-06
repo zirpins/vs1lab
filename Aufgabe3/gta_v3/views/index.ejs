@@ -77,15 +77,14 @@
             <div class="discovery__wrapper discovery row">  
                 <div class="discovery__taglist col-6">
                     <ul class="discovery__results" id="discoveryResults">
-                        <% if (taglist !== undefined) taglist.forEach(function(gtag) { %>
-                            <li><%= gtag.name %> (<%= gtag.latitude %>, <%= gtag.longitude %>) <%= gtag.hashtag %> </li>
+                        <% if (taglist !== undefined) taglist.forEach(function(gtag) { %>  <!--Hier geht man die liste durch -->
+                            <li><%= gtag.name %> (<%= gtag.latitude %>, <%= gtag.longitude %>) <%= gtag.hashtag %> </li> <!-- hier wirds auf der seite angezeigt -->
                         <% }); %>
-
                     </ul>
                 </div>
 
                 <div class="discovery__map discovery col-6">
-                    <img class="col-12" alt="a map with locations" id="mapView" data-tags="<%=JSON.stringify(taglist)%>"/>
+                    <img class="col-12" alt="a map with locations" id="mapView" data-tags="<%=JSON.stringify(taglist)%>"/><!-- hier wird die Liste in einen string umgewandelt -->
                     <span>Result map</span>
                 </div>
             </div>
