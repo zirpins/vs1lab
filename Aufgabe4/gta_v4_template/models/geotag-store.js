@@ -31,11 +31,9 @@ class InMemoryGeoTagStore{
         return this.#geoTags;
     }
 
-    static getGeoTag(index){
+    static getGeoTag(index){ //Get geotag by index
         try{
             index = parseInt(index);
-            console.log(this.#geoTags);
-            console.log(index+"--> "+this.#geoTags[index]);
             return this.#geoTags[index];
         } catch (e){
             throw new Error(e);
@@ -72,7 +70,7 @@ class InMemoryGeoTagStore{
         }
     }
 
-    static deleteGeoTag(i){
+    static deleteGeoTag(i){ // Delete geotag and return the deleted geotag
         try {
             let tag = this.#geoTags[i];
             this.#geoTags.splice(i, 1);

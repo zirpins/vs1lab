@@ -58,24 +58,20 @@ router.get('/', (req, res) => {
  */
 
 router.get('/api/geotags', (req, res) => {
-  // read query JSON
-  try {
+  try { // schauen ob Daten als Queryparameter übergeben wurden
     let data = JSON.parse(req.query.q);
     let latitude = data.latitude;
     let longitude = data.longitude;
     let searchterm = data.searchterm;
+
+    // Hashtag wird wieder hinzugefügt
     if (data.hashtag === true){
       searchterm = "#"+searchterm;
     }
 
-
-    // check if all values are defined
-    if (latitude === undefined){
-      res.json({taglist: GeoTagStore.getGeoTags()});
-    }
-    if (searchterm == ""){
+    if (searchterm === ""){ // Falls kein Suchparameter übergeben wurde, werden alle Geotags in der Nähe angezeigt
       res.json({
-        "taglist": GeoTagStore.getGeoTags()
+        "taglist": GeoTagStore.getNearbyGeoTags(latitude,longitude, 600)
       });
     } else {
       res.json({
@@ -83,7 +79,7 @@ router.get('/api/geotags', (req, res) => {
       });
     }
 
-  } catch (e) {
+  } catch (e) { // Falls keine Daten übergeben wurden, dann werden alle Geotags ausgegeben
     res.json({
       "taglist": GeoTagStore.getGeoTags()
     });
@@ -104,12 +100,13 @@ router.get('/api/geotags', (req, res) => {
  */
 
 router.post('/api/geotags', (req, res) => {
-
+  // Daten aus dem Body auslesen
   let lat = req.body.latitude;
   let long = req.body.longitude;
   let name = req.body.name;
   let hashtag = req.body.hashtag;
 
+  // Tag dem speicher hinzufügen und Daten übermitteln
   let tag = GeoTagStore.addGeoTag(lat,long,name,hashtag);
   res.json({
     "taglist": GeoTagStore.getNearbyGeoTags(lat, long, 600)
