@@ -77,6 +77,13 @@
                             <li><%= gtag.name %> (<%= gtag.latitude %>, <%= gtag.longitude %>) <%= gtag.hashtag %> </li> <!-- hier wirds auf der seite angezeigt -->
                         <% }); %>
                     </ul>
+                    <div id="paginationButtons">
+                        <button id="btn-l" type="submit"><</button>  <p id="infoP">Page 1/2 (11)</p>  <button id="btn-r" type="submit">></button>
+                        <input id="currentPage" type="hidden" value="1">
+                        <input id="maxPage" type="hidden" value="2">
+                        <input id="totalElements" type="hidden" value="11">
+                        <input id="data" type="hidden" value="">
+                    </div>
                 </div>
 
                 <div class="discovery__map discovery col-6">

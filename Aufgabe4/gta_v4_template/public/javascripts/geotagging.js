@@ -13,7 +13,7 @@ function updateLocation(tags = ""){
         Beim ersten Aufruf sollen Koordinaten ausgelesen werden und die Karte mit den entsprechenden tags
         gerendert werden.
      */
-    if(tags === ""){ // Erster aufruf
+    if (tags === ""){ // Erster aufruf
         LocationHelper.findLocation(function(helper) { //Callback funktion --> 
             document.getElementById("latitude").value = helper.latitude; // element Latitude wird gesucht und dannach wird value überschrieben mit helper latitude überschreieben
             document.getElementById("longitude").value = helper.longitude; // value von element Longitude
@@ -21,8 +21,10 @@ function updateLocation(tags = ""){
             let latitude = helper.latitude;
             let longitude = helper.longitude;
 
-            var mapManager = new MapManager("jSDyDl8WcMaEG0bQrr55wCuOQmEbNjwy");
 
+
+
+            var mapManager = new MapManager("jSDyDl8WcMaEG0bQrr55wCuOQmEbNjwy");
             let data = GET_fetch_data(latitude, longitude) // Daten in JSON Datei schreiben
             fetch("http://localhost:3000/api/geotags?q="+JSON.stringify(data), {
                 method: "GET"
@@ -30,6 +32,7 @@ function updateLocation(tags = ""){
                 .then(response => response.json())
                 .then(data => {
                         document.getElementById("mapView").src = mapManager.getMapUrl(latitude, longitude, data.taglist); // String in Array umwandeln und auf map anzeigen
+                        pasteFetchResults(data);
                     }
                 )       .catch(error => console.error('Fehler:', error));
         });   
@@ -112,6 +115,18 @@ document.getElementById("searchSubmit").addEventListener("click", () => {
 )       .catch(error => console.error('Fehler:', error));
 });
 
+document.getElementById("btn-l").addEventListener("click", () => {
+    let newPage = document.getElementById("currentPage").value - 1;
+    let data = {"taglist": JSON.parse(document.getElementById("data").value)};
+    pasteFetchResults(data, newPage);
+});
+
+document.getElementById("btn-r").addEventListener("click", () => {
+    let newPage = parseInt(document.getElementById("currentPage").value) + 1;
+    let data = {"taglist": JSON.parse(document.getElementById("data").value)};
+    pasteFetchResults(data, newPage);
+});
+
 function GET_fetch_data(latitude = "", longitude = ""){
     if (latitude === "" || latitude === ""){ // Falls latitude/longitude nicht gegeben sind, werden sie ausgelesen
         latitude = document.getElementById("latitude").value;
@@ -139,10 +154,10 @@ function GET_fetch_data(latitude = "", longitude = ""){
     return data;
 }
 
-function pasteFetchResults(data){
+function pasteFetchResults(data, page = 1, maxEntries= 6){
     // Daten werden in "discoveryResults" gelistet
     let s = "";
-    for (let i = 0; i < data.taglist.length; i++){
+    for (let i = (page - 1) * maxEntries; i < (data.taglist.length < page * maxEntries ? data.taglist.length : page * maxEntries); i++){
         s += "<li>" +
             data.taglist[i].name + " (" +
             data.taglist[i].latitude + ", " +
@@ -151,4 +166,26 @@ function pasteFetchResults(data){
             "</li>";
     }
     document.getElementById("discoveryResults").innerHTML = s;
+    setButtonProperties(data, page, maxEntries);
+}
+
+function setButtonProperties(data, page = 1, maxEntries = 6){
+    let maxPage = Math.ceil(data.taglist.length / maxEntries);
+    let totalElements = data.taglist.length;
+    let currentPage = (maxPage === 0 ? 0 : page);
+
+    document.getElementById("currentPage").value = currentPage;
+    document.getElementById("maxPage").value = maxPage;
+    document.getElementById("totalElements").value = totalElements;
+    document.getElementById("data").value = JSON.stringify(data.taglist);
+
+    updateButtons(currentPage, maxPage);
+
+    document.getElementById("infoP").innerHTML = "Page " + currentPage + "/" +
+        maxPage + " (" + totalElements +")";
+}
+
+function updateButtons(currentPage, maxPage){
+    document.getElementById("btn-l").disabled = (currentPage == 1 || currentPage == 0);
+    document.getElementById("btn-r").disabled = (currentPage === maxPage);
 }

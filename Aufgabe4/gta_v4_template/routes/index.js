@@ -40,7 +40,7 @@ const {parse} = require("nodemon/lib/cli");
  */
 
 router.get('/', (req, res) => {
-  res.render('index', { taglist: GeoTagStore.getGeoTags(), lat: "", long: ""});
+  res.render('index', { taglist: GeoTagStore.getGeoTags().slice(0,6), lat: "", long: ""});
 });
 
 // API routes (A4)
