@@ -232,6 +232,37 @@ form fieldset {
   display: block;
 }
 
+/* ### TODO ### Styles for Pagination */
+
+#paginationButtons {
+  display: flex;
+  justify-content: space-between;
+  width: 95%;
+  margin-left: 2.5%;
+  margin-top: 10px;
+  line-height: 30px;
+}
+
+.discovery__taglist button{
+  width: 30px;
+  height: 30px;
+  border-radius: 50px;
+  border: 1px solid #cecece;
+}
+
+.discovery__taglist button{
+  width: 30px;
+  height: 30px;
+  border-radius: 50px;
+  border: 1px solid #cecece;
+}
+
+.discovery__taglist button:disabled{
+  color: #dedede;
+  background-color: #eeeeee;
+}
+
+
 /* ### TODO ### Styles for Footer Component */
 
 .footer {

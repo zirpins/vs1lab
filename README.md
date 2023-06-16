@@ -12,7 +12,7 @@ In der Übung entwickeln wir die **Geo Tagging App** (kurz GT-App oder GTA): ein
 
 ![Screenshot](gta-screen.png)
 
-## Entwicklungsumgebung
+## Entwicklungsumgebung penis
 
 Auf einem Entwicklungsrechner brauchen sie zur Lösung der Aufgaben verschiedene [Tools](https://de.wikipedia.org/wiki/Programmierwerkzeug) und [Frameworks](https://de.wikipedia.org/wiki/Framework). Für die ersten zwei Aufgaben sind folgende Komponenten nötig:
 

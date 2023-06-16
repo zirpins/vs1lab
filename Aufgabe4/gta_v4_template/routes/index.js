@@ -26,6 +26,7 @@ const GeoTag = require('../models/geotag');
  */
 // eslint-disable-next-line no-unused-vars
 const GeoTagStore = require('../models/geotag-store');
+const {parse} = require("nodemon/lib/cli");
 
 // App routes (A3)
 
@@ -39,7 +40,7 @@ const GeoTagStore = require('../models/geotag-store');
  */
 
 router.get('/', (req, res) => {
-  res.render('index', { taglist: [] })
+  res.render('index', { taglist: GeoTagStore.getGeoTags().slice(0,6), lat: "", long: ""});
 });
 
 // API routes (A4)
@@ -56,7 +57,35 @@ router.get('/', (req, res) => {
  * If 'latitude' and 'longitude' are available, it will be further filtered based on radius.
  */
 
-// TODO: ... your code here ...
+router.get('/api/geotags', (req, res) => {
+  try { // schauen ob Daten als Queryparameter übergeben wurden
+    let data = JSON.parse(req.query.q);
+    let latitude = data.latitude;
+    let longitude = data.longitude;
+    let searchterm = data.searchterm;
+
+    // Hashtag wird wieder hinzugefügt
+    if (data.hashtag === true){
+      searchterm = "#"+searchterm;
+    }
+
+    if (searchterm === ""){ // Falls kein Suchparameter übergeben wurde, werden alle Geotags in der Nähe angezeigt
+      res.json({
+        "taglist": GeoTagStore.getNearbyGeoTags(latitude,longitude, 600)
+      });
+    } else {
+      res.json({
+        "taglist": GeoTagStore.searchNearbyGeoTags(latitude, longitude, 600, searchterm)
+      });
+    }
+
+  } catch (e) { // Falls keine Daten übergeben wurden, dann werden alle Geotags ausgegeben
+    res.json({
+      "taglist": GeoTagStore.getGeoTags()
+    });
+  }
+
+});
 
 
 /**
@@ -70,7 +99,19 @@ router.get('/', (req, res) => {
  * The new resource is rendered as JSON in the response.
  */
 
-// TODO: ... your code here ...
+router.post('/api/geotags', (req, res) => {
+  // Daten aus dem Body auslesen
+  let lat = req.body.latitude;
+  let long = req.body.longitude;
+  let name = req.body.name;
+  let hashtag = req.body.hashtag;
+
+  // Tag dem speicher hinzufügen und Daten übermitteln
+  let tag = GeoTagStore.addGeoTag(lat,long,name,hashtag);
+  res.json({
+    "taglist": GeoTagStore.getNearbyGeoTags(lat, long, 600)
+  });
+});
 
 
 /**
@@ -83,7 +124,12 @@ router.get('/', (req, res) => {
  * The requested tag is rendered as JSON in the response.
  */
 
-// TODO: ... your code here ...
+router.get('/api/geotags/:id', (req, res) => {
+
+  res.json({
+    "taglist": [GeoTagStore.getGeoTag(req.params["id"])]
+  });
+});
 
 
 /**
@@ -100,7 +146,17 @@ router.get('/', (req, res) => {
  * The updated resource is rendered as JSON in the response. 
  */
 
-// TODO: ... your code here ...
+router.put('/api/geotags/:id', (req, res) => {
+
+  let lat = req.body.latitude;
+  let long = req.body.longitude;
+  let name = req.body.name;
+  let hashtag = req.body.hashtag;
+
+  res.json({
+    "taglist": [GeoTagStore.setGeoTag(lat,long,name,hashtag,req.params["id"])]
+  });
+});
 
 
 /**
@@ -114,6 +170,10 @@ router.get('/', (req, res) => {
  * The deleted resource is rendered as JSON in the response.
  */
 
-// TODO: ... your code here ...
+router.delete('/api/geotags/:id', (req, res) => {
+  res.json({
+    "taglist": [GeoTagStore.deleteGeoTag(req.params["id"])]
+  });
+});
 
 module.exports = router;
