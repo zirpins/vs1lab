@@ -30,20 +30,55 @@ class InMemoryGeoTagStore{
     static getGeoTags() {
         return this.#geoTags;
     }
-    static #geoTags = [];
+
+    static getGeoTag(index){
+        try{
+            index = parseInt(index);
+            console.log(this.#geoTags);
+            console.log(index+"--> "+this.#geoTags[index]);
+            return this.#geoTags[index];
+        } catch (e){
+            throw new Error(e);
+            return 0;
+        }
+    }
+
+    static #geoTags = this.addGeoTagExamples();
+
+
+    static addGeoTagExamples(){
+        let arr = GeoTagExamples.tagList;
+        let arr2 = [];
+        for (let i = 0; i < arr.length; i++){
+            arr2.push(new GeoTag(arr[i][1], arr[i][2], arr[i][0], arr[i][3]));
+        }
+        return arr2;
+    }
 
     static addGeoTag(lat, long, nm, ht){
         // If GeoTag latitude, longitude, name, hashtag is provided, create new GeoTag, then add to [geoTags] array
         var tag = new GeoTag(lat, long, nm, ht);
         this.#geoTags.push(tag);
+        return tag;
     }
 
-    static addGeoTagExamples(){
-        if (this.#geoTags.length == 0){
-            var v = GeoTagExamples.tagList;
-            for (let i = 0; i < v.length; i++){
-                this.addGeoTag(v[i][1], v[i][2], v[i][0], v[i][3]);
-            }
+    static setGeoTag(lat, long, nm, ht, index){
+        try{
+            let tag = new GeoTag(lat, long, nm, ht);
+            this.#geoTags[index] = tag;
+            return tag;
+        } catch (e){
+            throw new Error(e);
+        }
+    }
+
+    static deleteGeoTag(i){
+        try {
+            let tag = this.#geoTags[i];
+            this.#geoTags.splice(i, 1);
+            return tag;
+        } catch (e) {
+            throw new Error(e);
         }
     }
 

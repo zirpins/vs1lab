@@ -1,0 +1,282 @@
+/*
+  File origin: VS1LAB A1b  
+
+  CSS style is BEM. Classes used for CSS, IDs for JavaScript querying (future use).
+  CSS variables used for clarity and themability (e.g. through SSR). 
+  Inherited box sizing used for ease of including 3rd party content-box components.
+*/
+
+/* Global styling */
+
+html {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+
+  /* This approach prevents issues with 3rd party content-box components */
+  box-sizing: inherit;
+}
+
+input {
+  border: #cdcdcd 1px solid;
+  border-radius: 5px;
+}
+
+input[type=text]:enabled{
+  border: #666 1px solid;
+}
+
+legend {
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+label {
+  font-weight: 600;
+  color: #666;
+}
+
+fieldset {
+  border-radius: 5px;
+}
+
+
+/* Variables (example: see declaration for "a" below) */
+
+:root {
+  --link-color: #00B7FF;
+  --background-color: #efefef;
+  --border-color: #cdcdcd;
+  --gray-color: #666;
+}
+
+/* HTML element styles */
+
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+a {
+  color: var(--link-color);
+}
+
+/* ### TODO ### Styles for other HTML elements */
+
+form fieldset {
+  margin-top: 12px;
+}
+
+/* Grid styles (no changes required) */
+
+.row {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex: 1;
+}
+
+.col-1 {
+  width: calc(8.33% - 1rem);
+}
+
+.col-2 {
+  width: calc(16.66% - 1rem);
+}
+
+.col-3 {
+  width: calc(25% - 1rem);
+}
+
+.col-4 {
+  width: calc(33.33% - 1rem);
+}
+
+.col-5 {
+  width: calc(41.66% - 1rem);
+}
+
+.col-6 {
+  width: calc(50% - 1rem);
+}
+
+.col-7 {
+  width: calc(58.33% - 1rem);
+}
+
+.col-8 {
+  width: calc(66.66% - 1rem);
+}
+
+.col-9 {
+  width: calc(75% - 1rem);
+}
+
+.col-10 {
+  width: calc(83.33% - 1rem);
+}
+
+.col-11 {
+  width: calc(91.66% - 1rem);
+}
+
+.col-12 {
+  width: calc(100% - 1rem);
+}
+
+/* ### TODO ### Styles for Header Component */
+
+.header {
+  background-color: #e9e9e9;
+  height: 120px;
+  display: flex;  
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 30px;  
+  align-items: center;
+}
+
+.header__image{
+  height: 40px;
+}
+
+.header__title {
+  text-align: center;
+}
+
+.header__navigation{
+  text-align: right;
+}
+
+/* ### TODO ### Styles for Main Component */
+
+.main {
+  width: 93%;
+  margin-left: 3.5%;
+  margin-top: 3.5%;
+}
+
+/* ### TODO ### Styles for Tagging component */
+
+#tag-form fieldset{
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+#tag-form fieldset input:not(#addTag) {
+  height: 35px;
+  padding-left: 8px;
+}
+
+#addTag {
+  height: 35px;
+}
+
+#tag-form fieldset input {
+  margin-bottom: 15px;
+  margin-top: 3px;
+}
+
+#tag-form fieldset input:disabled {
+  background-color: #f1f1f1;
+}
+
+/* ### TODO ### Styles for Discovery component */
+
+.discovery__search fieldset{
+  padding: 20px;
+}
+
+.discovery__search fieldset input{
+  margin-top: 3px;
+  display: block;
+  height: 35px;
+}
+
+#searchField {
+  padding-left: 8px;
+}
+
+#searchSubmit{
+  margin-top: 20px;
+}
+
+.discovery img{
+  margin-top: 20px;
+}
+
+/* Tags*/
+
+.discovery__taglist ul{
+  list-style-type: none;
+}
+
+.discovery__taglist ul li{
+  border-radius: 5px;
+  margin-top: 20px;
+  padding-left: 9px;
+  height: 50px;
+  line-height: 50px;
+  background-color: #f1f1f1;
+  border: #cdcdcd 1px solid;
+  color: #00B7FF;
+}
+
+.discovery__map span{
+  display: block;
+}
+
+/* ### TODO ### Styles for Footer Component */
+
+.footer {
+  height: 100px;
+  background-color: #e9e9e9;
+  margin-top: 30px;
+}
+
+.footer span {
+  line-height: 100px;
+  margin-left: 50px;
+  font-weight: bold;
+}
+
+/* ### TODO ### Media Queries */
+
+@media (max-width: 800px){
+  .main {
+    display: block;
+  }
+
+  .discovery{
+    margin-top: 20px;
+    display: block;
+    width: 100%;
+  }
+
+  .tagging {
+    margin-top: 5px;
+    width: 100%;
+  }
+
+  #searchField {
+    width: 100%;
+  }
+
+  #searchSubmit {
+    width: 100%;
+  }
+
+  .discovery__taglist {
+    width: 100%;
+  }
+
+  #mapView {
+    width: 100%;
+  }
+}
