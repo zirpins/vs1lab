@@ -30,13 +30,14 @@ Lokale Änderungen global auf gitHub pushen
 git push
 ``` 
 
-Wenn man mit seinem Branch zufrieden ist und die Änderungen commited hat, dev_total updaten
+Wenn man mit seinem Branch zufrieden ist und die Änderungen commited hat, dev_total updaten und wieder auf den eigenen Branch wechseln
 ```
 git chekout dev_total
 git merge dev_name
 git push
+git checkout dev_name
 ```
-
-Ab jetzt beginnt der Kreislauf von neuem :)
+ 
+Ab jetzt beginnt der Kreislauf von Neuem :)
 
 
