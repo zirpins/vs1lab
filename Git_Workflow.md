@@ -40,4 +40,10 @@ git checkout dev_name
  
 Ab jetzt beginnt der Kreislauf von Neuem :)
 
+Sidenote: 
+```
+git branch
+```
+zeigt an auf welcher Branch man sich gerade befindet
+
 
