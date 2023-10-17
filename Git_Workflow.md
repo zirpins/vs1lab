@@ -44,6 +44,6 @@ Sidenote:
 ```
 git branch
 ```
-zeigt an auf welcher Branch man sich gerade befindet
+zeigt an auf welchem Branch man sich gerade befindet
 
 
