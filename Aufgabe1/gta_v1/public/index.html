@@ -24,9 +24,9 @@
     <main class="main">
         <section class="main__tagging tagging">
             <h2>Tagging</h2>
-
             <!-- ############### VS1Lab 1a Form 1 Start -->
-            <form id="tag-form" action="/tagging" method="post">
+            <div class="form-container">
+                <form id="tag-form" action="/tagging" method="post">
                 <fieldset>
                     <!-- latitude, longitude, name, hashtag -->
                     <legend>Tagging Data</legend><br>
@@ -41,31 +41,28 @@
                     <input type="submit" name="submit" size="10"/><br><br> 
                 </fieldset>
             </form>
-            <!-- ############### VS1Lab 1a Form 1 End -->
+            </div>
+
 
         </section>
 
         <section class="main__discovery discovery">
             <h2 class="discovery__title">Discovery</h2>
-
+            <div class="form-container">
             <!-- ############### VS1Lab 1a Form 2 Start -->
-            <form class="discovery__search" id="discoveryFilterForm" action="/discovery" method="post">
+                <form class="discovery__search" id="discoveryFilterForm" action="/discovery" method="post">
                 <fieldset>
-                    <legend>Discovery</legend>
-                        <label for="searchterm">Suchen:</label>
-                        <input type="text" id="searchterm" label="searchterm" placeholder="Sehenswürdigkeit..." size="10" />
+                    <legend>Suche</legend>
+                        <label for="searchterm">Suchbegriff</label>
+                        <input type="text" id="searchterm" label="searchterm" placeholder="z.B. Karlsruhe" size="10" />
                         <input type="hidden" id="latitude" label="latitude"/>
                         <input type="hidden" id="longitude" label="longitude"/>
-                        <input type="submit" value="Bestätigen"/>
-                    
-                
-
+                        <input type="submit" value="Suchen"/>
                 </fieldset>
- 
-
-
-
             </form>
+            </div>
+
+
             <!-- ############### VS1Lab 1a Form 2 End -->
 
             <div class="discovery__wrapper">
