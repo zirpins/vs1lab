@@ -189,6 +189,7 @@ header {
   display: flex;
   flex-direction: row;
   margin-top: 10px;
+  justify-content: space-between;
 }
 
 .discovery form {
@@ -261,6 +262,5 @@ header {
 
   .header__image {
     max-width: 50px;
-    margin: 0 10px;
 }
 }
