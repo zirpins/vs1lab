@@ -172,11 +172,11 @@ Zur Übersicht folgen noch mal alle Anforderungen in kompakter Form als Checklis
   - [x] Platzhalter für alle Felder
 - [x] `fieldset` und `legend` zur Begrenzung des Formulars
 - [x] Für jedes Formular ein Element zum Absenden
-- [ ] Formular-Validierung
+- [x] Formular-Validierung
   - [x] Latitude und Longitude mit festen Werten
   - [x] Im Tagging-Formular: Name obligatorisch, Hashtag optional
   - [x] Namen: max. 10 Buchstaben lang
-  - [ ] Hashtags: beginnen mit `#`, max. 10 Buchstaben
+  - [x] Hashtags: beginnen mit `#`, max. 10 Buchstaben
 
 ### Teil B: Seite mit CSS3 gestalten
 
