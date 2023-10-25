@@ -196,7 +196,6 @@ header {
   flex: 2;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 }
 
 .discovery label {
@@ -216,10 +215,6 @@ header {
   padding: 10px;
   border: 1px solid black;
   background-color: #dedee7;
-}
-
-.discovery__map {
-  flex: 1;
 }
 
 .discovery__map img {
@@ -267,6 +262,5 @@ header {
 
   .header__image {
     max-width: 50px;
-    margin: 0 10px;
 }
 }
