@@ -109,12 +109,42 @@ a {
 
 /* ### TODO ### Styles for Header Component */
 
-/* ... your code here ... */
+.header {
+  display: flex;
+  background-color: var(--background-color);
+  justify-content: space-around;
+  align-items: center;
+  padding: 5%;
+  border-bottom: solid;
+  border-color: var(--border-color);
+  border-width: 0.2em;
+  margin-bottom: 4%;
+}
+
+.header__image {
+  max-width: 5%;
+  height: auto;
+}
+
+/*
+flex grow causes disaligment of elements 
+
+h1 {
+  flex-grow: 2;
+  align-items: center;
+}
+
+*/
+
 
 
 /* ### TODO ### Styles for Main Component */
 
-/* ... your code here ... */
+.main {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
 
 
 /* ### TODO ### Styles for Tagging component */
@@ -129,7 +159,15 @@ a {
 
 /* ### TODO ### Styles for Footer Component */
 
-/* ... your code here ... */
+.footer {
+  display: flex;
+  background-color: var(--background-color);
+  padding: 4%;
+  border-top: solid;
+  border-color: var(--border-color);
+  border-width: 0.2em;
+  margin-top: 4%;
+}
 
 
 /* ### TODO ### Media Queries */
