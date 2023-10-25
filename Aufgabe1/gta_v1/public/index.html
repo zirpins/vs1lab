@@ -28,7 +28,7 @@
             <!-- ############### VS1Lab 1a Form 1 Start -->
             <form id="tag-form" action="/tagging" method="post"><br>
                 <fieldset>
-                    <legend>Add a new GeoTag</legend><br><br>
+                    <legend>Add a new GeoTag</legend><br>
 
                     <label for="lat">Latitude:</label><br>
                     <input type="text" id="lat" name="Latitude" value="43.702721" readonly><br><br>
@@ -56,10 +56,18 @@
             <!-- ############### VS1Lab 1a Form 2 Start -->
             <form class="discovery__search" id="discoveryFilterForm" action="/discovery" method="post"><br>
                 <fieldset>
-                    <legend>Search</legend><br><br>
+                    <legend>Search</legend><br>
                     
-                    <label for="name_loc">Search term or keywords: </label><br>
+                    <label for="search_term">Search term or keywords: </label><br>
                     <input type="text" id="search_term" name="search_term_or_location" placeholder="e.g. Batman"><br><br>
+
+                    <!-- lat and lon are hidden -->
+                    <!-- reserve no space in css for hidden lat and lon-->
+                    <label for="lat" hidden>Latitude:</label><br>
+                    <input type="text" id="lat" name="Latitude" value="43.702721" readonly hidden><br><br>
+
+                    <label for="lon" hidden>Longitude:</label><br>
+                    <input type="text" id="lon" name="Longitude" value="-124.095680" readonly hidden><br><br>
 
                     <input type="submit" id="search_button" value="Search">   
 
