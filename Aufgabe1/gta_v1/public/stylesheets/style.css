@@ -46,7 +46,6 @@ a {
 
 /* ### TODO ### Styles for other HTML elements */
 
-/* ... your code here ... */
 
 
 /* Grid styles (no changes required) */
@@ -126,35 +125,39 @@ a {
   height: auto;
 }
 
-/*
-flex grow causes disaligment of elements 
-
-h1 {
-  flex-grow: 2;
-  align-items: center;
-}
-
-*/
-
 
 
 /* ### TODO ### Styles for Main Component */
 
-.main {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-}
 
 
 /* ### TODO ### Styles for Tagging component */
 
-/* ... your code here ... */
+#lat, #lon, #name_loc, #hashtag_loc {
+  padding: 1%;
+  border: solid 1px; 
+  border-color: var(--border-color);
+  color: var(--gray-color)
+}
 
 
 /* ### TODO ### Styles for Discovery component */
 
-/* ... your code here ... */
+#search_term {
+  padding: 1%;
+  border: solid 1px; 
+  border-color: var(--border-color);
+  color: var(--gray-color)
+}
+
+ul li{
+  padding: 2%;
+  color: var(--link-color);
+  border: solid 1px;
+  border-color: var(--border-color);
+  margin: 1%;
+  list-style-type: none;
+}
 
 
 /* ### TODO ### Styles for Footer Component */
