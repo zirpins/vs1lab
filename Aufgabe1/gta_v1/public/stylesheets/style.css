@@ -150,6 +150,15 @@ a {
   color: var(--gray-color)
 }
 
+ul li{
+  padding: 2%;
+  color: var(--link-color);
+  border: solid 1px;
+  border-color: var(--border-color);
+  margin: 1%;
+  list-style-type: none;
+}
+
 
 /* ### TODO ### Styles for Footer Component */
 
