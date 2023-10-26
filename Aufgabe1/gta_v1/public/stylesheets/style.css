@@ -144,6 +144,8 @@ h1 {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+  margin-left: 5%;
+  margin-right: 5%;
 }
 
 
