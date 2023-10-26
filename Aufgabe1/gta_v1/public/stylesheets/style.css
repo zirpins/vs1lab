@@ -143,7 +143,12 @@ a {
 
 /* ### TODO ### Styles for Discovery component */
 
-/* ... your code here ... */
+#search_term {
+  padding: 1%;
+  border: solid 1px; 
+  border-color: var(--border-color);
+  color: var(--gray-color)
+}
 
 
 /* ### TODO ### Styles for Footer Component */
