@@ -182,7 +182,7 @@ a {
   background-color: var(--background-color);
 }
 
-label {
+.label_tagging {
   margin-left: 8%;
 }
 
@@ -218,6 +218,9 @@ ul li{
   background-color: var(--background-color);
 }
 
+#search_button{
+  
+}
 
 /* ### TODO ### Styles for Footer Component */
 
