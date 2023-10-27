@@ -56,13 +56,11 @@ a {
 .main__tagging {
   flex: 1;
   padding: 1rem;
-  background-color: var(--background-color);
 }
 
 .main__discovery {
   flex: 1;
   padding: 1rem;
-  background-color: var(--background-color);
   display: flex;
   flex-direction: column;
 }
@@ -78,12 +76,10 @@ a {
 
 .discovery__taglist {
   flex: 1;
-  background-color: var(--background-color);
 }
 
 .discovery__map {
   flex: 1;
-  background-color: var(--background-color);
 }
 
 
