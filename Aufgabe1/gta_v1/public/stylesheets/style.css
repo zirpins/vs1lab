@@ -186,6 +186,19 @@ label {
   margin-left: 8%;
 }
 
+#submit_button {
+  padding: 4%;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+  background-color: var(--background-color);
+  border: solid 1px;
+  border-color: var(--border-color);
+  margin-left: 8%;
+  margin-top: -8%;
+  margin-bottom: 8%;
+  font-weight: bold;
+}
+
 /* ### TODO ### Styles for Discovery component */
 
 #search_term {
