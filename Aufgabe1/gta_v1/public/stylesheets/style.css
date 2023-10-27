@@ -47,6 +47,45 @@ a {
 /* ### TODO ### Styles for other HTML elements */
 
 
+.main {
+  display: flex;
+  flex: 1;
+  width: 100%;
+}
+
+.main__tagging {
+  flex: 1;
+  padding: 1rem;
+  background-color: var(--background-color);
+}
+
+.main__discovery {
+  flex: 1;
+  padding: 1rem;
+  background-color: var(--background-color);
+  display: flex;
+  flex-direction: column;
+}
+
+.discovery__search {
+  margin-bottom: 1rem;
+}
+
+.discovery__wrapper {
+  flex: 1;
+  display: flex;
+}
+
+.discovery__taglist {
+  flex: 1;
+  background-color: var(--background-color);
+}
+
+.discovery__map {
+  flex: 1;
+  background-color: var(--background-color);
+}
+
 
 /* Grid styles (no changes required) */
 
