@@ -77,6 +77,7 @@ a {
 
 .discovery__taglist {
   flex: 1;
+  margin-right: 4%;
 }
 
 .discovery__map {
@@ -194,7 +195,7 @@ ul li{
   color: var(--link-color);
   border: solid 1px;
   border-color: var(--border-color);
-  margin: 1%;
+  margin-bottom: 6%;
   list-style-type: none;
   background-color: var(--background-color);
 }
