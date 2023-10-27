@@ -228,9 +228,9 @@ ul li{
   border-color: var(--border-color);  
   font-weight: bold;
   color: var(--border-color);
-  padding: 1%;
-  padding-left: 2.8rem;
-  padding-right: 2.8rem;
+  padding: 1.2%;
+  padding-left: 2.7rem;
+  padding-right: 2.7rem;
 }
 
 /* ### TODO ### Styles for Footer Component */
