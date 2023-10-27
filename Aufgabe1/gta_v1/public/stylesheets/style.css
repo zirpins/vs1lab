@@ -169,7 +169,7 @@ a {
 /* ### TODO ### Styles for Tagging component */
 
 #lat, #lon, #name_loc, #hashtag_loc {
-  padding: 1%;
+  padding: 4%;
   border: solid 1px; 
   border-color: var(--border-color);
   color: var(--gray-color)
@@ -179,7 +179,7 @@ a {
 /* ### TODO ### Styles for Discovery component */
 
 #search_term {
-  padding: 1%;
+  padding: 2%;
   border: solid 1px; 
   border-color: var(--border-color);
   color: var(--gray-color)
@@ -192,6 +192,7 @@ ul li{
   border-color: var(--border-color);
   margin: 1%;
   list-style-type: none;
+  background-color: var(--background-color);
 }
 
 
