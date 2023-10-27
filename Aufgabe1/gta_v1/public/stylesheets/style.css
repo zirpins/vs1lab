@@ -47,46 +47,6 @@ a {
 /* ### TODO ### Styles for other HTML elements */
 
 
-.main {
-  display: flex;
-  flex: 1;
-  width: 100%;
-}
-
-.main__tagging {
-  flex: 1;
-  padding: 1rem;
-  background-color: var(--background-color);
-}
-
-.main__discovery {
-  flex: 1;
-  padding: 1rem;
-  background-color: var(--background-color);
-  display: flex;
-  flex-direction: column;
-}
-
-.discovery__search {
-  margin-bottom: 1rem;
-}
-
-.discovery__wrapper {
-  flex: 1;
-  display: flex;
-}
-
-.discovery__taglist {
-  flex: 1;
-  background-color: var(--background-color);
-}
-
-.discovery__map {
-  flex: 1;
-  background-color: var(--background-color);
-}
-
-
 /* Grid styles (no changes required) */
 
 .row {
@@ -168,25 +128,88 @@ a {
 
 /* ### TODO ### Styles for Main Component */
 
+.main {
+  display: flex;
+  flex: 1;
+  width: 100%;
+}
 
+.main__tagging {
+  flex: 1;
+  padding: 1rem;
+  margin-left: 3%;
+}
+
+.main__discovery {
+  flex: 1;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 4;
+  margin-right: 3%;
+}
+
+.discovery__search {
+  margin-bottom: 2rem;
+}
+
+.discovery__wrapper {
+  flex: 1;
+  display: flex;
+}
+
+.discovery__taglist {
+  flex: 1;
+  margin-right: 4%;
+}
+
+.discovery__map {
+  flex: 1;
+}
 
 /* ### TODO ### Styles for Tagging component */
 
 #lat, #lon, #name_loc, #hashtag_loc {
-  padding: 1%;
+  padding: 4%;
   border: solid 1px; 
-  border-color: var(--border-color);
-  color: var(--gray-color)
+  color: var(--gray-color); 
+  margin-left: 8%;
+  margin-top: 4%;
 }
 
+#lat, #lon {
+  background-color: var(--background-color);
+  border-color: var(--border-color);
+}
+
+.label_tagging {
+  margin-left: 8%;
+}
+
+#submit_button {
+  padding: 4%;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+  background-color: var(--background-color);
+  border: solid 1px;
+  border-color: var(--border-color);
+  margin-left: 8%;
+  margin-top: -8%;
+  margin-bottom: 8%;
+  font-weight: bold;
+}
+
+#legend_tagging {
+  margin-left: 8%;
+}
 
 /* ### TODO ### Styles for Discovery component */
 
 #search_term {
-  padding: 1%;
+  padding: 2%;
   border: solid 1px; 
   border-color: var(--border-color);
-  color: var(--gray-color)
+  color: var(--gray-color);
 }
 
 ul li{
@@ -194,10 +217,21 @@ ul li{
   color: var(--link-color);
   border: solid 1px;
   border-color: var(--border-color);
-  margin: 1%;
+  margin-bottom: 6%;
   list-style-type: none;
+  background-color: var(--background-color);
 }
 
+#search_button{
+  background-color: var(--background-color);
+  border: solid 1px;
+  border-color: var(--border-color);  
+  font-weight: bold;
+  color: var(--border-color);
+  padding: 1.2%;
+  padding-left: 2.7rem;
+  padding-right: 2.7rem;
+}
 
 /* ### TODO ### Styles for Footer Component */
 
