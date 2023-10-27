@@ -175,6 +175,9 @@ a {
   color: var(--gray-color)
 }
 
+#lat, #lon {
+  background-color: var(--background-color);
+}
 
 /* ### TODO ### Styles for Discovery component */
 
