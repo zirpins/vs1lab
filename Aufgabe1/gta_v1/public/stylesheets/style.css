@@ -172,7 +172,6 @@ a {
 #lat, #lon, #name_loc, #hashtag_loc {
   padding: 4%;
   border: solid 1px; 
-  border-color: var(--border-color);
   color: var(--gray-color); 
   margin-left: 8%;
   margin-top: 4%;
@@ -180,6 +179,7 @@ a {
 
 #lat, #lon {
   background-color: var(--background-color);
+  border-color: var(--border-color);
 }
 
 .label_tagging {
