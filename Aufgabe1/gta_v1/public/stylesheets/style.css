@@ -67,7 +67,7 @@ a {
 }
 
 .discovery__search {
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 .discovery__wrapper {
@@ -187,7 +187,7 @@ a {
   padding: 2%;
   border: solid 1px; 
   border-color: var(--border-color);
-  color: var(--gray-color)
+  color: var(--gray-color);
 }
 
 ul li{
