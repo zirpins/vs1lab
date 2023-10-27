@@ -223,7 +223,14 @@ ul li{
 }
 
 #search_button{
-  
+  background-color: var(--background-color);
+  border: solid 1px;
+  border-color: var(--border-color);  
+  font-weight: bold;
+  color: var(--border-color);
+  padding: 1%;
+  padding-left: 2.8rem;
+  padding-right: 2.8rem;
 }
 
 /* ### TODO ### Styles for Footer Component */
