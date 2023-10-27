@@ -63,6 +63,7 @@ a {
   padding: 1rem;
   display: flex;
   flex-direction: column;
+  flex-grow: 4;
 }
 
 .discovery__search {
