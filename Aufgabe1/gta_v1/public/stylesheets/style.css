@@ -199,6 +199,10 @@ a {
   font-weight: bold;
 }
 
+#legend_tagging {
+  margin-left: 8%;
+}
+
 /* ### TODO ### Styles for Discovery component */
 
 #search_term {
