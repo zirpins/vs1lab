@@ -264,6 +264,10 @@ ul li{
   margin-top: 4%;
 }
 
+#label_search {
+  color: var(--gray-color);
+}
+
 
 /* ### TODO ### Media Queries */
 
