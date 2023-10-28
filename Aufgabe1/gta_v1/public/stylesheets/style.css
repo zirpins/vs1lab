@@ -186,6 +186,7 @@ a {
 
 .label_tagging {
   margin-left: 8%;
+  color: var(--gray-color);
 }
 
 #submit_button {
@@ -215,6 +216,7 @@ a {
   max-width: 158px;
   max-height: 30px;
   margin-bottom: -0.2rem;
+  margin-top: 0.4rem;
 }
 
 ul li{
