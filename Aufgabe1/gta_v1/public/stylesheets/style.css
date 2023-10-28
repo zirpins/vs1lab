@@ -208,10 +208,12 @@ a {
 /* ### TODO ### Styles for Discovery component */
 
 #search_term {
-  padding: 2%;
+  padding: 1.5%;
   border: solid 1px; 
   border-color: var(--border-color);
   color: var(--gray-color);
+  max-width: 158px;
+  max-height: 30px;
 }
 
 ul li{
@@ -233,6 +235,14 @@ ul li{
   padding: 1.2%;
   padding-left: 2.7rem;
   padding-right: 2.7rem;
+}
+
+#fieldset_discovery {
+  max-block-size: 9rem;
+}
+
+#lat_hidden, #lon_hidden {
+  display: none;  
 }
 
 /* ### TODO ### Styles for Footer Component */
