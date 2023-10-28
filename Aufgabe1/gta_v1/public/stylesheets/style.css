@@ -214,6 +214,7 @@ a {
   color: var(--gray-color);
   max-width: 158px;
   max-height: 30px;
+  margin-bottom: -0.2rem;
 }
 
 ul li{
@@ -243,6 +244,10 @@ ul li{
 
 #lat_hidden, #lon_hidden {
   display: none;  
+}
+
+.to_be_shifted {
+  margin-left: 0.8rem;
 }
 
 /* ### TODO ### Styles for Footer Component */
