@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <!-- File origin: VS1LAB A1a -->
-<!-- Autores: Arturo, José y Celso -->
+<!-- Authors: Arturo, José y Celso -->
 
 <html lang="en">
 
@@ -56,11 +56,13 @@
 
             <!-- ############### VS1Lab 1a Form 2 Start -->
             <form class="discovery__search" id="discoveryFilterForm" action="/discovery" method="post"><br>
-                <fieldset>
-                    <legend id="legend_search">Search</legend><br>
+                <fieldset id="fieldset_discovery">
+                    <legend id="legend_search" class="to_be_shifted">Search</legend><br>
                     
-                    <label for="search_term">Search term or keywords: </label><br>
-                    <input type="text" id="search_term" name="search_term_or_location" placeholder="e.g. Batman" pattern="#([a-z]|[A-Z]){1,10}"><br><br>
+                    <label for="search_term" class="to_be_shifted" id="label_search">Search term or keywords: </label><br>
+                    <input type="text" id="search_term" class="to_be_shifted" name="search_term_or_location" placeholder="e.g. Batman" pattern="#([a-z]|[A-Z]){1,10}"><br><br>
+                    
+                    <input type="submit" id="search_button" value="Search" class="to_be_shifted"> 
 
                     <!-- lat and lon are hidden -->
                     <!-- reserve no space in css for hidden lat and lon w/ display:none ? -->
@@ -70,7 +72,7 @@
                     <label for="lon" hidden>Longitude:</label><br>
                     <input type="text" id="lon_hidden" name="Longitude" value="-124.095680" readonly hidden><br><br>
 
-                    <input type="submit" id="search_button" value="Search">   
+                    
 
                 </fieldset>
             </form>
