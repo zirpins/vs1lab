@@ -236,8 +236,10 @@ ul li{
   font-weight: bold;
   color: var(--border-color);
   padding: 1.2%;
-  padding-left: 2.7rem;
-  padding-right: 2.7rem;
+  padding-left: 3.65rem;
+  padding-right: 3.65rem;
+  max-block-size: 1.7rem;
+  align-content: center;
 }
 
 #fieldset_discovery {
