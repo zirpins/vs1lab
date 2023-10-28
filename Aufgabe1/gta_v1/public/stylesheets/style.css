@@ -175,8 +175,8 @@ a {
   color: var(--gray-color); 
   margin-left: 8%;
   margin-top: 4%;
-  max-width: 8rem;
-  margin-right: 2rem; 
+  max-width: auto;
+  margin-right: 4rem; 
 }
 
 #lat, #lon {
