@@ -293,8 +293,8 @@ ul li{
     display: block;
   }
 
-  .discovery__taglist {
-    display: none;
+  .discovery__results {
+    display: block;
   }
 
   #mapView {
@@ -302,6 +302,6 @@ ul li{
     max-width: 100%;
   }
 
-
+  
 
 }
