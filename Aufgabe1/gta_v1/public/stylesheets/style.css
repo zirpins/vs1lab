@@ -289,7 +289,18 @@ ul li{
     display: block;
   }
 
-  
+  .main__discovery {
+    display: block;
+  }
+
+  .discovery__taglist {
+    display: none;
+  }
+
+  #mapView {
+    display: block;
+    max-width: 100%;
+  }
 
 
 
