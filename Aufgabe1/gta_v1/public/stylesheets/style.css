@@ -276,6 +276,7 @@ ul li{
 /* ### TODO ### Media Queries */
 
 @media not (min-width: 400px)  {
+
   .header__title {
     font-size: 160%;
   }
@@ -291,6 +292,7 @@ ul li{
 
   .main__discovery {
     display: block;
+    margin-left: 3%;
   }
 
   .discovery__results {
@@ -303,5 +305,6 @@ ul li{
   }
 
   
+
 
 }
