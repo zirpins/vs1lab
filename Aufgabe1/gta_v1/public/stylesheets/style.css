@@ -284,8 +284,12 @@ ul li{
     max-width: 8%;
   }
 
-  
+  .main {
+    background-color: white;
+    display: block;
+  }
 
+  
 
 
 
