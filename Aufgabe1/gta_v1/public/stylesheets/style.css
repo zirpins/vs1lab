@@ -275,4 +275,18 @@ ul li{
 
 /* ### TODO ### Media Queries */
 
-/* ... your code here ... */
+@media (min-device-width: 300px)  {
+  .header__title {
+    font-size: 160%;
+  }
+
+  .header__image {
+    max-width: 8%;
+  }
+
+  
+
+
+
+
+}
