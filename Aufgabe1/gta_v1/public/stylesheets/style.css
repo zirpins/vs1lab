@@ -245,7 +245,7 @@ ul li{
 }
 
 #fieldset_discovery {
-  max-block-size: 9rem;
+  max-block-size: 10rem;
 }
 
 #lat_hidden, #lon_hidden {
@@ -323,5 +323,9 @@ ul li{
 
   .main__tagging {
     margin-right: 3%;
+  }
+
+  #hashtag_loc {
+    margin-bottom: 2%;
   }
 }
