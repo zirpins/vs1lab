@@ -275,4 +275,53 @@ ul li{
 
 /* ### TODO ### Media Queries */
 
-/* ... your code here ... */
+@media screen and (max-width: 850px)  {
+
+  .header__title {
+    font-size: 160%;
+  }
+
+  .header__image {
+    max-width: 8%;
+  }
+
+  .main {
+    background-color: white;
+    display: block;
+  }
+
+  .main__discovery {
+    display: block;
+    margin-left: 3%;
+  }
+
+  .discovery__results {
+    display: block;
+  }
+
+  #mapView {
+    display: block;
+    max-width: 100%;
+  }
+
+  .textbox {
+    width:85%;
+  }
+  
+  #submit_button {
+    width: 85%;
+  }
+
+  #search_term {
+    max-width: 300px;
+    width: 92%;
+  }
+
+  #search_button {
+    width: 92%;
+  }
+
+  .main__tagging {
+    margin-right: 3%;
+  }
+}
