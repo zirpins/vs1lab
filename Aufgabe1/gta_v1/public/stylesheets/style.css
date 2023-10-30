@@ -312,5 +312,16 @@ ul li{
     width: 85%;
   }
 
+  #search_term {
+    max-width: 300px;
+    width: 92%;
+  }
 
+  #search_button {
+    width: 92%;
+  }
+
+  .main__tagging {
+    margin-right: 3%;
+  }
 }
