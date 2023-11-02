@@ -152,7 +152,7 @@ a {
 }
 
 .discovery__search {
-  padding-bottom: 4%;
+  margin-bottom: 1.5rem;
 }
 
 .discovery__wrapper {
@@ -267,7 +267,7 @@ ul li{
 #label_search {
   color: var(--gray-color);
 }
-/* ayuda */
+
 
 /* ### TODO ### Media Queries */
 
