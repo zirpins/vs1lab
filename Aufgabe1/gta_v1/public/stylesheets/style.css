@@ -177,7 +177,6 @@ a {
   color: var(--gray-color); 
   margin-left: 8%;
   margin-top: 4%;
-  max-width: auto;
   margin-right: 4rem; 
 }
 
@@ -192,9 +191,7 @@ a {
 }
 
 #submit_button {
-  padding: 4%;
-  padding-left: 3.5rem;
-  padding-right: 3.5rem;
+  padding: 4% 3.5rem;
   background-color: var(--background-color);
   border: solid 1px;
   border-color: var(--border-color);
@@ -234,18 +231,17 @@ ul li{
 #search_button{
   background-color: var(--background-color);
   border: solid 1px;
-  border-color: var(--border-color);  
+  border-color: var(--border-color);
   font-weight: bold;
   color: var(--border-color);
   padding: 1.2%;
   padding-left: 3.65rem;
   padding-right: 3.65rem;
-  max-block-size: 1.7rem;
   align-content: center;
 }
 
 #fieldset_discovery {
-  max-block-size: 10rem;
+  max-block-size: 11rem;
 }
 
 #lat_hidden, #lon_hidden {
