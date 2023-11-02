@@ -167,6 +167,8 @@ a {
 
 .discovery__map {
   flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 /* ### TODO ### Styles for Tagging component */
@@ -234,9 +236,7 @@ ul li{
   border-color: var(--border-color);
   font-weight: bold;
   color: var(--border-color);
-  padding: 1.2%;
-  padding-left: 3.65rem;
-  padding-right: 3.65rem;
+  padding: 1.2% 3.65rem;
   align-content: center;
 }
 
