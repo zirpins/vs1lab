@@ -63,7 +63,7 @@ class LocationHelper {
  * A class to help using the MapQuest map service.
  */
 class MapManager {
-    #apiKey = '';
+    #apiKey = 'b7fJxT2sYK*L5X6';
 
     /**
      * Create a new MapManager instance.
@@ -119,7 +119,10 @@ function updateLocation() {
         hiddenLatField.value = latitude;
         hiddenLonField.value = longitude;
 
+        MapManager.getMapUrl(latitude, longitude);
+            
     });
+    
 }
 
 window.addEventListener('load', updateLocation);
