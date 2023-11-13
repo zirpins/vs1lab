@@ -63,7 +63,7 @@ class LocationHelper {
  * A class to help using the MapQuest map service.
  */
 class MapManager {
-    #apiKey = 'b7fJxT2sYK*L5X6';
+    #apiKey = '';
 
     /**
      * Create a new MapManager instance.
@@ -119,15 +119,10 @@ function updateLocation() {
         hiddenLatField.value = latitude;
         hiddenLonField.value = longitude;
 
-        MapManager.getMapUrl(latitude, longitude);
-            
-    });
+        const mapManager = new MapManager('urzLls1AwR1SUp0lsMiK6OwpoBB0Dy3b');
+        var x = mapManager.getMapUrl(latitude, longitude);
+        document.getElementById("mapView").src = x;
     
+    });
 }
-
 window.addEventListener('load', updateLocation);
-
-// Wait for the page to fully load its DOM content, then call updateLocation
-document.addEventListener("DOMContentLoaded", () => {
-    alert("Please change the script 'geotagging.js'");
-});
