@@ -120,8 +120,8 @@ function updateLocation() {
         hiddenLonField.value = longitude;
 
         const mapManager = new MapManager('urzLls1AwR1SUp0lsMiK6OwpoBB0Dy3b');
-        var x = mapManager.getMapUrl(latitude, longitude);
-        document.getElementById("mapView").src = x;
+        var mapUpdate = mapManager.getMapUrl(latitude, longitude);
+        document.getElementById("mapView").src = mapUpdate;
     
     });
 }
