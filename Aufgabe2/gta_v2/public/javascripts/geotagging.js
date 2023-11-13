@@ -81,7 +81,7 @@ class MapManager {
      * @param {number} zoom The map zoom, defaults to 10
      * @returns {string} URL of generated map
      */
-    getMapUrl(latitude, longitude, tags = [], zoom = 10) {
+    getMapUrl(latitude, longitude, tags = [], zoom = 12) {
         if (this.#apiKey === '') {
             console.log("No API key provided.");
             return "images/mapview.jpg";
@@ -126,3 +126,8 @@ function updateLocation() {
     });
 }
 window.addEventListener('load', updateLocation);
+
+document.addEventListener("DOMContentLoaded", () => {
+    alert("You'll have to allow location access for this website to run smoothly!");
+});
+
