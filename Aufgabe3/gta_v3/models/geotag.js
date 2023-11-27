@@ -18,6 +18,7 @@ class GeoTag {
         this.Name = Name-Location; // not sure this name works 
         this.Hastag = Hastag-Location; // not sure this name works
         // Attribute names made that way to match tagging form (*) 
+        // IMPORTANT!: constructor must be modified to create GeoTag-Arrays, that will be stored in otehr arrays 
     }
     
 }
