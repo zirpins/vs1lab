@@ -12,6 +12,13 @@
 class GeoTag {
 
     // TODO: ... your code here ...
+    GeoTag (Latitude, Longitude, Name, Hastag) {
+        this.Latitude = Latitude; 
+        this.Longitude = Longitude; 
+        this.Name = Name-Location; // not sure this name works 
+        this.Hastag = Hastag-Location; // not sure this name works
+        // Attribute names made that way to match tagging form (*) 
+    }
     
 }
 
