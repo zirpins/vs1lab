@@ -42,7 +42,10 @@ const GeoTagStore = require('../models/geotag-store');
 
 // TODO: extend the following route example if necessary
 router.get('/', (req, res) => {
-  res.render('index', { taglist: [] })
+  const currentLat = req.body.latitude || ''; 
+  const currentLon = req.body.longitude || ''; 
+  res.render('index', { taglist: [], currentLat, currentLon})
+  // render the template with current cordinates, if available
 });
 
 /**
@@ -63,8 +66,10 @@ router.get('/', (req, res) => {
 // TODO: ... your code here ...
 
 router.post('/tagging',(req, res) => {
-  res.render('index',{ taglist: [] }) //missing fields of the tagging form boddy --^**
-  // append new tagging things to array??
+  res.render('index',{ taglist: [] }) 
+  const currentLat = req.body.latitude || ''; 
+  const currentLon = req.body.longitude || ''; 
+  res.render('index', { taglist: [], currentLat, currentLon})
 }); 
 
 /**
@@ -86,7 +91,9 @@ router.post('/tagging',(req, res) => {
 // TODO: ... your code here ...
 
 router.post('/discovery', (req, res) => {
-  res.render('index',{ taglist: [] })
+  const currentLat = req.body.latitude || ''; 
+  const currentLon = req.body.longitude || ''; 
+  res.render('index', { taglist: [], currentLat, currentLon})
 }); 
 
 module.exports = router;
