@@ -46,6 +46,9 @@ app.use(express.urlencoded({ extended: false }));
 
 // Set dedicated script for routing
 app.use('/', indexRouter);
+app.use(express.static(__dirname + "./app.js")); // statische Dateien bereitstellen (Aufgabe 3.2.1.a)
+
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

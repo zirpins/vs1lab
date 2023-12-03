@@ -27,6 +27,33 @@ class InMemoryGeoTagStore{
 
     // TODO: ... your code here ...
 
+    addGeoTag (GeoTagName) {
+        GeoTagSpeicherArray.push(GeoTagName); // GeoTagName from geoTags array in ./model/geotag.js
+    }
+
+    removeGeoTag (GeoTagName) {
+        let toRemove = GeoTagSpeicherArray.indexOf(GeoTagName); 
+        // find index of selected Array element
+        delete GeoTagSpeicherArray[toRemove];
+        // use index to delete element  
+    }
+
+
+    getNearbyGeoTags (locationParam, radius) {
+        radius = 5; // fixed parameter for now , can be changed later if wanted 
+        // somethig something, idk how to create this shit 
+        // ik now, make an algorithim that shows the locations x degrees from the selected starting point 
+    }
+
+    searchNearbyGeoTags (keyword, locationParam, radius) {
+        radius = 5; // fixed parameter for now , can be changed later if wanted 
+        // somethig something, idk how to create this shit 
+        //           ----//----
+    }
+
 }
+
+const GeoTagSpeicherArray = []; 
+
 
 module.exports = InMemoryGeoTagStore

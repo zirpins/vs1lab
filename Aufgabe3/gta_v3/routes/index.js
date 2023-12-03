@@ -42,14 +42,17 @@ const GeoTagStore = require('../models/geotag-store');
 
 // TODO: extend the following route example if necessary
 router.get('/', (req, res) => {
-  res.render('index', { taglist: [] })
+  const currentLat = req.body.latitude || ''; 
+  const currentLon = req.body.longitude || ''; 
+  res.render('index', { taglist: [], currentLat, currentLon})
+  // render the template with current cordinates, if available
 });
 
 /**
  * Route '/tagging' for HTTP 'POST' requests.
  * (http://expressjs.com/de/4x/api.html#app.post.method)
  *
- * Requests cary the fields of the tagging form in the body.
+ * Requests carry the fields of the tagging form in the body.                       **
  * (http://expressjs.com/de/4x/api.html#req.body)
  *
  * Based on the form data, a new geotag is created and stored.
@@ -61,6 +64,13 @@ router.get('/', (req, res) => {
  */
 
 // TODO: ... your code here ...
+
+router.post('/tagging',(req, res) => {
+  res.render('index',{ taglist: [] }) 
+  const currentLat = req.body.latitude || ''; 
+  const currentLon = req.body.longitude || ''; 
+  res.render('index', { taglist: [], currentLat, currentLon})
+}); 
 
 /**
  * Route '/discovery' for HTTP 'POST' requests.
@@ -79,5 +89,11 @@ router.get('/', (req, res) => {
  */
 
 // TODO: ... your code here ...
+
+router.post('/discovery', (req, res) => {
+  const currentLat = req.body.latitude || ''; 
+  const currentLon = req.body.longitude || ''; 
+  res.render('index', { taglist: [], currentLat, currentLon})
+}); 
 
 module.exports = router;
