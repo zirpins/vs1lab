@@ -49,7 +49,7 @@ router.get('/', (req, res) => {
  * Route '/tagging' for HTTP 'POST' requests.
  * (http://expressjs.com/de/4x/api.html#app.post.method)
  *
- * Requests cary the fields of the tagging form in the body.
+ * Requests carry the fields of the tagging form in the body.                       **
  * (http://expressjs.com/de/4x/api.html#req.body)
  *
  * Based on the form data, a new geotag is created and stored.
@@ -61,6 +61,11 @@ router.get('/', (req, res) => {
  */
 
 // TODO: ... your code here ...
+
+router.post('/tagging',(req, res) => {
+  res.render('index',{ taglist: [] }) //missing fields of the tagging form boddy --^**
+  // append new tagging things to array??
+}); 
 
 /**
  * Route '/discovery' for HTTP 'POST' requests.
@@ -79,5 +84,9 @@ router.get('/', (req, res) => {
  */
 
 // TODO: ... your code here ...
+
+router.post('/discovery', (req, res) => {
+  res.render('index',{ taglist: [] })
+}); 
 
 module.exports = router;

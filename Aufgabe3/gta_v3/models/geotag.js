@@ -12,15 +12,19 @@
 class GeoTag {
 
     // TODO: ... your code here ...
-    GeoTag (Latitude, Longitude, Name, Hastag) {
+    constructor (Latitude, Longitude, Name, Hastag) {
+
         this.Latitude = Latitude; 
         this.Longitude = Longitude; 
-        this.Name = Name-Location; // not sure this name works 
-        this.Hastag = Hastag-Location; // not sure this name works
-        // Attribute names made that way to match tagging form (*) 
-        // IMPORTANT!: constructor must be modified to create GeoTag-Arrays, that will be stored in otehr arrays 
+        this.Name = Name; 
+        this.Hastag = Hastag;  
     }
     
+    createGeoTag(Latitude, Longitude, Name, Hastag) {
+        const geoTag = new GeoTag(Latitude, Longitude, Name, Hastag); 
+        geoTag[Name] = geoTag; // create a new GeoTag with Name == parameter "Name"
+    }
+
 }
 
 module.exports = GeoTag;
