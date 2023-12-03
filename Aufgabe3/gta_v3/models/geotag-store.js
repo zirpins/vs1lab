@@ -28,7 +28,7 @@ class InMemoryGeoTagStore{
     // TODO: ... your code here ...
 
     addGeoTag (GeoTagName) {
-        GeoTagSpeicherArray.push(GeoTagName); 
+        GeoTagSpeicherArray.push(GeoTagName); // GeoTagName from geoTags array in ./model/geotag.js
     }
 
     removeGeoTag (GeoTagName) {
