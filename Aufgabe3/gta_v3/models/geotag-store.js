@@ -42,11 +42,13 @@ class InMemoryGeoTagStore{
     getNearbyGeoTags (locationParam, radius) {
         radius = 5; // fixed parameter for now , can be changed later if wanted 
         // somethig something, idk how to create this shit 
+        // ik now, make an algorithim that shows the locations x degrees from the selected starting point 
     }
 
     searchNearbyGeoTags (keyword, locationParam, radius) {
         radius = 5; // fixed parameter for now , can be changed later if wanted 
         // somethig something, idk how to create this shit 
+        //           ----//----
     }
 
 }
