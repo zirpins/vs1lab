@@ -19,12 +19,13 @@ class GeoTag {
         this.Name = Name; 
         this.Hastag = Hastag;  
     }
-    
-    createGeoTag(Latitude, Longitude, Name, Hastag) {
-        const geoTag = new GeoTag(Latitude, Longitude, Name, Hastag); 
-        geoTag[Name] = geoTag; // create a new GeoTag with Name == parameter "Name"
-    }
+}
 
+const geoTags = {}; // newly created geoTags are stored here 
+
+function createGeoTag(Latitude, Longitude, Name, Hastag) {
+    const geoTag = new GeoTag(Latitude, Longitude, Name, Hastag); 
+    geoTags[Name] = geoTag; // create a new GeoTag with Name == parameter "Name"
 }
 
 module.exports = GeoTag;

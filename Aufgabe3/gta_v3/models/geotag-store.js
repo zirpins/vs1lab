@@ -27,10 +27,6 @@ class InMemoryGeoTagStore{
 
     // TODO: ... your code here ...
 
-  
-
-
-
     addGeoTag (GeoTagName) {
         GeoTagSpeicherArray.push(GeoTagName); 
     }
