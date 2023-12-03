@@ -34,8 +34,8 @@ class GeoTagExamples {
 
 function populate(List) {
     for(let i = 0; i < List.length; i++){
-        createGeoTag(List[i][1], List[i][2], List[i][0], List[i][3]); 
-        addGeoTag(List[i][0]); 
+        createGeoTag(List[i][1], List[i][2], List[i][0], List[i][3]); // createGeoTag function in ./model/geotag.js
+        addGeoTag(List[i][0]); // addGeoTag function in ./model/geotag-store.js
     }
 }
 
