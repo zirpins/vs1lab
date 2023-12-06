@@ -45,7 +45,10 @@ const{ route } = require('../app');
 router.get('/', (req, res) => {
   const currentLat = req.body.latitude || ''; 
   const currentLon = req.body.longitude || ''; 
-  res.render('index', { taglist: [], currentLat, currentLon})
+  //const geoTagStore = new GeoTagStore(); // create instance of GeoTagStore
+  const taglist = GeoTagStore.geotags; 
+  res.render('index', { taglist, currentLat, currentLon}); 
+
   // render the template with current cordinates, if available
 });
 
@@ -70,7 +73,9 @@ router.post('/tagging',(req, res) => {
   res.render('index',{ taglist: [] }) 
   const currentLat = req.body.latitude || ''; 
   const currentLon = req.body.longitude || ''; 
-  res.render('index', { taglist: [], currentLat, currentLon})
+  //const geoTagStore = new GeoTagStore(); // create instance of GeoTagStore
+  const taglist = GeoTagStore.geotags; 
+  res.render('index', { taglist, currentLat, currentLon}); 
 }); 
 
 /**
@@ -94,7 +99,9 @@ router.post('/tagging',(req, res) => {
 router.post('/discovery', (req, res) => {
   const currentLat = req.body.latitude || ''; 
   const currentLon = req.body.longitude || ''; 
-  res.render('index', { taglist: [], currentLat, currentLon})
+  //const geoTagStore = new GeoTagStore(); // create instance of GeoTagStore
+  const taglist = GeoTagStore.geotags; 
+  res.render('index', { taglist, currentLat, currentLon}); 
 }); 
 
 module.exports = router;
