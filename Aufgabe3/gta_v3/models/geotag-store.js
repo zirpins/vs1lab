@@ -34,7 +34,7 @@ class InMemoryGeoTagStore{
 
     constructor() {
         // Use the populate function to add Examples to taglist
-        this.populate; 
+        this.populate(); 
         // Use an array to store a multiset of geotags.
         this.geotags = this.#GeoTagStore;
     }
