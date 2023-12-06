@@ -46,7 +46,9 @@ app.use(express.urlencoded({ extended: false }));
 
 // Set dedicated script for routing
 app.use('/', indexRouter);
-app.use(express.static(__dirname + 'Aufgabe3/gta_v3/public')); // statische Dateien bereitstellen (Aufgabe 3.2.1.a)
+//app.use(express.static(__dirname + 'public')); // this way doesn't work!!!
+app.use(express.static(path.join(__dirname, 'public'))); // statische Dateien bereitstellen (Aufgabe 3.2.1.a)
+
 
 
 
