@@ -29,9 +29,11 @@ class InMemoryGeoTagStore{
 
     // TODO: ... your code here ...
 
+    #GeoTagStore = []; 
+
     constructor() {
         // Use an array to store a multiset of geotags.
-        this.geotags = [];
+        this.geotags = this.#GeoTagStore;
     }
 
 
