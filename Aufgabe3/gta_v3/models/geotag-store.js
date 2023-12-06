@@ -1,6 +1,7 @@
 // File origin: VS1LAB A3
 
 const GeoTag = require("./geotag");
+const GeoTagExamples = require("./geotag-examples")
 
 /**
  * This script is a template for exercise VS1lab/Aufgabe3
@@ -32,6 +33,8 @@ class InMemoryGeoTagStore{
     #GeoTagStore = []; 
 
     constructor() {
+        // Use the populate function to add Examples to taglist
+        this.populate; 
         // Use an array to store a multiset of geotags.
         this.geotags = this.#GeoTagStore;
     }
@@ -100,7 +103,11 @@ class InMemoryGeoTagStore{
         return distance;
     }
 
-
+    populate() {
+        GeoTagExamples.tagList.forEach(tag =>{
+            this.addGeoTag(tag[1], tag[2], tag[0], tag[3]); 
+        })
+    }
 
     /*     addGeoTag (GeoTagName) {
             GeoTagSpeicherArray.push(GeoTagName); // GeoTagName from geoTags array in ./model/geotag.js
