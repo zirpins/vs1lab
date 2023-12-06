@@ -17,7 +17,7 @@ class GeoTag {
         this.Latitude = Latitude; 
         this.Longitude = Longitude; 
         this.Name = Name; 
-        this.Hastag = Hastag;  
+        this.Hastag = Hashtag;  
     }
 }
 
