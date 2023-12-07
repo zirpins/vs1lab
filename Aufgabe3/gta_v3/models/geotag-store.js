@@ -1,5 +1,8 @@
 // File origin: VS1LAB A3
 
+const GeoTag = require("./geotag");
+const GeoTagExamples = require("./geotag-examples")
+
 /**
  * This script is a template for exercise VS1lab/Aufgabe3
  * Complete all TODOs in the code documentation.
@@ -7,53 +10,132 @@
 
 /**
  * A class for in-memory-storage of geotags
- * 
+ *
  * Use an array to store a multiset of geotags.
  * - The array must not be accessible from outside the store.
- * 
+ *
  * Provide a method 'addGeoTag' to add a geotag to the store.
- * 
+ *
  * Provide a method 'removeGeoTag' to delete geo-tags from the store by name.
- * 
+ *
  * Provide a method 'getNearbyGeoTags' that returns all geotags in the proximity of a location.
  * - The location is given as a parameter.
  * - The proximity is computed by means of a radius around the location.
- * 
+ *
  * Provide a method 'searchNearbyGeoTags' that returns all geotags in the proximity of a location that match a keyword.
  * - The proximity constrained is the same as for 'getNearbyGeoTags'.
- * - Keyword matching should include partial matches from name or hashtag fields. 
+ * - Keyword matching should include partial matches from name or hashtag fields.
  */
 class InMemoryGeoTagStore{
 
     // TODO: ... your code here ...
 
-    addGeoTag (GeoTagName) {
-        GeoTagSpeicherArray.push(GeoTagName); // GeoTagName from geoTags array in ./model/geotag.js
-    }
+    #GeoTagStore = []; 
 
-    removeGeoTag (GeoTagName) {
-        let toRemove = GeoTagSpeicherArray.indexOf(GeoTagName); 
-        // find index of selected Array element
-        delete GeoTagSpeicherArray[toRemove];
-        // use index to delete element  
+    constructor() {
+        // Use the populate function to add Examples to taglist
+        this.populate(); 
+        // Use an array to store a multiset of geotags.
+        this.geotags = this.#GeoTagStore;
     }
 
 
-    getNearbyGeoTags (locationParam, radius) {
-        radius = 5; // fixed parameter for now , can be changed later if wanted 
-        // somethig something, idk how to create this shit 
-        // ik now, make an algorithim that shows the locations x degrees from the selected starting point 
+    /**
+     * Add a geotag to the store.
+     */
+    addGeoTag(geotag) {
+        this.geotags.push(geotag);
     }
 
-    searchNearbyGeoTags (keyword, locationParam, radius) {
-        radius = 5; // fixed parameter for now , can be changed later if wanted 
-        // somethig something, idk how to create this shit 
-        //           ----//----
+    /**
+     * Delete geo-tags from the store by name.
+     */
+    removeGeoTag(name) {
+        this.geotags = this.geotags.filter(tag => tag.name !== name)
     }
+
+    /**
+     * Returns all geotags in the proximity of a location.
+     */
+    getNearbyGeoTags(latitude, longitude, radius) {
+        return this.geotags.filter(geotag => {
+            // Calculate the distance between the given location and the geotag's location.
+            const distance = this.calculateDistance(latitude, longitude, geotag.latitude, geotag.longitude);
+
+            // Return true if the geotag is within the specified proximity radius.
+            return distance <= radius;
+        });
+    }
+
+    /**
+     * Returns all geotags in the proximity of a location that match a keyword.
+     */
+    searchNearbyGeoTags(latitude, longitude, radius, keyword) {
+        return this.geotags.filter(geotag => {
+            // Calculate the distance between the given location and the geotag's location.
+            const distance = this.calculateDistance(latitude, longitude, geotag.latitude, geotag.longitude);
+
+            // Check if the geotag is within the specified proximity radius and matches the keyword.
+            const nameMatch = geotag.name.toLowerCase().includes(keyword.toLowerCase());
+            const hashtagMatch = geotag.hashtag.toLowerCase().includes(keyword.toLowerCase());
+
+            // Return true if the geotag matches both proximity and keyword.
+            return distance <= radius && (nameMatch || hashtagMatch);
+        });
+    }
+
+    /**
+     * Helper method to calculate the distance between two sets of coordinates with the Haversine formula.
+     */
+    calculateHaversineDistance(lat1, lon1, lat2, lon2) {
+        const earthRadius = 6371; // in km
+        const dLat = (lat2 - lat1) * (Math.PI / 180);
+        const dLon = (lon2 - lon1) * (Math.PI / 180);
+
+        const a =
+            Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+            Math.cos(lat1 * (Math.PI / 180)) * Math.cos(lat2 * (Math.PI / 180)) *
+            Math.sin(dLon / 2) * Math.sin(dLon / 2);
+        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+
+        const distance = earthRadius * c;
+
+        return distance;
+    }
+
+    populate() {
+        GeoTagExamples.tagList.forEach(tag =>{
+            this.addGeoTag(tag[1], tag[2], tag[0], tag[3]); 
+        })
+    }
+
+    /*     addGeoTag (GeoTagName) {
+            GeoTagSpeicherArray.push(GeoTagName); // GeoTagName from geoTags array in ./model/geotag.js
+        }
+
+        removeGeoTag (GeoTagName) {
+            let toRemove = GeoTagSpeicherArray.indexOf(GeoTagName);
+            // find index of selected Array element
+            delete GeoTagSpeicherArray[toRemove];
+            // use index to delete element
+        }
+
+
+        getNearbyGeoTags (locationParam, radius) {
+            radius = 5; // fixed parameter for now , can be changed later if wanted
+            // somethig something, idk how to create this shit
+            // ik now, make an algorithim that shows the locations x degrees from the selected starting point
+        }
+
+        searchNearbyGeoTags (keyword, locationParam, radius) {
+            radius = 5; // fixed parameter for now , can be changed later if wanted
+            // somethig something, idk how to create this shit
+            //           ----//----
+        } */
 
 }
 
-const GeoTagSpeicherArray = []; 
+// const GeoTagSpeicherArray = [];
 
 
 module.exports = InMemoryGeoTagStore
