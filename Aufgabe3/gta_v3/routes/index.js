@@ -31,7 +31,7 @@ const GeoTag = require('../models/geotag');
 // eslint-disable-next-line no-unused-vars
 const GeoTagStore = require('../models/geotag-store');
 const{ route } = require('../app'); 
-
+const GeoTagExamples = require('../models/geotag-examples'); 
 /**
  * Route '/' for HTTP 'GET' requests.
  * (http://expressjs.com/de/4x/api.html#app.get.method)
@@ -45,8 +45,8 @@ const{ route } = require('../app');
 router.get('/', (req, res) => {
   const currentLat = req.body.latitude || ''; 
   const currentLon = req.body.longitude || ''; 
-  //const geoTagStore = new GeoTagStore(); // create instance of GeoTagStore
-  const taglist = GeoTagStore.geotags; 
+  const geoTagStore = new GeoTagStore(); // create instance of GeoTagStore
+  const taglist = geoTagStore.getNearbyGeoTags(currentLat, currentLon, 100); // default radius = 100
   res.render('index', { taglist, currentLat, currentLon}); 
 
   // render the template with current cordinates, if available
@@ -73,8 +73,10 @@ router.post('/tagging',(req, res) => {
   res.render('index',{ taglist: [] }) 
   const currentLat = req.body.latitude || ''; 
   const currentLon = req.body.longitude || ''; 
-  //const geoTagStore = new GeoTagStore(); // create instance of GeoTagStore
-  const taglist = GeoTagStore.geotags; 
+  const geoTagStore = new GeoTagStore(); // create instance of GeoTagStore
+  const newTag = new GeoTag(currentLat, currentLon, req.body.name, req.body.hashtag); // create new Tag
+  geoTagStore.addGeoTag(newTag); // add new tag to taglist
+  const taglist = geoTagStore.getNearbyGeoTags(currentLat, currentLon, 100); // default radius = 100
   res.render('index', { taglist, currentLat, currentLon}); 
 }); 
 
@@ -99,9 +101,10 @@ router.post('/tagging',(req, res) => {
 router.post('/discovery', (req, res) => {
   const currentLat = req.body.latitude || ''; 
   const currentLon = req.body.longitude || ''; 
-  //const geoTagStore = new GeoTagStore(); // create instance of GeoTagStore
-  const taglist = GeoTagStore.geotags; 
-  res.render('index', { taglist, currentLat, currentLon}); 
+  const keyword = req.body.keyword || ''; 
+  const geoTagStore = new GeoTagStore(); // create instance of GeoTagStore
+  const taglist = geoTagStore.getNearbyGeoTags(currentLat, currentLon, 100, keyword); // default radius = 100
+  res.render('index', { taglist, currentLat, currentLon, keyword}); 
 }); 
 
 module.exports = router;
