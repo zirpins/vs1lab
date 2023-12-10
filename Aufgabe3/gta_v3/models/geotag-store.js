@@ -37,8 +37,12 @@ class InMemoryGeoTagStore{
         this.#GeoTagStore = []; // Celso tenia razon, gracias Celso! 
         // Use the populate function to add Examples to taglist
         this.populate(); 
-        console.log('Populated GeoTagStore:', this.#GeoTagStore);
+        //console.log('Populated GeoTagStore:', this.#GeoTagStore);
         
+    }
+
+    getAllGeoTags(){
+        return this.#GeoTagStore; 
     }
 
 
@@ -63,13 +67,13 @@ class InMemoryGeoTagStore{
     getNearbyGeoTags(latitude, longitude, radius) {
         const nearbyTags = this.#GeoTagStore.filter(geotag => {
             // Log the coordinates of each geotag for debugging
-            console.log(`Tag: ${geotag.Name}, Latitude: ${geotag.Latitude}, Longitude: ${geotag.Longitude}`);
+            //console.log(`Tag: ${geotag.Name}, Latitude: ${geotag.Latitude}, Longitude: ${geotag.Longitude}`);
     
             // Calculate the distance between the given location and the geotag's location.
             const distance = this.calculateDistance(latitude, longitude, geotag.Latitude, geotag.Longitude);
     
             // Log the distance for debugging
-            console.log(`Tag: ${geotag.Name}, Distance: ${distance}`);
+            //console.log(`Tag: ${geotag.Name}, Distance: ${distance}`);
     
             // Return true if the geotag is within the specified proximity radius.
             return distance <= radius;
