@@ -52,7 +52,7 @@ class InMemoryGeoTagStore{
      * Delete geo-tags from the store by name.
      */
     removeGeoTag(name) {
-        this.geotags = this.geotags.filter(tag => tag.name !== name)
+        this.#GeoTagStore = this.#GeoTagStore.filter(tag => tag.name !== name)
     }
 
     /**
