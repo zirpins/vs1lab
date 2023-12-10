@@ -37,6 +37,7 @@ class InMemoryGeoTagStore{
         this.#GeoTagStore = []; // Celso tenia razon, gracias Celso! 
         // Use the populate function to add Examples to taglist
         this.populate(); 
+        console.log('Populated GeoTagStore:', this.#GeoTagStore);
         
     }
 
@@ -52,33 +53,45 @@ class InMemoryGeoTagStore{
      * Delete geo-tags from the store by name.
      */
     removeGeoTag(name) {
-        this.#GeoTagStore = this.#GeoTagStore.filter(tag => tag.name !== name)
+        this.#GeoTagStore = this.#GeoTagStore.filter(tag => tag.Name !== name);
     }
+
 
     /**
      * Returns all geotags in the proximity of a location.
      */
     getNearbyGeoTags(latitude, longitude, radius) {
-        return this.#GeoTagStore.filter(geotag => {
+        const nearbyTags = this.#GeoTagStore.filter(geotag => {
+            // Log the coordinates of each geotag for debugging
+            console.log(`Tag: ${geotag.Name}, Latitude: ${geotag.Latitude}, Longitude: ${geotag.Longitude}`);
+    
             // Calculate the distance between the given location and the geotag's location.
-            const distance = this.calculateDistance(latitude, longitude, geotag.latitude, geotag.longitude);
-
+            const distance = this.calculateDistance(latitude, longitude, geotag.Latitude, geotag.Longitude);
+    
+            // Log the distance for debugging
+            console.log(`Tag: ${geotag.Name}, Distance: ${distance}`);
+    
             // Return true if the geotag is within the specified proximity radius.
             return distance <= radius;
         });
+    
+        console.log('Nearby Tags:', nearbyTags); // Log the nearby tags
+    
+        return nearbyTags;
     }
+    
 
     /**
      * Returns all geotags in the proximity of a location that match a keyword.
      */
     searchNearbyGeoTags(latitude, longitude, radius, keyword) {
-        return this.geotags.filter(geotag => {
+        return this.#GeoTagStore.filter(geotag => {
             // Calculate the distance between the given location and the geotag's location.
-            const distance = this.calculateDistance(latitude, longitude, geotag.latitude, geotag.longitude);
+            const distance = this.calculateDistance(latitude, longitude, geotag.Latitude, geotag.Longitude);
 
             // Check if the geotag is within the specified proximity radius and matches the keyword.
-            const nameMatch = geotag.name.toLowerCase().includes(keyword.toLowerCase());
-            const hashtagMatch = geotag.hashtag.toLowerCase().includes(keyword.toLowerCase());
+            const nameMatch = geotag.Name.toLowerCase().includes(keyword.toLowerCase());
+            const hashtagMatch = geotag.Hashtag.toLowerCase().includes(keyword.toLowerCase());
 
             // Return true if the geotag matches both proximity and keyword.
             return distance <= radius && (nameMatch || hashtagMatch);
@@ -106,7 +119,9 @@ class InMemoryGeoTagStore{
 
     populate() {
         GeoTagExamples.exampleTagList.forEach(tag =>{
-            this.addGeoTag(new GeoTag(tag[1], tag[2], tag[0], tag[3])); 
+            const newTag = new GeoTag(tag[1], tag[2], tag[0], tag[3]);
+            this.addGeoTag(newTag);
+            console.log('Added GeoTag:', newTag); 
         }); 
     }
 
