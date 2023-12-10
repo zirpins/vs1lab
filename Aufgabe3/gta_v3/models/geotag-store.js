@@ -36,7 +36,7 @@ class InMemoryGeoTagStore{
         // Use the populate function to add Examples to taglist
         this.populate(); 
         // Use an array to store a multiset of geotags.
-        this.geotags = this.#GeoTagStore;
+        this.#GeoTagStore = []; // Celso tenia razon, gracias Celso! 
     }
 
 
@@ -44,7 +44,7 @@ class InMemoryGeoTagStore{
      * Add a geotag to the store.
      */
     addGeoTag(geotag) {
-        this.geotags.push(geotag);
+        this.#GeoTagStore.push(geotag);
     }
 
     /**
@@ -58,7 +58,7 @@ class InMemoryGeoTagStore{
      * Returns all geotags in the proximity of a location.
      */
     getNearbyGeoTags(latitude, longitude, radius) {
-        return this.geotags.filter(geotag => {
+        return this.#GeoTagStore.filter(geotag => {
             // Calculate the distance between the given location and the geotag's location.
             const distance = this.calculateDistance(latitude, longitude, geotag.latitude, geotag.longitude);
 
@@ -105,8 +105,8 @@ class InMemoryGeoTagStore{
 
     populate() {
         GeoTagExamples.tagList.forEach(tag =>{
-            this.addGeoTag(tag[1], tag[2], tag[0], tag[3]); 
-        })
+            this.addGeoTag(new GeoTag(tag[1], tag[2], tag[0], tag[3])); 
+        }); 
     }
 
     /*     addGeoTag (GeoTagName) {
