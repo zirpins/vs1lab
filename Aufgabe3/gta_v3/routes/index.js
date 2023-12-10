@@ -46,7 +46,9 @@ router.get('/', (req, res) => {
   const currentLat = req.body.latitude || ''; 
   const currentLon = req.body.longitude || ''; 
   const geoTagStore = new GeoTagStore(); // create instance of GeoTagStore
-  const taglist = geoTagStore.getNearbyGeoTags(currentLat, currentLon, 100); // default radius = 100
+  const taglist = geoTagStore.getNearbyGeoTags(currentLat, currentLon, 1000000); // default radius = 100
+  //const taglist = geoTagStore.getAllGeoTags(); 
+  console.log('taglist:', taglist);
   res.render('index', { taglist, currentLat, currentLon}); 
 
   // render the template with current cordinates, if available
@@ -70,13 +72,13 @@ router.get('/', (req, res) => {
 // TODO: ... your code here ...
 
 router.post('/tagging',(req, res) => {
-  res.render('index',{ taglist: [] }) 
   const currentLat = req.body.latitude || ''; 
   const currentLon = req.body.longitude || ''; 
   const geoTagStore = new GeoTagStore(); // create instance of GeoTagStore
   const newTag = new GeoTag(currentLat, currentLon, req.body.name, req.body.hashtag); // create new Tag
   geoTagStore.addGeoTag(newTag); // add new tag to taglist
   const taglist = geoTagStore.getNearbyGeoTags(currentLat, currentLon, 100); // default radius = 100
+  console.log('taglist:', taglist);
   res.render('index', { taglist, currentLat, currentLon}); 
 }); 
 
@@ -104,6 +106,7 @@ router.post('/discovery', (req, res) => {
   const keyword = req.body.keyword || ''; 
   const geoTagStore = new GeoTagStore(); // create instance of GeoTagStore
   const taglist = geoTagStore.getNearbyGeoTags(currentLat, currentLon, 100, keyword); // default radius = 100
+  console.log('taglist:', taglist);
   res.render('index', { taglist, currentLat, currentLon, keyword}); 
 }); 
 
