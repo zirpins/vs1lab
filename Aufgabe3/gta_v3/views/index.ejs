@@ -83,9 +83,13 @@
             <div class="discovery__wrapper">
                 <div class="discovery__taglist">
                     <ul class="discovery__results" id="discoveryResults">
-                        <% if (taglist !== undefined) taglist.forEach(function(gtag) { %>
-                            <li><%= gtag.name %> ( <%= gtag.latitude %>,<%= gtag.longitude %>) <%= gtag.hashtag %> </li>
-                        <% }); %>
+                        <% if (taglist.length > 0) { %>
+                            <% taglist.forEach(tag => { %>
+                                <li><%= tag.name %></li>
+                            <% }); %>
+                        <% } else { %>
+                            <li>No tags available.</li>
+                        <% } %>
                     </ul>
                 </div>
 
