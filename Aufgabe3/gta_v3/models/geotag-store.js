@@ -33,10 +33,11 @@ class InMemoryGeoTagStore{
     #GeoTagStore = []; 
 
     constructor() {
-        // Use the populate function to add Examples to taglist
-        this.populate(); 
         // Use an array to store a multiset of geotags.
         this.#GeoTagStore = []; // Celso tenia razon, gracias Celso! 
+        // Use the populate function to add Examples to taglist
+        this.populate(); 
+        
     }
 
 
@@ -87,7 +88,7 @@ class InMemoryGeoTagStore{
     /**
      * Helper method to calculate the distance between two sets of coordinates with the Haversine formula.
      */
-    calculateHaversineDistance(lat1, lon1, lat2, lon2) {
+    calculateDistance(lat1, lon1, lat2, lon2) {
         const earthRadius = 6371; // in km
         const dLat = (lat2 - lat1) * (Math.PI / 180);
         const dLon = (lon2 - lon1) * (Math.PI / 180);
