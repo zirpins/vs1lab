@@ -25,15 +25,23 @@ function updateLocation() {
     // Check if valid coordinates are already available
     if (latitude && longitude) {
         // Use existing coordinates for map and update hidden fields
-        // const hiddenLatField = document.getElementById('lat_hidden');
-        // const hiddenLonField = document.getElementById('lon_hidden');
-        // hiddenLatField.value = latitude;
-        // hiddenLonField.value = longitude;
-
-
         const mapManager = new MapManager('urzLls1AwR1SUp0lsMiK6OwpoBB0Dy3b');
-        const mapUpdate = mapManager.getMapUrl(latitude, longitude);
-        document.getElementById("mapView").src = mapUpdate;
+
+        // Retrieve tags from the data-tags attribute
+        const tagsAttribute = document.getElementById("mapView").getAttribute("data-tags");
+        //console.log('Tags Attribute:', tagsAttribute); // Log for debugging
+
+        try {
+            // Parse tagsAttribute to JSON
+            const taglist = JSON.parse(tagsAttribute);
+            console.log('Taglist:', taglist); // Log for debugging
+
+            // Update the map with the GeoTag array
+            const mapUpdate = mapManager.getMapUrl(latitude, longitude, taglist);
+            document.getElementById("mapView").src = mapUpdate;
+        } catch (error) {
+            console.error('Error parsing tagsAttribute:', error);
+        }
     } else {
         // No valid coordinates, use Geolocation API
         LocationHelper.findLocation((location) => {
@@ -51,28 +59,7 @@ function updateLocation() {
         });
     }
 }
-// function updateLocation() {
-//     LocationHelper.findLocation((location) => {
 
-//         const latitude = location.latitude;
-//         const longitude = location.longitude;
-
-//         const latField = document.getElementById('lat');
-//         const lonField = document.getElementById('lon');
-//         latField.value = latitude;
-//         lonField.value = longitude;
-
-//         const hiddenLatField = document.getElementById('lat_hidden');
-//         const hiddenLonField = document.getElementById('lon_hidden');
-//         hiddenLatField.value = latitude;
-//         hiddenLonField.value = longitude;
-
-//         const mapManager = new MapManager('urzLls1AwR1SUp0lsMiK6OwpoBB0Dy3b');
-//         var mapUpdate = mapManager.getMapUrl(latitude, longitude);
-//         document.getElementById("mapView").src = mapUpdate;
-
-//     });
-// }
 window.addEventListener('load', updateLocation);
 
 document.addEventListener("DOMContentLoaded", () => {
