@@ -22,26 +22,20 @@ function updateLocation() {
     const latitude = latField.value;
     const longitude = lonField.value;
 
+    // Retrieve tags from the data-tags attribute
+    const tagsAttribute = document.getElementById("mapView").getAttribute("data-tags");
+    const taglist = JSON.parse(tagsAttribute);
+
+    console.log('Taglist:', taglist); // Log for debugging
+
     // Check if valid coordinates are already available
     if (latitude && longitude) {
         // Use existing coordinates for map and update hidden fields
         const mapManager = new MapManager('urzLls1AwR1SUp0lsMiK6OwpoBB0Dy3b');
 
-        // Retrieve tags from the data-tags attribute
-        const tagsAttribute = document.getElementById("mapView").getAttribute("data-tags");
-        //console.log('Tags Attribute:', tagsAttribute); // Log for debugging
-
-        try {
-            // Parse tagsAttribute to JSON
-            const taglist = JSON.parse(tagsAttribute);
-            console.log('Taglist:', taglist); // Log for debugging
-
-            // Update the map with the GeoTag array
-            const mapUpdate = mapManager.getMapUrl(latitude, longitude, taglist);
-            document.getElementById("mapView").src = mapUpdate;
-        } catch (error) {
-            console.error('Error parsing tagsAttribute:', error);
-        }
+        // Update the map with the GeoTag array
+        const mapUpdate = mapManager.getMapUrl(latitude, longitude, taglist);
+        document.getElementById("mapView").src = mapUpdate;
     } else {
         // No valid coordinates, use Geolocation API
         LocationHelper.findLocation((location) => {
@@ -54,7 +48,12 @@ function updateLocation() {
             hiddenLonField.value = location.longitude;
 
             const mapManager = new MapManager('urzLls1AwR1SUp0lsMiK6OwpoBB0Dy3b');
-            const mapUpdate = mapManager.getMapUrl(location.latitude, location.longitude);
+            // Add the new GeoTag to the taglist
+            const newGeoTag = { Latitude: location.latitude, Longitude: location.longitude, Name: "YourLocation" };
+            taglist.push(newGeoTag);
+
+            // Update the map with the updated GeoTag array
+            const mapUpdate = mapManager.getMapUrl(location.latitude, location.longitude, taglist);
             document.getElementById("mapView").src = mapUpdate;
         });
     }
@@ -65,4 +64,3 @@ window.addEventListener('load', updateLocation);
 document.addEventListener("DOMContentLoaded", () => {
     alert("You'll have to allow location access for this website to run smoothly!");
 });
-
