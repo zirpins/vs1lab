@@ -25,10 +25,11 @@ function updateLocation() {
     // Check if valid coordinates are already available
     if (latitude && longitude) {
         // Use existing coordinates for map and update hidden fields
-        const hiddenLatField = document.getElementById('lat_hidden');
-        const hiddenLonField = document.getElementById('lon_hidden');
-        hiddenLatField.value = latitude;
-        hiddenLonField.value = longitude;
+        // const hiddenLatField = document.getElementById('lat_hidden');
+        // const hiddenLonField = document.getElementById('lon_hidden');
+        // hiddenLatField.value = latitude;
+        // hiddenLonField.value = longitude;
+
 
         const mapManager = new MapManager('urzLls1AwR1SUp0lsMiK6OwpoBB0Dy3b');
         const mapUpdate = mapManager.getMapUrl(latitude, longitude);
@@ -52,24 +53,24 @@ function updateLocation() {
 }
 // function updateLocation() {
 //     LocationHelper.findLocation((location) => {
-//
+
 //         const latitude = location.latitude;
 //         const longitude = location.longitude;
-//
+
 //         const latField = document.getElementById('lat');
 //         const lonField = document.getElementById('lon');
 //         latField.value = latitude;
 //         lonField.value = longitude;
-//
+
 //         const hiddenLatField = document.getElementById('lat_hidden');
 //         const hiddenLonField = document.getElementById('lon_hidden');
 //         hiddenLatField.value = latitude;
 //         hiddenLonField.value = longitude;
-//
+
 //         const mapManager = new MapManager('urzLls1AwR1SUp0lsMiK6OwpoBB0Dy3b');
 //         var mapUpdate = mapManager.getMapUrl(latitude, longitude);
 //         document.getElementById("mapView").src = mapUpdate;
-//
+
 //     });
 // }
 window.addEventListener('load', updateLocation);
