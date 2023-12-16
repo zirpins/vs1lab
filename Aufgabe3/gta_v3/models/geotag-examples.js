@@ -15,7 +15,7 @@ class GeoTagExamples {
     /**
      * Provides some geoTag data
      */
-    static get tagList() {
+    static get exampleTagList() {
         return [
             ['Castle', 49.013790, 8.404435, '#sight'],
             ['IWI', 49.013790, 8.390071, '#edu'],
@@ -31,5 +31,6 @@ class GeoTagExamples {
         ];
     }
 }
+
 
 module.exports = GeoTagExamples;

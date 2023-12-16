@@ -5,7 +5,7 @@
  */
 // eslint-disable-next-line no-unused-vars
 class MapManager {
-    #apiKey
+    #apiKey;
 
     /**
      * Create a new MapManager instance
@@ -20,19 +20,26 @@ class MapManager {
      * @param {number} latitude The map center latitude
      * @param {number} longitude The map center longitude
      * @param {{latitude, longitude, name}[]} tags The map tags, defaults to just the current location
-     * @param {number} zoom The map zoom, defaults to 11
+     * @param {number} zoom The map zoom, defaults to 15
      * @returns {string} URL of generated map
      */
-    getMapUrl(latitude, longitude, tags = [], zoom = 11) {
+    getMapUrl(latitude, longitude, tags = [], zoom = 15) {
         if (!this.#apiKey) {
-            console.log("No API key provided.");
+            console.error("No API key provided.");
             return "images/mapview.jpg";
         }
 
-        let tagList = `${latitude},${longitude}|marker-start`;
-        tagList += tags.reduce((acc, tag) => `${acc}||${tag.latitude},${tag.longitude}|flag-${tag.name}`, "");
+        // Construct the center of the map
+        const center = `${latitude},${longitude}`;
 
-        const mapQuestUrl = `https://www.mapquestapi.com/staticmap/v5/map?key=${this.#apiKey}&size=600,400&zoom=${zoom}&center=${latitude},${longitude}&locations=${tagList}`;
+        // Create a marker for the client's location with a blue color
+        const clientMarker = `marker-${latitude},${longitude}|marker-blue`;
+
+        // Create markers for other locations
+        const tagList = tags.map(tag => `${tag.Latitude},${tag.Longitude}|marker-${tag.Name}`).join('||');
+
+        // Construct the MapQuest URL
+        const mapQuestUrl = `https://www.mapquestapi.com/staticmap/v5/map?key=${this.#apiKey}&size=600,400&zoom=${zoom}&center=${center}&locations=${tagList}|${clientMarker}`;
         console.log("Generated MapQuest URL:", mapQuestUrl);
 
         return mapQuestUrl;

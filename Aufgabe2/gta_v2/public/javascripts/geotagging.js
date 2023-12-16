@@ -81,7 +81,7 @@ class MapManager {
      * @param {number} zoom The map zoom, defaults to 10
      * @returns {string} URL of generated map
      */
-    getMapUrl(latitude, longitude, tags = [], zoom = 10) {
+    getMapUrl(latitude, longitude, tags = [], zoom = 12) {
         if (this.#apiKey === '') {
             console.log("No API key provided.");
             return "images/mapview.jpg";
@@ -102,9 +102,32 @@ class MapManager {
  * A function to retrieve the current location and update the page.
  * It is called once the page has been fully loaded.
  */
-// ... your code here ...
 
-// Wait for the page to fully load its DOM content, then call updateLocation
+function updateLocation() {
+    LocationHelper.findLocation((location) => {
+
+        const latitude = location.latitude;
+        const longitude = location.longitude;
+
+        const latField = document.getElementById('lat');
+        const lonField = document.getElementById('lon');
+        latField.value = latitude;
+        lonField.value = longitude;
+
+        const hiddenLatField = document.getElementById('lat_hidden');
+        const hiddenLonField = document.getElementById('lon_hidden');
+        hiddenLatField.value = latitude;
+        hiddenLonField.value = longitude;
+
+        const mapManager = new MapManager('urzLls1AwR1SUp0lsMiK6OwpoBB0Dy3b');
+        var mapUpdate = mapManager.getMapUrl(latitude, longitude);
+        document.getElementById("mapView").src = mapUpdate;
+    
+    });
+}
+window.addEventListener('load', updateLocation);
+
 document.addEventListener("DOMContentLoaded", () => {
-    alert("Please change the script 'geotagging.js'");
+    alert("You'll have to allow location access for this website to run smoothly!");
 });
+
