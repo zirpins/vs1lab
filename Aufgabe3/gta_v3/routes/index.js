@@ -75,7 +75,7 @@ router.post('/tagging',(req, res) => {
   const currentLat = req.body.Latitude || ''; 
   const currentLon = req.body.Longitude || ''; 
   //const geoTagStore = new GeoTagStore(); // create instance of GeoTagStore
-  const newTag = new GeoTag(currentLat, currentLon, req.body.name, req.body.hashtag); // create new Tag
+  const newTag = new GeoTag(currentLat, currentLon, req.body.NameLocation, req.body.HashtagLocation); // create new Tag
   geoTagStore.addGeoTag(newTag); // add new tag to taglist
   const taglist = geoTagStore.getNearbyGeoTags(currentLat, currentLon, 100); // default radius = 100
   console.log('taglist:', taglist);
