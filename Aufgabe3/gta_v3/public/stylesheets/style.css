@@ -235,7 +235,6 @@ ul li{
   border: solid 1px;
   border-color: var(--border-color);
   font-weight: bold;
-  color: var(--border-color);
   padding: 1.2% 3.65rem;
   align-content: center;
 }
