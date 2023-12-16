@@ -105,7 +105,7 @@ router.post('/discovery', (req, res) => {
   const currentLon = req.body.Longitude || ''; 
   const keyword = req.body.keyword || ''; 
   //const geoTagStore = new GeoTagStore(); // create instance of GeoTagStore
-  const taglist = geoTagStore.getNearbyGeoTags(currentLat, currentLon, 100, keyword); // default radius = 100
+  const taglist = geoTagStore.searchNearbyGeoTags(currentLat, currentLon, 100, keyword); // default radius = 100
   console.log('taglist:', taglist);
   res.render('index', { taglist, currentLat, currentLon, keyword}); 
 }); 
