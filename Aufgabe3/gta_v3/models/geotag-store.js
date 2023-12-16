@@ -79,7 +79,7 @@ class InMemoryGeoTagStore{
             return distance <= radius;
         });
     
-        console.log('Nearby Tags:', nearbyTags); // Log the nearby tags
+        //console.log('Nearby Tags:', nearbyTags); // Log the nearby tags
     
         return nearbyTags;
     }
@@ -125,7 +125,7 @@ class InMemoryGeoTagStore{
         GeoTagExamples.exampleTagList.forEach(tag =>{
             const newTag = new GeoTag(tag[1], tag[2], tag[0], tag[3]);
             this.addGeoTag(newTag);
-            console.log('Added GeoTag:', newTag); 
+            //console.log('Added GeoTag:', newTag); 
         }); 
     }
 
