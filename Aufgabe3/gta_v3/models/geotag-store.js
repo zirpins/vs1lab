@@ -129,6 +129,15 @@ class InMemoryGeoTagStore{
         }); 
     }
 
+    static getInstance(){
+        if(!this.instance){
+            this.instance = new InMemoryGeoTagStore(); 
+        }
+        return this.instance; 
+    }
+
+
+
     /*     addGeoTag (GeoTagName) {
             GeoTagSpeicherArray.push(GeoTagName); // GeoTagName from geoTags array in ./model/geotag.js
         }
