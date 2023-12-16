@@ -34,18 +34,18 @@
                     <legend id="legend_tagging">Add a new GeoTag</legend><br>
 
                     <label for="lat" class="label_tagging">Latitude:</label><br>
-                    <input type="text" id="lat" class="textbox" name="Latitude" value="<%= currentLat %>" readonly><br><br>
+                    <input type="text" id="lat" class="textbox" name="latitude" value="<%= currentLat %>" readonly><br><br>
 
                     <label for="lon" class="label_tagging">Longitude:</label><br>
-                    <input type="text" id="lon" class="textbox" name="Longitude" value="<%= currentLon %>" readonly><br><br>
+                    <input type="text" id="lon" class="textbox" name="longitude" value="<%= currentLon %>" readonly><br><br>
 
                     <label for="name_loc" class="label_tagging">Name:</label><br>
-                    <input type="text" id="name_loc" class="textbox" name="Name-Location" placeholder="e.g. Batcave" pattern="([a-z]|[A-Z]){1,10}" required><br><br>
+                    <input type="text" id="name_loc" class="textbox" name="name" placeholder="e.g. Batcave" pattern="([a-z]|[A-Z]){1,10}" required><br><br>
 
                     <label for="hashtag_loc" class="label_tagging">Hashtag:</label><br>
-                    <input type="text" id="hashtag_loc" class="textbox" name="Hashtag-Location" placeholder="e.g. #Bats" pattern="#([a-z]|[A-Z]){1,10}"><br><br>
+                    <input type="text" id="hashtag_loc" class="textbox" name="hashtag" placeholder="e.g. #Bats" pattern="#([a-z]|[A-Z]){1,10}"><br><br>
 
-                    <input type="submit" id="submit_button" value="Add Tag" target="blank"> 
+                    <input type="submit" id="submit_button" value="Add Tag" target="_blank"> 
 
                 </fieldset>
             </form>
@@ -69,10 +69,10 @@
                     <!-- lat and lon are hidden -->
                     <!-- reserve no space in css for hidden lat and lon w/ display:none ? -->
                     <label for="lat" hidden>Latitude:</label><br>
-                    <input type="text" id="lat_hidden" name="Latitude" value="<%= currentLat %>" readonly hidden><br><br>
+                    <input type="text" id="lat_hidden" name="latitude" value="<%= currentLat %>" readonly hidden><br><br>
 
                     <label for="lon" hidden>Longitude:</label><br>
-                    <input type="text" id="lon_hidden" name="Longitude" value="<%= currentLon %>" readonly hidden><br><br>
+                    <input type="text" id="lon_hidden" name="longitude" value="<%= currentLon %>" readonly hidden><br><br>
 
                     
 

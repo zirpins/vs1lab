@@ -21,11 +21,11 @@ class GeoTag {
     }
 }
 
-const geoTags = {}; // newly created geoTags are stored here 
+//const geoTags = {}; // newly created geoTags are stored here 
 
-function createGeoTag(Latitude, Longitude, Name, Hashtag) {
-    const geoTag = new GeoTag(Latitude, Longitude, Name, Hashtag); 
-    geoTags[Name] = geoTag; // create a new GeoTag with Name == parameter "Name"
-}
+//function createGeoTag(Latitude, Longitude, Name, Hashtag) {
+  //  const geoTag = new GeoTag(Latitude, Longitude, Name, Hashtag); 
+    //geoTags[Name] = geoTag; // create a new GeoTag with Name == parameter "Name"
+//}
 
 module.exports = GeoTag;
