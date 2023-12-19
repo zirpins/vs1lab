@@ -26,7 +26,7 @@ const GeoTag = require('../models/geotag');
  */
 // eslint-disable-next-line no-unused-vars
 const GeoTagStore = require('../models/geotag-store');
-
+const geoTagStore = GeoTagStore.getInstance(); 
 // App routes (A3)
 
 /**
@@ -39,7 +39,15 @@ const GeoTagStore = require('../models/geotag-store');
  */
 
 router.get('/', (req, res) => {
-  res.render('index', { taglist: [] })
+  const currentLat = req.body.Latitude || ''; 
+  const currentLon = req.body.Longitude || ''; 
+  //const geoTagStore = new GeoTagStore(); // create instance of GeoTagStore
+  const taglist = geoTagStore.getNearbyGeoTags(currentLat, currentLon, 1000000); // default radius = 100
+  //const taglist = geoTagStore.getAllGeoTags(); 
+  console.log('taglist:', taglist);
+  res.render('index', { taglist, currentLat, currentLon}); 
+
+  // render the template with current cordinates, if available
 });
 
 // API routes (A4)
