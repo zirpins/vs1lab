@@ -65,7 +65,15 @@ router.get('/', (req, res) => {
  */
 
 // TODO: ... your code here ...
+router.get('/api/geotags', (req, res) => {
+  const currentLat = req.body.Latitude || ''; 
+  const currentLon = req.body.Longitude || ''; 
+  const taglist = geoTagStore.getNearbyGeoTags(currentLat, currentLon, 1000000); 
+  //res.render('index', { taglist, currentLat, currentLon});
+  // ^^ Copied from previous Aufgabe ^^
 
+  res.json(taglist); 
+}); 
 
 /**
  * Route '/api/geotags' for HTTP 'POST' requests.
@@ -79,7 +87,11 @@ router.get('/', (req, res) => {
  */
 
 // TODO: ... your code here ...
+router.post('/api/geotags', (req, res) => {
 
+  
+  res.status(201).json(newTag); 
+}); 
 
 /**
  * Route '/api/geotags/:id' for HTTP 'GET' requests.
