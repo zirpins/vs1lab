@@ -66,12 +66,13 @@ router.get('/', (req, res) => {
 
 // TODO: ... your code here ...
 router.get('/api/geotags/:keyword', (req, res) => {
-  const currentLat = req.body.Latitude || ''; 
-  const currentLon = req.body.Longitude || ''; 
+  const currentLat = req.query.Latitude || ''; 
+  const currentLon = req.query.Longitude || ''; 
   const keyword = req.params.keyword || ''; 
-  const taglist = geoTagStore.searchNearbyGeoTags(currentLat, currentLon, 100, keyword); // default radius = 100
+  const taglist = geoTagStore.searchNearbyGeoTags(currentLat, currentLon, 100000000, keyword); // default radius = 100
   //console.log('taglist:', taglist);
-  console.log('keyword:', keyword); 
+  console.log('\nkeyword:', keyword); 
+  console.log('\nMatching geotags:', taglist); 
   //res.render('index', { taglist, currentLat, currentLon, keyword}); 
   res.json(taglist); 
 });

@@ -1,5 +1,6 @@
 //GET http://localhost:3000/
 
-GET http://localhost:3000/api/geotags/castle
+//GET http://localhost:3000/api/geotags/CaStLe
+GET http://localhost:3000/api/geotags/sight
 
 //POST http://localhost:3000/api/geotags
