@@ -65,15 +65,16 @@ router.get('/', (req, res) => {
  */
 
 // TODO: ... your code here ...
-router.get('/api/geotags', (req, res) => {
+router.get('/api/geotags/:keyword', (req, res) => {
   const currentLat = req.body.Latitude || ''; 
   const currentLon = req.body.Longitude || ''; 
-  const taglist = geoTagStore.getNearbyGeoTags(currentLat, currentLon, 1000000); 
-  //res.render('index', { taglist, currentLat, currentLon});
-  // ^^ Copied from previous Aufgabe ^^
-
+  const keyword = req.params.keyword || ''; 
+  const taglist = geoTagStore.searchNearbyGeoTags(currentLat, currentLon, 100, keyword); // default radius = 100
+  //console.log('taglist:', taglist);
+  console.log('keyword:', keyword); 
+  //res.render('index', { taglist, currentLat, currentLon, keyword}); 
   res.json(taglist); 
-}); 
+});
 
 /**
  * Route '/api/geotags' for HTTP 'POST' requests.
