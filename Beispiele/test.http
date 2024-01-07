@@ -19,7 +19,8 @@
 //GET http://localhost:3000/api/geotags/sight
 // ^^ tests for id(keyword) in path '/api/geotags/:id' 
 
-//DELETE http://localhost:3000/api/geotags/test
+DELETE http://localhost:3000/api/geotags/test
+//DELETE http://localhost:3000/api/geotags/generic
 // ^^ test DELETE HTTP-request ^^ 
 
 PUT http://localhost:3000/api/geotags/test

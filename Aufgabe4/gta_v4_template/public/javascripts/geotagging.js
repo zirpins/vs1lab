@@ -10,6 +10,97 @@
 console.log("The geoTagging script is going to start...");
 
 
+// Function to make an asynchronous POST request to add a new GeoTag
+async function addGeoTagAsync(data) {
+    try {
+        const response = await fetch('/api/geotags', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+        });
+
+        if (!response.ok) {
+            throw new Error('Failed to add GeoTag');
+        }
+
+        const newGeoTag = await response.json();
+        console.log('New GeoTag:', newGeoTag);
+        // Update location after adding a new GeoTag
+        updateLocation();
+        // Fetch latest GeoTags after updating the location
+        await searchGeoTagsAsync(''); // Pass an empty string or the desired search term
+
+
+        return newGeoTag;
+    } catch (error) {
+        console.error('Error adding GeoTag:', error.message);
+        throw error;
+    }
+}
+
+// Function to make an asynchronous GET request to search for GeoTags
+async function searchGeoTagsAsync(searchTerm) {
+    try {
+        const response = await fetch(`/api/geotags?SearchTerm=${encodeURIComponent(searchTerm)}`);
+
+        if (!response.ok) {
+            throw new Error('Failed to search for GeoTags');
+        }
+
+        const searchResults = await response.json();
+        console.log('Search results:', searchResults);
+        return searchResults;
+    } catch (error) {
+        console.error('Error searching for GeoTags:', error.message);
+        throw error;
+    }
+}
+
+// Add an event listener for the Tagging Form
+document.getElementById('tag-form').addEventListener('submit', handleTagFormSubmit);
+
+// Function to handle the submission of the Tagging form
+async function handleTagFormSubmit(event) {
+    event.preventDefault(); // Prevent the default form submission
+
+    const form = event.target;
+
+    // Extract form data using FormData
+    const formData = new FormData(form);
+    
+    // Convert FormData to a plain object
+    const data = {};
+    formData.forEach((value, key) => {
+        data[key] = value;
+    });
+
+    
+
+
+
+    try {
+        // Make an asynchronous POST request to add a new GeoTag
+        const newGeoTag = await addGeoTagAsync(data);
+
+        // Handle the new GeoTag as needed (update UI, etc.)
+        console.log('Handling new GeoTag:', newGeoTag);
+    } catch (error) {
+        // Handle errors if needed
+    }
+}
+
+
+// Attach the form submission handler to the Discovery form
+const discoveryForm = document.getElementById('discoveryFilterForm');
+discoveryForm.addEventListener('submit', () => {
+    console.log('Discovery form submitted. Calling updateLocation...');
+    updateLocation();
+});
+
+
+
 /**
  * TODO: 'updateLocation'
  * A function to retrieve the current location and update the page.
@@ -26,7 +117,7 @@ function updateLocation() {
     const tagsAttribute = document.getElementById("mapView").getAttribute("data-tags");
     const taglist = JSON.parse(tagsAttribute);
 
-    console.log('Taglist:', taglist); // Log for debugging
+    //console.log('Taglist:', taglist); // Log for debugging
 
     // Check if valid coordinates are already available
     if (latitude && longitude) {
@@ -39,27 +130,28 @@ function updateLocation() {
     } else {
         // No valid coordinates, use Geolocation API
         LocationHelper.findLocation((location) => {
+            //console.log('Geolocation API Result:', location);
+            // Update hidden fields with new coordinates
             latField.value = location.latitude;
             lonField.value = location.longitude;
+            //console.log('Updated Latitude:', location.latitude, 'Updated Longitude:', location.longitude);
 
-            const hiddenLatField = document.getElementById('lat_hidden');
-            const hiddenLonField = document.getElementById('lon_hidden');
-            hiddenLatField.value = location.latitude;
-            hiddenLonField.value = location.longitude;
-
+            // Update the map with the updated GeoTag array
             const mapManager = new MapManager('urzLls1AwR1SUp0lsMiK6OwpoBB0Dy3b');
-            // Add the new GeoTag to the taglist
             const newGeoTag = { Latitude: location.latitude, Longitude: location.longitude, Name: "YourLocation" };
             taglist.push(newGeoTag);
 
-            // Update the map with the updated GeoTag array
             const mapUpdate = mapManager.getMapUrl(location.latitude, location.longitude, taglist);
             document.getElementById("mapView").src = mapUpdate;
         });
     }
 }
 
-window.addEventListener('load', updateLocation);
+
+window.addEventListener('load', () => {
+    console.log('Page loaded. Calling updateLocation...');
+    updateLocation();
+});
 
 document.addEventListener("DOMContentLoaded", () => {
     alert("You'll have to allow location access for this website to run smoothly!");
