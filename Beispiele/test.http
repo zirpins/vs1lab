@@ -5,6 +5,10 @@
 
 //GET http://localhost:3000/api/geotags/Test
 
+//GET http://localhost:3000/api/geotags?SearchTerm=iwi
+//GET http://localhost:3000/api/geotags?Latitude=49.03948
+GET http://localhost:3000/api/geotags?Latitude=49.03948&SearchTerm=li
+
 POST http://localhost:3000/api/geotags
 Content-Type: application/json
 
