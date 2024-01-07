@@ -145,7 +145,19 @@ router.get('/api/geotags/:keyword', (req, res) => {
  */
 
 // TODO: ... your code here ...
+router.put('/api/geotags/:keyword', (req, res) => {
+  const curLat = req.body.Latitude || '';
+  const curLon = req.body.Longitude || ''; 
+  const curName = req.body.NameLocation || ''; 
+  const curHash = req.body.HashtagLocation || '';  
+  const keyword = req.params.keyword || ''; 
+  // extract data from form fields (curName -> current Name)
 
+  const updatedTag = geoTagStore.updateGeoTag(curLat, curLon, curName, curHash);
+
+  res.status(200).json({ message: 'Tag updated successfully', updatedTag });
+
+}); 
 
 /**
  * Route '/api/geotags/:id' for HTTP 'DELETE' requests.
@@ -159,5 +171,13 @@ router.get('/api/geotags/:keyword', (req, res) => {
  */
 
 // TODO: ... your code here ...
+router.delete('/api/geotags/:keyword', (req, res) => {
+  const keyword = req.params.keyword || ''; 
+  geoTagStore.removeGeoTag(keyword); 
+  //const taglist = geoTagStore.getAllGeoTags; 
+  //res.json(taglist); 
+  res.status(200).json({ message: 'Tag deleted...'});
+});
+
 
 module.exports = router;

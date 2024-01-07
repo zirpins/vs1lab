@@ -12,12 +12,25 @@
 
 
 //GET http://localhost:3000/api/geotags/Test
-// ^^ idem, after creation of test GeoTag with POST* ^^
+// ^^ idem, after creation of test GeoTag with POST* (new URL in Header>>Location) ^^
 
 
 //GET http://localhost:3000/api/geotags/CaStLe
 //GET http://localhost:3000/api/geotags/sight
 // ^^ tests for id(keyword) in path '/api/geotags/:id' 
+
+//DELETE http://localhost:3000/api/geotags/test
+
+
+PUT http://localhost:3000/api/geotags/test
+Content-Type: application/json
+
+{
+    "Latitude": "69",
+    "Longitude": "4.20",
+    "NameLocation": "MorgCity",
+    "HashtagLocation": "#Modified"
+}
 
 
 
