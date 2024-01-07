@@ -90,9 +90,18 @@ router.get('/api/geotags/:keyword', (req, res) => {
 
 // TODO: ... your code here ...
 router.post('/api/geotags', (req, res) => {
-
-  
+  const curLat = req.body.Latitude || '';
+  const curLon = req.body.Longitude || ''; 
+  const curName = req.body.NameLocation || ''; 
+  const curHash = req.body.HashtagLocation || '';  
+  // extract data from form fields (curName -> current Name)
+  const newTag = new GeoTag(curLat, curLon, curName, curHash); 
+  geoTagStore.addGeoTag(newTag); 
+  //const newURL = '/api/geotags/${newTag.id}'; 
+    
+  //res.status(201).location(newURL).json(newTag);  
   res.status(201).json(newTag); 
+
 }); 
 
 /**
