@@ -97,10 +97,10 @@ router.post('/api/geotags', (req, res) => {
   // extract data from form fields (curName -> current Name)
   const newTag = new GeoTag(curLat, curLon, curName, curHash); 
   geoTagStore.addGeoTag(newTag); 
-  //const newURL = '/api/geotags/${newTag.id}'; 
+  const newURL = `/api/geotags/${encodeURIComponent(newTag.Name)}`; 
     
-  //res.status(201).location(newURL).json(newTag);  
-  res.status(201).json(newTag); 
+  res.status(201).location(newURL).json(newTag);  
+  //res.status(201).json(newTag); 
 
 }); 
 
