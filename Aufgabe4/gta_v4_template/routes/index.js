@@ -153,9 +153,15 @@ router.put('/api/geotags/:keyword', (req, res) => {
   const keyword = req.params.keyword || ''; 
   // extract data from form fields (curName -> current Name)
 
-  const updatedTag = geoTagStore.updateGeoTag(curLat, curLon, curName, curHash);
-
-  res.status(200).json({ message: 'Tag updated successfully', updatedTag });
+  // step 1: remove existing GeoTag
+  geoTagStore.removeGeoTag(keyword); 
+  
+  // step 2: create new GeoTag
+  const newTag = new GeoTag(curLat, curLon, curName, curHash); 
+  geoTagStore.addGeoTag(newTag); 
+  const newURL = `/api/geotags/${encodeURIComponent(newTag.Name)}`; 
+  res.status(201).location(newURL).json(newTag);
+  //res.status(200).location(newURL).json({ message: 'Tag updated successfully', newTag });
 
 }); 
 
@@ -174,8 +180,6 @@ router.put('/api/geotags/:keyword', (req, res) => {
 router.delete('/api/geotags/:keyword', (req, res) => {
   const keyword = req.params.keyword || ''; 
   geoTagStore.removeGeoTag(keyword); 
-  //const taglist = geoTagStore.getAllGeoTags; 
-  //res.json(taglist); 
   res.status(200).json({ message: 'Tag deleted...'});
 });
 

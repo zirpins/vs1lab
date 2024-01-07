@@ -129,6 +129,8 @@ class InMemoryGeoTagStore{
         }); 
     }
 
+
+
     static getInstance(){
         if(!this.instance){
             this.instance = new InMemoryGeoTagStore(); 
@@ -136,7 +138,24 @@ class InMemoryGeoTagStore{
         return this.instance; 
     }
 
-
+    updateGeoTag(latitude, longitude, name, hashtag) {
+        // Find the index of the tag with the provided ID
+        const index = this.#GeoTagStore.findIndex(tag => tag.Name === name);
+    
+        if (index !== -1) {
+          // If the tag is found, update its properties
+          this.#GeoTagStore[index].Latitude = latitude;
+          this.#GeoTagStore[index].Longitude = longitude;
+          this.#GeoTagStore[index].Name = name;
+          this.#GeoTagStore[index].Hashtag = hashtag;
+    
+          // Return the updated GeoTag
+          return this.#GeoTagStore[index];
+        }
+    
+        // If the tag with the provided ID is not found, return null
+        return null;
+      }
 
     /*     addGeoTag (GeoTagName) {
             GeoTagSpeicherArray.push(GeoTagName); // GeoTagName from geoTags array in ./model/geotag.js

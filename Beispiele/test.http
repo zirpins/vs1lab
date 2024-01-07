@@ -22,7 +22,6 @@
 //DELETE http://localhost:3000/api/geotags/test
 // ^^ test DELETE HTTP-request ^^ 
 
-
 PUT http://localhost:3000/api/geotags/test
 Content-Type: application/json
 
@@ -32,6 +31,7 @@ Content-Type: application/json
     "NameLocation": "MorgCity",
     "HashtagLocation": "#Modified"
 }
+
 
 
 
