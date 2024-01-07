@@ -1,14 +1,28 @@
+
+// Tests for Aufgabe4 with HTTP-requests using REST-Client extension
+
 //GET http://localhost:3000/
+// ^^ main website ^^
 
-//GET http://localhost:3000/api/geotags/CaStLe
-//GET http://localhost:3000/api/geotags/sight
-
-//GET http://localhost:3000/api/geotags/Test
 
 //GET http://localhost:3000/api/geotags?SearchTerm=iwi
 //GET http://localhost:3000/api/geotags?Latitude=49.03948
-GET http://localhost:3000/api/geotags?Latitude=49.03948&SearchTerm=li
+//GET http://localhost:3000/api/geotags?Latitude=49.03948&SearchTerm=li
+// ^^ tests for query parameters ^^
 
+
+//GET http://localhost:3000/api/geotags/Test
+// ^^ idem, after creation of test GeoTag with POST* ^^
+
+
+//GET http://localhost:3000/api/geotags/CaStLe
+//GET http://localhost:3000/api/geotags/sight
+// ^^ tests for id(keyword) in path '/api/geotags/:id' 
+
+
+
+
+// *
 POST http://localhost:3000/api/geotags
 Content-Type: application/json
 
@@ -18,3 +32,4 @@ Content-Type: application/json
     "NameLocation": "Test",
     "HashtagLocation": "#HopesUp"
 }
+// ^^ creation of GeoTag via HTTP message with REST CURD-tool ^^
