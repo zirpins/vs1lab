@@ -147,23 +147,27 @@ router.get('/api/geotags/:keyword', (req, res) => {
 // TODO: ... your code here ...
 router.put('/api/geotags/:keyword', (req, res) => {
   const curLat = req.body.Latitude || '';
-  const curLon = req.body.Longitude || ''; 
-  const curName = req.body.NameLocation || ''; 
-  const curHash = req.body.HashtagLocation || '';  
-  const keyword = req.params.keyword || ''; 
+  const curLon = req.body.Longitude || '';
+  const curName = req.body.NameLocation || '';
+  const curHash = req.body.HashtagLocation || '';
+  const keyword = req.params.keyword || '';
   // extract data from form fields (curName -> current Name)
 
-  // step 1: remove existing GeoTag
-  geoTagStore.removeGeoTag(keyword); 
-  
-  // step 2: create new GeoTag
-  const newTag = new GeoTag(curLat, curLon, curName, curHash); 
-  geoTagStore.addGeoTag(newTag); 
-  const newURL = `/api/geotags/${encodeURIComponent(newTag.Name)}`; 
-  res.status(201).location(newURL).json(newTag);
+  // Remove existing GeoTag
+  geoTagStore.removeGeoTag(keyword);
+
+  // Create new GeoTag
+  const newTag = new GeoTag(curLat, curLon, curName, curHash);
+  geoTagStore.addGeoTag(newTag);
+
+  //const newURL = `/api/geotags/${encodeURIComponent(newTag.Name)}`;
+
+  // Respond with the updated GeoTag
+  res.status(200).json(newTag);
+  //res.status(201).location(newURL).json(newTag);
   //res.status(200).location(newURL).json({ message: 'Tag updated successfully', newTag });
 
-}); 
+});
 
 /**
  * Route '/api/geotags/:id' for HTTP 'DELETE' requests.
