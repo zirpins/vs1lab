@@ -209,7 +209,7 @@ a {
 
 /* ### TODO ### Styles for Discovery component */
 
-#search_term {
+#searchTerm {
   padding: 1.5%;
   border: solid 1px; 
   border-color: var(--border-color);
@@ -307,7 +307,7 @@ ul li{
     width: 85%;
   }
 
-  #search_term {
+  #searchTerm {
     max-width: 850px;
     width: 92%;
   }
