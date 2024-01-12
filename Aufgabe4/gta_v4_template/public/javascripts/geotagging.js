@@ -30,7 +30,8 @@ async function addGeoTagAsync(data) {
         // Update location after adding a new GeoTag
         updateLocation();
         // Fetch latest GeoTags after updating the location
-        await searchGeoTagsAsync(''); // Pass an empty string or the desired search term
+        await searchGeoTagsAsync(data.SearchTerm || data.SearchTerm === '' ? data.SearchTerm : '');
+
 
 
         return newGeoTag;
@@ -76,19 +77,48 @@ async function handleTagFormSubmit(event) {
         data[key] = value;
     });
 
-    
-
-
-
     try {
         // Make an asynchronous POST request to add a new GeoTag
         const newGeoTag = await addGeoTagAsync(data);
+
+        // Update the UI with the search results based on the search term
+        await handleSearchResults(data.SearchTerm || '');
 
         // Handle the new GeoTag as needed (update UI, etc.)
         console.log('Handling new GeoTag:', newGeoTag);
     } catch (error) {
         // Handle errors if needed
     }
+}
+
+// Function to handle the search results and update the UI
+async function handleSearchResults(searchTerm) {
+    try {
+        const searchResults = await searchGeoTagsAsync(searchTerm);
+
+        // Update the UI with the search results
+        updateUI(searchResults);
+
+    } catch (error) {
+        console.error('Error handling search results:', error.message);
+        // Handle errors if needed
+    }
+}
+
+// Function to update the UI with the search results
+function updateUI(searchResults) {
+    // Assuming there's an element with the id 'discoveryResults' to display the results
+    const resultsContainer = document.getElementById('discoveryResults');
+
+    // Clear existing results
+    resultsContainer.innerHTML = '';
+
+    // Display the new search results
+    searchResults.forEach(geotag => {
+        const listItem = document.createElement('li');
+        listItem.textContent = `${geotag.Name} (${geotag.Latitude}, ${geotag.Longitude}) ${geotag.Hashtag}`;
+        resultsContainer.appendChild(listItem);
+    });
 }
 
 
@@ -153,6 +183,3 @@ window.addEventListener('load', () => {
     updateLocation();
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-    alert("You'll have to allow location access for this website to run smoothly!");
-});
