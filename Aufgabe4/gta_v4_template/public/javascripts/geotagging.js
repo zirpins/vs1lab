@@ -91,17 +91,32 @@ async function handleTagFormSubmit(event) {
     }
 }
 
-// Function to handle the search results and update the UI
-async function handleSearchResults(searchTerm) {
+// Function to handle the submission of the Discovery form
+async function handleDiscoveryFormSubmit() {
+    const form = document.getElementById('discoveryFilterForm');
+
+    // Extract form data using FormData
+    const formData = new FormData(form);
+
+    // Convert FormData to a plain object
+    const data = {};
+    formData.forEach((value, key) => {
+        data[key] = value;
+    });
+
     try {
-        const searchResults = await searchGeoTagsAsync(searchTerm);
+        // Make an asynchronous GET request to search for GeoTags
+        const searchResults = await searchGeoTagsAsync(data.SearchTerm || '');
 
         // Update the UI with the search results
         updateUI(searchResults);
 
-    } catch (error) {
-        console.error('Error handling search results:', error.message);
+        // Update the map with the new GeoTags
+        updateLocation();
+
+    } catch (error) { 
         // Handle errors if needed
+        console.error('Error handling Discovery form submission:', error.message);
     }
 }
 
@@ -124,9 +139,10 @@ function updateUI(searchResults) {
 
 // Attach the form submission handler to the Discovery form
 const discoveryForm = document.getElementById('discoveryFilterForm');
-discoveryForm.addEventListener('submit', () => {
-    console.log('Discovery form submitted. Calling updateLocation...');
-    updateLocation();
+discoveryForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    console.log('Discovery form submitted. Calling handleDiscoveryFormSubmit...');
+    await handleDiscoveryFormSubmit();
 });
 
 
