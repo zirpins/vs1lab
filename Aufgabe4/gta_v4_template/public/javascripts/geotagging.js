@@ -165,9 +165,6 @@ async function updateLocation() {
         // Fetch the latest GeoTags
         const latestGeoTags = await searchGeoTagsAsync('');
 
-        // Update the UI with the latest GeoTags
-        updateUI(latestGeoTags);
-
         // Check if valid coordinates are already available
         if (latitude && longitude) {
             // Use existing coordinates for map and update hidden fields
@@ -179,11 +176,9 @@ async function updateLocation() {
         } else {
             // No valid coordinates, use Geolocation API
             LocationHelper.findLocation((location) => {
-                //console.log('Geolocation API Result:', location);
                 // Update hidden fields with new coordinates
                 latField.value = location.latitude;
                 lonField.value = location.longitude;
-                //console.log('Updated Latitude:', location.latitude, 'Updated Longitude:', location.longitude);
 
                 // Update the map with the updated GeoTag array
                 const mapManager = new MapManager('urzLls1AwR1SUp0lsMiK6OwpoBB0Dy3b');
@@ -192,12 +187,16 @@ async function updateLocation() {
 
                 const mapUpdate = mapManager.getMapUrl(location.latitude, location.longitude, latestGeoTags);
                 document.getElementById("mapView").src = mapUpdate;
+
+                // Now that the map is updated, update the UI
+                updateUI(latestGeoTags);
             });
         }
     } catch (error) {
         console.error('Error updating location:', error.message);
     }
 }
+
 
 // Add an event listener to handle the 'load' event
 window.addEventListener('load', async () => {
