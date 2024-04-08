@@ -15,8 +15,6 @@ html {
 * {
   margin: 0;
   padding: 0;
-
-  /* This approach prevents issues with 3rd party content-box components */
   box-sizing: inherit;
 }
 
@@ -44,12 +42,10 @@ a {
   color: var(--link-color);
 }
 
-/* ### TODO ### Styles for other HTML elements */
-
-/* ... your code here ... */
-
-
-/* Grid styles (no changes required) */
+.header__image {
+  width: 70px;
+  height: 70px; 
+}
 
 .row {
   width: 100%;
@@ -107,31 +103,121 @@ a {
 }
 
 
-/* ### TODO ### Styles for Header Component */
+.header{
 
-/* ... your code here ... */
+  display:flex;
+  align-items: center;
+  justify-content: space-between;
 
-
-/* ### TODO ### Styles for Main Component */
-
-/* ... your code here ... */
-
-
-/* ### TODO ### Styles for Tagging component */
-
-/* ... your code here ... */
-
-
-/* ### TODO ### Styles for Discovery component */
-
-/* ... your code here ... */
+  background-color: antiquewhite;
+  padding-left: 1.5%;
+  padding-right: 1.5%;
+  padding-top: 1.5%;
+  padding-bottom: 1.5%;
+}
 
 
-/* ### TODO ### Styles for Footer Component */
+.main{
+  display: flex;
+}
 
-/* ... your code here ... */
+.tagging, .discovery{
+  flex: 1;
+  margin-right: 20px;
+  margin-top:1%;
+  background-color: #f9f9f9;
+  padding: 20px;
+
+}
+
+.discovery:last-child {
+  margin-right: 0;
+}
 
 
-/* ### TODO ### Media Queries */
+.tagging fieldset, .discovery fieldset {
+  display: flex; 
+  flex-direction: column;
+  padding: 1%;
+}
 
-/* ... your code here ... */
+.tagging input,
+.discovery input {
+  margin-bottom: 10px;
+  height: 35px;
+}
+
+.discovery__wrapper{
+  display: flex;
+  margin-top: 2%;
+  justify-content: space-between;
+}
+
+.discovery__map {
+  margin-right: 0;
+  padding-left: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.discovery__taglist {
+  margin-bottom: 20px;
+  padding-right: auto;
+}
+
+.discovery__results {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.discovery__results li {
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+}
+
+.discovery__results li:last-child {
+  margin-bottom: 0; 
+}
+
+
+.footer{
+  background-color: antiquewhite;
+  text-align: left;
+  padding-left: 1%;
+  margin-top: auto;
+  padding-top: 2%;
+  padding-bottom: 2%;
+}
+
+.input{
+  background-color: #00B7FF;
+}
+
+
+@media screen and (max-width: 850px) {
+  .main {
+    flex-direction: column; 
+  }
+
+  .tagging, .discovery {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .main {
+    flex-direction: column; 
+  }
+
+  .tagging, .discovery {
+    width: 100%;
+  }
+
+  .discovery__wrapper{
+    flex-direction: column;
+  }
+}
