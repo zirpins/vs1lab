@@ -46,8 +46,10 @@ a {
 
 /* ### TODO ### Styles for other HTML elements */
 
-/* ... your code here ... */
-
+section{
+  width:max-content;
+  margin-top: 20px;
+}
 
 /* Grid styles (no changes required) */
 
@@ -108,30 +110,88 @@ a {
 
 
 /* ### TODO ### Styles for Header Component */
-
-/* ... your code here ... */
-
+.header__image{
+  height: 3%;
+  width: 3%;
+}
+header{
+  background-color: #d8dce4;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  justify-content: space-between;
+  align-items: stretch;
+}
 
 /* ### TODO ### Styles for Main Component */
 
-/* ... your code here ... */
+main{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  flex-grow: 1;
+}
 
 
 /* ### TODO ### Styles for Tagging component */
 
-/* ... your code here ... */
-
+input{
+  display: block;
+  height: 30px;
+  width: 200px;
+  margin-left: 4px;
+  margin-right: 20px;
+  margin-bottom: 10px;
+}
+label{
+  display: block;
+  height: auto;
+  width: 200px;
+  margin-top: 10px;
+  margin-left: 4px;
+  margin-right: 4px;
+}
 
 /* ### TODO ### Styles for Discovery component */
 
-/* ... your code here ... */
+#mapView{
+  display: block;
+}
+discovery__map > span{
+  display: block;
+}
 
+.discovery__wrapper{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 20px;
+}
+ul{
+  list-style-type: none;
+}
+li{
+  background-color: #d8dce4;
+  border-style: solid;
+  border-color: grey;
+  color: #00B7FF;
+  padding: 5px;
+  margin: 5px;
+  width: auto;
+}
 
 /* ### TODO ### Styles for Footer Component */
 
-/* ... your code here ... */
+footer{
+  
+  bottom: 0;
+  height: 50px;
+  width: 100%;
+  background-color: antiquewhite;
+  padding-left: 10px;
+  padding-top: 10px;
+}
 
 
 /* ### TODO ### Media Queries */
-
-/* ... your code here ... */
