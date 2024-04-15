@@ -110,11 +110,29 @@ a {
 /* ### TODO ### Styles for Header Component */
 
 /* ... your code here ... */
+.header{
+  height: 7rem;
+  display: flex;
+  justify-content: space-between;
+  align-items:center;
+  padding: 2%;
+  background-color: aqua;
+}
+
+.header__image{
+  width: 2.5%;
+
+}
 
 
 /* ### TODO ### Styles for Main Component */
 
 /* ... your code here ... */
+.main{
+ 
+
+  background-color: aquamarine;
+}
 
 
 /* ### TODO ### Styles for Tagging component */
@@ -125,11 +143,25 @@ a {
 /* ### TODO ### Styles for Discovery component */
 
 /* ... your code here ... */
+#mapView{
+  width: 230px;
+}
 
 
 /* ### TODO ### Styles for Footer Component */
 
 /* ... your code here ... */
+.footer{
+  background-color: greenyellow;
+  bottom: 0;
+  height: 100px;
+  display: flex;
+  align-items: center;
+}
+
+.footer span{
+  padding: 30px;
+}
 
 
 /* ### TODO ### Media Queries */
