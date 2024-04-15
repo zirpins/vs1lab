@@ -151,7 +151,7 @@ a {
   margin-bottom: 10px;
   padding: 5px;
   color: #00B7FF;
-=======
+}
 /* ... your code here ... */
 #mapView{
   width: 230px;
@@ -174,7 +174,6 @@ a {
   padding: 30px;
 }
 
-}
 
 /* ### TODO ### Media Queries */
 
