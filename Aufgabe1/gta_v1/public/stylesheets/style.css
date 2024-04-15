@@ -109,14 +109,30 @@ a {
 
 /* ### TODO ### Styles for Header Component */
 
-.header {
-  background-color: #cdcdcd;
-  border: 1px solid #666;
+
+/* ... your code here ... */
+.header{
+  height: 7rem;
+  display: flex;
+  justify-content: space-between;
+  align-items:center;
+  padding: 2%;
+  background-color: aqua;
+}
+
+.header__image{
+  width: 2.5%;
+
 }
 
 /* ### TODO ### Styles for Main Component */
 
 /* ... your code here ... */
+.main{
+ 
+
+  background-color: aquamarine;
+}
 
 
 /* ### TODO ### Styles for Tagging component */
@@ -128,20 +144,35 @@ a {
 
 /* ### TODO ### Styles for Discovery component */
 
+
 .discovery__results li{
   background-color: #cdcdcd;
   border: 1px solid #666;
   margin-bottom: 10px;
   padding: 5px;
   color: #00B7FF;
+=======
+/* ... your code here ... */
+#mapView{
+  width: 230px;
 }
 
 
 /* ### TODO ### Styles for Footer Component */
 
-.footer {
-  background-color: #cdcdcd;
-  border: 1px solid #666;
+
+/* ... your code here ... */
+.footer{
+  background-color: greenyellow;
+  bottom: 0;
+  height: 100px;
+  display: flex;
+  align-items: center;
+}
+
+.footer span{
+  padding: 30px;
+}
 
 }
 
