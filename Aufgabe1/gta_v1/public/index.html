@@ -29,17 +29,17 @@
         <form id="tag-form" action="/tagging" method="post">
             <fieldset>
                 <legend>Add a new GeoTag</legend>
-                <label class="col" for="latitude">Latitude:</label>
-                <input class="col" type="text" id="latitude" placeholder="some latitude" disabled>
-                <label class="col" for="longitude">Longitude:</label>
-                <input class="col" type="text" id="longitude" placeholder="some longitude" disabled>
-                <label class="col" for="name">Name:</label>
-                <input class="col" type="text" id="name" placeholder="e.g. Central Berlin" pattern="[A-Za-z0-9]"
+                <label for="latitude_tagging">Latitude:</label>
+                <input type="text" id="latitude_tagging" placeholder="some latitude" disabled>
+                <label for="longitude_tagging">Longitude:</label>
+                <input type="text" id="longitude_tagging" placeholder="some longitude" disabled>
+                <label for="name_tagging">Name:</label>
+                <input type="text" id="name_tagging" placeholder="e.g. Central Berlin" pattern="[A-Za-z0-9]"
                        maxlength="10" required>
-                <label class="col" for="hashtag">Hashtag:</label>
-                <input class="col" type="text" id="hashtag" placeholder="e.g. #ber" pattern="#(\w{1,10})"
+                <label for="hashtag_tagging">Hashtag:</label>
+                <input type="text" id="hashtag_tagging" placeholder="e.g. #ber" pattern="#(\w{1,10})"
                        maxlength="11">
-                <input class="col" type="submit" value="Add Tag">
+                <input type="submit" id="add_tagging" value="Add Tag">
             </fieldset>
         </form>
         <!-- ############### VS1Lab 1a Form 1 End -->

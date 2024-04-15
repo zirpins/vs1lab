@@ -112,23 +112,44 @@ a {
 .header {
     display: flex;
     background: var(--background-color);
-    height: 150px;
+    height: 200px;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .header__image {
-    scale: 40%;
-    align-content: flex-start;
+    scale: 10%;
+    position: relative;
+    right: 200px;
 }
 
-.header__title {
-    align-content: center;
+/* ### TODO ### Styles for Main Component /
+
+fieldset {
+  padding: 15px;
+  border-color: var(--border-color);
 }
 
-.header__navigation {
-    align-content: flex-end;
+legend {
+  font-size: medium;
+  padding: 10px;
+  font-weight: bold;
 }
 
-/* ### TODO ### Styles for Main Component */
+label {
+  color: var(--gray-color);
+  font-size: medium;
+}
+
+input {
+  display: block;
+  width: 100%;
+  min-width: 130px;
+  max-width: 250px;
+  padding: 10px;
+  margin-bottom: 12px;
+  margin-top: 4px;
+}
 
 .main {
     display: flex;
@@ -138,26 +159,19 @@ a {
 }
 
 
-/* ### TODO ### Styles for Tagging component */
+/ ### TODO ### Styles for Tagging component /
 
 .tagging {
-}
-
-.tagging .col {
     display: block;
 }
 
-/* ### TODO ### Styles for Discovery component */
+/ ### TODO ### Styles for Discovery component /
 
 .discovery {
     display: grid;
 }
 
-.discovery .row {
-
-}
-
-/* ### TODO ### Styles for Footer Component */
+/ ### TODO ### Styles for Footer Component /
 
 .footer {
     background: var(--background-color);
@@ -165,6 +179,12 @@ a {
 }
 
 
-/* ### TODO ### Media Queries */
+/ ### TODO ### Media Queries /
 
-/* ... your code here ... */
+/ ... your code here ... */
+
+@media screen and (max-width: 850px) {
+    .row {
+        flex-direction: column;
+    }
+}
