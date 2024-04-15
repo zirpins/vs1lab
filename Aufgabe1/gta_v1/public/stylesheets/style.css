@@ -109,6 +109,7 @@ a {
 
 /* ### TODO ### Styles for Header Component */
 
+
 /* ... your code here ... */
 .header{
   height: 7rem;
@@ -124,7 +125,6 @@ a {
 
 }
 
-
 /* ### TODO ### Styles for Main Component */
 
 /* ... your code here ... */
@@ -137,11 +137,21 @@ a {
 
 /* ### TODO ### Styles for Tagging component */
 
-/* ... your code here ... */
-
+.tagging {
+  display: flex;
+  flex-direction: column;
+}
 
 /* ### TODO ### Styles for Discovery component */
 
+
+.discovery__results li{
+  background-color: #cdcdcd;
+  border: 1px solid #666;
+  margin-bottom: 10px;
+  padding: 5px;
+  color: #00B7FF;
+=======
 /* ... your code here ... */
 #mapView{
   width: 230px;
@@ -149,6 +159,7 @@ a {
 
 
 /* ### TODO ### Styles for Footer Component */
+
 
 /* ... your code here ... */
 .footer{
@@ -163,6 +174,7 @@ a {
   padding: 30px;
 }
 
+}
 
 /* ### TODO ### Media Queries */
 
