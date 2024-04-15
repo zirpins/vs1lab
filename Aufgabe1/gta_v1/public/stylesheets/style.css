@@ -109,8 +109,10 @@ a {
 
 /* ### TODO ### Styles for Header Component */
 
-/* ... your code here ... */
-
+.header {
+  background-color: #cdcdcd;
+  border: 1px solid #666;
+}
 
 /* ### TODO ### Styles for Main Component */
 
@@ -119,18 +121,29 @@ a {
 
 /* ### TODO ### Styles for Tagging component */
 
-/* ... your code here ... */
-
+.tagging {
+  display: flex;
+  flex-direction: column;
+}
 
 /* ### TODO ### Styles for Discovery component */
 
-/* ... your code here ... */
+.discovery__results li{
+  background-color: #cdcdcd;
+  border: 1px solid #666;
+  margin-bottom: 10px;
+  padding: 5px;
+  color: #00B7FF;
+}
 
 
 /* ### TODO ### Styles for Footer Component */
 
-/* ... your code here ... */
+.footer {
+  background-color: #cdcdcd;
+  border: 1px solid #666;
 
+}
 
 /* ### TODO ### Media Queries */
 
