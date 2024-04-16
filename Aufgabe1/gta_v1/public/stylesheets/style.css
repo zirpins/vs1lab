@@ -153,16 +153,13 @@ input {
 
 .main {
     display: flex;
-    column-gap: 10%;
     padding: 45px;
     font-weight: bold;
+    justify-content: space-between;
 }
 
 /* ### TODO ### Styles for Tagging component */
 
-.tagging {
-
-}
 
 /* ### TODO ### Styles for Discovery component */
 
@@ -175,6 +172,11 @@ input {
     margin: 10px 10px 0 0;
     padding: 10px;
     max-width: 230px;
+}
+
+.discovery__search {
+    display: block;
+    width: auto;
 }
 
 .discovery__map {
@@ -193,7 +195,7 @@ input {
 footer {
     background: var(--background-color);
     height: 50px;
-    position: absolute;
+    position: relative;
     bottom: 0;
     width: 100%;
     font-weight: bold;
@@ -206,7 +208,7 @@ footer {
 /* ### TODO ### Media Queries */
 
 @media screen and (max-width: 850px) {
-    .row {
+    .main {
         flex-direction: column;
     }
 }
