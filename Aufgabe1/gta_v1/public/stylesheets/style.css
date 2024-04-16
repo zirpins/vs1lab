@@ -112,7 +112,8 @@ a {
 header {
     background: var(--background-color);
     padding: 20px;
-    border-bottom: 1px solid lightgray;
+    font-weight: bold;
+    border-bottom: 1px var(--border-color);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -152,34 +153,46 @@ input {
 
 .main {
     display: flex;
-    flex-direction: row;
     column-gap: 10%;
     row-gap: 10%;
 }
 
 /* ### TODO ### Styles for Tagging component */
 
-.tagging {
-    display: block;
+.tagging{
+
 }
 
 /* ### TODO ### Styles for Discovery component */
 
 .discovery {
-    display: grid;
+    display: block;
+    column-gap: 10%;
+    row-gap: 10%;
+}
+
+.discovery__results{
+    display: flex;
+    flex-direction: column;
+
 }
 
 /* ### TODO ### Styles for Footer Component */
 
 footer {
     background: var(--background-color);
+    height: 50px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
     padding: 20px;
-    border-top: 1px solid lightgray;
+    border-top: 1px var(--border-color);
 }
 
-/* ### TODO ### Media Queries /
-
-/* ... your code here ... */
+/* ### TODO ### Media Queries */
 
 @media screen and (max-width: 850px) {
     .row {
