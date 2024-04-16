@@ -119,7 +119,7 @@ header {
     align-items: center;
 }
 
-.header__image{
+.header__image {
     width: 50px;
 }
 
@@ -147,33 +147,44 @@ input {
     min-width: 130px;
     max-width: 250px;
     padding: 10px;
-    margin-bottom: 12px;
-    margin-top: 4px;
+    margin: 4px 0 12px 0;
+    font-weight: bold;
 }
 
 .main {
     display: flex;
     column-gap: 10%;
-    row-gap: 10%;
+    padding: 45px;
+    font-weight: bold;
 }
 
 /* ### TODO ### Styles for Tagging component */
 
-.tagging{
+.tagging {
 
 }
 
 /* ### TODO ### Styles for Discovery component */
 
-.discovery {
+.discovery__taglist li {
     display: block;
-    column-gap: 10%;
-    row-gap: 10%;
+    color: var(--link-color);
+    background-color: var(--background-color);
+    block-size: 60px;
+    border: 1px solid var(--border-color);
+    margin: 10px 10px 0 0;
+    padding: 10px;
+    max-width: 230px;
 }
 
-.discovery__results{
+.discovery__map {
+    white-space: pre;
+    color: var(--gray-color);
+}
+
+.discovery__wrapper {
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
 
 }
 
