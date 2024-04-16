@@ -117,9 +117,8 @@ a {
   justify-content: space-between;
   align-items:center;
   padding: 2%;
-  background-color: #97A0A6;
-  color: #c3ccd1;
-  border: 1px solid #2e4482;
+  background-color: var(--border-color);
+  border: 1px solid var(--gray-color);
 }
 
 .header__image{
@@ -127,14 +126,16 @@ a {
 }
 
 .header__navigation a{
-  color: #5b8f94;
+  color: var(--link-color);
 }
 
 /* ### TODO ### Styles for Main Component */
 
 /* ... your code here ... */
 .main{
-  background-color: #E9EFF2;
+  display: flex;
+  align-items: flex-start;
+  background-color: var(--background-color);
 }
 
 
@@ -143,22 +144,69 @@ a {
 .tagging {
   display: flex;
   flex-direction: column;
+  margin: 10%;
+}
+
+.tagging form fieldset{
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.tagging form fieldset legend{
+  font-weight: bold;
+}
+
+.tagging form fieldset input{
+  padding: 10px;
+  margin-bottom: 20px;
 }
 
 /* ### TODO ### Styles for Discovery component */
 
+.discovery {
+  display: flex;
+  flex-direction: column;
+  margin: 10%;
+}
+
+.discovery__search fieldset {
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.discovery__search fieldset input{
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.discovery__search legend {
+  font-weight: bold;
+}
 
 .discovery__results li{
-  background-color: #97A0A6;
-  border: 1px solid #666;
-  margin-bottom: 10px;
-  padding: 5px;
-  color: #ebebeb;
+  background-color: var(--border-color);
+  border: 1px solid var(--gray-color);
+  color: var(--link-color);
+  font-weight: bold;
+  padding: 10px;
+  margin-bottom: 20px;
+  list-style-type: none;
+}
+
+.discovery__wrapper {
+  margin-top: 20px;
+}
+
+.discovery__map {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
 }
 /* ... your code here ... */
-#mapView{
-  width: 230px;
-}
+
 
 
 /* ### TODO ### Styles for Footer Component */
@@ -166,8 +214,8 @@ a {
 
 /* ... your code here ... */
 .footer{
-  background-color: #97A0A6;
-  color: #c3ccd1;;
+  background-color: var(--border-color);
+  border: 1px solid var(--gray-color);
   bottom: 0;
   height: 100px;
   display: flex;
