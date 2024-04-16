@@ -109,46 +109,45 @@ a {
 
 /* ### TODO ### Styles for Header Component */
 
-.header {
-    display: flex;
+header {
     background: var(--background-color);
-    height: 200px;
+    padding: 20px;
+    border-bottom: 1px solid lightgray;
+    display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.header__image {
-    scale: 10%;
-    position: relative;
-    right: 200px;
+.header__image{
+    width: 50px;
 }
 
-/* ### TODO ### Styles for Main Component /
+/* ### TODO ### Styles for Main Component */
 
 fieldset {
-  padding: 15px;
-  border-color: var(--border-color);
+    padding: 15px;
+    border-color: var(--border-color);
 }
 
 legend {
-  font-size: medium;
-  padding: 10px;
-  font-weight: bold;
+    font-size: medium;
+    padding: 10px;
+    font-weight: bold;
 }
 
 label {
-  color: var(--gray-color);
-  font-size: medium;
+    color: var(--gray-color);
+    font-size: medium;
 }
 
 input {
-  display: block;
-  width: 100%;
-  min-width: 130px;
-  max-width: 250px;
-  padding: 10px;
-  margin-bottom: 12px;
-  margin-top: 4px;
+    display: block;
+    width: 100%;
+    min-width: 130px;
+    max-width: 250px;
+    padding: 10px;
+    margin-bottom: 12px;
+    margin-top: 4px;
 }
 
 .main {
@@ -158,30 +157,29 @@ input {
     row-gap: 10%;
 }
 
-
-/ ### TODO ### Styles for Tagging component /
+/* ### TODO ### Styles for Tagging component */
 
 .tagging {
     display: block;
 }
 
-/ ### TODO ### Styles for Discovery component /
+/* ### TODO ### Styles for Discovery component */
 
 .discovery {
     display: grid;
 }
 
-/ ### TODO ### Styles for Footer Component /
+/* ### TODO ### Styles for Footer Component */
 
-.footer {
+footer {
     background: var(--background-color);
-    height: 150px;
+    padding: 20px;
+    border-top: 1px solid lightgray;
 }
 
+/* ### TODO ### Media Queries /
 
-/ ### TODO ### Media Queries /
-
-/ ... your code here ... */
+/* ... your code here ... */
 
 @media screen and (max-width: 850px) {
     .row {
