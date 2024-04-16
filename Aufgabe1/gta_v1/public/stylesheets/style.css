@@ -133,6 +133,8 @@ a {
 
 /* ... your code here ... */
 .main{
+  display: flex;
+  align-items: flex-start;
   background-color: var(--background-color);
 }
 
@@ -142,7 +144,7 @@ a {
 .tagging {
   display: flex;
   flex-direction: column;
-  margin: auto;
+  margin: 10%;
 }
 
 .tagging form fieldset{
@@ -166,7 +168,12 @@ a {
 .discovery {
   display: flex;
   flex-direction: column;
-  margin: auto;
+  margin: 10%;
+}
+
+.discovery__search fieldset {
+  padding: 10px;
+  margin-top: 10px;
 }
 
 .discovery__search fieldset input{
@@ -175,18 +182,28 @@ a {
   padding: 10px;
 }
 
+.discovery__search legend {
+  font-weight: bold;
+}
+
 .discovery__results li{
   background-color: var(--border-color);
   border: 1px solid var(--gray-color);
   color: var(--link-color);
   font-weight: bold;
-  padding: 5px;
+  padding: 10px;
+  margin-bottom: 20px;
   list-style-type: none;
+}
+
+.discovery__wrapper {
+  margin-top: 20px;
 }
 
 .discovery__map {
   display: flex;
   flex-direction: column;
+  margin-left: 20px;
 }
 /* ... your code here ... */
 
