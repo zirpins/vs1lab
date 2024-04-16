@@ -27,12 +27,21 @@
 
             <!-- ############### VS1Lab 1a Form 1 Start -->
             <form id="tag-form" action="/tagging" method="post">
-
-                <!-- ... your code here ... -->
-
+                <fieldset>
+                    <legend>Add a new GeoTag</legend>
+                    <label for="Tag-latitude">Latitude:</label>
+                    <input id="Tag-latitude" type="text" name="latitude" placeholder="Latitude" disabled>
+                    <label for="Tag-longitude">Longitude:</label>
+                    <input id="Tag-longitude" type="text" name="longitude" placeholder="Longitude" disabled>
+                    <label for="Tag-name">Name:</label>
+                    <input id="Tag-name" maxlength="10" type="text" name="name" placeholder="e.g. Central Berlin" required>
+                    <label for="Tag-hashtag">Hashtag:</label>
+                    <input id="Tag-hashtag" maxlength="11" type="text" name="hashtag" placeholder="e.g. #ber" pattern="#.+" title="Muss mit # anfangen">
+                    
+                    <input id="Send-Tag-Button" type="submit" name="SendTag" value="Add Tag">
+                </fieldset>
             </form>
             <!-- ############### VS1Lab 1a Form 1 End -->
-
         </section>
 
         <section class="main__discovery discovery">
@@ -40,9 +49,15 @@
 
             <!-- ############### VS1Lab 1a Form 2 Start -->
             <form class="discovery__search" id="discoveryFilterForm" action="/discovery" method="post">
+                <fieldset>
+                    <legend>Search</legend>
+                    <label for="Search">Search term or keywords</label>
+                    <input id="Search" maxlength="11" type="text" name="Search" placeholder="e.g. Berlin" required>
+                    <input id="disc-long" type="hidden" name="longitude">
+                    <input id="dis-lat" type="hidden" name="latitude">
 
-                <!-- ... your code here ... -->
-
+                    <input id="Send-Search" type="submit" name="Search" value="Search">
+                </fieldset>
             </form>
             <!-- ############### VS1Lab 1a Form 2 End -->
 
