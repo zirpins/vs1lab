@@ -230,3 +230,8 @@ a {
 /* ### TODO ### Media Queries */
 
 /* ... your code here ... */
+@media screen and (max-width: 800px) {
+  .main {
+    flex-direction: column;
+  }
+}
