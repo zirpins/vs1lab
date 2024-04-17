@@ -56,15 +56,15 @@ Rufen sie die neue `updateLocation`-Funktion nach dem Laden des Dokuments automa
 
 ### 2. Teilaufgabe: Position auf Karte darstellen
 
-Wir wollen nun die gefundene Position auf einer Karte darstellen. Konkret werden wir zu diesem Zweck *MapQuest* verwenden, ein - für unsere Zwecke - kostenfreier Dienst um statische Karten anzuzeigen. Zunächst benötigen sie einen **API-Schlüssel** für die [MapQuestApi](https://developer.mapquest.com/user/login/sign-up) (kostenlos). Registrieren sie sich dort, erstellen sie eine App ('Callback URL' kann leer bleiben) und notieren sie sich den Key ('Consumer Key').
+Wir wollen nun die gefundene Position auf einer Karte darstellen. Konkret werden wir zu diesem Zweck *Leaflet* verwenden, ein - für unsere Zwecke - kostenfreier Dienst um dynamische Karten anzuzeigen.
 
-Die Klasse `MapManager` enthält einige Hilfsfunktionen zur Verwendung von MapQuest. Um eine Instanz zu erzeugen, wird der Konstruktor mit dem MapQuest API-Key aufgerufen. Dann kann die Methode `getMapUrl` verwendet werden, um die URL einer gewünschten Karte abzufragen. Die Karte selbst erhält man schließlich durch einen HTTP Request.
+Die Klasse `MapManager` enthält einige Hilfsfunktionen zur Verwendung von MapQuest. Um eine Instanz zu erzeugen, wird der Konstruktor aufgerufen. Dann kann die Methode `initMap` verwendet werden, um die Karte mit der aktuellen Position zu initialisieren. Mit der Funktion `updateMarkers` werden die übergebenen GeoTags auf der Karte als Marker angezeigt. Beim Aufruf der Methode werden die zuvor vorhandenen Marker entfernt.
 
 Ergänzen sie ihre `updateLocation`-Funktion im wie folgt:
 
-- Rufen sie die Funktion `getMapUrl` mit den aktuellen Koordinaten auf. Das Ergebnis ist eine **URL** auf die Karte.
+- Rufen sie die Funktionen `initMap` und `updateMarkers` mit den aktuellen Koordinaten auf. Daraufhin wird die Karte in Ihrer App angezeigt.
 - Suchen sie im DOM das **Image Element** auf der Webseite.
-- Ändern sie per DOM Aufruf das `src`-Attribut auf die neue URL.
+- Leeren Sie das `src`-Attribut, sodass das Bild einer Karte, das beim Initialisieren der App hinzugefügt wurde, wieder entfernt wird.
 
 ## Checkliste
 
@@ -82,7 +82,6 @@ Zur Übersicht folgen noch mal alle Anforderungen in kompakter Form als Checklis
 
 ### 2. Teilaufgabe: Karte darstellen
 
-- [ ] MapQuest API-Schlüssel besorgen und eintragen
 - [ ] `updateLocation`-Funktion ergänzen
-  - [ ] Funktion `getMapUrl` aufrufen
-  - [ ] URL im `src`-Attribut des Image Elements eintragen
+  - [ ] Funktionen `initMap` und `updateMarkers` aufrufen
+  - [ ] `src`-Attribut leeren, um Bild zu entfernen

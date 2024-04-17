@@ -53,7 +53,6 @@ Die Aufgabe besteht nun in der Entwicklung der Serverskripte. Die Clientseite (B
 Der Server besteht in dieser Aufgabe aus mehreren **Express.js** Serverskripten zur Verarbeitung von HTTP-Requests und einem **EJS Template** zur dynamischen Erzeugung von neuen HTML-Seitendarstellungen.
 
 Die Serverimplementierung hat die folgende Struktur:
-
 - `bin` (Ordner für ausführbare Skripte)
   - `www` (Startskript des Servers)
 - `models` (Ordner für JavaScript-Module zur anwendungsspezifischen Datenhaltung und -verarbeitung)
@@ -109,15 +108,15 @@ Die Lösung haben wir in der letzten Teilaufgabe schon vorbereitet: Der Server s
 
 ### 3.2.3 `data-*`-Attribute und Map Marker
 
-Die `getMapUrl`-Methode der `MapManager`-Klasse besitzt einen Parameter, dem man einen Array von GeoTag Objekten übergeben kann. Wenn dieser vorliegt, werden an den Positionen der GeoTags Marker in die Karte eingetragen, d.h. die Tags werden auf der Karte sichtbar.
+Die `updateMarkers`-Methode der `MapManager`-Klasse besitzt einen Parameter, dem man einen Array von GeoTag Objekten übergeben kann. Wenn dieser vorliegt, werden an den Positionen der GeoTags Marker in die Karte eingetragen, d.h. die Tags werden auf der Karte sichtbar.
 
 Das Problem ist nun, im Client Skript das Array mit GeoTag Objekten verfügbar zu machen. Diese Information liegt im Server schon vor. Wie aber kommen die Daten zum Client? In der nächsten Aufgabe werden wir zu diesem Zweck AJAX-Abfragen einführen. An dieser Stelle wollen wir noch eine andere Variante kennenlernen:
 
 Der Server kann das Array mit GeoTag Objekten als `data-*`-Attribut einem geeigneten Element beifügen. Erweitern sie dazu das EJS-Template derart, dass es dem `img`-Element der Karte ein `data-tags`-Attribut beifügt. In das Attribut schreiben sie das Array mit GeoTag Objekten als JSON-String. Für ein Array `taglist` erzeugt der Aufruf `JSON.stringify(taglist)` den JSON-String.
 
-Auf der Clientseite können sie dann das Attribut aus dem DOM lesen und den string wieder in ein Array Objekt umwandeln. Für einen JSON-String `taglist_json` erzeugt der Aufruf `JSON.parse(taglist_json)` das korrespondierende JavaScript Array Objekt. Dieses Array Objekt können sie der `getMapUrl`-Methode als Parameter übergeben.
+Auf der Clientseite können sie dann das Attribut aus dem DOM lesen und den string wieder in ein Array Objekt umwandeln. Für einen JSON-String `taglist_json` erzeugt der Aufruf `JSON.parse(taglist_json)` das korrespondierende JavaScript Array Objekt. Dieses Array Objekt können sie der `updateMarkers`-Methode als Parameter übergeben.
 
-**Aufgabe:** Erweitern Sie den Aufruf der `getMapUrl`-Methode aus der `updateLocation`-Funktion und übergeben sie neben der aktuellen Position des Clients zusätzlich einen Array von GeoTag Objekten des aktuellen Suchergebnisses im Discovery Widget. Auf der Karte sollen dann für alle Elemente der Ergebnisliste entsprechende Marker angezeigt werden.
+**Aufgabe:** Erweitern Sie den Aufruf der `updateMarkers`-Methode aus der `updateLocation`-Funktion und übergeben sie neben der aktuellen Position des Clients zusätzlich einen Array von GeoTag Objekten des aktuellen Suchergebnisses im Discovery Widget. Auf der Karte sollen dann für alle Elemente der Ergebnisliste entsprechende Marker angezeigt werden.
 
 ## Checkliste
 
@@ -151,5 +150,5 @@ Zur Übersicht folgen noch mal alle Anforderungen in kompakter Form als Checklis
 
 - [ ] EJS-Template mit `data-*`-Attribut erweitern
   - [ ] Im `img`-Element ein `data-tags`-Attribut erstellen und **Array mit GeoTag Objekten als JSON-String** einfügen
-- [ ] Aufruf von `getMapUrl` aus `updateLocation` erweitern
+- [ ] Aufruf von `updateMarkers` aus `updateLocation` erweitern
   - [ ] Array mit GeoTag Objekten übergeben und **Map Marker anzeigen**
