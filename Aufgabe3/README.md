@@ -13,21 +13,20 @@ cd ~/git/vs1lab # wechsle in das git Verzeichnis
 git checkout master # wechsle in den Hauptzweig (eigene Änderungen vorher mit 'commit' sichern)
 git pull # lade Aktualisierungen herunter
 git checkout dev # wechsle wieder in den eigenen Branch
-git merge master # übernehme mögliche Änderungen aus dem Hauptzweig (Daumen drücken, dass es keine Konflikte gibt, sonst manuel mit eigenen Änderungen zusammenführen)
+git merge master # übernehme mögliche Änderungen aus dem Hauptzweig (Daumen drücken, dass es keine Konflikte gibt, sonst manuell mit eigenen Änderungen zusammenführen)
 ```
 
 Nach der Aktualisierung kann die zweite Aufgabe vorbereitet werden.
 
 ### 3.1.1 Vorherige Lösungen übernehmen
 
-1. Kopieren Sie die Datei `Aufgabe1/gta_v1/public/stylesheets/style.css` aus Aufgabe 1 nach `Aufgabe3/gta_v3/public/stylesheets/style.css`.
-2. Kopieren Sie die Datei `Aufgabe2/gta_v2/public/javascripts/geotagging.js` aus Aufgabe 2 nach `Aufgabe3/gta_v3/public/javascripts/geotagging.js`.
+1. Kopieren Sie die CSS-Datei `Aufgabe1/gta_v1/public/stylesheets/style.css` aus Aufgabe 1 nach `Aufgabe3/gta_v3/public/stylesheets/style.css`.
+2. Kopieren Sie die JavaScript-Datei `Aufgabe2/gta_v2/public/javascripts/geotagging.js` aus Aufgabe 2 nach `Aufgabe3/gta_v3/public/javascripts/geotagging.js`.
 
 ### 3.1.2 EJS Template aus HTML-Dokument ableiten
 
 1. Öffnen sie `Aufgabe3/gta_v3/views/index.ejs` in ihrem **Editor**.
-2. Kopieren sie den Inhalt `Aufgabe2/gta_v2/public/index.html` in die EJS-Datei und **ersetzen** sie die **Beispieleinträge der Discovery-Liste** mit den
-   folgenden Zeilen:
+2. Kopieren sie den Inhalt `Aufgabe2/gta_v2/public/index.html` in die EJS-Datei und **ersetzen** sie die **Beispieleinträge der Discovery-Liste** mit den folgenden Zeilen:
 
 ```HTML
     <% if (taglist !== undefined) taglist.forEach(function(gtag) { %>
@@ -53,7 +52,6 @@ Die Aufgabe besteht nun in der Entwicklung der Serverskripte. Die Clientseite (B
 Der Server besteht in dieser Aufgabe aus mehreren **Express.js** Serverskripten zur Verarbeitung von HTTP-Requests und einem **EJS Template** zur dynamischen Erzeugung von neuen HTML-Seitendarstellungen.
 
 Die Serverimplementierung hat die folgende Struktur:
-
 - `bin` (Ordner für ausführbare Skripte)
   - `www` (Startskript des Servers)
 - `models` (Ordner für JavaScript-Module zur anwendungsspezifischen Datenhaltung und -verarbeitung)
@@ -109,15 +107,15 @@ Die Lösung haben wir in der letzten Teilaufgabe schon vorbereitet: Der Server s
 
 ### 3.2.3 `data-*`-Attribute und Map Marker
 
-Die `getMapUrl`-Methode der `MapManager`-Klasse besitzt einen Parameter, dem man einen Array von GeoTag Objekten übergeben kann. Wenn dieser vorliegt, werden an den Positionen der GeoTags Marker in die Karte eingetragen, d.h. die Tags werden auf der Karte sichtbar.
+Die `updateMarkers`-Methode der `MapManager`-Klasse besitzt einen Parameter, dem man einen Array von GeoTag Objekten übergeben kann. Wenn dieser vorliegt, werden an den Positionen der GeoTags Marker in die Karte eingetragen, d.h. die Tags werden auf der Karte sichtbar.
 
 Das Problem ist nun, im Client Skript das Array mit GeoTag Objekten verfügbar zu machen. Diese Information liegt im Server schon vor. Wie aber kommen die Daten zum Client? In der nächsten Aufgabe werden wir zu diesem Zweck AJAX-Abfragen einführen. An dieser Stelle wollen wir noch eine andere Variante kennenlernen:
 
-Der Server kann das Array mit GeoTag Objekten als `data-*`-Attribut einem geeigneten Element beifügen. Erweitern sie dazu das EJS-Template derart, dass es dem `img`-Element der Karte ein `data-tags`-Attribut beifügt. In das Attribut schreiben sie das Array mit GeoTag Objekten als JSON-String. Für ein Array `taglist` erzeugt der Aufruf `JSON.stringify(taglist)` den JSON-String.
+Der Server kann das Array mit GeoTag Objekten als `data-*`-Attribut einem geeigneten Element beifügen. Erweitern sie dazu das EJS-Template derart, dass es der Karte (`<div>`-Element mit der id `#map`) ein `data-tags`-Attribut beifügt. In das Attribut schreiben sie das Array mit GeoTag Objekten als JSON-String. Für ein Array `taglist` erzeugt der Aufruf `JSON.stringify(taglist)` den JSON-String.
 
-Auf der Clientseite können sie dann das Attribut aus dem DOM lesen und den string wieder in ein Array Objekt umwandeln. Für einen JSON-String `taglist_json` erzeugt der Aufruf `JSON.parse(taglist_json)` das korrespondierende JavaScript Array Objekt. Dieses Array Objekt können sie der `getMapUrl`-Methode als Parameter übergeben.
+Auf der Clientseite können sie dann das Attribut aus dem DOM lesen und den string wieder in ein Array Objekt umwandeln. Für einen JSON-String `taglist_json` erzeugt der Aufruf `JSON.parse(taglist_json)` das korrespondierende JavaScript Array Objekt. Dieses Array Objekt können sie der `updateMarkers`-Methode als Parameter übergeben.
 
-**Aufgabe:** Erweitern Sie den Aufruf der `getMapUrl`-Methode aus der `updateLocation`-Funktion und übergeben sie neben der aktuellen Position des Clients zusätzlich einen Array von GeoTag Objekten des aktuellen Suchergebnisses im Discovery Widget. Auf der Karte sollen dann für alle Elemente der Ergebnisliste entsprechende Marker angezeigt werden.
+**Aufgabe:** Erweitern Sie den Aufruf der `updateMarkers`-Methode aus der `updateLocation`-Funktion und übergeben sie neben der aktuellen Position des Clients zusätzlich einen Array von GeoTag Objekten des aktuellen Suchergebnisses im Discovery Widget. Auf der Karte sollen dann für alle Elemente der Ergebnisliste entsprechende Marker angezeigt werden.
 
 ## Checkliste
 
@@ -150,6 +148,6 @@ Zur Übersicht folgen noch mal alle Anforderungen in kompakter Form als Checklis
 ### 3. Teilaufgabe: Karten-Erweiterung
 
 - [ ] EJS-Template mit `data-*`-Attribut erweitern
-  - [ ] Im `img`-Element ein `data-tags`-Attribut erstellen und **Array mit GeoTag Objekten als JSON-String** einfügen
-- [ ] Aufruf von `getMapUrl` aus `updateLocation` erweitern
+  - [ ] Im `#map`-Element ein `data-tags`-Attribut erstellen und **Array mit GeoTag Objekten als JSON-String** einfügen
+- [ ] Aufruf von `updateMarkers` aus `updateLocation` erweitern
   - [ ] Array mit GeoTag Objekten übergeben und **Map Marker anzeigen**
