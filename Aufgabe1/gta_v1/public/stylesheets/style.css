@@ -44,6 +44,11 @@ a {
   color: var(--link-color);
 }
 
+#map { 
+  height: 500px;
+  width: 600px; 
+}
+
 /* ### TODO ### Styles for other HTML elements */
 
 /* ... your code here ... */
