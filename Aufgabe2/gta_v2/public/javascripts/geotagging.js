@@ -10,8 +10,8 @@
 console.log("The geoTagging script is going to start...");
 
 /**
- * A class to help using the HTML5 Geolocation API.
- */
+  * A class to help using the HTML5 Geolocation API.
+  */
 class LocationHelper {
     // Location values for latitude and longitude are private properties to protect them from changes.
     #latitude = '';
@@ -28,6 +28,16 @@ class LocationHelper {
     get longitude() {
         return this.#longitude;
     }
+
+   /**
+    * Create LocationHelper instance if coordinates are known.
+    * @param {string} latitude 
+    * @param {string} longitude 
+    */
+   constructor(latitude, longitude) {
+       this.#latitude = (parseFloat(latitude)).toFixed(5);
+       this.#longitude = (parseFloat(longitude)).toFixed(5);
+   }
 
     /**
      * The 'findLocation' method requests the current location details through the geolocation API.
@@ -48,52 +58,56 @@ class LocationHelper {
         // These callbacks are given as arrow function expressions.
         geoLocationApi.getCurrentPosition((location) => {
             // Create and initialize LocationHelper object.
-            let helper = new LocationHelper();
-            helper.#latitude = location.coords.latitude.toFixed(5);
-            helper.#longitude = location.coords.longitude.toFixed(5);
+            let helper = new LocationHelper(location.coords.latitude, location.coords.longitude);
             // Pass the locationHelper object to the callback.
             callback(helper);
         }, (error) => {
-            alert(error.message)
+           alert(error.message)
         });
     }
 }
 
 /**
- * A class to help using the MapQuest map service.
+ * A class to help using the Leaflet map service.
  */
 class MapManager {
-    #apiKey = '';
+
+    #map
+    #markers
 
     /**
-     * Create a new MapManager instance.
-     * @param {string} apiKey Your MapQuest API Key
-     */
-    constructor(apiKey) {
-        this.#apiKey = apiKey;
+    * Initialize a Leaflet map
+    * @param {number} latitude The map center latitude
+    * @param {number} longitude The map center longitude
+    * @param {number} zoom The map zoom, defaults to 18
+    */
+    initMap(latitude, longitude, zoom = 18) {
+        // set up dynamic Leaflet map
+        this.#map = L.map('map').setView([latitude, longitude], zoom);
+        var mapLink = '<a href="http://openstreetmap.org">OpenStreetMap</a>';
+        L.tileLayer(
+            'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; ' + mapLink + ' Contributors'}).addTo(this.#map);
+        this.#markers = L.layerGroup().addTo(this.#map);
     }
 
     /**
-     * Generate a MapQuest image URL for the specified parameters.
-     * @param {number} latitude The map center latitude
-     * @param {number} longitude The map center longitude
-     * @param {{latitude, longitude, name}[]} tags The map tags, defaults to just the current location
-     * @param {number} zoom The map zoom, defaults to 10
-     * @returns {string} URL of generated map
-     */
-    getMapUrl(latitude, longitude, tags = [], zoom = 10) {
-        if (this.#apiKey === '') {
-            console.log("No API key provided.");
-            return "images/mapview.jpg";
+    * Update the Markers of a Leaflet map
+    * @param {number} latitude The map center latitude
+    * @param {number} longitude The map center longitude
+    * @param {{latitude, longitude, name}[]} tags The map tags, defaults to just the current location
+    */
+    updateMarkers(latitude, longitude, tags = []) {
+        // delete all markers
+        this.#markers.clearLayers();
+        L.marker([latitude, longitude])
+            .bindPopup("Your Location")
+            .addTo(this.#markers);
+        for (const tag of tags) {
+            L.marker([tag.location.latitude,tag.location.longitude])
+                .bindPopup(tag.name)
+                .addTo(this.#markers);  
         }
-
-        let tagList = `${latitude},${longitude}|marker-start`;
-        tagList += tags.reduce((acc, tag) => `${acc}||${tag.latitude},${tag.longitude}|flag-${tag.name}`, "");
-
-        const mapQuestUrl = `https://www.mapquestapi.com/staticmap/v5/map?key=${this.#apiKey}&size=600,400&zoom=${zoom}&center=${latitude},${longitude}&locations=${tagList}`;
-        console.log("Generated MapQuest URL:", mapQuestUrl);
-
-        return mapQuestUrl;
     }
 }
 
