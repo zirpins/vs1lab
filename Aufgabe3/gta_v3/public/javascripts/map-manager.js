@@ -1,40 +1,60 @@
 // File origin: VS1LAB A2 
 
 /**
- * A class to help using the MapQuest map service.
+ * from VS1LAB A3
+ * 
+ * A class to help using the Leaflet map service.
  */
-// eslint-disable-next-line no-unused-vars
-class MapManager {
-    #apiKey
+ // eslint-disable-next-line no-unused-vars
+ class MapManager {
 
+    #map
+    #defaultIcon
+    #markers
+    constructor() {
+        // Default Icon of Leaflet can not be loaded in our environment, so it  was manually added to the repo
+        this.#defaultIcon = L.icon({
+           iconUrl: '/images/marker.svg',
+           shadowUrl: '/images/marker-shadow.svg',
+           iconSize: [25, 41],
+           iconAnchor: [12, 41],
+           popupAnchor: [1, -34],
+           shadowSize: [41, 41]
+        });
+    }
+    
     /**
-     * Create a new MapManager instance
-     * @param {string} apiKey Your MapQuest API Key
-     */
-    constructor(apiKey) {
-        this.#apiKey = apiKey;
+    * Initialize a Leaflet map
+    * @param {number} latitude The map center latitude
+    * @param {number} longitude The map center longitude
+    * @param {number} zoom The map zoom, defaults to 18
+    */
+    initMap(latitude, longitude, zoom = 18) {
+        // set up dynamic Leaflet map
+        this.#map = L.map('map').setView([latitude, longitude], zoom);
+        var mapLink = '<a href="http://openstreetmap.org">OpenStreetMap</a>';
+        L.tileLayer(
+            'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; ' + mapLink + ' Contributors'}).addTo(this.#map);
+        this.#markers = L.layerGroup().addTo(this.#map);
     }
 
     /**
-     * Generate a MapQuest image URL for the specified parameters
-     * @param {number} latitude The map center latitude
-     * @param {number} longitude The map center longitude
-     * @param {{latitude, longitude, name}[]} tags The map tags, defaults to just the current location
-     * @param {number} zoom The map zoom, defaults to 11
-     * @returns {string} URL of generated map
-     */
-    getMapUrl(latitude, longitude, tags = [], zoom = 11) {
-        if (!this.#apiKey) {
-            console.log("No API key provided.");
-            return "images/mapview.jpg";
+    * Update the Markers of a Leaflet map
+    * @param {number} latitude The map center latitude
+    * @param {number} longitude The map center longitude
+    * @param {{latitude, longitude, name}[]} tags The map tags, defaults to just the current location
+    */
+    updateMarkers(latitude, longitude, tags = []) {
+        // delete all markers
+        this.#markers.clearLayers();
+        L.marker([latitude, longitude], { icon: this.#defaultIcon })
+            .bindPopup("Your Location")
+            .addTo(this.#markers);
+        for (const tag of tags) {
+            L.marker([tag.location.latitude,tag.location.longitude], { icon: this.#defaultIcon })
+                .bindPopup(tag.name)
+                .addTo(this.#markers);  
         }
-
-        let tagList = `${latitude},${longitude}|marker-start`;
-        tagList += tags.reduce((acc, tag) => `${acc}||${tag.latitude},${tag.longitude}|flag-${tag.name}`, "");
-
-        const mapQuestUrl = `https://www.mapquestapi.com/staticmap/v5/map?key=${this.#apiKey}&size=600,400&zoom=${zoom}&center=${latitude},${longitude}&locations=${tagList}`;
-        console.log("Generated MapQuest URL:", mapQuestUrl);
-
-        return mapQuestUrl;
     }
 }
