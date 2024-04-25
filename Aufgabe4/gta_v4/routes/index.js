@@ -49,7 +49,7 @@ router.get('/', (req, res) => {
  * (http://expressjs.com/de/4x/api.html#app.get.method)
  *
  * Requests contain the fields of the Discovery form as query.
- * (http://expressjs.com/de/4x/api.html#req.body)
+ * (http://expressjs.com/de/4x/api.html#req.query)
  *
  * As a response, an array with Geo Tag objects is rendered as JSON.
  * If 'searchterm' is present, it will be filtered by search term.
@@ -64,7 +64,7 @@ router.get('/', (req, res) => {
  * (http://expressjs.com/de/4x/api.html#app.post.method)
  *
  * Requests contain a GeoTag as JSON in the body.
- * (http://expressjs.com/de/4x/api.html#req.query)
+ * (http://expressjs.com/de/4x/api.html#req.body)
  *
  * The URL of the new resource is returned in the header as a response.
  * The new resource is rendered as JSON in the response.
