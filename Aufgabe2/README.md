@@ -59,7 +59,7 @@ Fügen Sie folgende **neue Regel** in die CSS Datei ein:
 
 ```CSS
 #map { 
-   height: 400px;
+   height: 500px;
  }
 ```
 
