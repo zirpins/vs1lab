@@ -180,6 +180,7 @@ a {
   display: flex;
   flex-direction: column;
   padding: 10px;
+  margin: 5px;
 }
 
 .discovery__search legend {
