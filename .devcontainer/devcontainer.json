@@ -22,7 +22,7 @@
 	"forwardPorts": [ 3000 ],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "npm install express",
+	// "postCreateCommand": "npm install express",
 
 	"workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,Z",
 	"workspaceFolder": "/workspace",
