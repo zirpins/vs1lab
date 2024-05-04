@@ -34,9 +34,9 @@
                     <label for="Tag-longitude">Longitude:</label>
                     <input id="Tag-longitude" type="text" name="longitude" placeholder="Longitude" disabled>
                     <label for="Tag-name">Name:</label>
-                    <input id="Tag-name" maxlength="10" type="text" name="name" placeholder="e.g. Central Berlin" required>
+                    <input id="Tag-name" maxlength="10" type="text" name="name" placeholder="e.g. Central Berlin" pattern="[a-zA-Z]*" required>
                     <label for="Tag-hashtag">Hashtag:</label>
-                    <input id="Tag-hashtag" maxlength="11" type="text" name="hashtag" placeholder="e.g. #ber" pattern="#.+" title="Muss mit # anfangen">
+                    <input id="Tag-hashtag" maxlength="11" type="text" name="hashtag" placeholder="e.g. #ber" pattern="#.[a-zA-Z]*" title="Muss mit # anfangen">
                     
                     <input id="Send-Tag-Button" type="submit" name="SendTag" value="Add Tag">
                 </fieldset>
