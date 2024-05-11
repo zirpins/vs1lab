@@ -104,6 +104,67 @@ class MapManager {
  */
 // ... your code here ...
 
+function updateLocation() {
+    // Rufe findLocation auf, um die aktuelle Position zu erhalten
+    LocationHelper.findLocation((locationHelper) => {
+        // Greife auf die latitude und longitude zu
+        const latitude = locationHelper.latitude;
+        const longitude = locationHelper.longitude;
+
+        // Suche nach den Eingabefeldern für latitude und longitude im Tagging-Formular
+        const taggingLatitudeInput = document.querySelector('#taggingLatitude');
+        const taggingLongitudeInput = document.querySelector('#taggingLongitude');
+
+        // Schreibe die Koordinaten in die value-Attribute der Eingabefelder
+        if (taggingLatitudeInput && taggingLongitudeInput) {
+            taggingLatitudeInput.value = latitude;
+            taggingLongitudeInput.value = longitude;
+        }
+
+        // Suche nach den versteckten Eingabefeldern im Discovery-Formular
+        const discoveryLatitudeInput = document.querySelector('#discoveryLatitude');
+        const discoveryLongitudeInput = document.querySelector('#discoveryLongitude');
+
+        // Schreibe die Koordinaten in die value-Attribute der versteckten Eingabefelder
+        if (discoveryLatitudeInput && discoveryLongitudeInput) {
+            discoveryLatitudeInput.value = latitude;
+            discoveryLongitudeInput.value = longitude;
+        }
+
+        // Instanziiere MapManager mit MapQuest API-Schlüssel
+        const mapManager = new MapManager('YOUR_MAPQUEST_API_KEY');
+
+        // Initialisiere die Karte mit der aktuellen Position
+        mapManager.initMap(latitude, longitude);
+
+        // Erstelle Marker für die aktuelle Position
+        const currentLocationMarker = {
+            latitude: latitude,
+            longitude: longitude,
+            name: 'Current Location'
+        };
+
+        // Entferne vorherige Marker und aktualisiere die Karte mit dem aktuellen Marker
+        mapManager.updateMarkers([currentLocationMarker]);
+
+        // Suche nach dem Image-Element im DOM und entferne es
+        const mapImage = document.querySelector('#mapImage');
+        if (mapImage) {
+            mapImage.remove();
+        }
+
+        // Suche nach dem Paragraph-Element für die Beschriftung im DOM und entferne es
+        const mapLabel = document.querySelector('#mapLabel');
+        if (mapLabel) {
+            mapLabel.remove();
+        }
+    });
+}
+
+// Automatischer Aufruf von updateLocation, sobald das Dokument vollständig geladen ist
+document.addEventListener("DOMContentLoaded", updateLocation);
+
+
 // Wait for the page to fully load its DOM content, then call updateLocation
 document.addEventListener("DOMContentLoaded", () => {
     alert("Please change the script 'geotagging.js'");
