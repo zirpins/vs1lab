@@ -1,9 +1,6 @@
 <!DOCTYPE html>
-
 <!-- File origin: VS1LAB A1a -->
-
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,7 +8,6 @@
     <link rel="stylesheet" href="./stylesheets/style.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-
 <body>
     <header class="header">
         <img src="./images/location.png" class="header__image" alt="an image of a map and location">
@@ -20,32 +16,40 @@
             <a href="#">About</a> | <a href="#">Help</a> | <a href="/">Home</a>
         </nav>
     </header>
-
-    <main class="main">
-        <section class="main__tagging tagging">
-            <h2>Tagging</h2>
-
+    <main class="main row">
+        <section class="main__tagging tagging col-3">
+            <h2 class="tagging__tittle">Tagging</h2>
             <!-- ############### VS1Lab 1a Form 1 Start -->
             <form id="tag-form" action="/tagging" method="post">
-
-                <!-- ... your code here ... -->
-
+                <fieldset>
+                    <legend>Add a GeoTag</legend>
+                    <label for="tagging-lat">Latitude:</label>
+                    <input id="tagging-lat" type="text" value="49.120984" readonly/>
+                    <label for="tagging-lon">Longitude:</label>
+                    <input id="tagging-lon" type="text" value="8.3298048" readonly/>
+                    <label for="tagging-name">Name:</label>
+                    <input id="tagging-name" type="text" placeholder="Beschde Pizza" required maxlength="10" pattern="[a-zA-Z]*"/>
+                    <label for="tagging-name">Hashtags:</label>
+                    <input id="tagging-tags" type="text" placeholder="#food" pattern="#.[a-zA-Z]{1,10}" />
+                    <input id="tagging-submit" type="submit" value="Add GeoTag" />
+                </fieldset>               
             </form>
             <!-- ############### VS1Lab 1a Form 1 End -->
-
         </section>
-
-        <section class="main__discovery discovery">
+        <section class="main__discovery discovery col-9">
             <h2 class="discovery__title">Discovery</h2>
-
             <!-- ############### VS1Lab 1a Form 2 Start -->
             <form class="discovery__search" id="discoveryFilterForm" action="/discovery" method="post">
-
-                <!-- ... your code here ... -->
-
+                <fieldset>
+                    <legend>Search</legend>
+                    <label for="discovery-query">Search term or keywords</label>
+                    <input id="discovery-query" type="text" placeholder="eg. Karlsruhe" />
+                    <input type="submit" value="Search" />
+					<input id = "tagging-lath" type = "hidden"/>
+					<input id = "tagging-lonh" type="hidden"/>
+                </fieldset>
             </form>
             <!-- ############### VS1Lab 1a Form 2 End -->
-
             <div class="discovery__wrapper">
                 <div class="discovery__taglist">
                     <ul class="discovery__results" id="discoveryResults">
@@ -64,8 +68,7 @@
     </main>
 
     <footer class="footer">
-        <span>(c) 2021/22 HKA_IWI_VSYS</span>
+        <span>&copy; 2021/22 HKA_IWI_VSYS,&copy; &lt Abdulhakim, Yusuf&gt</span>
     </footer>
 </body>
-
 </html>
