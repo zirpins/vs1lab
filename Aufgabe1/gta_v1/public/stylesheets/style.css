@@ -47,6 +47,13 @@ a {
 /* ### TODO ### Styles for other HTML elements */
 
 /* ... your code here ... */
+fieldset {
+  display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      width: 100%;
+      padding: 10px;
+}
 
 
 /* Grid styles (no changes required) */
@@ -110,28 +117,109 @@ a {
 /* ### TODO ### Styles for Header Component */
 
 /* ... your code here ... */
+.header{
+  background-color: var(--border-color);
+  border: 5px var(--border-color);
+  height: 5em;
+  padding: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header__image{
+  width: 40px;
+  height: auto;
+}
 
 
 /* ### TODO ### Styles for Main Component */
 
 /* ... your code here ... */
+.main{
+  display: flex;
+  /*justify-content: space-evenly;*/
+  min-height: 90vh;
+}
 
 
 /* ### TODO ### Styles for Tagging component */
 
 /* ... your code here ... */
 
+.tagging__tittle{
+  padding: 5px;
+}
+
+.tagging input{
+  display: block;
+  height: 30px;
+  width: 90%;
+  margin-bottom: 2vh;
+}
+
 
 /* ### TODO ### Styles for Discovery component */
 
 /* ... your code here ... */
+.discovery .col-10{
+  display: flex;
+  flex-direction: column;
+}
 
+.discovery__title{
+  padding: 5px;
+}
+
+.discovery input{
+  display: block;
+  margin-bottom: 2vh;
+}
+
+.discovery__map img{
+  display: block;
+  max-width: 70%;
+  height: auto;
+  padding: 10px;
+}
+
+.discovery__map span{
+  padding: 1vh;
+}
+
+.discovery__wrapper{
+  display: flex;
+  justify-content: space-between;
+}
+
+.discovery__results li{
+  list-style-type: none;
+  border: 1px solid black;
+  margin-top: 2vh;
+  padding: 10px;
+  color: blue;
+  background-color: lightgray;
+}
 
 /* ### TODO ### Styles for Footer Component */
 
 /* ... your code here ... */
+.footer{
+  background-color: var(--border-color);
+  border: 5px var(--border-color);
+  padding: 1em;
+}
 
 
 /* ### TODO ### Media Queries */
 
 /* ... your code here ... */
+/* Media Queries */
+@media (max-width: 750px) {
+  main {
+     display: flex;
+     flex-direction: column;
+     justify-content: space-around;
+     padding: 1vh;
+  }
+}
