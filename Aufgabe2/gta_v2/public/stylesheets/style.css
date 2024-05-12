@@ -214,7 +214,6 @@ fieldset {
 /* ### TODO ### Media Queries */
 
 /* ... your code here ... */
-/* Media Queries */
 @media (max-width: 750px) {
   main {
      display: flex;
@@ -223,8 +222,10 @@ fieldset {
      padding: 1vh;
   }
 }
+/* Media Queries */
 
 
 #map { 
   height: 500px;
+  width: 100%;
 }

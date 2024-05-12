@@ -63,62 +63,43 @@ class LocationHelper {
  * A class to help using the MapQuest map service.
  */
 class MapManager {
-    #apiKey = '';
+
+    #map
+    #markers
 
     /**
-     * Create a new MapManager instance.
-     * @param {string} apiKey Your MapQuest API Key
-     */
-    constructor(apiKey) {
-        this.#apiKey = apiKey;
+    * Initialize a Leaflet map
+    * @param {number} latitude The map center latitude
+    * @param {number} longitude The map center longitude
+    * @param {number} zoom The map zoom, defaults to 18
+    */
+    initMap(latitude, longitude, zoom = 18) {
+        // set up dynamic Leaflet map
+        this.#map = L.map('mapView').setView([latitude, longitude], zoom);
+        var mapLink = '<a href="http://openstreetmap.org">OpenStreetMap</a>';
+        L.tileLayer(
+            'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; ' + mapLink + ' Contributors'}).addTo(this.#map);
+        this.#markers = L.layerGroup().addTo(this.#map);
     }
 
     /**
-     * Generate a MapQuest image URL for the specified parameters.
-     * @param {number} latitude The map center latitude
-     * @param {number} longitude The map center longitude
-     * @param {{latitude, longitude, name}[]} tags The map tags, defaults to just the current location
-     * @param {number} zoom The map zoom, defaults to 10
-     * @returns {string} URL of generated map
-     */
-
-    initMap(latitude, longitude) {
-        var mymap = L.map('map').setView([latitude, longitude], 13);
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            maxZoom: 19,
-        }).addTo(mymap);
-    }
-
-    updateMarkers(latitude, longitude, tags) {
-        // Remove existing markers
-        if (this.markers.length > 0) {
-            this.markers.forEach(marker => {
-                marker.remove();
-            });
-            this.markers = [];
+    * Update the Markers of a Leaflet map
+    * @param {number} latitude The map center latitude
+    * @param {number} longitude The map center longitude
+    * @param {{latitude, longitude, name}[]} tags The map tags, defaults to just the current location
+    */
+    updateMarkers(latitude, longitude, tags = []) {
+        // delete all markers
+        this.#markers.clearLayers();
+        L.marker([latitude, longitude])
+            .bindPopup("Your Location")
+            .addTo(this.#markers);
+        for (const tag of tags) {
+            L.marker([tag.location.latitude,tag.location.longitude])
+                .bindPopup(tag.name)
+                .addTo(this.#markers);  
         }
-
-        // Add new markers for each GeoTag
-        tags.forEach(tag => {
-            var marker = L.marker([tag.latitude, tag.longitude]).addTo(this.map);
-            marker.bindPopup(tag.name).openPopup();
-            this.markers.push(marker);
-        });
-    }
-
-    getMapUrl(latitude, longitude, tags = [], zoom = 10) {
-        if (this.#apiKey === '') {
-            console.log("No API key provided.");
-            return "images/mapview.jpg";
-        }
-
-        let tagList = `${latitude},${longitude}|marker-start`;
-        tagList += tags.reduce((acc, tag) => `${acc}||${tag.latitude},${tag.longitude}|flag-${tag.name}`, "");
-
-        const mapQuestUrl = `https://www.mapquestapi.com/staticmap/v5/map?key=${this.#apiKey}&size=600,400&zoom=${zoom}&center=${latitude},${longitude}&locations=${tagList}`;
-        console.log("Generated MapQuest URL:", mapQuestUrl);
-
-        return mapQuestUrl;
     }
 }
 
@@ -129,19 +110,29 @@ class MapManager {
  */
 // ... your code here ...
 
-function updateLocation() {
+document.addEventListener("DOMContentLoaded", () => {
+    const mapManager = new MapManager();
+    updateLocation(mapManager);
+});
+
+function updateLocation(mapManager) {
     LocationHelper.findLocation((locationHelper) => {
-        var lat = locationHelper.latitude;
-        var lon = locationHelper.longitude;
+        const lat = locationHelper.latitude;
+        const lon = locationHelper.longitude;
         
         document.getElementById("tagging-lat").value = lat;
         document.getElementById("tagging-lon").value = lon;
 
-        // Find and update the latitude and longitude input fields in the Discovery form
-        document.getElementById("tagging-lath").value = lat;
+        document.getElementById("tagging-lath").value = lat; // Hidden inputs
         document.getElementById("tagging-lonh").value = lon; 
+        mapManager.initMap(lat, lon);
+        mapManager.updateMarkers(lat, lon, []);  
+
+        var mm = new MapManager();
+        document.getElementById("mapView").map = mm.initMap(lat, lon);
     });
 }
+
 
 
 // Wait for the page to fully load its DOM content, then call updateLocation
