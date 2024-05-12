@@ -81,6 +81,31 @@ class MapManager {
      * @param {number} zoom The map zoom, defaults to 10
      * @returns {string} URL of generated map
      */
+
+    initMap(latitude, longitude) {
+        var mymap = L.map('map').setView([latitude, longitude], 13);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+        }).addTo(mymap);
+    }
+
+    updateMarkers(latitude, longitude, tags) {
+        // Remove existing markers
+        if (this.markers.length > 0) {
+            this.markers.forEach(marker => {
+                marker.remove();
+            });
+            this.markers = [];
+        }
+
+        // Add new markers for each GeoTag
+        tags.forEach(tag => {
+            var marker = L.marker([tag.latitude, tag.longitude]).addTo(this.map);
+            marker.bindPopup(tag.name).openPopup();
+            this.markers.push(marker);
+        });
+    }
+
     getMapUrl(latitude, longitude, tags = [], zoom = 10) {
         if (this.#apiKey === '') {
             console.log("No API key provided.");
@@ -105,67 +130,21 @@ class MapManager {
 // ... your code here ...
 
 function updateLocation() {
-    // Rufe findLocation auf, um die aktuelle Position zu erhalten
     LocationHelper.findLocation((locationHelper) => {
-        // Greife auf die latitude und longitude zu
-        const latitude = locationHelper.latitude;
-        const longitude = locationHelper.longitude;
+        var lat = locationHelper.latitude;
+        var lon = locationHelper.longitude;
+        
+        document.getElementById("tagging-lat").value = lat;
+        document.getElementById("tagging-lon").value = lon;
 
-        // Suche nach den Eingabefeldern für latitude und longitude im Tagging-Formular
-        const taggingLatitudeInput = document.querySelector('#taggingLatitude');
-        const taggingLongitudeInput = document.querySelector('#taggingLongitude');
-
-        // Schreibe die Koordinaten in die value-Attribute der Eingabefelder
-        if (taggingLatitudeInput && taggingLongitudeInput) {
-            taggingLatitudeInput.value = latitude;
-            taggingLongitudeInput.value = longitude;
-        }
-
-        // Suche nach den versteckten Eingabefeldern im Discovery-Formular
-        const discoveryLatitudeInput = document.querySelector('#discoveryLatitude');
-        const discoveryLongitudeInput = document.querySelector('#discoveryLongitude');
-
-        // Schreibe die Koordinaten in die value-Attribute der versteckten Eingabefelder
-        if (discoveryLatitudeInput && discoveryLongitudeInput) {
-            discoveryLatitudeInput.value = latitude;
-            discoveryLongitudeInput.value = longitude;
-        }
-
-        // Instanziiere MapManager mit MapQuest API-Schlüssel
-        const mapManager = new MapManager('YOUR_MAPQUEST_API_KEY');
-
-        // Initialisiere die Karte mit der aktuellen Position
-        mapManager.initMap(latitude, longitude);
-
-        // Erstelle Marker für die aktuelle Position
-        const currentLocationMarker = {
-            latitude: latitude,
-            longitude: longitude,
-            name: 'Current Location'
-        };
-
-        // Entferne vorherige Marker und aktualisiere die Karte mit dem aktuellen Marker
-        mapManager.updateMarkers([currentLocationMarker]);
-
-        // Suche nach dem Image-Element im DOM und entferne es
-        const mapImage = document.querySelector('#mapImage');
-        if (mapImage) {
-            mapImage.remove();
-        }
-
-        // Suche nach dem Paragraph-Element für die Beschriftung im DOM und entferne es
-        const mapLabel = document.querySelector('#mapLabel');
-        if (mapLabel) {
-            mapLabel.remove();
-        }
+        // Find and update the latitude and longitude input fields in the Discovery form
+        document.getElementById("tagging-lath").value = lat;
+        document.getElementById("tagging-lonh").value = lon; 
     });
 }
-
-// Automatischer Aufruf von updateLocation, sobald das Dokument vollständig geladen ist
-document.addEventListener("DOMContentLoaded", updateLocation);
 
 
 // Wait for the page to fully load its DOM content, then call updateLocation
 document.addEventListener("DOMContentLoaded", () => {
-    alert("Please change the script 'geotagging.js'");
+    updateLocation();
 });
