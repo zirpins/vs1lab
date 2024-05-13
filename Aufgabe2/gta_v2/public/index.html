@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+
+<!-- File origin: VS1LAB A1a -->
+
+<html lang="en">
+
+<head>
+    <!-- Leaflet CSS and JavaScript (in this order) -->
+    <link rel='stylesheet' href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css'
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+        crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+        crossorigin=""></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GeoTagApp</title>
+    <link rel="stylesheet" href="./stylesheets/style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <header class="header">
+        <img src="./images/location.png" class="header__image" alt="an image of a map and location">
+        <h1 class="header__title">GeoTagApp</h1>
+        <nav class="header__navigation">
+            <a href="#">About</a> | <a href="#">Help</a> | <a href="/">Home</a>
+        </nav>
+    </header>
+
+    <main class="main">
+        <section class="main__tagging tagging">
+            <h2>Tagging</h2>
+
+            <!-- ############### VS1Lab 1a Form 1 Start -->
+            <form id="tag-form" action="/tagging" method="post">
+                <fieldset>
+                    <legend>Add a new GeoTag</legend>
+                    <label for="Tag-latitude">Latitude:</label>
+                    <input id="Tag-latitude" type="text" name="latitude" placeholder="Latitude" value="" disabled>
+                    <label for="Tag-longitude">Longitude:</label>
+                    <input id="Tag-longitude" type="text" name="longitude" placeholder="Longitude" value="" disabled>
+                    <label for="Tag-name">Name:</label>
+                    <input id="Tag-name" maxlength="10" type="text" name="name" placeholder="e.g. Central Berlin" pattern="[a-zA-Z]*" required>
+                    <label for="Tag-hashtag">Hashtag:</label>
+                    <input id="Tag-hashtag" maxlength="11" type="text" name="hashtag" placeholder="e.g. #ber" pattern="#.[a-zA-Z]*" title="Muss mit # anfangen">
+                    
+                    <input id="Send-Tag-Button" type="submit" name="SendTag" value="Add Tag">
+                </fieldset>
+            </form>
+            <!-- ############### VS1Lab 1a Form 1 End -->
+        </section>
+
+        <section class="main__discovery discovery">
+            <h2 class="discovery__title">Discovery</h2>
+
+            <!-- ############### VS1Lab 1a Form 2 Start -->
+            <form class="discovery__search" id="discoveryFilterForm" action="/discovery" method="post">
+                <fieldset>
+                    <legend>Search</legend>
+                    <label for="Search">Search term or keywords</label>
+                    <input id="Search" maxlength="11" type="text" name="Search" placeholder="e.g. Berlin" required>
+                    <input id="disc-long" type="hidden" name="longitude">
+                    <input id="disc-lat" type="hidden" name="latitude">
+
+                    <input id="Send-Search" type="submit" name="Search" value="Search">
+                </fieldset>
+            </form>
+            <!-- ############### VS1Lab 1a Form 2 End -->
+
+            <div class="discovery__wrapper">
+                <div class="discovery__taglist">
+                    <ul class="discovery__results" id="discoveryResults">
+                        <li>Castle (49.01379, 8.404435) #sight</li>
+                        <li>IWI (49.01379, 8.390071) #edu</li>
+                    </ul>
+                </div>
+
+                <div class="discovery__map">
+                    <div id="map"></div>
+                    <img src="./images/mapview.jpg" alt="a map with locations" id="mapView" />
+                    <span>Result map</span>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <span>(c) 2021/22 HKA_IWI_VSYS</span>
+    </footer>
+    <!-- Load JavaScripts
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="./javascripts/geotagging.js"></script>
+</body>
+
+</html>
