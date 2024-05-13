@@ -227,5 +227,6 @@ fieldset {
 
 #map { 
   height: 500px;
-  width: 100%;
+  width: 85%;
+  padding: 50px
 }
