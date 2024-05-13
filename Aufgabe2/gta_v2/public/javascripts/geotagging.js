@@ -133,6 +133,8 @@ function updateLocation() {
 
     
     const mapPic = document.getElementById('mapView');
+    const liElements = document.getElementById('discoveryResults');
+    liElements.remove();
     mapPic.remove();   
 }
 // Wait for the page to fully load its DOM content, then call updateLocation
