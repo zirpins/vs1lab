@@ -15,6 +15,7 @@ console.log("The geoTagging script is going to start...");
 class LocationHelper {
     // Location values for latitude and longitude are private properties to protect them from changes.
     #latitude = '';
+    #longitude = '';
 
     /**
      * Getter method allows read access to privat location property.
@@ -22,8 +23,6 @@ class LocationHelper {
     get latitude() {
         return this.#latitude;
     }
-
-    #longitude = '';
 
     get longitude() {
         return this.#longitude;
@@ -63,37 +62,44 @@ class LocationHelper {
  * A class to help using the MapQuest map service.
  */
 class MapManager {
-    #apiKey = '';
+
+    #map
+    #markers
 
     /**
-     * Create a new MapManager instance.
-     * @param {string} apiKey Your MapQuest API Key
+     * Initialize a Leaflet map
+     * @param {number} latitude The map center latitude
+     * @param {number} longitude The map center longitude
+     * @param {number} zoom The map zoom, defaults to 18
      */
-    constructor(apiKey) {
-        this.#apiKey = apiKey;
+    initMap(latitude, longitude, zoom = 18) {
+        // set up dynamic Leaflet map
+        this.#map = L.map('map').setView([latitude, longitude], zoom);
+        var mapLink = '<a href="http://openstreetmap.org">OpenStreetMap</a>';
+        L.tileLayer(
+            'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; ' + mapLink + ' Contributors'
+            }).addTo(this.#map);
+        this.#markers = L.layerGroup().addTo(this.#map);
     }
 
     /**
-     * Generate a MapQuest image URL for the specified parameters.
+     * Update the Markers of a Leaflet map
      * @param {number} latitude The map center latitude
      * @param {number} longitude The map center longitude
      * @param {{latitude, longitude, name}[]} tags The map tags, defaults to just the current location
-     * @param {number} zoom The map zoom, defaults to 10
-     * @returns {string} URL of generated map
      */
-    getMapUrl(latitude, longitude, tags = [], zoom = 10) {
-        if (this.#apiKey === '') {
-            console.log("No API key provided.");
-            return "images/mapview.jpg";
+    updateMarkers(latitude, longitude, tags = []) {
+        // delete all markers
+        this.#markers.clearLayers();
+        L.marker([latitude, longitude])
+            .bindPopup("Your Location")
+            .addTo(this.#markers);
+        for (const tag of tags) {
+            L.marker([tag.location.latitude, tag.location.longitude])
+                .bindPopup(tag.name)
+                .addTo(this.#markers);
         }
-
-        let tagList = `${latitude},${longitude}|marker-start`;
-        tagList += tags.reduce((acc, tag) => `${acc}||${tag.latitude},${tag.longitude}|flag-${tag.name}`, "");
-
-        const mapQuestUrl = `https://www.mapquestapi.com/staticmap/v5/map?key=${this.#apiKey}&size=600,400&zoom=${zoom}&center=${latitude},${longitude}&locations=${tagList}`;
-        console.log("Generated MapQuest URL:", mapQuestUrl);
-
-        return mapQuestUrl;
     }
 }
 
@@ -102,9 +108,24 @@ class MapManager {
  * A function to retrieve the current location and update the page.
  * It is called once the page has been fully loaded.
  */
-// ... your code here ...
+function updateLocation() {
+    LocationHelper.findLocation(function (location) {
+        const latitude = location.latitude;
+        const longitude = location.longitude;
+        document.getElementById("latitude_tagging").nodeValue = latitude;
+        document.getElementById("longitude_tagging").nodeValue = longitude;
+        document.getElementById("discovery__latitude").nodeValue = latitude;
+        document.getElementById("discovery__longitude").nodeValue = longitude;
+
+        const map = new MapManager();
+        map.initMap(latitude, longitude);
+        map.updateMarkers(latitude, longitude);
+        document.getElementById("mapView").remove();
+        document.getElementById("map").getElementsByTagName("span")[0].remove();
+    });
+}
 
 // Wait for the page to fully load its DOM content, then call updateLocation
 document.addEventListener("DOMContentLoaded", () => {
-    alert("Please change the script 'geotagging.js'");
+    updateLocation();
 });

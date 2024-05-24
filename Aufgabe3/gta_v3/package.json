@@ -1,18 +1,18 @@
 {
   "name": "geotag-app",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www"
+    "start": "nodemon -e js,mjs,cjs,json,ejs --watch './**' bin/www"
   },
   "dependencies": {
-    "debug": "~2.6.9",
-    "ejs": "~3.1.8",
-    "express": "~4.16.1",
+    "debug": "*",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
     "http-errors": "~1.6.3",
-    "morgan": "~1.9.1"
+    "morgan": "*"
   },
   "devDependencies": {
-    "nodemon": "^2.0.12"
+    "nodemon": "^3.1.0"
   }
 }

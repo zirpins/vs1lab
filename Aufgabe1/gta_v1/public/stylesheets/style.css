@@ -45,9 +45,30 @@ a {
 }
 
 /* ### TODO ### Styles for other HTML elements */
+fieldset {
+    padding: 15px;
+    border-color: var(--border-color);
+}
 
-/* ... your code here ... */
+legend {
+    font-size: medium;
+    font-weight: bold;
+}
 
+label {
+    color: var(--gray-color);
+    font-size: medium;
+}
+
+input {
+    display: block;
+    width: 100%;
+    min-width: 130px;
+    max-width: 250px;
+    padding: 10px;
+    margin: 4px 0 12px 0;
+    font-weight: bold;
+}
 
 /* Grid styles (no changes required) */
 
@@ -108,7 +129,6 @@ a {
 
 
 /* ### TODO ### Styles for Header Component */
-
 header {
     background: var(--background-color);
     padding: 20px;
@@ -124,45 +144,15 @@ header {
 }
 
 /* ### TODO ### Styles for Main Component */
-
-fieldset {
-    padding: 15px;
-    border-color: var(--border-color);
-}
-
-legend {
-    font-size: medium;
-    padding: 10px;
-    font-weight: bold;
-}
-
-label {
-    color: var(--gray-color);
-    font-size: medium;
-}
-
-input {
-    display: block;
-    width: 100%;
-    min-width: 130px;
-    max-width: 250px;
-    padding: 10px;
-    margin: 4px 0 12px 0;
-    font-weight: bold;
-}
-
 .main {
     display: flex;
-    padding: 45px;
+    margin: 45px;
     font-weight: bold;
     justify-content: space-between;
 }
 
 /* ### TODO ### Styles for Tagging component */
-
-
 /* ### TODO ### Styles for Discovery component */
-
 .discovery__taglist li {
     display: block;
     color: var(--link-color);
@@ -172,6 +162,7 @@ input {
     margin: 10px 10px 0 0;
     padding: 10px;
     max-width: 230px;
+    height: 100px;
 }
 
 .discovery__search {
@@ -187,17 +178,13 @@ input {
 .discovery__wrapper {
     display: flex;
     justify-content: space-between;
-
 }
 
 /* ### TODO ### Styles for Footer Component */
-
 footer {
     background: var(--background-color);
     height: 50px;
     position: relative;
-    bottom: 0;
-    width: 100%;
     font-weight: bold;
     display: flex;
     align-items: center;
@@ -206,7 +193,6 @@ footer {
 }
 
 /* ### TODO ### Media Queries */
-
 @media screen and (max-width: 850px) {
     .main {
         flex-direction: column;
