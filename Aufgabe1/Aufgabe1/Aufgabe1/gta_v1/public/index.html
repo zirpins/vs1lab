@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+
+<!-- File origin: VS1LAB A1a -->
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GeoTagApp</title>
+    <link rel="stylesheet" href="./stylesheets/style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <header class="header">
+        <img src="./images/location.png" class="header__image" alt="an image of a map and location">
+        <h1 class="header__title">GeoTagApp</h1>
+        <nav class="header__navigation">
+            <a href="#">About</a> | <a href="#">Help</a> | <a href="/">Home</a>
+        </nav>
+    </header>
+
+    <main class="main row">
+        <section class="main__tagging col-4">
+            
+            <h2>Tagging</h2>
+            <!-- ############### VS1Lab 1a Form 1 Start -->
+            <form id="tag_form" action="/tagging" method="post">
+
+                <fieldset>
+                    <legend>Add a new Geo Tag</legend>
+                    <label for="tag_latitude">Latitude:</label>
+                    <input type="text" placeholder="lagtitude of the tag" id ="tag_latitude"  name="tag_latitude"  value="49.01379" readonly>
+                    
+                    <label for="tag_longitude">Longitude:</label>
+                    <input type="text" placeholder="longitude of the tag" id ="tag_longitude"  name="tag_longitude" value="8.404435" readonly>
+
+                    <label for="tag_name"> Name: </label>
+                    <input type="text" name="tag_name" id="tag_name" placeholder="e.g. Moltke Mensa" maxlength="10" title="Max. 10 letters" pattern="[A-Za-z]{1,10}" required>
+                    <!--Title: When cursor on the name section, it says what type of information is necessary like "Max. 10 letters"-->
+
+
+                    <label for="tag_hashtag"> Hashtag: </label>
+                    <input type="text" name="tag_hashtag" id="tag_hashtag" placeholder="e.g. #tasty" pattern="[#]{1}[A-Za-z]{2,11}" maxlength="11">
+
+                    <button type="submit" id="Add_button">Add Tag</button>
+                </fieldset>
+
+            </form>
+            <!-- ############### VS1Lab 1a Form 1 End -->
+        
+        </section>
+        <section class="main__discovery col-8">
+
+            <h2 class="discovery__title">Discovery</h2>
+
+            <!-- ############### VS1Lab 1a Form 2 Start -->
+            <form class="discovery__search" id="discoveryFilterForm" action="/discovery" method="post">
+
+                <fieldset>
+                    <legend>Search</legend>
+                    
+                    <label for="searchterm">Search term or keywords:</label>
+                    <input type="search" id="searchterm" name="searchterm" placeholder="e.g. Mensa">
+                    <input type="hidden" id="lagtitude" name="tag_latitude" value="49.01379">
+                    <input type="hidden" id="longitude" name="tag_longitude" value="8.404435">
+
+                    <button disabled type="submit" id="search_button">Search</button>
+        
+                </fieldset>
+
+            </form>
+            <!-- ############### VS1Lab 1a Form 2 End -->
+            <!-- Try to use col-x to devide taglist and map, somehow not evenly-->
+            <div class="discovery__wrapper row">
+                <div class="discovery__taglist col-6">                  
+                    <ul class="discovery__results" id="discoveryResults">
+                        <li>Castle (49.01379, 8.404435) #sight</li>
+                        <li>IWI (49.01379, 8.390071) #edu</li>
+                    </ul>
+                </div>
+                <div class="discovery__map col-6">
+                    <img src="./images/mapview.jpg" alt="a map with locations" id="mapView" />
+                    <span>Result map</span>
+                </div>
+            </div>
+        </section>
+
+
+    </main>
+
+    <footer class="footer">
+        <span>(c) 2021/22 HKA_IWI_VSYS</span>
+    </footer>
+</body>
+
+</html>

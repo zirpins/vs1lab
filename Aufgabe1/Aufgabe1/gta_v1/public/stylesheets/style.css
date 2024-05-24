@@ -1,0 +1,280 @@
+/*
+  File origin: VS1LAB A1b  
+
+  CSS style is BEM. Classes used for CSS, IDs for JavaScript querying (future use).
+  CSS variables used for clarity and themability (e.g. through SSR). 
+  Inherited box sizing used for ease of including 3rd party content-box components.
+*/
+
+/* Global styling */
+
+html {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+
+  /* This approach prevents issues with 3rd party content-box components */
+  box-sizing: inherit;
+}
+
+
+/* Variables (example: see declaration for "a" below) */
+/* :root--> this selector allows you to target the highest-level “parent” element 
+in the DOM, or document tree. 
+It is defined as a “structural pseudo-class”, meaning it is used to style content
+ based on its relationship with parent and sibling content */
+:root {
+  --link-color: #00B7FF;
+  --background-color: #efefef;
+  --border-color: #cdcdcd;
+  --gray-color: #666;
+}
+
+
+/* HTML element styles */
+
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  display: flex;
+  flex-direction: column;   
+  min-height: 100vh;
+}
+
+a {
+  color: var(--link-color);
+}
+
+/*Styles for other HTML elements */
+
+header { 
+  background: #2e354f;
+  padding: 20px;
+  border-bottom: 1px solid lightgray;
+
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+
+}
+
+footer {
+  background: #2e354f;
+  padding: 20px;
+  border-top: 1px solid lightgray;
+}
+
+
+
+/* Grid styles (no changes required) */
+
+.row {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex: 1;
+}
+
+.col-1 {
+  width: calc(8.33% - 1rem);
+}
+
+.col-2 {
+  width: calc(16.66% - 1rem);
+}
+
+.col-3 {
+  width: calc(25% - 1rem);
+}
+
+.col-4 {
+  width: calc(33.33% - 1rem);
+}
+
+.col-5 {
+  width: calc(41.66% - 1rem);
+}
+
+.col-6 {
+  width: calc(50% - 1rem);
+}
+
+.col-7 {
+  width: calc(58.33% - 1rem);
+}
+
+.col-8 {
+  width: calc(66.66% - 1rem);
+}
+
+.col-9 {
+  width: calc(75% - 1rem);
+}
+
+.col-10 {
+  width: calc(83.33% - 1rem);
+}
+
+.col-11 {
+  width: calc(91.66% - 1rem);
+}
+
+.col-12 {
+  width: calc(100% - 1rem);
+}
+
+
+/*Styles for Header Component */
+
+
+.header__image{
+  width: 50px;
+}
+
+.header__title {
+  color: white;
+}
+
+
+/*Styles for Main Component */
+
+fieldset {
+  padding: 15px;
+  border-color:#cdcdcd;
+}
+
+legend {
+  font-size: medium;
+  padding: 10px;    /*creates a gap between legend and the lines*/
+  font-weight: bold;
+}
+
+label {
+  color: grey;
+  font-size:medium;
+}
+
+input {
+  display: block;   /*that way we don't need to use <br> after each element*/
+  width: 100%;
+  min-width: 130px;
+  max-width: 250px;
+
+  padding: 10px;                    /*bigger input area*/
+  margin-bottom: 12px;
+  margin-top: 4px;
+}
+
+input:read-only {
+  background: lightgrey;
+  border: 1px solid darkgray;  
+}
+
+button {
+  width: 100%;
+  min-width: 130px;
+  max-width: 250px;
+
+  padding: 10px;                    /*bigger button*/
+  border: 1px solid lightgray;
+  font-weight: bold;
+  font-size:small;
+}
+
+.disabled {
+  color: darkgray;
+}
+
+/*Styles for Tagging component */
+h2 {
+  font-size: large;
+  margin-bottom: 10px;
+}
+
+.main__tagging{
+  padding: 35px;
+}
+
+
+/*Styles for Discovery component */
+ .main__discovery {
+  padding: 35px 35px 35px 0px;      /*padding-left: 0px*/
+ }
+
+ .discovery__wrapper {
+  margin-top: 20px;                
+ }
+
+ .discovery__taglist {
+  margin-right: 30px;               /*gap between taglist and map*/
+ }
+
+  .discovery__results > li{         /*the tag list area*/
+  padding: 20px;
+  margin-bottom: 15px;
+  list-style: none;
+  font-weight: bold;
+  color: darkcyan;
+  border: 1px solid darkgray;
+  background: lightgray;
+ }
+
+ .discovery__map {
+  width: 100%;
+ }
+
+ #mapView {
+  width: 100%;
+  /*max-width: 100%    -->the image will scale down if it has to, 
+  but never scale up to be larger than its original size*/
+ }
+
+ main span {          /*Result map*/
+  color: darkgray;
+  display: block;
+ }
+
+
+
+/*Styles for Footer Component */
+
+footer span {
+  color: white;
+}
+
+
+/*Media Queries */
+
+@media only screen and (max-width: 600px){   /*activate when the screen size is smaller than 600px*/
+  input {
+    max-width: none;
+    width: 100%;
+  }
+
+  button {
+    max-width: none;
+    width: 100%;
+  }
+
+  .row {
+    flex-direction: column;
+  } 
+
+  .main__tagging {
+    width: 100%;
+  }
+
+  .main__discovery {
+    padding: 35px;
+    width: 100%;
+  }
+
+  .discovery__taglist{
+    width: 100%;
+  }
+
+}
+
