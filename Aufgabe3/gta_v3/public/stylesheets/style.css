@@ -1,0 +1,232 @@
+/*
+  File origin: VS1LAB A1b  
+
+  CSS style is BEM. Classes used for CSS, IDs for JavaScript querying (future use).
+  CSS variables used for clarity and themability (e.g. through SSR). 
+  Inherited box sizing used for ease of including 3rd party content-box components.
+*/
+
+/* Global styling */
+
+html {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+
+  /* This approach prevents issues with 3rd party content-box components */
+  box-sizing: inherit;
+}
+
+
+/* Variables (example: see declaration for "a" below) */
+
+:root {
+  --link-color: #00B7FF;
+  --background-color: #efefef;
+  --border-color: #cdcdcd;
+  --gray-color: #666;
+}
+
+
+/* HTML element styles */
+
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+a {
+  color: var(--link-color);
+}
+
+/* ### TODO ### Styles for other HTML elements */
+
+/* ... your code here ... */
+fieldset {
+  display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      width: 100%;
+      padding: 10px;
+}
+
+
+/* Grid styles (no changes required) */
+
+.row {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex: 1;
+}
+
+.col-1 {
+  width: calc(8.33% - 1rem);
+}
+
+.col-2 {
+  width: calc(16.66% - 1rem);
+}
+
+.col-3 {
+  width: calc(25% - 1rem);
+}
+
+.col-4 {
+  width: calc(33.33% - 1rem);
+}
+
+.col-5 {
+  width: calc(41.66% - 1rem);
+}
+
+.col-6 {
+  width: calc(50% - 1rem);
+}
+
+.col-7 {
+  width: calc(58.33% - 1rem);
+}
+
+.col-8 {
+  width: calc(66.66% - 1rem);
+}
+
+.col-9 {
+  width: calc(75% - 1rem);
+}
+
+.col-10 {
+  width: calc(83.33% - 1rem);
+}
+
+.col-11 {
+  width: calc(91.66% - 1rem);
+}
+
+.col-12 {
+  width: calc(100% - 1rem);
+}
+
+
+/* ### TODO ### Styles for Header Component */
+
+/* ... your code here ... */
+.header{
+  background-color: var(--border-color);
+  border: 5px var(--border-color);
+  height: 5em;
+  padding: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header__image{
+  width: 40px;
+  height: auto;
+}
+
+
+/* ### TODO ### Styles for Main Component */
+
+/* ... your code here ... */
+.main{
+  display: flex;
+  justify-content: space-evenly;
+  min-height: 90vh;
+}
+
+
+/* ### TODO ### Styles for Tagging component */
+
+/* ... your code here ... */
+
+.tagging__tittle{
+  padding: 5px;
+}
+
+.tagging input{
+  display: block;
+  height: 30px;
+  width: 90%;
+  margin-bottom: 2vh;
+}
+
+
+/* ### TODO ### Styles for Discovery component */
+
+/* ... your code here ... */
+.discovery .col-10{
+  display: flex;
+  flex-direction: column;
+}
+
+.discovery__title{
+  padding: 5px;
+}
+
+.discovery input{
+  display: block;
+  margin-bottom: 2vh;
+}
+
+.discovery__map img{
+  display: block;
+  max-width: 70%;
+  height: auto;
+  padding: 10px;
+}
+
+.discovery__map span{
+  padding: 1vh;
+}
+
+.discovery__wrapper{
+  display: flex;
+  justify-content: space-between;
+}
+
+.discovery__results li{
+  list-style-type: none;
+  border: 1px solid black;
+  margin-top: 2vh;
+  padding: 10px;
+  color: blue;
+  background-color: lightgray;
+}
+
+/* ### TODO ### Styles for Footer Component */
+
+/* ... your code here ... */
+.footer{
+  background-color: var(--border-color);
+  border: 5px var(--border-color);
+  padding: 1em;
+}
+
+
+/* ### TODO ### Media Queries */
+
+/* ... your code here ... */
+@media (max-width: 750px) {
+  main {
+     display: flex;
+     flex-direction: column;
+     justify-content: space-around;
+     padding: 1vh;
+  }
+}
+/* Media Queries */
+
+
+#map { 
+  height: 500px;
+  width: 85%;
+  padding: 50px
+}
