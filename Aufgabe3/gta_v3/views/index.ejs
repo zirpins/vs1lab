@@ -31,9 +31,9 @@
                 <fieldset>
                     <legend>Add a GeoTag</legend>
                     <label for="tagging-lat">Latitude:</label>
-                    <input id="tagging-lat" type="text" value="49.120984" readonly/>
+                    <input id="tagging-lat" type="text" value="<%= locals.latitude ?? "" %> readonly/>
                     <label for="tagging-lon">Longitude:</label>
-                    <input id="tagging-lon" type="text" value="8.3298048" readonly/>
+                    <input id="tagging-lon" type="text" value="<%= locals.longitude ?? "" %>" readonly/>
                     <label for="tagging-name">Name:</label>
                     <input id="tagging-name" type="text" placeholder="Beschde Pizza" required maxlength="10" pattern="[a-zA-Z]*"/>
                     <label for="tagging-name">Hashtags:</label>
