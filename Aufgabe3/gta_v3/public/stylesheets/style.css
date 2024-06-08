@@ -10,6 +10,7 @@
 
 html {
   box-sizing: border-box;
+  background-color: var(--background-color);
 }
 
 * {
@@ -24,6 +25,7 @@ html {
 /* Variables (example: see declaration for "a" below) */
 
 :root {
+  --primary: #000;
   --link-color: #520070;
   --background-color: #efefef;
   --border-color: #cdcdcd;
@@ -36,6 +38,7 @@ html {
 
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  color: var(--primary);
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -127,6 +130,7 @@ fieldset {
   align-items: center;
   justify-content: space-between;
 }
+
 
 .header__image{
   width: 40px;
