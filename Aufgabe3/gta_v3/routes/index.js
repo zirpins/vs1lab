@@ -46,7 +46,7 @@ exampleData.tagList.forEach(geotag => {
 
 // TODO: extend the following route example if necessary
 router.get('/', (req, res) => {
-  res.render('index', { taglist:  database.getAllGeoTags() })
+  res.render('index', { taglist: database.getAllGeoTags() })
 });
 
 /**

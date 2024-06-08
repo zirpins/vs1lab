@@ -31,13 +31,13 @@
                 <fieldset>
                     <legend>Add a GeoTag</legend>
                     <label for="tagging-lat">Latitude:</label>
-                    <input id="tagging-lat" type="text" value="<%= locals.latitude ?? "" %> readonly/>
+                    <input id="tagging-lat" name="latitude" type="text" value="<%= locals.latitude ?? "" %>" readonly/>
                     <label for="tagging-lon">Longitude:</label>
-                    <input id="tagging-lon" type="text" value="<%= locals.longitude ?? "" %>" readonly/>
+                    <input id="tagging-lon" name="longitude" type="text" value="<%= locals.longitude ?? "" %>" readonly/>
                     <label for="tagging-name">Name:</label>
-                    <input id="tagging-name" type="text" placeholder="Beschde Pizza" required maxlength="10" pattern="[a-zA-Z]*"/>
+                    <input id="tagging-name" name="name" type="text" placeholder="Beschde Pizza" required maxlength="10" pattern="[a-zA-Z]*"/>
                     <label for="tagging-name">Hashtags:</label>
-                    <input id="tagging-tags" type="text" placeholder="#food" pattern="#.[a-zA-Z]{1,10}" />
+                    <input id="tagging-tags" name="hashtag" type="text" placeholder="#food" pattern="#.[a-zA-Z]{1,10}" />
                     <input id="tagging-submit" type="submit" value="Add GeoTag" />
                 </fieldset>               
             </form>
