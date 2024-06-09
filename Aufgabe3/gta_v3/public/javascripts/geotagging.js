@@ -4,18 +4,17 @@ function callback(location) {
     document.getElementById("discovery-lat").value = location.latitude;
     document.getElementById("discovery-lon").value = location.longitude;
 
-    let mm = new MapManager;
-    let imageElement = document.getElementById("map");
-    imageElement.src = mm.updateMarkers(location.latitude, location.longitude, JSON.parse(imageElement.dataset.tags), 15);
+    let mm = new MapManager();
+    mm.initMap(location.latitude, location.longitude, 15);
+    mm.updateMarkers(location.latitude, location.longitude, JSON.parse(document.getElementById("map").dataset.tags));
 }
-
 
 
 function updateLocation() {
     LocationHelper.findLocation((locationHelper) => {
         const lat = locationHelper.latitude;
         const lon = locationHelper.longitude;
-        
+
         document.getElementById("tagging-lat").value = lat;
         document.getElementById("tagging-lon").value = lon;
 
@@ -28,16 +27,17 @@ function updateLocation() {
             console.log("Geolocating device...")
             LocationHelper.findLocation(callback);
         }
-
+        //dataTags = JSON.stringify(taglist);
         //var mm = L.map('mapView', {center: [lat, lon],zoom: 13});
         //L.marker([lat, lon]).addTo(mm);
-        const mapp = new MapManager;
+        const mapp = new MapManager();
+
 
         mapp.initMap(lat,lon);
         mapp.updateMarkers(lat,lon);
-        //finder methode und remove
+        
         const mapViewImg = document.getElementById("mapView");
-        const resultSpan = document.getElementById('.discovery__map span');
+        const resultSpan = document.querySelector('.discovery__map span');
         if (mapViewImg) {
             mapViewImg.remove();
         }
@@ -46,8 +46,6 @@ function updateLocation() {
         }
     });
 }
-
-
 
 // Wait for the page to fully load its DOM content, then call updateLocation
 document.addEventListener("DOMContentLoaded", () => {
