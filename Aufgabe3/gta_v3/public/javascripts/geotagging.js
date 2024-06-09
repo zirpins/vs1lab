@@ -5,8 +5,8 @@ function callback(location) {
     document.getElementById("discovery-lon").value = location.longitude;
 
     let mm = new MapManager;
-    let imageElement = document.getElementById("mapView");
-    imageElement.src = mm.getMapUrl(location.latitude, location.longitude, JSON.parse(imageElement.dataset.tags), 15);
+    let imageElement = document.getElementById("map");
+    imageElement.src = mm.updateMarkers(location.latitude, location.longitude, JSON.parse(imageElement.dataset.tags), 15);
 }
 
 
@@ -31,7 +31,6 @@ function updateLocation() {
 
         //var mm = L.map('mapView', {center: [lat, lon],zoom: 13});
         //L.marker([lat, lon]).addTo(mm);
-
         const mapp = new MapManager;
 
         mapp.initMap(lat,lon);

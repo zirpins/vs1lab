@@ -29,7 +29,7 @@
     * @param {number} longitude The map center longitude
     * @param {number} zoom The map zoom, defaults to 18
     */
-    initMap(latitude, longitude, zoom = 18) {
+    initMap(latitude, longitude, zoom = 15) {
         // set up dynamic Leaflet map
         this.#map = L.map('map').setView([latitude, longitude], zoom);
         var mapLink = '<a href="http://openstreetmap.org">OpenStreetMap</a>';
@@ -47,13 +47,15 @@
     */
     updateMarkers(latitude, longitude, tags = []) {
         // delete all markers
+        const GeoTagStore = require('../models/geotag-store');
+        //let database = new GeoTagStore();
         this.#markers.clearLayers();
         L.marker([latitude, longitude])
             .bindPopup("Your Location")
             .addTo(this.#markers);
         for (const tag of tags) {
-            L.marker([tag.location.latitude,tag.location.longitude])
-                .bindPopup(tag.name)
+            L.marker([tagList.location.latitude,tagList.location.longitude])
+                .bindPopup(tagList.name)
                 .addTo(this.#markers);  
         }
     }
