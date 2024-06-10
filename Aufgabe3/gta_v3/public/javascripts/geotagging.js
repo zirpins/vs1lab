@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     const mapElement = document.getElementById("map");
     const tagsJson = mapElement.dataset.taglist;
-    const geotags = JSON.stringify(tagsJson);
+    const geotags = JSON.parse(tagsJson);
 
     const updateLocation = () => {
         LocationHelper.findLocation((locationHelper) => {

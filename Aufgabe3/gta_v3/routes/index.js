@@ -103,7 +103,7 @@ router.post('/discovery', (req, res) => {
   } else {
     taglist = database.getNearbyGeoTags(latitude, longitude, searchRadius);
   }
-
+  taglist = database.getAllGeoTags();
   res.render('index', {
     taglist: taglist, 
     query: req.body.query,
