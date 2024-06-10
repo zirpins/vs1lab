@@ -13,6 +13,11 @@ document.addEventListener("DOMContentLoaded", () => {
             document.getElementById("tagging-lath").value = lat; // hidden inputs
             document.getElementById("tagging-lonh").value = lon;
 
+            if (lat === undefined || lat === "" || lat === "0") {
+                console.log("Geolocating device...")
+                LocationHelper.findLocation(callback);
+            }
+
             const mapManager = new MapManager();
             mapManager.initMap(lat, lon);
             mapManager.updateMarkers(lat, lon, geotags);
