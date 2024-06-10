@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     const mapElement = document.getElementById("map");
-    const tagsJson = mapElement.dataset.taglist;
+    const tagsJson = mapElement.dataset.tags;
     const geotags = JSON.parse(tagsJson);
 
     const updateLocation = () => {
