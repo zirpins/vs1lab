@@ -48,15 +48,14 @@ class MapManager {
     
     updateMarkers(latitude, longitude, tags = []) {
         // delete all markers
-        //var geotagList = document.getElementById("discoveryResults");
         this.#markers.clearLayers();
         L.marker([latitude, longitude])
             .bindPopup("Your Location")
             .addTo(this.#markers);
         for (const tag of tags) {
-            L.marker([tags.latitude, tags.longitude])
-            .bindPopup(tags.name)
-            .addTo(this.#markers);
+            L.marker([tag.location.latitude,tag.location.longitude])
+                .bindPopup(tag.name)
+                .addTo(this.#markers);  
         }
     }
 }
