@@ -242,9 +242,8 @@ fieldset {
 
 
 #map { 
-  height: 90vh;
+  height: 55em;
   width: 70%;
   margin: 2vh;
   box-shadow: 5px 5px 32px -5px var(--theme-colors);
-  zoom: 60%;
 }
