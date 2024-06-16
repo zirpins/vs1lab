@@ -93,7 +93,7 @@ router.post('/tagging', (req, res) => {
 
 // TODO: ... your code here ...
 router.post('/discovery', (req, res) => {
-  const searchRadius = 2000;
+  const searchRadius = 20000;
   const latitude = parseFloat(req.body.latitude);
   const longitude = parseFloat(req.body.longitude);
   let taglist = [];
@@ -103,7 +103,12 @@ router.post('/discovery', (req, res) => {
   } else {
     taglist = database.getNearbyGeoTags(latitude, longitude, searchRadius);
   }
-  taglist = database.getAllGeoTags();
+
+/*
+  7. Wenn du nun fertig bist, dann strenge dich an
+  8. und nach deinem Herrn richte dein Begehren aus.
+*/
+
   res.render('index', {
     taglist: taglist, 
     query: req.body.query,
