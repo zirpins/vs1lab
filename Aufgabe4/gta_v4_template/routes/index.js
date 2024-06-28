@@ -26,7 +26,11 @@ const GeoTag = require('../models/geotag');
  */
 // eslint-disable-next-line no-unused-vars
 const GeoTagStore = require('../models/geotag-store');
-
+let database = new GeoTagStore();
+const exampleData = require('../models/geotag-examples');
+exampleData.tagList.forEach(geotag => {
+  database.addGeoTag(new GeoTag(geotag[1], geotag[2], geotag[0], geotag[3]))
+});
 // App routes (A3)
 
 /**
@@ -39,7 +43,7 @@ const GeoTagStore = require('../models/geotag-store');
  */
 
 router.get('/', (req, res) => {
-  res.render('index', { taglist: [] })
+  res.render('index', { taglist: database.getAllGeoTags() })
 });
 
 // API routes (A4)
