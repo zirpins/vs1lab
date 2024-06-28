@@ -23,17 +23,42 @@
  * - The proximity constrained is the same as for 'getNearbyGeoTags'.
  * - Keyword matching should include partial matches from name or hashtag fields. 
  */
-class InMemoryGeoTagStore{
-
-    // TODO: ... your code here ...
+class InMemoryGeoTagStore {
     #geotags = [];
+    #id = 0;
 
     /**
      * Add a Geotag to the store.
      * @param {GeoTag} GeoTag Geotag object to add to the store
+     * *@returns The ID of the Geotag that has just been added
      */
     addGeoTag(geotag) {
+        geotag.id = this.#id;
         this.#geotags.push(geotag);
+        this.#id += 1;
+        return this.#id - 1;
+    }
+
+    /**
+     * *Find a stored Geotag with the given ID.
+     * @param {number} id ID of the Geotag to look for
+     * @returns Geotag with the given ID or undefined if there is no Geotag with this ID
+     */
+    getGeoTagById(id) {
+        return this.#geotags.find(geotag => geotag.id == id);
+    }
+
+    /**
+     * *Replace an existing Geotag by ID.
+     * @param {number} id ID of the Geotag to update
+     * @param {GeoTag} geotag Complete Geotag object to replace the existing one with
+     * @returns The new Geotag
+     */
+    updateGeoTagById(id, geotag) {
+        this.removeGeoTagById(id);
+        geotag.id = id;
+        this.#geotags.push(geotag);
+        return geotag;
     }
 
     /**
@@ -45,14 +70,34 @@ class InMemoryGeoTagStore{
     }
 
     /**
+     * *Remove a Geotag from the story by ID.
+     * @param {number} id ID of the GeoTag to remove
+     */
+    removeGeoTagById(id) {
+        this.#geotags = this.#geotags.filter(geotag => geotag.id != id);
+    }
+
+    /**
      * Find all geotags within the `radius` of the location defined by `latitude` and `longitude`.
      * @param {number} latitude Latitude of the centerpoint
      * @param {number} longitude Longitude of the centerpoint
      * @param {number} radius Search radius in meters
      * @returns List of all Geotags within the distance of the location.
      */
-    getNearbyGeoTags(latitude, longitude, radius) {
+    getNearbyGeoTags(latitude, longitude, radius = 2000) {
         return this.#geotags.filter(geotag => this.#haversine_distance(latitude, longitude, geotag.latitude, geotag.longitude) <= radius);
+    }
+
+    /**
+     * *Find all Geotags that include the search term in their name or hashtag (case-insensitive).
+     * @param {string} searchTerm Keyword to search for
+     * @returns List of Geotags that contain the search term in their name or hashtag
+     */
+    searchGeoTags(searchTerm) {
+        return this.#geotags.filter((geotag) =>
+            geotag.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            geotag.hashtag.toLowerCase().includes(searchTerm.toLowerCase())
+        );
     }
 
     /**
