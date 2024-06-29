@@ -2,7 +2,7 @@
 GET http://localhost:3000/api/geotags
 ###
 
-GET http://localhost:3000/api/geotags?searchTerm=Building
+GET http://localhost:3000/api/geotags?searchTerm=edu
 ###
 GET http://localhost:3000/api/geotags?searchTerm=edu&latitude=49.0163498971946&longitude=8.390911128469323
 

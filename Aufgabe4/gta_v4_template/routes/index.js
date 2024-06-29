@@ -189,13 +189,14 @@ router.get('/api/geotags/:id', (req, res) => {
 
 // TODO: ... your code here ...
 router.put('/api/geotags/:id', (req, res) => {
-  if (req.body.latitude && req.body.longitude && req.body.name && req.body.hashtag) {
-    let geotag = database.updateGeoTagById(req.params.id, new GeoTag(req.body.latitude, req.body.longitude, req.body.name, req.body.hashtag));
-    res.json(geotag);
+  const updatedGeoTag = new GeoTag(req.body.latitude, req.body.longitude, req.body.name, req.body.hashtag);
+  const success = database.updateGeoTag(req.params.id, updatedGeoTag);
+  if (success) {
+    res.json(updatedGeoTag);
   } else {
-    res.sendStatus(400);
+    res.status(404).send('GeoTag not found');
   }
-})
+});
 
 
 /**
