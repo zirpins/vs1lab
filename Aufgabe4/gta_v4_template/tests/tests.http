@@ -2,13 +2,13 @@
 GET http://localhost:3000/api/geotags
 ###
 
-GET http://localhost:3000/api/geotags?searchTerm=edu
+GET http://localhost:3000/api/geotags?searchTerm=Castle
 ###
-GET http://localhost:3000/api/geotags?searchTerm=edu&latitude=49.0163498971946&longitude=8.390911128469323
+GET http://localhost:3000/api/geotags?latitude=49.016171&longitude=8.390155
 
 ###
 //echo Testing GET /api/geotags/:id
-GET http://localhost:3000/api/geotags/1 HTTP/1.1
+GET http://localhost:3000/api/geotags/1
 ###
 GET http://localhost:3000/api/geotags/12 HTTP/1.1
 
