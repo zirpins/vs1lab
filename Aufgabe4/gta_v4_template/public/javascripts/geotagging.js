@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async() => {
     const mapElement = document.getElementById("map");
     const tagsJson = mapElement.dataset.tags;
     const geotags = JSON.parse(tagsJson);
