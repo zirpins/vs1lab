@@ -81,10 +81,11 @@ router.post('/discovery', (req, res) => {
   const searchRadius = 20000;
   const latitude = parseFloat(req.body.latitude);
   const longitude = parseFloat(req.body.longitude);
+  const searchTerm = req.body.query;
   let taglist = [];
  
-  if (req.body.query) {
-    taglist = database.searchNearbyGeoTags(latitude, longitude, searchRadius, req.body.query);
+  if (searchTerm) {
+    taglist = database.searchNearbyGeoTags(latitude, longitude, searchRadius, searchTerm);
   } else {
     taglist = database.getNearbyGeoTags(latitude, longitude, searchRadius);
   }
@@ -95,10 +96,10 @@ router.post('/discovery', (req, res) => {
 */
 
   res.render('index', {
-    taglist: taglist, 
-    query: req.body.query,
-    latitude: req.body.latitude,
-    longitude: req.body.longitude
+    taglist: taglist,
+    query: searchTerm,
+    latitude: latitude,
+    longitude: longitude
   });
 })
 

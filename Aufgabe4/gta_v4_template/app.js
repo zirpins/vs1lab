@@ -41,8 +41,9 @@ app.use(express.urlencoded({ extended: true }));
  * Configure path for static content.
  * Test the result in a browser here: 'http://localhost:3000/'.
  */
-
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, 'public'))); //Absoluter Pfad, egal aus welchem Verzeichnis man startet
+app.get('/favicon.ico', (req, res) => res.status(204));
+//app.use(express.static('public'));
 
 // Set dedicated script for routing
 app.use('/', indexRouter);
