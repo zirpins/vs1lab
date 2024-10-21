@@ -52,7 +52,7 @@
             .bindPopup("Your Location")
             .addTo(this.#markers);
         for (const tag of tags) {
-            L.marker([tag.location.latitude,tag.location.longitude], { icon: this.#defaultIcon })
+            L.marker([tag.latitude,tag.longitude], { icon: this.#defaultIcon })
                 .bindPopup(tag.name)
                 .addTo(this.#markers);  
         }
