@@ -118,10 +118,14 @@ Zur Übersicht folgen noch mal alle Anforderungen in kompakter Form als Checklis
 
 - [ ] Neue **Routen** realisieren (`./routers/index.js`)
   - [ ] GET `/api/geotags`
+    - [ ] Filterbar nach Suchbegriff und Location
   - [ ] POST `/api/geotags`
+    - [ ] *Response:* neuer GeoTag, URL im Header, HTTP Response Code 201
   - [ ] GET `/api/geotags/:id`
   - [ ] PUT `/api/geotags/:id`
+    - [ ] *Response:* aktualisierter GeoTag
   - [ ] DELETE `/api/geotags/:id`
+    - [ ] *Response:* gelöschter GeoTag
 - [ ] **Servermodule erweitern**
   - [ ] Klasse `InMemoryGeoTagStore` mit Primärschlüsseln für GeoTags
 - [ ] Backend **Demonstrator** mit **generischem HTTP-Client**
