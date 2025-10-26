@@ -5,12 +5,12 @@
   "scripts": {
     "start": "nodemon -e js,mjs,cjs,json,ejs --watch './**' bin/www"
   },
-  "dependencies": {
-    "debug": "*",
+"dependencies": {
+    "debug": "^4.3.5",
     "ejs": "^3.1.10",
     "express": "^4.19.2",
     "http-errors": "~1.6.3",
-    "morgan": "*"
+    "morgan": "^1.10.0"
   },
   "devDependencies": {
     "nodemon": "^3.1.0"
