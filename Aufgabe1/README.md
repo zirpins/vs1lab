@@ -84,9 +84,9 @@ git commit -m 'first solution for web page' # führe commit durch mit Beispielko
 
 Commits sind feste Zwischenstände im Repository, zu denen sie immer wieder zurückkehren können. Geht in der Folge etwas schief, können sie alle Dateien leicht wieder zurücksetzen. Nach dem Commit können sie auch gefahrlos in einen anderen Zweig (z.B. 'master') wechseln.
 
-Anschließend können sie den Branch mitsamt des Commit in den Fork auf Github hochladen. Um sich dafür zu authentifizieren sind verschiedene Wege möglich. Z. B. können sie auf der Konsole das [GitHub Command ine Interface (CLI)](https://cli.github.com/) `gh` mit einem Authentication Token verwenden 
+Anschließend können sie den Branch mitsamt des Commit in den Fork auf Github hochladen. Um sich dafür zu authentifizieren sind verschiedene Wege möglich. Z. B. können sie auf der Konsole das *GitHub Command Line Interface (CLI)* `gh` mit einem Authentication Token verwenden. Auch die GUI-Anwendung *GitHub Desktop* ist möglich.
 
-***Tipp:** Das GitHub CLI können sie über https://cli.github.com/ frei herunterladen und installieren. Ein GitHub *Personal Access Token* können sie hier generieren: https://github.com/settings/tokens). Spezifizieren Sie dabei ein Token mit Schreibrechten für den Fork.*
+***Tipp:** Sie können sowohl [GitHub CLI](https://cli.github.com/) als auch [GitHub Desktop](https://github.com/apps/desktop) frei herunterladen. Ein GitHub *Personal Access Token* können sie hier generieren: https://github.com/settings/tokens). Spezifizieren Sie dabei ein Token mit Schreibrechten für den Fork.*
 
 (Beispiel für Linux/Mac):
 
