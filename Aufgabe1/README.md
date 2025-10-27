@@ -10,24 +10,43 @@ Für die Aufgabe existieren schon Templates auf
 **[GitHub](https://guides.github.com/activities/hello-world/)**:
 
 - [https://github.com/zirpins/vs1lab](https://github.com/zirpins/vs1lab).
-  
-Laden sie das ganze Repository von GitHub herunter. Wir zeigen hier durchgängig eine mögliche Methode zur Arbeit mit Git (Beispiel für Linux/Mac):
+
+Erstellen sie für die Gruppenarbeit **zunächst einen Fork** des Repositories (ein Teammitglied) und arbeiten sie dann in ihrem **Fork**. Laden sie anschließend den Fork lokal herunter. Wir zeigen hier durchgängig eine mögliche Methode zur Arbeit mit Git (Beispiel für Linux/Mac):
 
 ```bash
-mkdir ~/git # lege Verzeichnis git im Homeverzeichnis an
-cd ~/git # wechsle in das neue Verzeichnis
-git clone https://github.com/zirpins/vs1lab.git # git befehl zum Herunterladen des Repo
+mkdir ~/git # Verzeichnis für git im Homeverzeichnis anlegen
+cd ~/git # in das neue Verzeichnis wechseln
+git clone <ihre-fork-url> # klonen des eigenen Fork (nicht das Originalrepo)
+cd vs1lab
+# (optional) Upstream auf das Original setzen, um später Aktualisierungen zu holen
+git remote add upstream https://github.com/zirpins/vs1lab.git
 ```
 
-Wenn sie das Repository wie gezeigt 'gecloned' haben, können sie später Aktualisierungen herunterladen. Sie sollten dazu Ihre Lösungen nicht direkt in das kopierte Repository schreiben (Tipps zu Zweigen bzw. 'branches' folgen unten), Aktualisierungen laden sie dann wie folgt herunter (Beispiel für Linux/Mac):
+Wenn sie den Fork wie gezeigt ‘gecloned’ haben, können sie später Aktualisierungen aus dem Original-Repository (Upstream) herunterladen. Sie sollten Ihre Lösungen nicht direkt in den Upstream schreiben (Tipps zu Zweigen bzw. ‘branches’ folgen unten). Aktualisierungen laden sie dann wie folgt herunter (Beispiel für Linux/Mac):
 
 ```bash
-cd ~/git/vs1lab # wechsle in das git Verzeichnis
-git checkout master # wechsle in den Hauptzweig (eigene Änderungen vorher mit 'commit' sichern: s.u.)
-git pull # lade Aktualisierungen herunter
+cd ~/git/vs1lab # in das git Verzeichnis wechseln
+git checkout master # in den Hauptzweig wechseln (eigene Änderungen vorher mit 'commit' sichern: s.u.)
+git pull --ff-only upstream master # Aktualisierungen herunterladen
 ```
 
 Die Dateien der Aufgabe befinden sich nun im Ordner `~/git/vs1lab/Aufgabe1/`.
+
+---
+
+## Teil 0 - Teamentwicklung über GitHub (NEU)
+
+Zur Vorbereitung der Zusammenarbeit im Team (Laborgruppe) nutzen sie GitHub-Workflows (weitere Infos dazu folgen weiter unten in Teil A) - dies ist zugleich Teil der Aufgabe. Im einzelnen sollen sie folgendermaßen vorgehen:
+
+- **Ein Teilnehmer** der Gruppe erstellt einen **Fork** von `zirpins/vs1lab` und lädt die Teammitglieder als *Collaborators* in den Fork ein.
+- **Jeder Teilnehmer** der Gruppe:
+  - erstellt eine lokale Kopie des Fork mit `git clone` auf dem Arbeitsrechner, 
+  - legt einen **Branch** für eine Teilaufgabe oder Unteraufgabe an (z. B. `feat/a1-<kürzel>-<kurztitel>`),
+  - erstellt mindestens einen **Commit** mit aussagekräftiger Beschreibung und pusht ihn in den Fork,
+  - erstellt auf GitHub einen **Pull Request (PR)** vom eigenen Branch gegen den **Default-Branch** des Forks (*master*),
+  - führt auf GitHub nach kurzem Review (mind. ein Kommentar oder Approval im Team) einen **Merge** in den Default-Branch des Forks durch.
+
+**Abgabe (Teil 0):** Pro Person den Link zum PR im Fork (mit sichtbarem Kommentar/Approval) und den Merge-Status (geschlossen & gemerged) angeben.
 
 ## Teil A - Struktur einer Webanwendung mit HTML5 erstellen
 
@@ -39,21 +58,21 @@ In Teil A soll die Struktur der Oberfläche als HTML-Seite entstehen. Dafür gib
 
 ### A.1. Vorbereitung
 
-Erstellen sie zunächst einen neuen [Zweig](https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging) im Repository (Beispiel für Linux/Mac):
+Erstellen sie zunächst einen neuen [Branch](https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging) **in ihrem geklonten Fork** (Beispiel für Linux/Mac mit Teilnehmer ‚mima1234‘ und Beitrag ‚tagform‘):
 
 ```bash
 cd ~/git/vs1lab # wechsle in das git Verzeichnis
-git branch dev  # erzeuge Branch 'dev'
-git checkout dev  # wechsle in den neuen branch
+git branch feat/a1-mima1234-tagform  # erzeuge Branch; Name bitte anpassen
+git checkout feat/a1-mima1234-tagform  # wechsle in den neuen branch
 ```
 
 Nun können sie in ihrem Arbeitszweig unabhängig vom Hauptzweig arbeiten. Ein Template der Seite liegt im Ordner `Aufgabe1` des Repositories. Öffnen sie `Aufgabe1/gta_v1/public/index.html` in ihrem **Editor** und in Ihrem **Web Browser**. Z.B. so (Beispiel für Linux/Mac mit vscode und chrome):
 
 ```bash
-cd ~/git/vs1lab/Aufgabe1/gta_v1/public # wechsle in das Arbeitsverzeichnis
-code ./index.html # öffne vscode Editor mit Webseite
-chromium ./index.html # öffne Chromium Web Browser mit Webseite (Linux)
-open -a "Google Chrome" ./index.html # öffne Chrome Web Browser mit Webseite (Mac)
+cd ~/git/vs1lab/Aufgabe1/gta_v1/public # in das Arbeitsverzeichnis wechseln
+code ./index.html # vscode Editor mit Webseite öffnen
+chromium ./index.html # Chromium Web Browser mit Webseite öffnen (Linux)
+open -a "Google Chrome" ./index.html # Chrome Web Browser mit Webseite öffnen (Mac)
 ```
 
 Wenn sie in den folgenden Aufgaben einen guten Zwischenstand erreicht haben oder fertig sind, sollten sie dies im Repository als sogenannten *Commit* festhalten, der lokal auf ihrem Rechner verwaltet wird (Beispiel für Linux/Mac):
@@ -65,7 +84,18 @@ git commit -m 'first solution for web page' # führe commit durch mit Beispielko
 
 Commits sind feste Zwischenstände im Repository, zu denen sie immer wieder zurückkehren können. Geht in der Folge etwas schief, können sie alle Dateien leicht wieder zurücksetzen. Nach dem Commit können sie auch gefahrlos in einen anderen Zweig (z.B. 'master') wechseln.
 
-***Pro-Tipp:** Der Commit befindet sich in Ihrem 'dev'-Branch und ändert den 'master'-Branch nicht. Der 'master'-Branch sollte auch nicht verändert werden, damit Sie später ggf. Aktualisierungen aus dem ursprünglichen Repository nachträglich übernehmen können. Bitte schicken Sie auch niemals Commits an das ursprünglichen Repository zurück (git push), sondern arbeiten Sie immer lokal auf Ihrer eigenen Kopie. Falls Sie für die Gruppenarbeit ein geteiltes Repository benötigen, erstellen Sie zunächst eine Kopie davon auf GitHub (als 'Fork') und clonen sie dann den Fork. Dabei helfen wir Ihnen gerne.*
+Anschließend können sie den Branch mitsamt des Commit in den Fork auf Github hochladen. Um sich dafür zu authentifizieren sind verschiedene Wege möglich. Z. B. können sie auf der Konsole das [GitHub Command ine Interface (CLI)](https://cli.github.com/) `gh` mit einem Authentication Token verwenden 
+
+***Tipp:** Das GitHub CLI können sie über https://cli.github.com/ frei herunterladen und installieren. Ein GitHub *Personal Access Token* können sie hier generieren: https://github.com/settings/tokens). Spezifizieren Sie dabei ein Token mit Schreibrechten für den Fork.*
+
+(Beispiel für Linux/Mac):
+
+```bash
+gh auth login # github cli für login verwenden
+git push -u origin feat/a1-mima1234-tagform # branch auf den server hochladen, von dem der clone erfolgte
+```
+
+***Tipp:** Der Commit befindet sich in Ihrem 'a1-mima1234-tagform'-Branch und ändert den Default-Branch (master) nicht. Arbeiten sie für die Gruppenarbeit in **ihrem Fork** und erstellen sie **Pull Requests** auf GitHub von Feature-Branches gegen den Default-Branch **ihres Forks**. Bitte pushen sie **nicht** in das ursprüngliche Repository (Upstream). Aktualisierungen aus dem Original holen sie bei Bedarf über den konfigurierten `upstream`-Remote.*
 
 ### A.2. Teilaufgaben
 
@@ -162,6 +192,13 @@ Das Ergebnis könnte wie folgt aussehen:
 
 Zur Übersicht folgen noch mal alle Anforderungen in kompakter Form als Checkliste.
 
+### Teil 0: Teamentwicklung über GitHub
+- [ ] Ein Fork des Repositories ist angelegt und Gruppenmitglieder sind als Collaborators eingeladen
+- [ ] Jedes Mitglied der Gruppe hat einen eigenen Branch für eine (Unter-)Aufgabe erstellt
+- [ ] Für jeden Branch existiert ein Pull Request gegen den Default-Branch des Forks (master)
+- [ ] Mindestens ein Review-Kommentar oder ein Approval je PR ist vorhanden
+- [ ] Jeder PR ist gemerged
+
 ### Teil A: Formulare fertigstellen
 
 - [ ] `Input` Elemente im Tagging- und Discovery-Formular ergänzen
@@ -191,3 +228,5 @@ Zur Übersicht folgen noch mal alle Anforderungen in kompakter Form als Checklis
   - [ ] Spalten relativ zur Bildschirmbreite anpassen
   - [ ] Ab min. Bildschirmbreite Spalten untereinander klappen
     - [ ] Mit Media Query realisieren 
+
+
