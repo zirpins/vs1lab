@@ -36,7 +36,7 @@ Die Dateien der Aufgabe befinden sich nun im Ordner `~/git/vs1lab/Aufgabe1/`.
 
 ## Teil 0 - Teamentwicklung über GitHub (NEU)
 
-Zur Vorbereitung der Zusammenarbeit im Team (Laborgruppe) nutzen sie GitHub-Workflows (weitere Infos dazu folgen weiter unten in Teil A) - dies ist zugleich Teil der Aufgabe. Im einzelnen sollen sie folgendermaßen vorgehen:
+Zur Zusammenarbeit im Team (Laborgruppe) nutzen sie GitHub-Workflows (weitere Infos dazu folgen weiter unten in Teil A) - dies ist zugleich Teil der Aufgabe. Im einzelnen sollen sie folgendermaßen vorgehen:
 
 - **Ein Teilnehmer** der Gruppe erstellt einen **Fork** von `zirpins/vs1lab` und lädt die Teammitglieder als *Collaborators* in den Fork ein.
 - **Jeder Teilnehmer** der Gruppe:
