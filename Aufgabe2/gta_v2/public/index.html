@@ -5,6 +5,10 @@
 <html lang="en">
 
 <head>
+    <link rel='stylesheet' href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css'
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GeoTagApp</title>
@@ -33,19 +37,23 @@
                     <legend>Add a new GeoTag</legend>
                     <div>
                         <label for="input-latitude">Latitude:</label>
-                        <input type="text" id="inputLatitude" name="input-latitude" class="unselected-input" value="49.01379" readonly>
+                        <input type="text" id="inputLatitude" name="input-latitude" class="unselected-input"
+                            value="49.01379" readonly>
                     </div>
                     <div>
                         <label for="input-longitude">Longitude</label>
-                        <input id="inputLongitude" name="input-longitude" class="unselected-input" value="8.404435" readonly>
+                        <input id="inputLongitude" name="input-longitude" class="unselected-input" value="8.404435"
+                            readonly>
                     </div>
                     <div>
                         <label for="input-name">Name:</label>
-                        <input type="text" id="inputName" name="input-name" class="selected-input" placeholder="e.g. Central Berlin" maxlength="10" required>
+                        <input type="text" id="inputName" name="input-name" class="selected-input"
+                            placeholder="e.g. Central Berlin" maxlength="10" required>
                     </div>
                     <div>
                         <label for="input-hashtag">Hashtag:</label>
-                        <input type="text" id="inputHashtag" name="input-hashtag" class="selected-input" placeholder="e.g. #ber" pattern="#[A-Za-z]{1,10}" maxlength="11">
+                        <input type="text" id="inputHashtag" name="input-hashtag" class="selected-input"
+                            placeholder="e.g. #ber" pattern="#[A-Za-z]{1,10}" maxlength="11">
                     </div>
                     <div>
                         <button class="tagging-button">Add Tag</button>
@@ -69,12 +77,13 @@
                     <legend>Search</legend>
 
                     <div>
-                    <label for="input-search">Search term or keywords:</label>
+                        <label for="input-search">Search term or keywords:</label>
 
-                    <input type="text" id="inputSearch" name="input-search" class="selected-input" placeholder="e.g. Berlin">
+                        <input type="text" id="inputSearch" name="input-search" class="selected-input"
+                            placeholder="e.g. Berlin">
                     </div>
                     <div>
-                    <button class="search-button">Search</button>
+                        <button class="search-button">Search</button>
                     </div>
                 </fieldset>
 
@@ -101,6 +110,8 @@
     <footer class="footer">
         <span>(c) 2021/22 HKA_IWI_VSYS</span>
     </footer>
+
+    <script src="./javascripts/geotagging.js"></script>
 </body>
 
 </html>
