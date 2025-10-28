@@ -28,7 +28,49 @@
             <!-- ############### VS1Lab 1a Form 1 Start -->
             <form id="tag-form" action="/tagging" method="post">
 
-                <!-- ... your code here ... -->
+                <fieldset>
+                    <legend>Add new GeoTag</legend>
+
+                    <label for="latitude">Latitude:</label>
+                    <input 
+                        type="number" 
+                        id="latitude" 
+                        name="latitude" 
+                        value="49.01379" 
+                        readonly 
+                        required>
+
+                    <label for="longitude">Longitude:</label>
+                    <input 
+                        type="number" 
+                        id="longitude" 
+                        name="longitude" 
+                        value="8.40444" 
+                        readonly 
+                        required>
+
+                    <label for="name">Name:</label>
+                    <input 
+                        type="text" 
+                        id="name" 
+                        name="name" 
+                        placeholder="z. B. Schloss"
+                        maxlength="10"
+                        required
+                        pattern="[A-Za-zÄÖÜäöüß]{1,10}"
+                        title="Nur Buchstaben, max. 10 Zeichen">
+
+                    <label for="hashtag">Hashtag:</label>
+                    <input 
+                        type="text" 
+                        id="hashtag" 
+                        name="hashtag" 
+                        placeholder="#beispiel"
+                        pattern="^#[A-Za-zÄÖÜäöüß]{0,10}$"
+                        title="Muss mit # beginnen, max. 10 Buchstaben">
+
+                    <button type="submit">Add Tag</button>
+                </fieldset>
 
             </form>
             <!-- ############### VS1Lab 1a Form 1 End -->
@@ -41,7 +83,30 @@
             <!-- ############### VS1Lab 1a Form 2 Start -->
             <form class="discovery__search" id="discoveryFilterForm" action="/discovery" method="post">
 
-                <!-- ... your code here ... -->
+                <fieldset>
+                    <legend>Search GeoTags</legend>
+
+                    <label for="searchterm">Searchterm:</label>
+                    <input 
+                        type="text" 
+                        id="searchterm" 
+                        name="searchterm" 
+                        placeholder="Search for name or hashtag">
+
+                    <!-- versteckte Eingaben -->
+                    <input 
+                        type="hidden" 
+                        id="disc-latitude" 
+                        name="latitude" 
+                        value="49.01379">
+                    <input 
+                        type="hidden" 
+                        id="disc-longitude" 
+                        name="longitude" 
+                        value="8.40444">
+
+                    <button type="submit">Search</button>
+                </fieldset>
 
             </form>
             <!-- ############### VS1Lab 1a Form 2 End -->

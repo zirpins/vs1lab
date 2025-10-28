@@ -28,6 +28,11 @@ html {
   --background-color: #efefef;
   --border-color: #cdcdcd;
   --gray-color: #666;
+
+  --primary-color: #3f51b5;
+  --primary-light: #e8eaf6;
+  --primary-border: #c5cae9;
+  --white: #fff;
 }
 
 
@@ -38,6 +43,8 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  background-color: var(--background-color);
+  color: var(--gray-color);
 }
 
 a {
@@ -46,7 +53,13 @@ a {
 
 /* ### TODO ### Styles for other HTML elements */
 
-/* ... your code here ... */
+h1, h2, h3 {
+  color: var(--primary-color);
+}
+
+button {
+  cursor: pointer;
+}
 
 
 /* Grid styles (no changes required) */
@@ -109,29 +122,214 @@ a {
 
 /* ### TODO ### Styles for Header Component */
 
-/* ... your code here ... */
+.header {
+  background-color: var(--primary-color);
+  color: var(--white);
+  padding: 1em;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header__image {
+  width: 50px;
+  height: 50px;
+}
+
+.header__title {
+  font-size: 1.8em;
+  flex: 1;
+  text-align: center;
+}
+
+.header__navigation a {
+  color: var(--white);
+  text-decoration: none;
+  margin: 0 0.25em;
+}
+
+.header__navigation a:hover {
+  text-decoration: underline;
+}
 
 
 /* ### TODO ### Styles for Main Component */
 
-/* ... your code here ... */
+.main {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+  padding: 1em;
+  flex: 1;
+}
+
+.main__tagging {
+  background-color: var(--white);
+  border-radius: 8px;
+  padding: 1em;
+  flex: 1 1 33%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.main__discovery {
+  background-color: var(--white);
+  border-radius: 8px;
+  padding: 1em;
+  flex: 1 1 66%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
 
 
 /* ### TODO ### Styles for Tagging component */
 
-/* ... your code here ... */
+.tagging form fieldset {
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1em;
+} 
+
+.tagging form legend {
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.tagging form label {
+  display: block;
+  margin-top: 0.5em;
+}
+
+.tagging form input {
+  width: 100%;
+  padding: 0.6em;
+  margin-top: 0.25em;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 1em;
+}
+
+.tagging form button {
+  margin-top: 1em;
+  padding: 0.7em 1.2em;
+  background-color: var(--primary-color);
+  color: var(--white);
+  border: none;
+  border-radius: 5px;
+}
+
+.tagging form button:hover {
+  background-color: #283593;
+}
 
 
 /* ### TODO ### Styles for Discovery component */
 
-/* ... your code here ... */
+.discovery__search fieldset {
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1em;
+}
+
+.discovery__search legend {
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.discovery__search label {
+  display: block;
+  margin-top: 0.5em;
+}
+
+.discovery__search input {
+  width: 100%;
+  padding: 0.6em;
+  margin-top: 0.25em;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 1em;
+}
+
+.discovery__search button {
+  margin-top: 1em;
+  padding: 0.7em 1.2em;
+  background-color: var(--primary-color);
+  color: var(--white);
+  border: none;
+  border-radius: 5px;
+}
+
+.discovery__search button:hover {
+  background-color: #283593;
+}
+
+/* Wrapper: Ergebnisse & Karte nebeneinander */
+.discovery__wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+  margin-top: 1em;
+}
+
+/* Ergebnisliste */
+.discovery__taglist {
+  flex: 1 1 45%;
+}
+
+.discovery__results {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.discovery__results li {
+  background-color: var(--primary-light);
+  border: 1px solid var(--primary-border);
+  border-radius: 6px;
+  padding: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+/* Karte */
+.discovery__map {
+  flex: 1 1 50%;
+  background-color: #e0e0e0;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1em;
+}
+
+.discovery__map img {
+  max-width: 100%;
+  border-radius: 6px;
+}
 
 
 /* ### TODO ### Styles for Footer Component */
 
-/* ... your code here ... */
+.footer {
+  background-color: var(--primary-color);
+  color: var(--white);
+  text-align: center;
+  padding: 1em;
+  font-size: 0.9em;
+}
 
 
 /* ### TODO ### Media Queries */
 
-/* ... your code here ... */
+@media (max-width: 850px) {
+  .main {
+    flex-direction: column;
+  }
+
+  .main__tagging,
+  .main__discovery {
+    flex: 1 1 100%;
+  }
+
+  .discovery__wrapper {
+    flex-direction: column;
+  }
+}
