@@ -193,7 +193,7 @@ Das Ergebnis könnte wie folgt aussehen:
 Zur Übersicht folgen noch mal alle Anforderungen in kompakter Form als Checkliste.
 
 ### Teil 0: Teamentwicklung über GitHub
-- [x] Ein Fork des Repositories ist angelegt und Gruppenmitglieder sind als Collaborators eingeladen
+- [ ] Ein Fork des Repositories ist angelegt und Gruppenmitglieder sind als Collaborators eingeladen
 - [ ] Jedes Mitglied der Gruppe hat einen eigenen Branch für eine (Unter-)Aufgabe erstellt
 - [ ] Für jeden Branch existiert ein Pull Request gegen den Default-Branch des Forks (master)
 - [ ] Mindestens ein Review-Kommentar oder ein Approval je PR ist vorhanden
