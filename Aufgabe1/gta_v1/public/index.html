@@ -28,7 +28,17 @@
             <!-- ############### VS1Lab 1a Form 1 Start -->
             <form id="tag-form" action="/tagging" method="post">
 
-                <!-- ... your code here ... -->
+                <fieldset>
+                <legend>Add Tag:</legend>
+                <label for="tag_name">Set the name of your new tag</label>
+                <input type="text" pattern="^#[A-Za-zÄÜÖäüöß]{1,10}$" id="tag_name" name="tag_name" placeholder="Starry"> />tag_name
+                <label for="tag_description">Describe your new tag</label>
+                <input type="text" id="tag_description" name="tag_description" placeholder="Live music"> />tag_description
+                <input type="number" name="latitude" id="latitude"> />latitude
+                <input type="number" name="longitude" id="longitude"> />longitude
+                <!--<label for="submit_tag">Submit your new tag</label> -->
+                <input type="submit" id="submit" value="Submit Tag"> />submit_tag
+                </fieldset>
 
             </form>
             <!-- ############### VS1Lab 1a Form 1 End -->
@@ -41,7 +51,15 @@
             <!-- ############### VS1Lab 1a Form 2 Start -->
             <form class="discovery__search" id="discoveryFilterForm" action="/discovery" method="post">
 
-                <!-- ... your code here ... -->
+                <fieldset>
+                <legend>Discover Tag:</legend>
+                <label for="Search_tag">Search for an existing tag</label>
+                <input type="search" id="search" name="search" placeholder="Starry"> />Search_tag
+                <label for="range_slider">Map zoom</label>
+                <input type="range" min="1" max="100" value="50" class="slider" id="range"> />range_slider
+                <!-- <label for="submit_search">Search</label> -->
+                <input type="submit" value="Search" id="submit_search"> />submit_search
+                </fieldset>
 
             </form>
             <!-- ############### VS1Lab 1a Form 2 End -->
