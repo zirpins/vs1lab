@@ -30,12 +30,15 @@
 
                 <fieldset>
                 <legend>Add Tag:</legend>
-                <label for="tag_name">Set the name of your new tag</label>
-                <input type="text" pattern="^#[A-Za-zÄÜÖäüöß]{1,10}$" id="tag_name" name="tag_name" placeholder="e.g. Starry">
-                <label for="tag_hashtag">Describe your new tag</label>
-                <input type="text" id="tag_hashtag" name="tag_hashtag" placeholder="e.g. #LiveMusic">
-                <input type="number" name="latitude" id="latitude">
-                <input type="number" name="longitude" id="longitude">
+                <label for="tag_name">Set the name of your new tag:</label>
+                <input type="text" pattern="[A-Za-zÄÜÖäüöß]{1,10}$" id="tag_name" name="tag_name" placeholder="e.g. Starry" required>
+                <label for="tag_hashtag">Describe your new tag:</label>
+                <input type="text" pattern="[#][A-Za-zÄÜÖäüöß]{1,10}$" id="tag_hashtag" 
+                    name="tag_hashtag" placeholder="e.g. #LiveMusic">
+                <label for="latitude">Latitude:</label>
+                <input type="text" name="latitude" id="latitude" placeholder="49.01379" required readonly>
+                <label for="longitude">Longitude:</label>
+                <input type="text" name="longitude" id="longitude"  placeholder="8.390071" required readonly>
                 <!--<label for="submit_tag">Submit your new tag</label> -->
                 <input type="submit" id="submit" value="Submit Tag">
                 </fieldset>
@@ -53,12 +56,10 @@
 
                 <fieldset>
                 <legend>Discover Tag:</legend>
-                <label for="Search_tag">Search for an existing tag</label>
-                <input type="search" id="search" name="search" placeholder="Starry"> />Search_tag
-                <label for="range_slider">Map zoom</label>
-                <input type="range" min="1" max="100" value="50" class="slider" id="range"> />range_slider
+                <label for="Search_tag">Search for an existing tag:</label>
+                <input type="search" id="search" name="search" placeholder="Starry">
                 <!-- <label for="submit_search">Search</label> -->
-                <input type="submit" value="Search" id="submit_search"> />submit_search
+                <input type="submit" value="Search" id="submit_search">
                 </fieldset>
 
             </form>
