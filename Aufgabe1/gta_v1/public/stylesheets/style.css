@@ -46,7 +46,48 @@ a {
 
 /* ### TODO ### Styles for other HTML elements */
 
-/* ... your code here ... */
+.main {
+  display: flex;
+  width: 100vw;
+  padding: 1rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.tag-box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.discovery-box,
+.discovery__wrapper {
+  flex: 1;
+  width: 100%;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.discovery-box {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.discovery__wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.discovery__map {
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
 
 
 /* Grid styles (no changes required) */
@@ -119,12 +160,53 @@ a {
 
 /* ### TODO ### Styles for Tagging component */
 
-/* ... your code here ... */
+#tag_name,
+#tag_hashtag,
+#submit {
+  border: 2px solid #ccc;
+  font-size: 16px;
+}
+
+#latitude,
+#longitude {
+  border: 2px solid #ccc;
+  font-size: 16px;
+  background-color: #f0f0f0;
+}
+
+#tag-box {
+  border: 2px solid #ccc;
+  padding: 20px;
+}
 
 
 /* ### TODO ### Styles for Discovery component */
 
-/* ... your code here ... */
+#discovery-box {
+  border: 2px solid #ccc;
+  padding: 20px;
+}
+
+#search,
+#submit_search {
+  border: 2px solid #ccc;
+  font-size: 16px;
+}
+
+.discovery__results li {
+  padding: 8px;
+  margin: 5px 0px;
+  border: 2px solid #ccc;
+  background-color: #f0f0f0;
+  border-radius: 0;
+  font-size: 14px;
+  list-style: none;
+}
+
+.discovery__map span {
+  font-size: 14px;
+  font-weight: bold;
+}
 
 
 /* ### TODO ### Styles for Footer Component */

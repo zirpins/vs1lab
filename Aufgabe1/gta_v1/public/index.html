@@ -28,7 +28,7 @@
             <!-- ############### VS1Lab 1a Form 1 Start -->
             <form id="tag-form" action="/tagging" method="post">
 
-                <fieldset>
+                <fieldset id="tag-box" class="tag-box">
                 <legend>Add Tag:</legend>
                 <label for="tag_name">Set the name of your new tag:</label>
                 <input type="text" pattern="[A-Za-zÄÜÖäüöß]{1,10}$" id="tag_name" name="tag_name" placeholder="e.g. Starry" required>
@@ -54,10 +54,10 @@
             <!-- ############### VS1Lab 1a Form 2 Start -->
             <form class="discovery__search" id="discoveryFilterForm" action="/discovery" method="post">
 
-                <fieldset>
+                <fieldset id="discovery-box" class="discovery-box">
                 <legend>Discover Tag:</legend>
                 <label for="Search_tag">Search for an existing tag:</label>
-                <input type="search" id="search" name="search" placeholder="Starry">
+                <input type="search" id="search" name="search" placeholder="e.g. Starry">
                 <!-- <label for="submit_search">Search</label> -->
                 <input type="submit" value="Search" id="submit_search">
                 </fieldset>
