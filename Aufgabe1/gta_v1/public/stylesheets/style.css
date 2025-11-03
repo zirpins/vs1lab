@@ -183,7 +183,7 @@ input{
 
 @media (max-width:850px){ /*regeln gelten falls Ansicht<=850*/
   /*Tags die row Klasse angehören => column machen*/
-  .row{
+  .row{ 
   width: 100%;
   display: block;
   justify-content: space-between;
