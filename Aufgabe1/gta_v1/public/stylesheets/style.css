@@ -265,13 +265,9 @@ a {
 
 @media (max-width: 850px) {
   .header {
-    flex-direction: column;     /* Bild, Titel, Navigation untereinander */
-    align-items: flex-start;    /* linksbündig */
-    padding: 10px 20px;         /* kleineres Padding für Mobil */
-    height: auto;               /* Höhe passt sich Inhalt an */
-  }
-
-  .header__navigation {
-    margin-top: 10px;           /* Abstand nach unten vom Titel */
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 20px;
+    height: auto;
   }
 }
