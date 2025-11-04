@@ -151,6 +151,12 @@ a {
 
   list-style: none; /*keine Unterpunktzeichen*/
 
+   width: 180px;
+
+}
+
+.discovery{
+  min-width: 380px;
 }
 
 .discovery__map{
