@@ -330,7 +330,6 @@ button {
 
 /* ### TODO ### Media Queries */
 
-/* Breakpoint 1: ca. halbe Bildschirmbreite -> Discovery unter Tagging */
 @media (max-width: 1000px) {
   .main {
     flex-direction: column;

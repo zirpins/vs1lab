@@ -327,21 +327,24 @@ button {
 
 /* ### TODO ### Media Queries */
 
-@media (max-width: 850px) {
+@media (max-width: 1000px) {
   .main {
     flex-direction: column;
   }
-
   /* Make grid columns take full width when stacked */
   .main .col-4,
   .main .col-8 {
     width: calc(100% - 1rem);
   }
-
   .discovery__wrapper {
     flex-direction: column;
+    flex-wrap: nowrap; /* avoid wrapping in column mode */
   }
-
+  /* prevent flex-basis (45%/50%) from becoming height in column mode */
+  .discovery__wrapper .discovery__taglist,
+  .discovery__wrapper .discovery__map {
+    flex: none;
+  }
   .discovery__wrapper .col-6 {
     width: calc(100% - 1rem);
   }
