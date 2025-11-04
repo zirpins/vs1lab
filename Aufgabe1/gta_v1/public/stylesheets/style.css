@@ -157,117 +157,90 @@ a {
 
 /* ### TODO ### Styles for Header Component */
 
-.header {
+.header{
+  background-color: antiquewhite;
   display: flex;
-  background-color: #f0f0f0;
   align-items: center;
   justify-content: space-between;
-  padding: 50px;
-  height: 100px;
-  border-bottom: 1px solid #666;
 }
 
-.header img {
-  width: 50px;
-  height: auto;
-}
+.header__image{
+  width: 4rem;
+} 
 
 
 /* ### TODO ### Styles for Main Component */
-
-.main h2 {
-  margin-top: 30px;
-  margin-bottom: 10px;
-}
-
-.main label {
-  color: #666;
+.main{
+  flex:1; /*um verfügbaren Platz zwischen header und footer auszufüllen*/
+  margin: 2rem;
 }
 
 
 /* ### TODO ### Styles for Tagging component */
 
-#tag_name,
-#tag_hashtag,
-#submit {
-  border: 2px solid #ccc;
-  font-size: 15px;
-  padding: 10px;
-}
-
-.tag-box legend {
-  font-weight: bold;
-}
-
-.discovery-box legend {
-  font-weight: bold;
-}
-
-#latitude,
-#longitude {
-  border: 2px solid #ccc;
-  font-size: 15px;
-  background-color: #f0f0f0;
-  padding: 10px;
-}
-
-#tag-box {
-  border: 2px solid #ccc;
-  padding: 20px;
+#tag-form fieldset{
+  display: flex;
+  flex-direction: column;
 }
 
 
 /* ### TODO ### Styles for Discovery component */
 
-#discovery-box {
-  border: 2px solid #ccc;
-  padding: 20px;
-}
-
-#search,
-#submit_search {
-  border: 2px solid #ccc;
-  font-size: 15px;
-  padding: 10px;
-  width: 33%;
-}
-
 .discovery__results li {
-  padding: 10px;
-  margin-bottom: 10px;
-  border: 2px solid #ccc;
-  background-color: #f0f0f0;
-  border-radius: 0;
-  font-size: 15px;
-  color: red;
-  list-style: none;
+  color: #00B7FF;
+  background-color: lightgrey;
+
+  padding: 0.5rem;
+
+  margin-bottom: 1rem; /*Abstand nach unten*/
+
+  border-color: black;
+  border: 2px solid black;
+
+  list-style: none; /*keine Unterpunktzeichen*/
+
+   width: 180px;
+
 }
 
-.discovery__map span {
-  font-size: 15px;
-  font-weight: bold;
+.discovery{
+  min-width: 380px;
+}
+
+.discovery__map{
+  display: flex;
+  flex-direction: column;
 }
 
 
 /* ### TODO ### Styles for Footer Component */
 
-.footer {
-  background-color: #f0f0f0;
-  justify-content: space-between;
-  padding: 50px;
-  height: 100px;
-  border-top: 1px solid #666;
-  font-weight: bold;
+.footer{
+  background-color: grey;
+  text-align: center;
+  padding: 1rem;
 }
 
+/*Input Felder*/
+fieldset{
+  padding: 1rem;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin-bottom: 2rem;
+}
+
+input{
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+}
 
 /* ### TODO ### Media Queries */
 
-@media (max-width: 850px) {
-  .header {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 10px 20px;
-    height: auto;
+@media (max-width:850px){ /*regeln gelten falls Ansicht<=850*/
+  /*Tags die row Klasse angehören => column machen*/
+  .row{ 
+  width: 100%;
+  display: block;
+  justify-content: space-between;
+  flex: 1;
   }
 }
