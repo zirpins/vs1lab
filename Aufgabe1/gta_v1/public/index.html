@@ -3,7 +3,6 @@
 <!-- File origin: VS1LAB A1a -->
 
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,9 +26,19 @@
 
             <!-- ############### VS1Lab 1a Form 1 Start -->
             <form id="tag-form" action="/tagging" method="post">
-
+                <fieldset>
+                    <legend>tagging:</legend> <br>
+                <label for="latitude_input">latitude:</label> 
+                <input type="text" id="latitude_input" size="20" /><br><br>
+                <label for="longitude_input">longitude:</label> 
+                <input type="text" id="longitude_input" size="20" /><br><br>
+                <label for="name_input">name:</label> 
+                <input type="text" id="name_input" maxlength="10" size="20" required /><br><br>
+                <label for="hashtag_input">hashtag:</label> 
+                <input type="text" id="hashtag_input" maxlength="10" size="20" /><br><br>
+                <input type="submit" value="Add Tag"/>
                 <!-- ... your code here ... -->
-
+                </fieldset>
             </form>
             <!-- ############### VS1Lab 1a Form 1 End -->
 
@@ -40,9 +49,16 @@
 
             <!-- ############### VS1Lab 1a Form 2 Start -->
             <form class="discovery__search" id="discoveryFilterForm" action="/discovery" method="post">
-
+                <fieldset>
+                    <legend>discovery:</legend><br>
+                <label for="searchterm_input">searchterm:</label>
+                <input type="text" id="searchterm_input" size="20"/><br><br>
+                <input type="hidden" id="latitude_input"/>
+                <input type="hidden" id="longitude_input"/> 
+                <input type="submit" value="Search"/>
                 <!-- ... your code here ... -->
-
+                </fieldset>
+                
             </form>
             <!-- ############### VS1Lab 1a Form 2 End -->
 
