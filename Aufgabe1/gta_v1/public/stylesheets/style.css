@@ -46,7 +46,55 @@ a {
 
 /* ### TODO ### Styles for other HTML elements */
 
-/* ... your code here ... */
+.main {
+  display: flex;
+  width: 100vw;
+  padding: 1rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.tag-box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.discovery-box,
+.discovery__wrapper {
+  flex: 1;
+  width: 100%;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.discovery-box {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.discovery__wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.discovery__map {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.discovery__map img {
+  display: block;
+  max-width: 100%;
+  flex-shrink: 1;
+}
+
 
 
 /* Grid styles (no changes required) */
