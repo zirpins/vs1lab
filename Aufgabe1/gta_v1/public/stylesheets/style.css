@@ -120,11 +120,104 @@ a {
 /* ### TODO ### Styles for Tagging component */
 
 /* ... your code here ... */
+.tagging {
+  padding: 2rem;
+  background-color: white;
+}
+
+.tagging__form {
+  max-width: 50%;
+}
+
+.tagging__fieldset {
+  border: 2px solid;
+  border-radius: 3px;
+  padding: 1.5rem;
+  background-color: mintcream;
+}
+
+.tagging__legend {
+  font-weight: bold;
+  padding: 8px;
+}
+
+.tagging__label {
+  display: block;
+  margin-top: 10px;
+}
+
+.tagging__input {
+  width: 100%;
+  padding: 8px;
+  color: black;
+
+}
+
+.tagging__input:focus {
+  background-color: lavenderblush;
+}
+
+.tagging__button {
+  margin-top: 15px;
+  padding: 10px;
+  color: black;
+}
+
+.tagging__button:hover {
+  border-radius: 2px;
+  background-color: darkseagreen;
+}
 
 
 /* ### TODO ### Styles for Discovery component */
 
 /* ... your code here ... */
+.discovery {
+  padding: 2rem;
+  background-color: white;
+}
+
+.discovery__form {
+  max-width: 100%;
+}
+
+.discovery__fieldset { /* Box ums Formular drum */
+  border: 2px solid;
+  border-radius: 10px;
+  padding: 1.5rem;
+  background-color: mintcream;
+}
+
+.discovery__legend { /* Text, der im Rahmen des Formulars steckt */
+  font-weight: bold;
+  padding: 8px;
+}
+
+.discovery__label { /* Text über jedem Formularfeld */
+  display: block;
+  margin-top: 10px;
+}
+
+.discovery__input { /* Was in die Formularfelder reinkommt (ganzer Kasten) */
+  width: 100%;
+  padding: 8px;
+  color: black;
+}
+
+.discovery__input:focus { /* Klicken auf Formularfeld */
+  background-color: lavenderblush;
+}
+
+.discovery__button { /* Abschicken des Formulars */
+  margin-top: 15px;
+  padding: 10px;
+  color: black;
+}
+
+.discovery__button:hover { /* Hovern mit Maus über dem Button */
+  border-radius: 2px;
+  background-color: darkseagreen;
+}
 
 
 /* ### TODO ### Styles for Footer Component */
