@@ -47,6 +47,23 @@ a {
 /* ### TODO ### Styles for other HTML elements */
 
 /* ... your code here ... */
+body {
+  background: var(--background-color);
+  color: #111;
+}
+
+h1, h2 {
+  margin: 0.25rem 0 0.75rem;
+  font-weight: 700;
+}
+
+main, .main {
+  /* zentrische Breite + Abstand zum Rand */
+  width: min(1200px, 94vw);
+  margin: 1.25rem auto 2rem;
+}
+
+ul { list-style: none; }
 
 
 /* Grid styles (no changes required) */
@@ -110,28 +127,177 @@ a {
 /* ### TODO ### Styles for Header Component */
 
 /* ... your code here ... */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+
+  background: #f3f6fb;                 /* farbig abgesetzt */
+  border-bottom: 1px solid var(--border-color);
+  padding: 0.75rem 1rem;
+}
+
+.header__image {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}
+
+.header__title {
+  font-size: 2rem;
+  letter-spacing: .5px;
+}
+
+.header__navigation a {
+  margin-left: .5rem;
+  padding: .25rem .25rem;
+}
 
 
 /* ### TODO ### Styles for Main Component */
 
 /* ... your code here ... */
+.main {
+  display: flex;              /* verhält sich wie .row */
+  gap: 1rem;
+}
+
+.main__tagging {
+  width: calc(33.33% - 1rem); /* entspricht .col-4 */
+}
+
+.main__discovery {
+  width: calc(66.66% - 1rem); /* entspricht .col-8 */
+}
+
+/* Kachel-/Kartenlook für Widgets */
+.tagging,
+.discovery__search,
+.discovery__taglist,
+.discovery__map {
+  background: #fff;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 1rem;
+}
 
 
 /* ### TODO ### Styles for Tagging component */
 
 /* ... your code here ... */
+#tag-form {
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;                        /* Vertikalabstand */
+}
+
+/* Labels und Inputs */
+#tag-form label {
+  display: block;
+  color: var(--gray-color);
+  font-size: .95rem;
+  margin-bottom: .25rem;
+}
+
+/* Größere Boxen für Eingaben aller Formulare (Tagging + Discovery) */
+#tag-form input,
+#tag-form select,
+#tag-form textarea,
+.discovery__search input,
+.discovery__search select,
+.discovery__search textarea {
+  width: 100%;
+  padding: .7rem .8rem;               /* größere Boxen */
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-size: 1rem;                     /* größere Schrift */
+  background: #fafafa;
+}
+
+#tag-form button,
+.discovery__search button {
+  padding: .7rem .9rem;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  background: #eee;
+  font-weight: 600;
+  cursor: pointer;
+}
 
 
 /* ### TODO ### Styles for Discovery component */
 
 /* ... your code here ... */
+.discovery__search {
+  margin-bottom: 1rem;
+}
+
+/* Verschachteltes zweispaltiges Grid unter dem Filter:
+   links = Ergebnisliste, rechts = Karte */
+.discovery__wrapper {
+  display: flex;             /* wie .row */
+  gap: 1rem;
+}
+
+.discovery__taglist {
+  width: calc(41.66% - 1rem);  /* ~ .col-5 */
+}
+
+.discovery__map {
+  width: calc(58.33% - 1rem);  /* ~ .col-7 */
+}
+
+/* Ergebnisliste mit farbigen Boxen */
+.discovery__results li {
+  padding: .75rem .85rem;
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+  margin-bottom: .75rem;
+  background: #e9f5ff;                 /* Grundfarbe */
+}
+
+/* Farbabstufungen für Abwechslung */
+.discovery__results li:nth-child(3n+2) {
+  background: #eaf9f2;
+}
+.discovery__results li:nth-child(3n+3) {
+  background: #fff0e6;
+}
+
+/* Karte responsive innerhalb ihres Containers */
+.discovery__map img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 4px;
+}
 
 
 /* ### TODO ### Styles for Footer Component */
 
 /* ... your code here ... */
+.footer {
+  margin-top: auto;
+  background: #f3f6fb;                 /* farbig abgesetzt */
+  border-top: 1px solid var(--border-color);
+  padding: .9rem 1rem;
+  color: var(--gray-color);
+  text-align: right;
+}
 
 
 /* ### TODO ### Media Queries */
-
-/* ... your code here ... */
+@media (max-width: 850px) {
+    /* Für alle Spalten: */
+    .col-1, .col-2, .col-3, .col-4, .col-5, .col-6,
+    .col-7, .col-8, .col-9, .col-10, .col-11, .col-12 {
+        /* sollen gesamte Breite einnehmen (also können nie mehrere Elemente nebeinenander stehen): */
+        width: 100%;
+        /*
+         flex-grow=0, flex-shrink=o, flex-basis=100% => "erzwungener" zeilenumbruch
+        */
+        flex: 0 0 100%;
+    }
+   
+}
