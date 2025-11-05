@@ -33,7 +33,7 @@
                     <legend class="tagging__legend">Neuen Ort taggen</legend>
 
                     <label class="tagging__label" for="tagName">Name des Ortes:</label> <!-- class, type, id, name, placeholder -->
-                    <input class="tagging__input" type="text" id="tagName" name="tagName" placeholder="z.B. Café Nimmersatt" required>
+                    <input class="tagging__input" type="text" id="tagName" name="tagName" placeholder="z.B. Café Nimmersatt" maxlength="10" required>
 
                     <label class="tagging__label" for="tagDescription">Beschreibung:</label>
                     <input class="tagging__input" type="text" id="tagDescription" name="tagDescription" placeholder="Kurze Beschreibung" rows="3">
@@ -43,6 +43,9 @@
 
                     <label class="tagging__label" for="tagLongitude">Längengrad:</label>
                     <input class="tagging__input" type="number" id="tagLongitude" name="tagLongitude" value="8.3992385" readonly>
+
+                    <label class="tagging__label" for="tagHashtag">Hashtag:</label> 
+                    <input class="tagging__input" type="text" id="tagHashtag" name="tagHashtag" placeholder="#cafe" maxlength="10" required>
 
                     <button class="tagging__button" type="submit">Ort anpinnen</button>
 
