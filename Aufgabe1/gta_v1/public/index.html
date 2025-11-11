@@ -41,8 +41,8 @@
                     <input type="text" name="name" id="tagName" placeholder="Madrid, Spain" maxlength="10" required><br>
 
                     <label for="hashtag">hashtag:</label><br>
-                    <input type="text" name="hashtag" id="tagHashtag" placeholder="#e47cbi28" pattern="#[A-Za-z]+" maxlength="11"><br>
-                    <button>Absenden</button>
+                    <input type="text" name="hashtag" id="tagHashtag" placeholder="#e47cbi28" pattern="#{,1}[A-Za-z]{1,10}"><br>
+                    <input type="submit" value="Add tag">
                  </fieldset>
 
             </form>
@@ -62,12 +62,12 @@
                     <label for="searchterm">searchterm:</label><br>
                     <input type="hidden" name="searchterm" id="disSearch" placeholder="Berlin, Germany"><br>
 
-                    <label for="latitude" >latitude:</label><br>
+                    <label for="" >latitude:</label><br>
                     <input type="hidden"  name="latitude" id="disLat" placeholder="52" min="-90" max="90"><br>
 
-                    <label for="longitude">longitude:</label><br>
+                    <label for="">longitude:</label><br>
                     <input type="hidden" name="longitude" id="disLong" placeholder="13" min="-90" max="90"><br>
-                    <button>Absenden</button>
+                    <input type="submit" value="Search">
                 </fieldset>
 
             </form>
