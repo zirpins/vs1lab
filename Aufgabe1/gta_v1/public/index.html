@@ -32,19 +32,19 @@
                  <fieldset class="col-1">
                     <legend>Tagging: </legend>
                     
-                    <label for="latitude">latitude:</label><br>
-                    <input type="number" name="latitude" id="tagLang" placeholder="40" disabled><br>
+                    <label for="latitude">Latitude:</label><br>
+                    <input type="number" name="latitude" id="taggingLatitude" placeholder="40" disabled><br>
 
-                    <label for="longitude">longitude:</label><br>
-                    <input type="number" name="longitude" id="tagLong" placeholder="-3" disabled><br>
+                    <label for="longitude">Longitude:</label><br>
+                    <input type="number" name="longitude" id="taggingLongitude" placeholder="-3" disabled><br>
 
-                    <label for="name">name:</label><br>
-                    <input type="text" name="name" id="tagName" placeholder="Madrid, Spain" maxlength="10" required><br>
+                    <label for="name">Name:</label><br>
+                    <input type="text" name="name" id="taggingName" placeholder="Madrid, Spain" pattern="[A-Za-z]{1,10}" required><br>
 
-                    <label for="hashtag">hashtag:</label><br>
-                    <input type="text" name="hashtag" id="tagHashtag" placeholder="#e47cbi28" pattern="#{,1}[A-Za-z]{1,10}"><br>
+                    <label for="hashtag">Hashtag:</label><br>
+                    <input type="text" name="hashtag" id="taggingHashtag" placeholder="#Madrid" pattern="#[A-Za-z]{1,10}"><br>
                     
-                    <input type="submit" value="Add tag">
+                    <input type="submit" id="taggingSubmit" value="Add tag">
                  </fieldset>
 
             </form>
@@ -61,17 +61,15 @@
                 <!-- ... your code here ... -->
                  <fieldset class="col-2">
                     <legend>Searching for: </legend>
-                    
-                    <label for="searchterm">searchterm:</label><br>
-                    <input type="hidden" name="searchterm" id="disSearch" placeholder="Berlin, Germany"><br>
 
-                    <label for="latitude" >latitude:</label><br>
-                    <input type="hidden"  name="latitude" id="disLat"><br>
+                    <input type="hidden"  name="latitude" id="discoveryLatitude">
+                    <input type="hidden" name="longitude" id="discoveryLongitude">
 
-                    <label for="longitude">longitude:</label><br>
-                    <input type="hidden" name="longitude" id="disLong"><br>
                     
-                    <input type="submit" value="Search">
+                    <label for="searchterm">Searchterm:</label><br>
+                    <input name="searchterm" id="discoverySearch" placeholder="Berlin, Germany"><br>
+                    
+                    <input type="submit" id="discoverySubmit" value="Search">
                 </fieldset>
 
             </form>
