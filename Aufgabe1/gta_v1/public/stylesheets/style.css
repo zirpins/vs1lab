@@ -48,7 +48,6 @@ a {
 
 /* ... your code here ... */
 
-
 /* Grid styles (no changes required) */
 
 .row {
@@ -110,9 +109,15 @@ a {
 /* ### TODO ### Styles for Header Component */
 
 /* ... your code here ... */
-
+/*.header {
+  color: #2289b4;
+}
 
 /* ### TODO ### Styles for Main Component */
+
+/*input{
+  padding: 10px;
+}
 
 /* ... your code here ... */
 
@@ -130,6 +135,10 @@ a {
 /* ### TODO ### Styles for Footer Component */
 
 /* ... your code here ... */
+
+.footer{
+  background-color: green
+}
 
 
 /* ### TODO ### Media Queries */
