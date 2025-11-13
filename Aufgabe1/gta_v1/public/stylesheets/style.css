@@ -109,29 +109,205 @@ a {
 
 /* ### TODO ### Styles for Header Component */
 
-/* ... your code here ... */
+.header {
+  background-color: #eeeeee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* width: 100px; */
+  height: 130px;
+  padding-left: 40px;
+  padding-right: 40px;
+  border: 1px solid lightgrey;
+  /* gap: 100px; */
+  /* flex-basis: 20%; */
+}
+
+.header__image {
+  width: 50px;
+
+}
 
 
 /* ### TODO ### Styles for Main Component */
 
-/* ... your code here ... */
-
+.main {
+  background-color: white;
+  display: flex;
+  padding: 50px;
+}
 
 /* ### TODO ### Styles for Tagging component */
 
-/* ... your code here ... */
+.tagging {
+  background-color: white;
+  display: block;
+}
+
+#tag-form {
+  /* text-align: center; */
+  padding-right: 20px;
+}
+
+/* #tag-latitude #tag-longitudie #tag-name #tag-hastag {
+  width: 90%;
+} */
+
+#tag-fieldset {
+  margin-top: 10px;
+  padding: 6%;
+  display: grid;
+}
+
+#tag-fieldset label:not(legend) {
+  padding-bottom: 5px;
+}
+
+#tag-fieldset legend {
+  font-weight: bold;
+}
+
+#tag-fieldset #tag-longitude {
+  background-color: #eeeeee;
+  border: 1px solid lightgrey;
+}
+
+#tag-fieldset #tag-latitude {
+  background-color: #eeeeee;
+  border: 1px solid lightgrey;
+}
+
+#tag-fieldset #tag-submit {
+  font-weight: bold;
+  padding: 5px;
+}
+
+#tag-fieldset input:not(#tag-submit) {
+  padding: 5px;
+  margin-bottom: 15px;
+}
+
 
 
 /* ### TODO ### Styles for Discovery component */
 
-/* ... your code here ... */
+.discovery {
+  background-color: white;
+  display: block;
+  padding-left: 20px;
+}
+
+.discovery h2 {
+  /* funktioniert nicht !!! */
+  font-weight: bold;
+}
+
+.discovery__wrapper {
+  display: flex;
+}
+
+.discovery__search {
+  margin-bottom: 40px;
+}
+
+#discovery-fieldset {
+  margin-top: 10px;
+  padding: 2%;
+  display: grid;
+}
+
+#discovery-fieldset input {
+  padding: 5px;
+  width: 25%;
+}
+
+#discovery-fieldset input:not(:last-of-type) {
+  margin-bottom: 15px;
+}
+
+#discovery-fieldset input:last-of-type {
+  color: grey;
+}
+
+#discovery-fieldset label:not(legend) {
+  padding-bottom: 5px;
+}
+
+#discovery-fieldset legend {
+  font-weight: bold;
+}
+
+#discoveryResults {
+  text-align: center;
+  font-weight: bold;
+  color: rgb(58, 209, 255);
+  margin-right: 50px;
+}
+
+#discoveryResults li {
+  background-color: #eeeeee;
+  border: 1px solid grey;
+  /* text-align: left; */
+  padding: 10px;
+  list-style: none;
+  margin-bottom: 20px;
+}
+
+#map {
+  display: grid;
+}
+
 
 
 /* ### TODO ### Styles for Footer Component */
 
-/* ... your code here ... */
-
+.footer {
+  background-color: #eeeeee;
+  height: auto;
+  width: 100%;
+  position: relative;
+  bottom: 0;
+  padding: 30px;
+  border: 1px solid lightgrey;
+}
 
 /* ### TODO ### Media Queries */
 
-/* ... your code here ... */
+@media (max-width: 850px) {
+
+  .col-1,
+  .col-2,
+  .col-3,
+  .col-4,
+  .col-5,
+  .col-6,
+  .col-7,
+  .col-8,
+  .col-9,
+  .col-10,
+  .col-11,
+  .col-12 {
+    flex: 0 0 100%;
+    width: 100%;
+  }
+
+  .row {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .main,
+  .discovery__wrapper {
+    display: grid;
+  }
+
+  .discovery {
+    padding: 20px;
+    padding-left: 0px;
+  }
+
+  #discoveryResults {
+    padding: 0px;
+    width: 100%;
+  }
+}
