@@ -247,7 +247,7 @@ a {
 #discoveryResults li {
   background-color: #eeeeee;
   border: 1px solid grey;
-  text-align: left;
+  /* text-align: left; */
   padding: 10px;
   list-style: none;
   margin-bottom: 20px;
@@ -265,7 +265,7 @@ a {
   background-color: #eeeeee;
   height: auto;
   width: 100%;
-  position: fixed;
+  position: relative;
   bottom: 0;
   padding: 30px;
   border: 1px solid lightgrey;
