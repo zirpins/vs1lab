@@ -110,28 +110,211 @@ a {
 /* ### TODO ### Styles for Header Component */
 
 /* ... your code here ... */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #D3D3D3;
+  width: 100%;
+  height: 150px;
+  padding: 0 40px;
+}
+
+.header__image {
+  width: 50px;
+  height: auto;
+} 
+
+.header__title {
+  text-align: center;
+  flex: 1;
+}
+
+.header__navigation {
+  display: flex;
+  gap: 5px;
+}
 
 
 /* ### TODO ### Styles for Main Component */
 
 /* ... your code here ... */
+.main {
+  display: flex;
+  gap: 50px;
+}
+
+#tag-form {
+  flex: 3;
+}
+
+#discoveryFilterForm {
+  flex: 7;
+}
+
+.tagging__title {
+  margin-left: 30px;
+  margin-top: 35px;
+}
+
+.discovery__title {
+  margin-top: 35px;
+  margin-bottom: 10px;
+}
+
+fieldset legend {
+  margin-left: 15px;
+  margin-bottom: 10px;
+}
 
 
 /* ### TODO ### Styles for Tagging component */
 
 /* ... your code here ... */
+#tag-fieldset {
+  width: 250px;
+  height: 395px;
+  margin-left: 30px;
+  margin-top: 10px;
+}
 
+.tag-text {
+  margin-left: 15px;
+}
+
+.tag-input {
+  display: block;
+  width: 200px;
+  height: 40px;
+  margin-left: 15px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+}
+
+#tag-button {
+  width: 200px;
+  height: 40px;
+  margin-left: 15px;
+}
 
 /* ### TODO ### Styles for Discovery component */
 
 /* ... your code here ... */
+#discovery-fieldset {
+  width: 100%;
+  height: 165px;
+}
 
+#discovery-text {
+  margin-left: 15px;
+}
+
+.discovery-input {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  height: 40px;
+  margin-left: 15px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+}
+
+#discovery-button {
+  width: 200px;
+  height: 40px;
+  margin-left: 15px;
+}
+
+.discovery__results li {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid gray;
+  width: 250px;
+  color: #00AADE;
+  background-color: #D3D3D3;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.discovery__wrapper {
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+  gap: 315px;
+}
+
+.discovery__map span {
+  display: block;
+}
 
 /* ### TODO ### Styles for Footer Component */
 
 /* ... your code here ... */
-
+.footer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  height: 100px;
+  background-color: #D3D3D3;
+  padding-left: 30px;
+  position: relative;
+  margin-top: 50px; 
+}
 
 /* ### TODO ### Media Queries */
 
 /* ... your code here ... */
+@media (max-width: 1350px) {
+  .main {
+    flex-direction: column;
+  }
+
+  .discovery__wrapper {
+    flex-direction: column;
+  }
+
+  .tagging__title {
+    margin-left: 5%;
+    margin-bottom: 10px;
+  }
+
+  #tag-fieldset {
+    width: 90%;
+    margin:  0 auto;
+  }
+
+  .tag-input, #tag-button {
+    width: 95%;
+    box-sizing: border-box;
+  }
+
+  .discovery__title {
+    margin-top: 35px;
+    margin-bottom: 10px;
+    margin-left: 5%;
+  }
+
+  #discovery-fieldset {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .discovery-input, #discovery-button {
+    width: 95%;
+    box-sizing: border-box;
+  }
+
+  .discovery__results li {
+    margin-left: 5%;
+    text-align: center;
+    width: 90%;
+  }
+
+  .discovery__map {
+    margin-top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}

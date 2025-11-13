@@ -23,13 +23,23 @@
 
     <main class="main">
         <section class="main__tagging tagging">
-            <h2>Tagging</h2>
+            <h2 class="tagging__title">Tagging</h2>
 
             <!-- ############### VS1Lab 1a Form 1 Start -->
             <form id="tag-form" action="/tagging" method="post">
-
                 <!-- ... your code here ... -->
-
+                 <fieldset id="tag-fieldset">
+                    <legend>Add a new GeoTag</legend>
+                    <label for="Latitude" class="tag-text">Latitude:</label>
+                    <input type="text" id="Latitude" name="Latitude" class="tag-input" disabled/>
+                    <label for="Longitude" class="tag-text">Longitude:</label>
+                    <input type="text" id="Longitude" name="Longitude" class="tag-input" disabled/>
+                    <label for="Name" class="tag-text">Name:</label>
+                    <input type="text" id="name" name="Name" class="tag-input" placeholder="e.g. Central Karlsruhe" maxlength="10" required/>
+                    <label for="Hashtag" class="tag-text">Hashtag:</label>
+                    <input type="text" id="Hashtag" name="Hashtag" class="tag-input" pattern="#[A-Z,a-z]+" placeholder="e.g. #lostplace" maxlength="10" required/>
+                    <button type="submit" id="tag-button">Add Tag</button>
+                </fieldset>
             </form>
             <!-- ############### VS1Lab 1a Form 1 End -->
 
@@ -40,9 +50,15 @@
 
             <!-- ############### VS1Lab 1a Form 2 Start -->
             <form class="discovery__search" id="discoveryFilterForm" action="/discovery" method="post">
-
                 <!-- ... your code here ... -->
-
+                <fieldset id="discovery-fieldset">
+                    <legend>Search</legend>
+                    <label for="Search" id="discovery-text">Search term or keywords:</label>
+                    <input type="search" id="Search" name="Search" class="discovery-input" placeholder="e.g. Karlsruhe"/>
+                    <input type="text" id="Latitude" name="Latitude" hidden />
+                    <input type="text" id="Longitude" name="Longitude" hidden />
+                    <button type="submit" id="discovery-button">Search</button>
+                </fieldset>
             </form>
             <!-- ############### VS1Lab 1a Form 2 End -->
 
