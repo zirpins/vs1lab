@@ -30,13 +30,20 @@
                 <!-- ... your code here ... -->
                  <fieldset>
                     <legend>Add a new GeoTag</legend><br>
-                    Latitude:  <input type="number" id="lat" name="latitude" /><br>
-                    Longitude: <input type="number" id="long" name="longitude"><br>
-                    Name:      <input type="text"   id="tagname" name="name">  <br>
-                    
 
- 
+                    <label for="tagLat">Latitude: </label>
+                    <input type="number" id="tagLat" name="latitude" placeholder="00.00000"/> <br>
 
+                    <label for="tagLong">Longitude: </label>
+                    <input type="number" id="tagLong" name="longitude" placeholder="00.00000"/> <br>
+
+                    <label for="tagName">Name: </label>
+                    <input type="text" id="tagName" name="name" placeholder="e.g. Bester Döner"/> <br>
+
+                    <label for="tagHash">Hashtag: </label>
+                    <input type="text" id="tagHash" name="hashtag" placeholder="e.g. #Döner"/> <br>
+                
+                    <button type="submit">Add Tag</button><br>
             
                 </fieldset>
 
