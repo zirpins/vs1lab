@@ -49,7 +49,10 @@ a {
 /* ... your code here ... */
 
 
+
 /* Grid styles (no changes required) */
+
+
 
 .row {
   width: 100%;
@@ -110,28 +113,265 @@ a {
 /* ### TODO ### Styles for Header Component */
 
 /* ... your code here ... */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1em;
+  background-color: #efefef;
+  flex-wrap: wrap;
+}
+
+.header__image {
+  width: 70px;
+  height:70px;
+  margin-right: 1em;
+}
 
 
 /* ### TODO ### Styles for Main Component */
 
 /* ... your code here ... */
+.main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1.5em;
+  padding: 2em;
+}
+
+
 
 
 /* ### TODO ### Styles for Tagging component */
 
 /* ... your code here ... */
+.main__tagging {
+  flex: 1 1 30%;
+  
+  padding: 1.2em;
+  background-color: #fff;
+  display: flex;
+  flex-direction:column;
+  gap: 1em;
+
+  
+}
+.main__tagging form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8em;
+}
+
+.main__tagging legend{
+  color: black;        /* Textfarbe */
+  font-weight: bold;     /* Dicke */
+  font-size: 1.0em;
+}
+
+.main__tagging label {
+  color:gray;
+  font-weight: bold;
+
+}
+
+.main__tagging input {
+  padding: 0.7em;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1em;
+}
+
+.main__tagging button {
+  background: lightgrey;
+  color: black;
+  width: 250px;
+  padding: 0.8em;
+  font-size: 1em;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.main__tagging button:hover {
+  background-color: grey;
+}
+button:active {
+  border:1px dashed black;
+}
 
 
 /* ### TODO ### Styles for Discovery component */
 
 /* ... your code here ... */
+.main__discovery {
+  flex: 1 1 60%;
+  padding: 1.2em;
+  background-color: #fff;
+  display: flex;
+  flex-direction:column;
+  gap: 1em;
+}
 
+.main__discovery form{
+  display: flex;
+  flex-direction: column;
+  gap:0.8em;
+  
+}
+
+.discovery__field input {
+  padding: 0.7em;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  max-width: 250px;
+}
+
+.discovery__field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1em;
+}
+
+.discovery__field label {
+  margin-bottom: 0.4em;
+}
+
+.discovery__field button {
+  background: lightgrey;
+  color: black;
+  width: 250px;
+  padding: 0.8em;
+  font-size: 1em;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  max-width: 250px;
+
+}
+
+.discovery__field button:hover {
+  background-color: grey;
+  cursor: pointer;
+}
+
+.discovery__search legend {
+  color: black;        /* Textfarbe */
+  font-weight: bold;     /* Dicke */
+  font-size: 1.0em;      /* Schriftgröße */
+  
+}
+
+.discovery__search label{
+  color: grey;
+}
+
+.discovery__wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 5em;
+  height: 500px;
+}
+
+/* Ergebnisliste links */
+.discovery__taglist {
+  display: flex;
+  flex-direction:column;
+  gap: 2em;
+}
+
+.discovery__results {
+  list-style: none;
+  padding: 0;
+  margin:0;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  
+}
+.discovery__results li {
+  background-color: rgb(228, 226, 226);
+  font-weight: bold;
+  border:1px solid #ccc;
+  border-radius: 8px;
+  padding:1em;
+  color:mediumblue;
+  
+  
+}
+
+
+/* Karte rechts unten */
+.discovery__map {
+  flex: 2;
+  background-color: #fff;
+  
+  padding: 2em;
+  text-align: left;
+  border-radius: 4px;
+  align-self: flex-end;
+}
+.discovery__map img {
+  width: auto;
+  height: auto;
+  
+  object-fit: cover;
+  
+}
 
 /* ### TODO ### Styles for Footer Component */
 
 /* ... your code here ... */
 
+.footer {
+  background-color: #efefef;
+  text-align: center;
+  padding: 1em;
+  font-size: 0.9em;
+  color: #666;
+  border-top: 1px solid #ccc;
+  margin-top: auto; /* Footer bleibt am unteren Ende */
+}
+
+
 
 /* ### TODO ### Media Queries */
 
 /* ... your code here ... */
+@media (max-width: 850px) {
+  .main {
+    flex-direction: column;
+  }
+
+  .main__tagging,
+  .main__discovery {
+    width: 100%;
+    flex: 1 1 auto;
+  }
+
+  .discovery__wrapper {
+    flex-direction: column;
+  }
+
+  .discovery__map,
+  .discovery__taglist {
+    width: auto;
+  }
+
+  .discovery__map img {
+    width: auto;
+    height: auto;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+
