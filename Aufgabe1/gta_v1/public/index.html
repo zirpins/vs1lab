@@ -31,17 +31,17 @@
                  <fieldset>
                     <legend>Add a new GeoTag</legend><br>
 
-                    <label for="tagLat">Latitude: </label> <br>
-                    <input type="number" id="tagLat" name="latitude" placeholder="00.00000"/> <br>
+                    <label for="tagLat" >Latitude: </label> <br>
+                    <input type="text" id="tagLat" name="latitude" value="49.01379" readonly disabled/> <br>
 
                     <label for="tagLong">Longitude: </label> <br>
-                    <input type="number" id="tagLong" name="longitude" placeholder="00.00000"/> <br>
+                    <input type="text" id="tagLong" name="longitude" value="8.404435" readonly disabled/><br>
 
                     <label for="tagName">Name: </label> <br>
                     <input type="text" id="tagName" name="name" placeholder="e.g. Bester Döner" maxlength="10" required/> <br>
 
                     <label for="tagHash">Hashtag: </label> <br>
-                    <input type="text" id="tagHash" name="hashtag" placeholder="e.g. #Döner" pattern="#[A-Za-z]{10}"/> <br>
+                    <input type="text" id="tagHash" name="hashtag" placeholder="e.g. #Döner" pattern="^#[A-Za-z]{0,10}$"/> <br>
                 
                     <button type="submit">Add Tag</button><br>
             
