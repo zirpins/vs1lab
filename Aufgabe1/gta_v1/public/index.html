@@ -30,34 +30,21 @@
                 <!-- ... your code here ... -->
                  <fieldset>
                     <legend>Add a new GeoTag</legend><br>
-<<<<<<< HEAD
-                    Latitude:  <br>
-                    <input type="number" id="lat" name="latitude" /><br>
-                    Longitude: <br>
-                    <input type="number" id="long" name="longitude"><br>
-                    Name:  <br>    
-                    <input type="text" id="tagname" name="name" maxlength="10" required>  <br>
-                    Hashtag:  <br>    
-                    <input type="text" id="hshtag" name="hashtag" pattern="#[\\s\\S]{10}" >  <br>
-                    
 
-=======
-
-                    <label for="tagLat">Latitude: </label>
+                    <label for="tagLat">Latitude: </label> <br>
                     <input type="number" id="tagLat" name="latitude" placeholder="00.00000"/> <br>
 
-                    <label for="tagLong">Longitude: </label>
+                    <label for="tagLong">Longitude: </label> <br>
                     <input type="number" id="tagLong" name="longitude" placeholder="00.00000"/> <br>
 
-                    <label for="tagName">Name: </label>
-                    <input type="text" id="tagName" name="name" placeholder="e.g. Bester Döner"/> <br>
+                    <label for="tagName">Name: </label> <br>
+                    <input type="text" id="tagName" name="name" placeholder="e.g. Bester Döner" maxlength="10" required/> <br>
 
-                    <label for="tagHash">Hashtag: </label>
-                    <input type="text" id="tagHash" name="hashtag" placeholder="e.g. #Döner"/> <br>
+                    <label for="tagHash">Hashtag: </label> <br>
+                    <input type="text" id="tagHash" name="hashtag" placeholder="e.g. #Döner" pattern="#[A-Za-z]{10}"/> <br>
                 
                     <button type="submit">Add Tag</button><br>
             
->>>>>>> refs/remotes/origin/feat/a1-kita1011-tagform
                 </fieldset>
 
             </form>
