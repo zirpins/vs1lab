@@ -30,14 +30,16 @@
                 <!-- ... your code here ... -->
                  <fieldset>
                     <legend>Add a new GeoTag</legend><br>
-                    Latitude:  <input type="number" id="lat" name="latitude" /><br>
-                    Longitude: <input type="number" id="long" name="longitude"><br>
-                    Name:      <input type="text"   id="tagname" name="name">  <br>
+                    Latitude:  <br>
+                    <input type="number" id="lat" name="latitude" /><br>
+                    Longitude: <br>
+                    <input type="number" id="long" name="longitude"><br>
+                    Name:  <br>    
+                    <input type="text" id="tagname" name="name" maxlength="10" required>  <br>
+                    Hashtag:  <br>    
+                    <input type="text" id="hshtag" name="hashtag" pattern="#[\\s\\S]{10}" >  <br>
                     
 
- 
-
-            
                 </fieldset>
 
             </form>
