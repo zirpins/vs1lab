@@ -118,7 +118,7 @@ a {
   align-items: center;
   justify-content: space-between;
   padding: 1em;
-  background-color: #efefef;
+  background-color: lightblue;
   flex-wrap: wrap;
 }
 
@@ -138,6 +138,8 @@ a {
   justify-content: space-between;
   gap: 1.5em;
   padding: 2em;
+
+  flex: 1 0 auto; 
 }
 
 
@@ -273,9 +275,9 @@ button:active {
 .discovery__wrapper {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: stretch;
   gap: 5em;
-  height: 500px;
+  height: auto; 
 }
 
 /* Ergebnisliste links */
@@ -315,13 +317,21 @@ button:active {
   text-align: left;
   border-radius: 4px;
   align-self: flex-end;
+
+  display: flex;             
+  flex-direction: column;    
+  align-items: flex-start;    
 }
+
+.discovery__map span {
+  display: block;             
+  margin-top: 0.5em;
+}
+
 .discovery__map img {
   width: auto;
   height: auto;
-  
   object-fit: cover;
-  
 }
 
 /* ### TODO ### Styles for Footer Component */
@@ -329,7 +339,7 @@ button:active {
 /* ... your code here ... */
 
 .footer {
-  background-color: #efefef;
+  background-color: lightblue;
   text-align: center;
   padding: 1em;
   font-size: 0.9em;
