@@ -27,8 +27,25 @@
 
             <!-- ############### VS1Lab 1a Form 1 Start -->
             <form id="tag-form" action="/tagging" method="post">
-
                 <!-- ... your code here ... -->
+                 <fieldset>
+                    <legend>Add a new GeoTag</legend><br>
+
+                    <label for="tagLat" >Latitude: </label> <br>
+                    <input type="text" id="tagLat" name="latitude" value="49.01379" readonly/> <br>
+
+                    <label for="tagLong">Longitude: </label> <br>
+                    <input type="text" id="tagLong" name="longitude" value="8.404435" readonly/><br>
+
+                    <label for="tagName">Name: </label> <br>
+                    <input type="text" id="tagName" name="name" placeholder="e.g. Bester Döner" maxlength="10" required/> <br>
+
+                    <label for="tagHash">Hashtag: </label> <br>
+                    <input type="text" id="tagHash" name="hashtag" placeholder="e.g. #Döner" pattern="^#[A-Za-z]{0,10}$"/> <br>
+            
+                    <button type="submit">Add Tag</button><br>
+            
+                </fieldset>
 
             </form>
             <!-- ############### VS1Lab 1a Form 1 End -->
@@ -40,8 +57,15 @@
 
             <!-- ############### VS1Lab 1a Form 2 Start -->
             <form class="discovery__search" id="discoveryFilterForm" action="/discovery" method="post">
-
                 <!-- ... your code here ... -->
+                <fieldset>
+                    <legend>Search</legend>
+                    <label for="search">Search term or keywords: </label><br>
+                    <input type="search" id="searchterm" name="searchterm" placeholder="e.g. Karlsruhe" maxlength="10"> <br>
+                    <input type="hidden" id="tagLat" value="49.01379">
+                    <input type="hidden" id="tagLong" value="8.404435">
+                    <button type="submit">Search</button>
+                </fieldset>
 
             </form>
             <!-- ############### VS1Lab 1a Form 2 End -->
