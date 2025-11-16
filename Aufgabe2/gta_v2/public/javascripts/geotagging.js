@@ -118,7 +118,33 @@ class MapManager {
  */
 // ... your code here ...
 
+function updateLocation() {
+    
+    LocationHelper.findLocation((LocationHelper) => {
+        const { latitude, longitude } = LocationHelper;
+
+        const latInputs = document.querySelectorAll("input[name='latitude']");
+        const lngInputs = document.querySelectorAll("input[name='longitude']");
+
+        latInputs.forEach(input => input.value = latitude);
+        lngInputs.forEach(input => input.value = longitude);
+
+        const mapManager = new MapManager();
+
+        mapManager.initMap(latitude, longitude);
+
+        mapManager.updateMarkers(latitude, longitude);
+
+        const imageElement = document.querySelector("#mapView");
+        const labelElement = document.querySelector("#map span");
+
+        if (imageElement) imageElement.remove();
+        if (labelElement) labelElement.remove();
+    });
+}
+
 // Wait for the page to fully load its DOM content, then call updateLocation
 document.addEventListener("DOMContentLoaded", () => {
-    alert("Please change the script 'geotagging.js'");
+    updateLocation();
+    //alert("Please change the script 'geotagging.js'");
 });
