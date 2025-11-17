@@ -30,6 +30,27 @@
             <form id="tag-form" action="/tagging" method="post">
 
                 <!-- ... your code here ... -->
+                <fieldset class="tagging__fieldset">
+                    <legend class="tagging__legend">Neuen Ort taggen</legend>
+
+                    <label class="tagging__label" for="tagName">Name des Ortes:</label> <!-- class, type, id, name, placeholder -->
+                    <input class="tagging__input" type="text" id="tagName" name="tagName" placeholder="z.B. Café Nimmersatt" maxlength="10" required>
+
+                    <label class="tagging__label" for="tagDescription">Beschreibung:</label>
+                    <input class="tagging__input" type="text" id="tagDescription" name="tagDescription" placeholder="Kurze Beschreibung" rows="3">
+
+                    <label class="tagging__label" for="tagLatitude">Breitengrad:</label>
+                    <input class="tagging__input" type="number" id="tagLatitude" name="tagLatitude" value="49.008285" readonly>
+
+                    <label class="tagging__label" for="tagLongitude">Längengrad:</label>
+                    <input class="tagging__input" type="number" id="tagLongitude" name="tagLongitude" value="8.3992385" readonly>
+
+                    <label class="tagging__label" for="tagHashtag">Hashtag:</label> 
+                    <input class="tagging__input" type="text" id="tagHashtag" name="tagHashtag" placeholder="#cafe" pattern="#[a-zA-Z]{1,10}$" required> <!--muss mit # beginnen, danach 1-10 Buchstaben-->
+
+                    <button class="tagging__button" type="submit">Ort anpinnen</button>
+
+                </fieldset>
 
             </form>
             <!-- ############### VS1Lab 1a Form 1 End -->
@@ -43,6 +64,17 @@
             <form class="discovery__search" id="discoveryFilterForm" action="/discovery" method="post">
 
                 <!-- ... your code here ... -->
+                 <fieldset class="discovery__fieldset">
+                    <legend class="discovery__legend">Entdecke weitere Orte</legend>
+
+                    <label class="discovery__label" for="searchKeyword">Suchbegriff:</label>
+                    <input class="discovery__input" type="text" id="searchKeyword" name="searchKeyword" placeholder="z.B. Café, Park">
+
+                    <label class="discovery__label" for="searchRadius">Suchradius (km):</label>
+                    <input class="discovery__input" type="number" id="searchRadius" name="searchRadius" placeholder="z.B. 5" min="1">
+
+                    <button class="discovery__button" type="submit">Suchen</button>
+                 </fieldset>
 
             </form>
             <!-- ############### VS1Lab 1a Form 2 End -->
