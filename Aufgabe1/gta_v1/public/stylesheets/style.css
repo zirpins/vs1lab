@@ -345,7 +345,7 @@ button:active {
   font-size: 0.9em;
   color: #666;
   border-top: 1px solid #ccc;
-  margin-top: auto; /* Footer bleibt am unteren Ende */
+  margin-top: auto; /* Footer stays at the bottom */
 }
 
 
