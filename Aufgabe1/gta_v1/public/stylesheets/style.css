@@ -219,6 +219,8 @@ ul { list-style: none; } /* entfernt Punkte vor Listeneinträgen (ungeordnete Li
   background: #eee; /* Farbe */
   font-weight: 600; /* etwas fetter */
   cursor: pointer; /* Mauszeiger wird zur Hand beim Überfahren */
+}
+
 .tagging {
   padding: 2rem;
   background-color: white;
@@ -230,7 +232,7 @@ ul { list-style: none; } /* entfernt Punkte vor Listeneinträgen (ungeordnete Li
 
 .tagging__fieldset {
   border: 2px solid;
-  border-radius: 3px;
+  border-radius: 10px;
   padding: 1.5rem;
   background-color: mintcream;
 }
@@ -252,19 +254,10 @@ ul { list-style: none; } /* entfernt Punkte vor Listeneinträgen (ungeordnete Li
 
 }
 
-.tagging__input:focus {
-  background-color: lavenderblush;
-}
-
 .tagging__button {
   margin-top: 15px;
   padding: 10px;
   color: black;
-}
-
-.tagging__button:hover {
-  border-radius: 2px;
-  background-color: darkseagreen;
 }
 
 
@@ -308,6 +301,8 @@ ul { list-style: none; } /* entfernt Punkte vor Listeneinträgen (ungeordnete Li
   height: auto; /* Höhe passt sich automatisch an damit Seitenverhältnis nicht verzerrt wird */
   display: block; /* entfernt Zwischenräume */
   border-radius: 4px; /* abgerundete Ecken*/
+}
+
 .discovery {
   padding: 2rem;
   background-color: white;
@@ -340,19 +335,10 @@ ul { list-style: none; } /* entfernt Punkte vor Listeneinträgen (ungeordnete Li
   color: black;
 }
 
-.discovery__input:focus { /* Klicken auf Formularfeld */
-  background-color: lavenderblush;
-}
-
 .discovery__button { /* Abschicken des Formulars */
   margin-top: 15px;
   padding: 10px;
   color: black;
-}
-
-.discovery__button:hover { /* Hovern mit Maus über dem Button */
-  border-radius: 2px;
-  background-color: darkseagreen;
 }
 
 
