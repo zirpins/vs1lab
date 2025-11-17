@@ -8,8 +8,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GeoTagApp</title>
-    <link rel="stylesheet" href="./stylesheets/style.css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./stylesheets/style.css">
+    <link rel="icon" href="favicon.ico">
 </head>
 
 <body>
@@ -22,45 +22,115 @@
     </header>
 
     <main class="main">
-        <section class="main__tagging tagging">
-            <h2>Tagging</h2>
 
-            <!-- ############### VS1Lab 1a Form 1 Start -->
-            <form id="tag-form" action="/tagging" method="post">
+        <!-- OUTER GRID: Tagging | Discovery -->
+        <div class="row">
 
-                <!-- ... your code here ... -->
+            <!-- LEFT: TAGGING -->
+            <section class="main__tagging tagging col-4">
+                <h2>Tagging</h2>
 
-            </form>
-            <!-- ############### VS1Lab 1a Form 1 End -->
+                <!-- ############### VS1Lab 1a Form 1 Start -->
+                <form id="tag-form" action="/tagging" method="post">
+                    <fieldset>
+                        <legend>Add a new Tag:</legend>
 
-        </section>
+                        <div>
+                            <label for="latitude">Latitude:</label>
+                            <input type="text"
+                                   name="Latitude"
+                                   id="latitude"
+                                   value="49.01379"
+                                   readonly>
+                        </div>
 
-        <section class="main__discovery discovery">
-            <h2 class="discovery__title">Discovery</h2>
+                        <div>
+                            <label for="longitude">Longitude:</label>
+                            <input type="text"
+                                   name="Longitude"
+                                   id="longitude"
+                                   value="8.390071"
+                                   readonly>
+                        </div>
 
-            <!-- ############### VS1Lab 1a Form 2 Start -->
-            <form class="discovery__search" id="discoveryFilterForm" action="/discovery" method="post">
+                        <div>
+                            <label for="name">Name:</label>
+                            <input type="text"
+                                   name="Name"
+                                   id="name"
+                                   placeholder="e.g. Central Berlin"
+                                   maxlength="10"
+                                   pattern="^[A-Za-zÄÖÜäöüß]{1,10}$"
+                                   required>
+                        </div>
 
-                <!-- ... your code here ... -->
+                        <div>
+                            <label for="hashtag">Hashtag:</label>
+                            <input type="text"
+                                   name="Hashtag"
+                                   id="hashtag"
+                                   placeholder="e.g. #ber"
+                                   maxlength="11"
+                                   pattern="^#[A-Za-zÄÖÜäöüß]{1,10}$">
+                        </div>
 
-            </form>
-            <!-- ############### VS1Lab 1a Form 2 End -->
+                        <div>
+                            <button type="submit" id="tagbutton">Add Tag</button>
+                        </div>
+                    </fieldset>
+                </form>
+                <!-- ############### VS1Lab 1a Form 1 End -->
 
-            <div class="discovery__wrapper">
-                <div class="discovery__taglist">
-                    <ul class="discovery__results" id="discoveryResults">
-                        <li>Castle (49.01379, 8.404435) #sight</li>
-                        <li>IWI (49.01379, 8.390071) #edu</li>
-                    </ul>
+            </section>
+
+            <!-- RIGHT: DISCOVERY -->
+            <section class="main__discovery discovery col-8">
+                <h2 class="discovery__title">Discovery</h2>
+
+                <!-- ############### VS1Lab 1a Form 2 Start -->
+                <form class="discovery__search" id="discoveryFilterForm" action="/discovery" method="post">
+                    <fieldset>
+                        <legend>Search</legend>
+
+                        <div>
+                            <label for="searchterm">Search term or keywords:</label>
+                            <input type="text"
+                                   id="searchterm"
+                                   name="searchterm"
+                                   maxlength="10"
+                                   pattern="^[A-Za-zÄÖÜäöüß]{1,10}$"
+                                   placeholder="e.g. Berlin">
+                        </div>
+
+                        <input type="hidden" id="disc-latitude" name="latitude" value="49.01379">
+                        <input type="hidden" id="disc-longitude" name="longitude" value="8.390071">
+
+                        <button type="submit" id="searchbutton">Search</button>
+                    </fieldset>
+                </form>
+                <!-- ############### VS1Lab 1a Form 2 End -->
+
+
+                <!-- INNER GRID: Results | Map -->
+                <div class="discovery__wrapper row">
+
+                    <div class="discovery__taglist col-4">
+                        <ul class="discovery__results" id="discoveryResults">
+                            <li>Castle (49.01379, 8.404435) #sight</li>
+                            <li>IWI (49.01379, 8.390071) #edu</li>
+                        </ul>
+                    </div>
+
+                    <div id="map" class="discovery__map col-8">
+                        <img src="./images/mapview.jpg" alt="a map with locations" id="mapView">
+                        <span>Result map</span>
+                    </div>
+
                 </div>
 
-                <div id="map" class="discovery__map">
-                    <img src="./images/mapview.jpg" alt="a map with locations" id="mapView" />
-                    <span>Result map</span>
-                </div>
-            </div>
-        </section>
+            </section>
 
+        </div>
     </main>
 
     <footer class="footer">
