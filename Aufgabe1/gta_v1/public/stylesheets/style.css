@@ -111,15 +111,61 @@ a {
 
 /* ... your code here ... */
 
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  background: var(--background-color);         /* grau */
+  border-bottom: 1px solid var(--border-color);
+  padding: 2rem 4rem;
+
+}
+
+.header__image {
+  width: 50px;
+  height: auto;
+}
+
+.header__title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.header__navigation a {
+  margin-left: 0.75rem;
+  text-decoration: none;
+}
+
+.header__navigation a:hover {
+  text-decoration: underline;
+}
+
 
 /* ### TODO ### Styles for Main Component */
 
 /* ... your code here ... */
 
+.main {
+  display: flex;
+  flex: 1;
+  padding: 2rem; 
+  justify-content: space-around;
+   
+}
+
+
+
 
 /* ### TODO ### Styles for Tagging component */
 
 /* ... your code here ... */
+
+.main__tagging {
+  flex: 0 0 22%;    /* etwas schmaler als 1/3 */
+
+}
 
 
 /* ### TODO ### Styles for Discovery component */
@@ -127,11 +173,157 @@ a {
 /* ... your code here ... */
 
 
+.main__discovery {
+  flex: 0 0 70%;    /* etwas breiter */
+  
+}
+
+.discovery label {
+  display: block;
+  margin-top: 0.4rem;
+  margin-bottom: 0.2rem;
+}
+
+.discovery input[type="search"],
+.discovery button {
+  width: 28%;                 /* gleiche Breite wie Tagging */
+  font-size: 1rem;
+  padding: 0.6rem 0.8rem;
+  margin-bottom: 0.6rem;
+  border: 1px solid var(--border-color);
+  font-family: inherit;
+  display: block;             /* untereinander statt nebeneinander */
+}
+.discovery button {
+  background: #f4f4f4;
+  cursor: pointer;
+  text-align: center;
+}
+
+.discovery button:hover {
+  background: #e3e3e3;
+}
+
+.discovery__wrapper{
+  margin-top: 1.5rem;
+  
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.discovery__results {
+  list-style: none;
+}
+
+.discovery__results li {
+  background: #f4f4f4;
+  color: #00B7FF;          /* farbige Boxen */
+  border: 1px solid #c7d3eb;
+  padding: 0.5rem 0.75rem;
+  margin-bottom: 0.5rem;
+  width: 230px;
+  height: 60px;
+}
+
+.discovery__map img {
+  
+  width: 100%;      /* Bild füllt die ganze Spalte */
+  height: auto;
+  border: 1px solid var(--border-color);
+  
+}
+
+.discovery__map span {
+  margin-top: 0.5rem;
+  padding-left: 0.5rem;
+  color: var(--gray-color);
+  font-size: 0.9rem;
+}
+
+/* Styles included in both tagging and discovery */
+
+.tagging h2,
+.discovery h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.tagging fieldset,
+.discovery fieldset {
+  border: 1px solid var(--border-color);
+  padding: 1rem;
+}
+
+.tagging legend,
+.discovery legend {
+  font-weight: bold;
+  padding: 0 0.5rem;
+}
+
+.tagging label {
+  display: inline-block;
+  margin-top: 0.6rem;       /* Abstand oberhalb */
+  margin-bottom: 1rem;    /* Abstand zur Eingabe */
+}
+
+/* Formulareingaben größer + vertikal */
+.tagging input,
+.tagging button {
+  width: 95%;
+  font-size: 1rem;
+  padding: 0.6rem 0.8rem;
+  margin-bottom: 0.6rem;
+  border: 1px solid var(--border-color);
+  font-family: inherit;
+}
+
+.tagging button,
+.discovery button {
+  cursor: pointer;
+  background: #f4f4f4;
+}
+
+.tagging button:hover,
+.discovery button:hover {
+  background: #e3e3e3;
+
+}
+
 /* ### TODO ### Styles for Footer Component */
 
 /* ... your code here ... */
 
+.footer {
+  background: var(--background-color);         /* grau */
+  border-top: 1px solid var(--border-color);
+  padding: 2rem 4rem;
+  text-align: left;
+
+}
 
 /* ### TODO ### Media Queries */
 
 /* ... your code here ... */
+@media (max-width: 100%) {
+  .row {
+    flex-direction: row;
+  }
+
+  .col-1,
+  .col-2,
+  .col-3,
+  .col-4,
+  .col-5,
+  .col-6,
+  .col-7,
+  .col-8,
+  .col-9,
+  .col-10,
+  .col-11,
+  .col-12 {
+    width: 100%;
+  }
+
+}
+
