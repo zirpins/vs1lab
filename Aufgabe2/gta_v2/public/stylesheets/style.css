@@ -46,7 +46,9 @@ a {
 
 /* ### TODO ### Styles for other HTML elements */
 
-
+#map { 
+   height: 500px;
+ }
 
 .main {
   display: flex;
@@ -86,10 +88,13 @@ a {
 }
 
 .discovery__map {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
+  aspect-ratio: 1/1;
+  width: 100%;
+  max-width: 500px;
+  display: block;
+  box-sizing: border-box;
 }
+
 
 .discovery__map img {
   display: block;
@@ -271,5 +276,11 @@ a {
     align-items: flex-start;
     padding: 10px 20px;
     height: auto;
+  }
+
+  .discovery__map {
+    display: block;
+    width: 100%;
+    max-width: 90vw;
   }
 }

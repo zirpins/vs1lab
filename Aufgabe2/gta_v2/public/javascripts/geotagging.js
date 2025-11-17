@@ -118,7 +118,48 @@ class MapManager {
  */
 // ... your code here ...
 
+function updateLocation() {
+var callback=function(location){
+        console.log(location);
+
+    const latitudeField=document.getElementById("latitude");
+    const longitudeField=document.getElementById("longitude");
+    const searchlatitudeField=document.getElementById("searchlatitude");
+    const searchlongitudeField=document.getElementById("searchlongitude");
+
+    latitudeField.value=location.latitude;
+    longitudeField.value=location.longitude;
+    searchlatitudeField.value=location.latitude;
+    searchlongitudeField.value=location.longitude;
+
+    const mapElement=document.getElementById("map");
+    const imgElement=mapElement.querySelector("img");
+    const spanElement=mapElement.querySelector("span");
+    if (imgElement) imgElement.remove();
+    if (spanElement) spanElement.remove();
+
+    
+    //Erstellt Karte mit Zoom auf position
+    var a=new MapManager();
+    a.initMap(location.latitude,location.longitude)
+    
+    //setzt Tag auf Karte
+    var tags=[{
+        latitude:location.latitude,
+        longitude:location.longitude
+    }];
+    a.updateMarkers(location.latitude,location.longitude,tags);
+
+    }
+
+    
+
+    //übergiebt callBack funktion => bei erfolgreicher Positionsermittlung ausgeführt
+    LocationHelper.findLocation(callback);
+}
+
 // Wait for the page to fully load its DOM content, then call updateLocation
 document.addEventListener("DOMContentLoaded", () => {
-    alert("Please change the script 'geotagging.js'");
+    updateLocation();
+    //alert("Please change the script 'geotagging.js'");
 });
