@@ -162,11 +162,11 @@ ul { list-style: none; } /* entfernt Punkte vor Listeneinträgen (ungeordnete Li
 }
 
 .main__tagging {
-  width: calc(33.33% - 1rem); /* Breite von ca. 1/3 (zieht Zwischenabstand ab) */
+ /* width: calc(33.33% - 1rem); /* Breite von ca. 1/3 (zieht Zwischenabstand ab) */
 }
 
 .main__discovery {
-  width: calc(66.66% - 1rem); /* Breite von ca. 2/3 (zieht Zwischenabstand ab) */
+ /* width: calc(66.66% - 1rem); /* Breite von ca. 2/3 (zieht Zwischenabstand ab) */
 }
 
 .tagging,
@@ -235,11 +235,11 @@ ul { list-style: none; } /* entfernt Punkte vor Listeneinträgen (ungeordnete Li
 }
 
 .discovery__taglist {
-  width: calc(41.66% - 1rem);  /* Breite */
+ /* width: calc(41.66% - 1rem);  /* Breite */
 }
 
 .discovery__map {
-  width: calc(58.33% - 1rem);  /* Breite */
+ /*  width: calc(58.33% - 1rem);  /* Breite */
 }
 
 .discovery__results li {
@@ -282,7 +282,7 @@ ul { list-style: none; } /* entfernt Punkte vor Listeneinträgen (ungeordnete Li
 @media (max-width: 850px) {
     /* Für alle Spalten: */
     .col-1, .col-2, .col-3, .col-4, .col-5, .col-6,
-    .col-7, .col-8, .col-9, .col-10, .col-11, .col-12 {
+    .col-7, .col-8, .col-9, .col-10, .col-11, .col-12, {
         /* sollen gesamte Breite einnehmen (also können nie mehrere Elemente nebeinenander stehen): */
         width: 100%;
         /*
@@ -290,5 +290,10 @@ ul { list-style: none; } /* entfernt Punkte vor Listeneinträgen (ungeordnete Li
         */
         flex: 0 0 100%;
     }
-   
+   .row {
+        flex-direction: column; /*Vertikale anzeige statt nebeneinander*/
+    }
+    .footer {
+        margin-top: 1rem; /* Setzt einen festen Abstand, sodass der Footer nicht über Inhalt schwebt */
+    }
 }
