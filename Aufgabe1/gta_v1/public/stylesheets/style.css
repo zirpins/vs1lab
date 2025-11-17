@@ -149,9 +149,7 @@ a {
 
 .main {
   display: flex;
-
   flex: 1;
-  max-width: 1700px;
   padding: 2rem; 
   justify-content: space-around;
    
@@ -177,6 +175,7 @@ a {
 
 .main__discovery {
   flex: 0 0 70%;    /* etwas breiter */
+  
 }
 
 .discovery label {
@@ -207,6 +206,7 @@ a {
 
 .discovery__wrapper{
   margin-top: 1.5rem;
+  
   display: flex;
   justify-content: space-between;
   flex-direction: row;
@@ -223,19 +223,15 @@ a {
   padding: 0.5rem 0.75rem;
   margin-bottom: 0.5rem;
   width: 230px;
-  height: 50px;
-  flex-grow: 0;
-  flex-shrink: 0;
+  height: 60px;
 }
 
 .discovery__map img {
-  max-width: 100%;
+  
   width: 100%;      /* Bild füllt die ganze Spalte */
   height: auto;
   border: 1px solid var(--border-color);
-  flex-grow: 1;
-  flex-shrink: 1;
-  flex-wrap: nowrap;
+  
 }
 
 .discovery__map span {
@@ -309,7 +305,7 @@ a {
 /* ### TODO ### Media Queries */
 
 /* ... your code here ... */
-@media (max-width: 1785px) {
+@media (max-width: 100%) {
   .row {
     flex-direction: row;
   }
