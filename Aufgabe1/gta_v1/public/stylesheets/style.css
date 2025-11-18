@@ -207,14 +207,12 @@ h2 {
 #map {
   display: flex;
   flex-direction: column;
-  flex: 1;
-
-  background-color: #00B7FF;
 
 }
 
 #map img {
   flex: 1;
+  width: 100%;
 }
 
 /* ### TODO ### Styles for Footer Component */
