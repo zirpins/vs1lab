@@ -38,9 +38,9 @@
                     <input type="text" id="tagLong" name="longitude" value="8.404435" readonly/><br>
 
                     <label for="tagName">Name: </label> <br>
-                    <input type="text" id="tagName" name="name" placeholder="e.g. Bester Döner" maxlength="10" required/> <br>
+                    <input type="text" id="tagName" name="name" placeholder="e.g. Bester Döner" maxlength="10" required pattern="^[A-Za-z]{0,10}$"/> <br>
 
-                    <label for="tagHash">Hashtag: </label> <br>
+                    <label for="atagHash">Hashtag: </label> <br>
                     <input type="text" id="tagHash" name="hashtag" placeholder="e.g. #Döner" pattern="^#[A-Za-z]{0,10}$"/> <br>
             
                     <button type="submit">Add Tag</button><br>
@@ -70,7 +70,7 @@
             </form>
             <!-- ############### VS1Lab 1a Form 2 End -->
 
-            <div class="discovery__wrapper col 4">
+            <div class="discovery__wrapper">
                 <div class="discovery__taglist">
                     <ul class="discovery__results" id="discoveryResults">
                         <li>Castle (49.01379, 8.404435) #sight</li>
