@@ -147,12 +147,10 @@ a {
 
 /* ... your code here ... */
 
-.main {
-  display: flex;
-  flex: 1;
+.main{
   padding: 2rem; 
-  justify-content: space-around;
-   
+  justify-content: space-between;
+  
 }
 
 
@@ -162,21 +160,6 @@ a {
 
 /* ... your code here ... */
 
-.main__tagging {
-  flex: 0 0 22%;    /* etwas schmaler als 1/3 */
-
-}
-
-
-/* ### TODO ### Styles for Discovery component */
-
-/* ... your code here ... */
-
-
-.main__discovery {
-  flex: 0 0 70%;    /* etwas breiter */
-  
-}
 
 .discovery label {
   display: block;
@@ -305,25 +288,26 @@ a {
 /* ### TODO ### Media Queries */
 
 /* ... your code here ... */
-@media (max-width: 100%) {
+@media (max-width: 800px) {
   .row {
-    flex-direction: row;
+    flex-direction: column;
+  
   }
-
-  .col-1,
-  .col-2,
-  .col-3,
-  .col-4,
-  .col-5,
-  .col-6,
-  .col-7,
-  .col-8,
-  .col-9,
-  .col-10,
-  .col-11,
-  .col-12 {
+.main__discovery,
+.main__tagging,
+.discovery__map,
+.discovery__taglist
+{
     width: 100%;
-  }
+
+}
+
+.main__discovery,
+.discovery__map {
+  margin-top: 2rem;
+
+}
+
 
 }
 
