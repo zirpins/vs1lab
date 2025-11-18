@@ -29,8 +29,8 @@
         <form id="tag-form" action="/tagging" method="post">
             <!-- ... your code here ... -->
             <fieldset>
-                <legend>Add a new config tag</legend>
-                <div>
+                <legend>Add a new GeoTag</legend>
+                <div class="form-field">
                     <label for="latitude">
                         Latitude
                     </label>
@@ -39,16 +39,16 @@
                            id="latitude"
                            name="latitude"/>
                 </div>
-                <div>
+                <div class="form-field">
                     <label for="longitude">
                         Longitude
                     </label>
-                    <input type="number"
+                    <input type="text"
                            disabled
                            id="longitude"
                            name="longitude"/>
                 </div>
-                <div>
+                <div class="form-field">
                     <label for="name">
                         Name
                     </label>
@@ -60,7 +60,7 @@
                            required/>
 
                 </div>
-                <div>
+                <div class="form-field">
                     <label for="hashtag">
                         Hashtag
                     </label>
@@ -70,8 +70,10 @@
                            pattern="^#\w+"
                            placeholder="e.g. #ber"/>
                 </div>
-                <div>
-                    <input type="submit" value="Add Tag"/>
+                <div class="form-field">
+                    <input type="submit"
+                           class="form-submit"
+                           value="Add Tag"/>
                 </div>
             </fieldset>
 
@@ -87,7 +89,25 @@
         <!-- ############### VS1Lab 1a Form 2 Start -->
         <form class="discovery__search" id="discoveryFilterForm" action="/discovery" method="post">
 
-            <!-- ... your code here ... -->
+            <fieldset>
+                <legend>Search</legend>
+                <div class="form-field">
+                    <label for="search">
+                        Search term or keywords:
+                    </label>
+                    <input type="text"
+                           placeholder="e.g. Berlin"
+                           id="search"
+                           name="search"
+                           required/>
+                </div>
+                <div class="form-field">
+                    <input type="submit"
+                           class="form-submit"
+                           value="Search Tag"/>
+                </div>
+            </fieldset>
+
 
         </form>
         <!-- ############### VS1Lab 1a Form 2 End -->

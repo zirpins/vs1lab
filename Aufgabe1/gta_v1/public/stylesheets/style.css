@@ -9,129 +9,241 @@
 /* Global styling */
 
 html {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 * {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
 
-  /* This approach prevents issues with 3rd party content-box components */
-  box-sizing: inherit;
+    /* This approach prevents issues with 3rd party content-box components */
+    box-sizing: inherit;
 }
 
 
 /* Variables (example: see declaration for "a" below) */
 
 :root {
-  --link-color: #00B7FF;
-  --background-color: #efefef;
-  --border-color: #cdcdcd;
-  --gray-color: #666;
+    --link-color: #00B7FF;
+    --background-color: #efefef;
+    --border-color: #cdcdcd;
+    --gray-color: #666;
 }
 
 
 /* HTML element styles */
 
 body {
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 a {
-  color: var(--link-color);
+    color: var(--link-color);
 }
 
 /* ### TODO ### Styles for other HTML elements */
 
-/* ... your code here ... */
+input {
+    height: 3em;
+    padding: 0.5em;
+    border: 2px solid var(--border-color);
+    border-radius: 5px;
+}
 
+input:disabled {
+    background: var(--background-color);
+}
 
 /* Grid styles (no changes required) */
 
 .row {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  flex: 1;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex: 1;
 }
 
 .col-1 {
-  width: calc(8.33% - 1rem);
+    width: calc(8.33% - 1rem);
 }
 
 .col-2 {
-  width: calc(16.66% - 1rem);
+    width: calc(16.66% - 1rem);
 }
 
 .col-3 {
-  width: calc(25% - 1rem);
+    width: calc(25% - 1rem);
 }
 
 .col-4 {
-  width: calc(33.33% - 1rem);
+    width: calc(33.33% - 1rem);
 }
 
 .col-5 {
-  width: calc(41.66% - 1rem);
+    width: calc(41.66% - 1rem);
 }
 
 .col-6 {
-  width: calc(50% - 1rem);
+    width: calc(50% - 1rem);
 }
 
 .col-7 {
-  width: calc(58.33% - 1rem);
+    width: calc(58.33% - 1rem);
 }
 
 .col-8 {
-  width: calc(66.66% - 1rem);
+    width: calc(66.66% - 1rem);
 }
 
 .col-9 {
-  width: calc(75% - 1rem);
+    width: calc(75% - 1rem);
 }
 
 .col-10 {
-  width: calc(83.33% - 1rem);
+    width: calc(83.33% - 1rem);
 }
 
 .col-11 {
-  width: calc(91.66% - 1rem);
+    width: calc(91.66% - 1rem);
 }
 
 .col-12 {
-  width: calc(100% - 1rem);
+    width: calc(100% - 1rem);
 }
 
 
 /* ### TODO ### Styles for Header Component */
 
-/* ... your code here ... */
+.header {
+    top: 0;
+    width: 100%;
+    height: 10em;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1em;
+
+    padding: 0 2em;
+    background: var(--background-color);
+}
+
+
+.header__image {
+    height: 5em;
+}
+
+.header__title {
+    flex: 1;
+    text-align: center;
+}
 
 
 /* ### TODO ### Styles for Main Component */
 
-/* ... your code here ... */
+
+.main {
+    flex: 1;
+
+    display: grid;
+    grid-template-columns: 4fr 8fr;
+    grid-template-areas: 'main__tagging main__discovery';
+
+    overflow: scroll;
+}
 
 
 /* ### TODO ### Styles for Tagging component */
 
-/* ... your code here ... */
+.main__tagging,
+.main__discovery {
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    align-items: stretch;
+}
 
+#tag-form > fieldset,
+#discoveryFilterForm > fieldset {
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    align-items: stretch;
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+}
 
 /* ### TODO ### Styles for Discovery component */
 
-/* ... your code here ... */
+.main__discovery {
+    padding: 2em;
+}
 
+.discovery__wrapper {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-areas: 'discovery__results discovery__map';
+    gap: 2em;
+}
+
+#discoveryResults {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+
+    list-style-type: none;
+}
+
+#discoveryResults > li {
+    border: 2px solid var(--border-color);
+    background: var(--background-color);
+    color: var(--link-color);
+    height: 3em;
+    padding-left: 1em;
+    align-content: center;
+}
+
+.discovery__map {
+    display: flex;
+    flex-direction: column;
+    justify-self: start;
+}
+#mapView {
+    width: 100%;
+    /* max-height: 100%; */
+    aspect-ratio: 1/1;
+}
 
 /* ### TODO ### Styles for Footer Component */
 
-/* ... your code here ... */
-
+.footer {
+    width: 100%;
+    height: 10em;
+    bottom: 0;
+    background: var(--background-color);
+    padding-left: 2em;
+    align-content: center;
+}
 
 /* ### TODO ### Media Queries */
+
+@media (orientation: portrait) {
+    .main {
+        display: flex;
+        flex-direction: column;
+    }
+    .discovery__wrapper {
+        display: flex;
+        flex-direction: column;
+    }
+}
 
 /* ... your code here ... */
