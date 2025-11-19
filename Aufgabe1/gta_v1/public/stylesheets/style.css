@@ -188,7 +188,7 @@ a {
   color: var(--gray-color);
 }
 
-.main .tagging form fieldset #tag-form_submit_button{
+.main .tagging form fieldset #tag-form-submit{
   width: 100%;
   margin: 0;
   font-weight: bold;
@@ -225,12 +225,12 @@ a {
   font-weight: bold;
 }
 
-.main .discovery form fieldset #discovery-search_input{
+.main .discovery form fieldset #discovery-search-input{
   margin: 15px 0;
 }
 
 
-.main .discovery form fieldset #discovery-search_submit_button{
+.main .discovery form fieldset #discovery-search-submit{
   font-weight: bold;
   border: solid 1px var(--border-color);
 }
