@@ -118,7 +118,27 @@ class MapManager {
  */
 // ... your code here ...
 
+function updateLocation(){
+
+    //Position auslesen & Callback definieren
+    LocationHelper.findLocation(function(locationHelper) {
+
+        //aktuelle Koordinaten auslesen:
+        const latitude = LocationHelper.latitude();
+        const longitude = LocationHelper.longitude();
+
+        //DOM-Manipulation
+        document.getElementById('tagLatitude').value = latitude;
+        document.getElementById('tagLongitude').value = longitude;
+
+        //versteckte Felder im Discovery-Formular:
+        document.getElementById('discLatitude').value = latitude;
+        document.getElementById('discLongitude').value = longitude;
+    });
+}
+
 // Wait for the page to fully load its DOM content, then call updateLocation
 document.addEventListener("DOMContentLoaded", () => {
-    alert("Please change the script 'geotagging.js'");
+   // alert("Please change the script 'geotagging.js'");
+   updateLocation();
 });
