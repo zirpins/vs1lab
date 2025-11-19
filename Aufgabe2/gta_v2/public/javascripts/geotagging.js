@@ -117,22 +117,6 @@ class MapManager {
  * It is called once the page has been fully loaded.
  */
 // ... your code here ...
-function updateLocation(){
-    LocationHelper.findLocation(function(locationHelper){
-        const lat = locationHelper.latitude;
-        const lon = locationHelper.longitude;
-
-        // Tagging Formular
-        document.getElementById("tagLatitude").value = lat;
-        document.getElementById("tagLongitude").value = lon;
-
-        // Discovery Formular
-        document.getElementById("discLatitude").value = lat;
-        document.getElementById("discLongitude").value = lon;
-
-    }
-    )
-}
 
 // Wait for the page to fully load its DOM content, then call updateLocation
 
