@@ -35,37 +35,37 @@
                   action="/tagging"
                   method="post">
 
-                <fieldset id="tag-form_fieldset">
-                    <legend id="tag-form_legend">Add a new GeoTag</legend>
+                <fieldset id="tag-form-fieldset">
+                    <legend id="tag-form-legend">Add a new GeoTag</legend>
 
-                    <label id="latitude_label">Latitude</label>
+                    <label id="tag-latitude-label" for="tag-latitude-input">Latitude</label>
                     <input type="text"
-                           id="latitude_input"
+                           id="tag-latitude-input"
                            value="49.01379"
                            readonly>
 
-                    <label id="longitude_label">Longitude</label>
+                    <label id="tag-longitude-label" for="taglongitude-input">Longitude</label>
                     <input type="text"
-                           id="longitude_input"
+                           id="tag-longitude-input"
                            value="8.404435"
                            readonly>
 
-                    <label id="name_label">Name</label>
+                    <label id="tag-name-label" for="tag-name-input">Name</label>
                     <input type="text"
-                           id="name_input"
+                           id="tag-name-input"
                            placeholder="e.g. Koeri-Werk"
                            maxlength="10"
                            required>
 
-                    <label id="hashtag_label">Hashtag</label>
+                    <label id="tag-hashtag-label" for="tag-hashtag-input">Hashtag</label>
                     <input type="text"
-                           id="hashtag_input"
+                           id="tag-hashtag-input"
                            placeholder="e.g. #essen"
-                           pattern="#[A-Za-z]"
+                           pattern="#[A-Za-z]+"
                            maxlength="11">
 
-                    <input type="submit"
-                           id="tag-form_submit_button"
+                    <input type="tag-submit"
+                           id="tag-submit-tag"
                            value="Create Tag">
 
                 </fieldset>
@@ -79,46 +79,27 @@
             <h2 class="discovery__title">Discovery</h2>
 
             <!-- ############### VS1Lab 1a Form 2 Start -->
-            <!-- testing Pull request statt auf den Master zu pushen whoops Test 2-->
-            <form id="tag-form"
-                  action="/tagging"
-                  method="post">
+            <form class="discovery__search" id="discoveryFilterForm" action="/discovery" method="post">
 
-                <fieldset id="tag-form_fieldset">
-                    <legend id="tag-form_legend">Add a new GeoTag</legend>
+                <fieldset id="discovery-fieldset">
+                    <legend id="discovery-legend">Search</legend>
 
-                    <label id="latitude_label">Latitude</label>
-                    <input type="text"
-                           id="latitude_input"
-                           value="49.01379"
-                           readonly>
+                    <label id="discovery-search-label" for="discovery-search-input">Search Term</label>
+                    <input type="text" 
+                    id="discovery-search-input" 
+                    placeholder="e.g. Hochschule Karlsruhe">
 
-                    <label id="longitude_label">Longitude</label>
-                    <input type="text"
-                           id="longitude_input"
-                           value="8.404435"
-                           readonly>
+                    <input type="hidden" 
+                    id="discovery-latitude-input">
 
-                    <label id="name_label">Name</label>
-                    <input type="text"
-                           id="name_input"
-                           placeholder="e.g. Koeri-Werk"
-                           maxlength="10"
-                           required>
+                    <input type="hidden" 
+                    id="discovery-longitude-input">
 
-                    <label id="hashtag_label">Hashtag</label>
-                    <input type="text"
-                           id="hashtag_input"
-                           placeholder="e.g. #essen"
-                           pattern="#[A-Za-z]"
-                           maxlength="11">
-
-                    <input type="submit"
-                           id="tag-form_submit_button"
-                           value="Create Tag">
+                    <input type="submit" 
+                    id="discovery-search-submit" 
+                    value="Search">
 
                 </fieldset>
-
             </form>
             <!-- ############### VS1Lab 1a Form 2 End -->
 
