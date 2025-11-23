@@ -1,0 +1,387 @@
+/*
+  File origin: VS1LAB A1b  
+
+  CSS style is BEM. Classes used for CSS, IDs for JavaScript querying (future use).
+  CSS variables used for clarity and themability (e.g. through SSR). 
+  Inherited box sizing used for ease of including 3rd party content-box components.
+*/
+/*Test*/
+/* Global styling */
+
+html {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+
+  /* This approach prevents issues with 3rd party content-box components */
+  box-sizing: inherit;
+}
+
+
+/* Variables (example: see declaration for "a" below) */
+
+:root {
+  --link-color: #00B7FF;
+  --background-color: #efefef;
+  --border-color: #cdcdcd;
+  --gray-color: #666;
+}
+
+
+/* HTML element styles */
+
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+a {
+  color: var(--link-color);
+}
+
+/* ### TODO ### Styles for other HTML elements */
+
+/* ... your code here ... */
+#map { 
+   height: 500px;
+ }
+
+
+/* Grid styles (no changes required) */
+
+
+
+.row {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex: 1;
+}
+
+.col-1 {
+  width: calc(8.33% - 1rem);
+}
+
+.col-2 {
+  width: calc(16.66% - 1rem);
+}
+
+.col-3 {
+  width: calc(25% - 1rem);
+}
+
+.col-4 {
+  width: calc(33.33% - 1rem);
+}
+
+.col-5 {
+  width: calc(41.66% - 1rem);
+}
+
+.col-6 {
+  width: calc(50% - 1rem);
+}
+
+.col-7 {
+  width: calc(58.33% - 1rem);
+}
+
+.col-8 {
+  width: calc(66.66% - 1rem);
+}
+
+.col-9 {
+  width: calc(75% - 1rem);
+}
+
+.col-10 {
+  width: calc(83.33% - 1rem);
+}
+
+.col-11 {
+  width: calc(91.66% - 1rem);
+}
+
+.col-12 {
+  width: calc(100% - 1rem);
+}
+
+
+/* ### TODO ### Styles for Header Component */
+
+/* ... your code here ... */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1em;
+  background-color: lightblue;
+  flex-wrap: wrap;
+}
+
+.header__image {
+  width: 70px;
+  height: 70px;
+  margin-right: 1em;
+}
+
+
+/* ### TODO ### Styles for Main Component */
+
+/* ... your code here ... */
+.main {
+  gap: 1.5em;
+  padding: 2em;
+  flex: 1 0 auto;
+}
+
+/* ### TODO ### Styles for Tagging component */
+/* ... your code here ... */
+.main__tagging {
+  flex: 1 1 30%;
+  padding: 1.2em;
+
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+#tag-form div {
+  margin-left: 1em;
+
+}
+
+#tag-form fieldset > div:last-child {
+  padding: 1em;
+}
+
+.main__tagging form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8em;
+}
+
+.main__tagging legend{
+  color: black;        /* Textfarbe */
+  font-weight: bold;     /* Dicke */
+  font-size: 1.0em;
+  margin-left: 1em;
+}
+
+.main__tagging label {
+  color: gray;
+  font-weight: bold;
+  display: flex;
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+}
+
+.main__tagging input {
+  padding: 0.7em;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1em;
+}
+
+.main__tagging button {
+  background: lightgrey;
+  color: black;
+  width: 250px;
+  padding: 0.8em;
+  font-size: 1em;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.main__tagging button:hover {
+  background-color: grey;
+}
+
+button:active {
+  border: 1px dashed black;
+}
+
+/* ### TODO ### Styles for Discovery component */
+/* ... your code here ... */
+.main__discovery {
+  flex: 1 1 60%;
+  padding: 1.2em;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.main__discovery form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8em;
+}
+
+.discovery__field input {
+  padding: 0.7em;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  max-width: 250px;
+}
+
+.discovery__field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1em;
+  margin-top: 1em;
+  margin-left: 1em;
+}
+
+.discovery__field label {
+  margin-bottom: 0.4em;
+}
+
+.discovery__field button {
+  background: lightgrey;
+  color: black;
+  width: 250px;
+  padding: 0.8em;
+  font-size: 1em;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  max-width: 250px;
+}
+
+.discovery__field button:hover {
+  background-color: grey;
+  cursor: pointer;
+}
+
+.discovery__search legend {
+  color: black;
+  /* Textfarbe */
+  font-weight: bold;
+  /* Dicke */
+  font-size: 1.0em;
+  /* Schriftgröße */
+  margin-left: 1em;
+}
+
+.discovery__search label {
+  color: grey;
+}
+
+/* Reduce gap and min-height so the page doesn't overflow on many viewports */
+.discovery__wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 5em;
+  height: auto;
+  min-height: 320px; /* ausreichend für layout ohne großen overflow */
+}
+
+/* Ergebnisliste links */
+.discovery__taglist {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}
+
+.discovery__results {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.discovery__results li {
+  background-color: rgb(228, 226, 226);
+  font-weight: bold;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 1em;
+  color: mediumblue;
+}
+
+/* Karte rechts unten */
+.discovery__map {
+  flex: 2;
+  background-color: #fff;
+  padding: 2em;
+  text-align: left;
+  border-radius: 4px;
+  align-self: flex-end;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.discovery__map span {
+  display: block;
+  margin-top: 0.5em;
+}
+
+.discovery__map img {
+  width: auto;
+  height: auto;
+  object-fit: cover;
+}
+
+
+/* ### TODO ### Styles for Footer Component */
+/* ... your code here ... */
+.footer {
+  background-color: lightblue;
+  text-align: center;
+  padding: 1em;
+  font-size: 0.9em;
+  color: #666;
+  border-top: 1px solid #ccc;
+  margin-top: auto;
+  /* Footer bleibt am unteren Ende */
+}
+
+/* ### TODO ### Media Queries */
+/* ... your code here ... */
+@media (max-width: 850px) {
+  .main {
+    flex-direction: column;
+  }
+
+  .main__tagging,
+  .main__discovery {
+    width: 100%;
+    flex: 1 1 auto;
+  }
+
+  .discovery__wrapper {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .discovery__map,
+  .discovery__taglist {
+    width: auto;
+  }
+
+  .discovery__map img {
+    width: auto;
+    height: auto;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
