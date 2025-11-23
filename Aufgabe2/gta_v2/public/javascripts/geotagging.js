@@ -121,7 +121,7 @@ class MapManager {
 function updateLocation() {
     LocationHelper.findLocation(function(helper) {
         document.getElementById("Latitude").value = helper.latitude; // Tagging Formular
-        document.getElementById("Longitude").value = helper.longitude;
+        document.getElementById("Longitude").value = helper.longitude; //Test
     });
     const hiddenLat = document.getElementById("hidden-latitude").value;
     const hiddenLon = document.getElementById("hidden-longitude").value;
