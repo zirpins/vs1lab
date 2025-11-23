@@ -117,9 +117,10 @@ class MapManager {
  * It is called once the page has been fully loaded.
  */
 // ... your code here ...
+
 function updateLocation() {
     LocationHelper.findLocation(function(helper) {
-        document.getElementById("Latitude").value = helper.latitude;
+        document.getElementById("Latitude").value = helper.latitude; // Tagging Formular
         document.getElementById("Longitude").value = helper.longitude;
     });
     const hiddenLat = document.getElementById("hidden-latitude").value;
