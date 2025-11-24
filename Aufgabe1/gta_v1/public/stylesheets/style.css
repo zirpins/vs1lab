@@ -113,27 +113,27 @@ a {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 50px 50px;
+  padding: 10px 10px;
   background-color: var(--background-color);
 }
 
-.header img{
+.header img {
   height: 100px;
 }
 
-.header .header__image{
+.header .header__image {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.header .header__title{
+.header .header__title {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.header .header__navigation{
+.header .header__navigation {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -141,7 +141,7 @@ a {
   font-size: 20px;
 }
 
-.header .header-elements{
+.header .header-elements {
   display: flex;
   justify-content: space-between;
   width: 90%;
@@ -152,43 +152,44 @@ a {
 
 /* ### TODO ### Styles for Main Component */
 
-.main{
+.main {
   display: flex;
   width: 90%;
   margin: 0 auto;
   max-width: 2000px;
   padding: 60px 0;
   gap: 25px;
+  flex: 1;
 }
 
 
 /* ### TODO ### Styles for Tagging component */
 
-.main .tagging h2{
+.main .tagging h2 {
   padding-bottom: 15px;
 }
 
-.main .tagging form fieldset{
+.main .tagging form fieldset {
   padding: 20px;
   border: solid 1px var(--border-color);
 }
 
-.main .tagging form fieldset legend{
+.main .tagging form fieldset legend {
   font-weight: bold;
 }
 
-.main .tagging form fieldset input{
+.main .tagging form fieldset input {
   display: block;
   padding: 7px 10px;
   margin-top: 5px;
   margin-bottom: 15px;
 }
 
-.main .tagging form fieldset label{
+.main .tagging form fieldset label {
   color: var(--gray-color);
 }
 
-.main .tagging form fieldset #tag-form-submit{
+.main .tagging form fieldset #tag-form-submit {
   width: 100%;
   margin: 0;
   font-weight: bold;
@@ -198,7 +199,7 @@ a {
 
 /* ### TODO ### Styles for Discovery component */
 
-.main .discovery h2{
+.main .discovery h2 {
   padding-bottom: 15px;
 }
 
@@ -207,31 +208,31 @@ a {
   border: solid 1px var(--border-color);
 }
 
-.main .discovery form fieldset label{
+.main .discovery form fieldset label {
   color: var(--gray-color);
 }
 
-.main .discovery form fieldset input{
+.main .discovery form fieldset input {
   display: block;
   padding: 7px 10px;
   width: 30%;
 }
 
-.main .discovery form fieldset legend{
+.main .discovery form fieldset legend {
   font-weight: bold;
 }
 
-.main .discovery form fieldset #discovery-search-input{
+.main .discovery form fieldset #discovery-search-input {
   margin: 15px 0;
 }
 
 
-.main .discovery form fieldset #discovery-search-submit{
+.main .discovery form fieldset #discovery-search-submit {
   font-weight: bold;
   border: solid 1px var(--border-color);
 }
 
-.main .discovery .discovery__wrapper{
+.main .discovery .discovery__wrapper {
   display: flex;
   width: 100%;
   justify-content: start;
@@ -239,11 +240,11 @@ a {
   padding-top: 25px;
 }
 
-.main .discovery .discovery__wrapper .discovery__taglist .discovery__results{
+.main .discovery .discovery__wrapper .discovery__taglist .discovery__results {
   list-style: none;
 }
 
-.main .discovery .discovery__wrapper .discovery__taglist .discovery__results li{
+.main .discovery .discovery__wrapper .discovery__taglist .discovery__results li {
   padding: 10px;
   border: solid 1px var(--border-color);
   color: var(--link-color);
@@ -252,11 +253,11 @@ a {
   margin-bottom: 15px;
 }
 
-.main .discovery .discovery__wrapper .discovery__map img{
-  max-width: 100%; 
+.main .discovery .discovery__wrapper .discovery__map img {
+  max-width: 100%;
 }
 
-.main .discovery .discovery__wrapper .discovery__map span{
+.main .discovery .discovery__wrapper .discovery__map span {
   display: block;
   color: var(--gray-color);
 }
@@ -264,14 +265,14 @@ a {
 
 /* ### TODO ### Styles for Footer Component */
 
-.footer{
+.footer {
   height: 100px;
   background-color: var(--background-color);
   display: flex;
   align-items: center;
 }
 
-.footer span{
+.footer span {
   width: 90%;
   margin: 0 auto;
   font-weight: bold;
@@ -283,16 +284,16 @@ a {
 
 @media screen and (max-width: 950px) {
   .main {
-      flex-direction: column;
+    flex-direction: column;
   }
 
-  .header .header-elements{
+  .header .header-elements {
     flex-direction: column;
   }
 }
 
 @media screen and (max-width: 700px) {
-  .main .discovery .discovery__wrapper{
+  .main .discovery .discovery__wrapper {
     display: block;
   }
 
