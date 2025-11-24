@@ -25,7 +25,7 @@ html {
 
 :root {
   --link-color: #00B7FF;
-  --background-color: #dbf5ff;
+  --background-color: #c4eeff;
   --border-color: #cdcdcd;
   --gray-color: #666;
 }
@@ -56,54 +56,73 @@ a {
   display: flex;
   justify-content: space-between;
   flex: 1;
+  border: rgb(128, 0, 0) 2px solid;
 }
 
 .col-1 {
   width: calc(8.33% - 1rem);
+  border: olive 2px solid;
 }
 
 .col-2 {
   width: calc(16.66% - 1rem);
+  border: olive 1px solid;
+
 }
 
 .col-3 {
   width: calc(25% - 1rem);
+  border: olive 1px solid;
+
 }
 
 .col-4 {
   width: calc(33.33% - 1rem);
+  border: olive 1px solid;
+
 }
 
 .col-5 {
   width: calc(41.66% - 1rem);
+  border: olive 1px solid;
+
 }
 
 .col-6 {
   width: calc(50% - 1rem);
+  border: olive 1px solid;
+
 }
 
 .col-7 {
   width: calc(58.33% - 1rem);
+  border: olive 1px solid;
+
 }
 
 .col-8 {
   width: calc(66.66% - 1rem);
+  border: olive 1px solid;
 }
 
 .col-9 {
   width: calc(75% - 1rem);
+  border: olive 1px solid;
 }
 
 .col-10 {
   width: calc(83.33% - 1rem);
+  border: olive 1px solid;  
 }
 
 .col-11 {
   width: calc(91.66% - 1rem);
+  border: olive 1px solid;
 }
 
 .col-12 {
   width: calc(100% - 1rem);
+  border: olive 1px solid;
 }
 
 
@@ -118,7 +137,8 @@ a {
 }
 
 .header img {
-  height: 100px;
+  height: 50px;
+  margin: 20px;
 }
 
 .header .header__image {
@@ -138,7 +158,8 @@ a {
   justify-content: center;
   align-items: center;
   gap: 10px;
-  font-size: 20px;
+  font-size: 16px;
+  margin: 20px;
 }
 
 .header .header-elements {
@@ -180,24 +201,28 @@ a {
 
 .main .tagging form fieldset input {
   display: block;
-  padding: 7px 10px;
+  width: 90%;
+  padding: 10px 10px;
   margin-top: 5px;
   margin-bottom: 15px;
 }
 
 .main .tagging form fieldset label {
+  display: block;
   color: var(--gray-color);
 }
 
 .main .tagging form fieldset #tag-form-submit {
-  width: 100%;
-  margin: 0;
+  margin: 0px;
   font-weight: bold;
   border: solid 1px var(--border-color);
 }
 
-
 /* ### TODO ### Styles for Discovery component */
+
+.main .discovery {
+  flex: 1;
+}
 
 .main .discovery h2 {
   padding-bottom: 15px;
@@ -209,21 +234,19 @@ a {
 }
 
 .main .discovery form fieldset label {
+  display: block;
   color: var(--gray-color);
 }
 
 .main .discovery form fieldset input {
   display: block;
-  padding: 7px 10px;
   width: 30%;
+  padding: 10px 10px;
+  margin-top: 5px;
 }
 
 .main .discovery form fieldset legend {
   font-weight: bold;
-}
-
-.main .discovery form fieldset #discovery-search-input {
-  margin: 15px 0;
 }
 
 
@@ -237,7 +260,6 @@ a {
   width: 100%;
   justify-content: start;
   gap: 25px;
-  padding-top: 25px;
 }
 
 .main .discovery .discovery__wrapper .discovery__taglist .discovery__results {
@@ -246,6 +268,7 @@ a {
 
 .main .discovery .discovery__wrapper .discovery__taglist .discovery__results li {
   padding: 10px;
+  min-width: 80px;
   border: solid 1px var(--border-color);
   color: var(--link-color);
   font-weight: bold;
@@ -295,6 +318,10 @@ a {
 @media screen and (max-width: 700px) {
   .main .discovery .discovery__wrapper {
     display: block;
+  }
+
+  .main .discovery form fieldset input {
+    width: 100%;
   }
 
 }
