@@ -25,7 +25,7 @@ html {
 
 :root {
   --link-color: #00B7FF;
-  --background-color: #dbf5ff;
+  --background-color: #c4eeff;
   --border-color: #cdcdcd;
   --gray-color: #666;
 }
@@ -118,7 +118,8 @@ a {
 }
 
 .header img {
-  height: 100px;
+  height: 50px;
+  margin: 20px;
 }
 
 .header .header__image {
@@ -138,7 +139,8 @@ a {
   justify-content: center;
   align-items: center;
   gap: 10px;
-  font-size: 20px;
+  font-size: 16px;
+  margin: 20px;
 }
 
 .header .header-elements {
@@ -180,24 +182,28 @@ a {
 
 .main .tagging form fieldset input {
   display: block;
-  padding: 7px 10px;
+  width: 90%;
+  padding: 10px 10px;
   margin-top: 5px;
   margin-bottom: 15px;
 }
 
 .main .tagging form fieldset label {
+  display: block;
   color: var(--gray-color);
 }
 
 .main .tagging form fieldset #tag-form-submit {
-  width: 100%;
-  margin: 0;
+  margin: 0px;
   font-weight: bold;
   border: solid 1px var(--border-color);
 }
 
-
 /* ### TODO ### Styles for Discovery component */
+
+.main .discovery {
+  flex: 1;
+}
 
 .main .discovery h2 {
   padding-bottom: 15px;
@@ -209,21 +215,19 @@ a {
 }
 
 .main .discovery form fieldset label {
+  display: block;
   color: var(--gray-color);
 }
 
 .main .discovery form fieldset input {
   display: block;
-  padding: 7px 10px;
   width: 30%;
+  padding: 10px 10px;
+  margin-top: 5px;
 }
 
 .main .discovery form fieldset legend {
   font-weight: bold;
-}
-
-.main .discovery form fieldset #discovery-search-input {
-  margin: 15px 0;
 }
 
 
@@ -237,7 +241,6 @@ a {
   width: 100%;
   justify-content: start;
   gap: 25px;
-  padding-top: 25px;
 }
 
 .main .discovery .discovery__wrapper .discovery__taglist .discovery__results {
@@ -246,6 +249,7 @@ a {
 
 .main .discovery .discovery__wrapper .discovery__taglist .discovery__results li {
   padding: 10px;
+  min-width: 100px;
   border: solid 1px var(--border-color);
   color: var(--link-color);
   font-weight: bold;
@@ -255,6 +259,7 @@ a {
 
 .main .discovery .discovery__wrapper .discovery__map img {
   max-width: 100%;
+  min-width: 100px;
 }
 
 .main .discovery .discovery__wrapper .discovery__map span {
@@ -295,6 +300,10 @@ a {
 @media screen and (max-width: 700px) {
   .main .discovery .discovery__wrapper {
     display: block;
+  }
+
+  .main .discovery form fieldset input {
+    width: 100%;
   }
 
 }
