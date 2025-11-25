@@ -111,7 +111,6 @@ class MapManager {
     }
 }
 
-// Eine MapManager-Instanz, die wir in updateLocation benutzen
 const mapManager = new MapManager();
 /**
  * TODO: 'updateLocation'
@@ -119,8 +118,6 @@ const mapManager = new MapManager();
  * It is called once the page has been fully loaded.
  */
 // ... your code here ...
-<<<<<<< Updated upstream
-=======
 function updateLocation() {
     // Statische Methode von LocationHelper aufrufen
     LocationHelper.findLocation(function(locationHelper){
@@ -135,31 +132,28 @@ function updateLocation() {
         const discLat = document.getElementById("discLatitude").value = lat;
         const discLon = document.getElementById("discLongitude").value = lon;
 
-           // --- Teilaufgabe 2: Karte darstellen ---
 
-        // Karte initialisieren und Marker setzen
+        // neue Karte mit Marker 
         mapManager.initMap(lat, lon);
         mapManager.updateMarkers(lat, lon);
 
-        // Platzhalter-Bild und Beschriftung entfernen
-        const mapContainer = document.getElementById("map");
+        const mapContainer = document.getElementById("map"); //element mit ID map in html
         if (mapContainer) {
-            const placeholderImg = mapContainer.querySelector("img");
+            const placeholderImg = mapContainer.querySelector("img"); 
             if (placeholderImg) {
-                placeholderImg.remove();
+                placeholderImg.remove();//Platzhalter Map Bild löschen 
             }
 
-            // In deinem HTML ist das ein <span>, nicht <p>
             const caption = mapContainer.querySelector("span");
             if (caption) {
-                caption.remove();
+                caption.remove();//Platzhalter Text löschen 
             }
         }
     });
 }
->>>>>>> Stashed changes
 
 // Wait for the page to fully load its DOM content, then call updateLocation
+
 document.addEventListener("DOMContentLoaded", () => {
-    alert("Please change the script 'geotagging.js'");
+    updateLocation();
 });
