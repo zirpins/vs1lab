@@ -111,14 +111,49 @@ class MapManager {
     }
 }
 
+const mapManager = new MapManager();
 /**
  * TODO: 'updateLocation'
  * A function to retrieve the current location and update the page.
  * It is called once the page has been fully loaded.
  */
 // ... your code here ...
+function updateLocation() {
+    // Statische Methode von LocationHelper aufrufen
+    LocationHelper.findLocation(function(locationHelper){
+        const lat = locationHelper.latitude;  // Getter verwenden
+        const lon = locationHelper.longitude;
+
+        // Tagging Formular
+        const tagLat = document.getElementById("tagLatitude").value = lat;
+        const tagLon = document.getElementById("tagLongitude").value = lon;
+
+        // Discovery Formular
+        const discLat = document.getElementById("discLatitude").value = lat;
+        const discLon = document.getElementById("discLongitude").value = lon;
+
+
+        // neue Karte mit Marker 
+        mapManager.initMap(lat, lon);
+        mapManager.updateMarkers(lat, lon);
+
+        const mapContainer = document.getElementById("map"); //element mit ID map in html
+        if (mapContainer) {
+            const placeholderImg = mapContainer.querySelector("img"); 
+            if (placeholderImg) {
+                placeholderImg.remove();//Platzhalter Map Bild löschen 
+            }
+
+            const caption = mapContainer.querySelector("span");
+            if (caption) {
+                caption.remove();//Platzhalter Text löschen 
+            }
+        }
+    });
+}
 
 // Wait for the page to fully load its DOM content, then call updateLocation
+
 document.addEventListener("DOMContentLoaded", () => {
-    alert("Please change the script 'geotagging.js'");
+    updateLocation();
 });
