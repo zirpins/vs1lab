@@ -106,7 +106,6 @@ a {
   width: calc(100% - 1rem);
 }
 
-
 /* ### TODO ### Styles for Header Component */
 
 .header {
@@ -277,6 +276,54 @@ a {
     flex-direction: row;
   }
 
+  .col-1 {
+    width: 100%;
+  }
+
+  .col-2 {
+    width: 100%;
+  }
+
+  .col-3 {
+    width: 100%;
+  }
+
+  .col-4 {
+    width: 100%;
+  }
+
+  .col-5 {
+    width: 100%;
+  }
+
+  .col-6 {
+    width: 100%;
+  }
+
+  .col-7 {
+    width: 100%;
+  }
+
+  .col-8 {
+    width: 100%;
+  }
+
+  .col-9 {
+    width: 100%;
+  }
+
+  .col-10 {
+    width: 100%;
+  }
+
+  .col-11 {
+    width: 100%;
+  }
+
+  .col-12 {
+    width: 100%;
+  }
+
   .main .tagging form fieldset input{
     width: 100%;
   }
@@ -286,7 +333,7 @@ a {
   }
 
   .main .discovery form fieldset #discovery-search-submit{
-  width: 100%;
+    width: 100%;
 }
 
 }
