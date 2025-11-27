@@ -277,7 +277,7 @@ button:active {
   color: grey;
 }
 
-/* Reduce gap and min-height so the page doesn't overflow on many viewports */
+
 .discovery__wrapper {
   display: flex;
   justify-content: space-between;
