@@ -235,7 +235,7 @@ a {
 }
 
 .main .discovery .discovery__wrapper .discovery__map img{
-  max-width: 100%; 
+  width: 100%; 
 }
 
 .main .discovery .discovery__wrapper .discovery__map span{
