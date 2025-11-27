@@ -117,37 +117,21 @@ a {
   background-color: var(--background-color);
 }
 
-.header img{
-  height: 100px;
-}
-
 .header .header__image{
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    width: 10vw;
+    min-width: 10px;
+    max-width: 100px;
 }
-
-.header .header__title{
+.header .header-elements{
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .header .header__navigation{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  font-size: 20px;
-}
-
-.header .header-elements{
-  display: flex;
-  justify-content: space-between;
-  width: 90%;
-  margin: 0 auto;
-  max-width: 2000px;
-  height: 100%;
+  margin: 10px;
+  gap: 6px;
+  font-size: 100%;
 }
 
 /* ### TODO ### Styles for Main Component */
@@ -281,7 +265,7 @@ a {
 
 /* ### TODO ### Media Queries */
 
-@media screen and (max-width: 950px) {
+@media screen and (max-width: 1024px) {
   .main {
       flex-direction: column;
   }
@@ -289,11 +273,15 @@ a {
   .header .header-elements{
     flex-direction: column;
   }
-}
 
-@media screen and (max-width: 700px) {
-  .main .discovery .discovery__wrapper{
-    display: block;
+  .main .discovery form fieldset input{
+    width: 100%;
   }
 
+}
+
+@media screen and (max-width: 768px) {
+  .row{
+    flex-direction: column;
+  }
 }
