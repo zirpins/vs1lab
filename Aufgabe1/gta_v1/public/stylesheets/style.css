@@ -117,34 +117,32 @@ a {
   background-color: var(--background-color);
 }
 
-.header .header__image{
-    width: 10vw;
-    min-width: 10px;
-    max-width: 100px;
-}
 .header .header-elements{
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.header .header__navigation{
+.header #header-image{
+    width: 10vw;
+    min-width: 10px;
+    max-width: 85px;
+}
+
+.header #header-navigation{
   margin: 10px;
   gap: 6px;
-  font-size: 100%;
+  font-size: 16px;
 }
 
 /* ### TODO ### Styles for Main Component */
 
 .main{
   display: flex;
-  width: 90%;
-  margin: 0 auto;
-  max-width: 2000px;
-  padding: 60px 0;
+  width: 100%;
+  padding: 40px 2%;
   gap: 25px;
 }
-
 
 /* ### TODO ### Styles for Tagging component */
 
@@ -166,6 +164,7 @@ a {
   padding: 7px 10px;
   margin-top: 5px;
   margin-bottom: 15px;
+  width: 100%;
 }
 
 .main .tagging form fieldset label{
@@ -174,8 +173,6 @@ a {
 
 .main .tagging form fieldset #tag-form-submit{
   width: 100%;
-  margin: 0;
-  font-weight: bold;
   border: solid 1px var(--border-color);
 }
 
@@ -187,7 +184,7 @@ a {
 }
 
 .main .discovery form fieldset {
-  padding: 15px;
+  padding: 20px;
   border: solid 1px var(--border-color);
 }
 
@@ -198,6 +195,8 @@ a {
 .main .discovery form fieldset input{
   display: block;
   padding: 7px 10px;
+  margin-top: 5px;
+  margin-bottom: 15px;
   width: 30%;
 }
 
@@ -211,7 +210,7 @@ a {
 
 
 .main .discovery form fieldset #discovery-search-submit{
-  font-weight: bold;
+  width: 30%;
   border: solid 1px var(--border-color);
 }
 
@@ -267,16 +266,28 @@ a {
 
 @media screen and (max-width: 1024px) {
   .main {
-      flex-direction: column;
+    flex-direction: column;
   }
 
-  .header .header-elements{
+  .header{
     flex-direction: column;
+  }
+
+  .header #header-navigation{
+    flex-direction: row;
+  }
+
+  .main .tagging form fieldset input{
+    width: 100%;
   }
 
   .main .discovery form fieldset input{
     width: 100%;
   }
+
+  .main .discovery form fieldset #discovery-search-submit{
+  width: 100%;
+}
 
 }
 
