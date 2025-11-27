@@ -25,7 +25,7 @@ html {
 
 :root {
   --link-color: #00B7FF;
-  --background-color: #c4eeff;
+  --background-color: #dbf5ff;
   --border-color: #cdcdcd;
   --gray-color: #666;
 }
@@ -106,150 +106,127 @@ a {
   width: calc(100% - 1rem);
 }
 
-
 /* ### TODO ### Styles for Header Component */
 
 .header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 10px;
+  padding: 50px 50px;
   background-color: var(--background-color);
 }
 
-.header img {
-  height: 50px;
-  margin: 20px;
-}
-
-.header .header__image {
+.header .header-elements{
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.header .header__title {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.header #header-image{
+    width: 10vw;
+    min-width: 10px;
+    max-width: 85px;
 }
 
-.header .header__navigation {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
+.header #header-navigation{
+  margin: 10px;
+  gap: 6px;
   font-size: 16px;
-  margin: 20px;
-}
-
-.header .header-elements {
-  display: flex;
-  justify-content: space-between;
-  width: 90%;
-  margin: 0 auto;
-  max-width: 2000px;
-  height: 100%;
 }
 
 /* ### TODO ### Styles for Main Component */
 
-.main {
+.main{
   display: flex;
-  width: 90%;
-  margin: 0 auto;
-  max-width: 2000px;
-  padding: 60px 0;
+  width: 100%;
+  padding: 40px 2%;
   gap: 25px;
-  flex: 1;
 }
-
 
 /* ### TODO ### Styles for Tagging component */
 
-.main .tagging h2 {
+.main .tagging h2{
   padding-bottom: 15px;
 }
 
-.main .tagging form fieldset {
+.main .tagging form fieldset{
   padding: 20px;
   border: solid 1px var(--border-color);
 }
 
-.main .tagging form fieldset legend {
+.main .tagging form fieldset legend{
   font-weight: bold;
 }
 
-.main .tagging form fieldset input {
+.main .tagging form fieldset input{
   display: block;
-  width: 90%;
-  padding: 10px 10px;
+  padding: 7px 10px;
   margin-top: 5px;
   margin-bottom: 15px;
+  width: 100%;
 }
 
-.main .tagging form fieldset label {
-  display: block;
+.main .tagging form fieldset label{
   color: var(--gray-color);
 }
 
-.main .tagging form fieldset #tag-form-submit {
-  margin: 0px;
-  font-weight: bold;
+.main .tagging form fieldset #tag-form-submit{
+  width: 100%;
   border: solid 1px var(--border-color);
 }
 
+
 /* ### TODO ### Styles for Discovery component */
 
-.main .discovery {
-  flex: 1;
-}
-
-.main .discovery h2 {
+.main .discovery h2{
   padding-bottom: 15px;
 }
 
 .main .discovery form fieldset {
-  padding: 15px;
+  padding: 20px;
   border: solid 1px var(--border-color);
 }
 
-.main .discovery form fieldset label {
-  display: block;
+.main .discovery form fieldset label{
   color: var(--gray-color);
 }
 
-.main .discovery form fieldset input {
+.main .discovery form fieldset input{
   display: block;
-  width: 30%;
-  padding: 10px 10px;
+  padding: 7px 10px;
   margin-top: 5px;
+  margin-bottom: 15px;
+  width: 30%;
 }
 
-.main .discovery form fieldset legend {
+.main .discovery form fieldset legend{
   font-weight: bold;
 }
 
+.main .discovery form fieldset #discovery-search-input{
+  margin: 15px 0;
+}
 
-.main .discovery form fieldset #discovery-search-submit {
-  font-weight: bold;
+
+.main .discovery form fieldset #discovery-search-submit{
+  width: 30%;
   border: solid 1px var(--border-color);
 }
 
-.main .discovery .discovery__wrapper {
+.main .discovery .discovery__wrapper{
   display: flex;
   width: 100%;
   justify-content: start;
   gap: 25px;
+  padding-top: 25px;
 }
 
-.main .discovery .discovery__wrapper .discovery__taglist .discovery__results {
+.main .discovery .discovery__wrapper .discovery__taglist .discovery__results{
   list-style: none;
 }
 
-.main .discovery .discovery__wrapper .discovery__taglist .discovery__results li {
+.main .discovery .discovery__wrapper .discovery__taglist .discovery__results li{
   padding: 10px;
-  min-width: 100px;
   border: solid 1px var(--border-color);
   color: var(--link-color);
   font-weight: bold;
@@ -257,12 +234,11 @@ a {
   margin-bottom: 15px;
 }
 
-.main .discovery .discovery__wrapper .discovery__map img {
-  max-width: 100%;
-  min-width: 100px;
+.main .discovery .discovery__wrapper .discovery__map img{
+  width: 100%; 
 }
 
-.main .discovery .discovery__wrapper .discovery__map span {
+.main .discovery .discovery__wrapper .discovery__map span{
   display: block;
   color: var(--gray-color);
 }
@@ -270,14 +246,14 @@ a {
 
 /* ### TODO ### Styles for Footer Component */
 
-.footer {
+.footer{
   height: 100px;
   background-color: var(--background-color);
   display: flex;
   align-items: center;
 }
 
-.footer span {
+.footer span{
   width: 90%;
   margin: 0 auto;
   font-weight: bold;
@@ -287,23 +263,83 @@ a {
 
 /* ### TODO ### Media Queries */
 
-@media screen and (max-width: 950px) {
+@media screen and (max-width: 1024px) {
   .main {
     flex-direction: column;
   }
 
-  .header .header-elements {
+  .header{
     flex-direction: column;
   }
-}
 
-@media screen and (max-width: 700px) {
-  .main .discovery .discovery__wrapper {
-    display: block;
+  .header #header-navigation{
+    flex-direction: row;
   }
 
-  .main .discovery form fieldset input {
+  .col-1 {
     width: 100%;
   }
 
+  .col-2 {
+    width: 100%;
+  }
+
+  .col-3 {
+    width: 100%;
+  }
+
+  .col-4 {
+    width: 100%;
+  }
+
+  .col-5 {
+    width: 100%;
+  }
+
+  .col-6 {
+    width: 100%;
+  }
+
+  .col-7 {
+    width: 100%;
+  }
+
+  .col-8 {
+    width: 100%;
+  }
+
+  .col-9 {
+    width: 100%;
+  }
+
+  .col-10 {
+    width: 100%;
+  }
+
+  .col-11 {
+    width: 100%;
+  }
+
+  .col-12 {
+    width: 100%;
+  }
+
+  .main .tagging form fieldset input{
+    width: 100%;
+  }
+
+  .main .discovery form fieldset input{
+    width: 100%;
+  }
+
+  .main .discovery form fieldset #discovery-search-submit{
+    width: 100%;
+}
+
+}
+
+@media screen and (max-width: 768px) {
+  .row{
+    flex-direction: column;
+  }
 }

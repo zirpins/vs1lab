@@ -16,18 +16,21 @@
 </head>
 
 <body>
-    <header class="header">
+    <header class="header row">
         <img src="./images/location.png"
-             class="header__image"
+             class="header-elements"
+             id="header-image"
              alt="an image of a map and location">
-        <h1 class="header__title">GeoTagApp</h1>
-        <nav class="header__navigation">
+        <h1 class="header-elements"
+            id="header-title">GeoTagApp</h1>
+        <nav class="header-elements"
+             id="header-navigation">
             <a href="#">About</a> | <a href="#">Help</a> | <a href="/">Home</a>
         </nav>
     </header>
 
     <main class="main row">
-        <section class="main__tagging tagging col-4">
+        <section class="main__tagging tagging col-3">
             <h2>Tagging</h2>
 
             <!-- ############### VS1Lab 1a Form 1 Start -->
@@ -44,7 +47,7 @@
                            value="49.01379"
                            readonly>
 
-                    <label id="tag-longitude-label" for="tag-longitude-input">Longitude</label>
+                    <label id="tag-longitude-label" for="taglongitude-input">Longitude</label>
                     <input type="text"
                            id="tag-longitude-input"
                            value="8.404435"
@@ -75,7 +78,7 @@
 
         </section>
 
-        <section class="main__discovery discovery col-4">
+        <section class="main__discovery discovery col-9">
             <h2 class="discovery__title">Discovery</h2>
 
             <!-- ############### VS1Lab 1a Form 2 Start -->
@@ -89,7 +92,6 @@
                     id="discovery-search-input" 
                     placeholder="e.g. Hochschule Karlsruhe">
 
-                    <!-- lable und placeholder für hidden elements irrelevant -->
                     <input type="hidden" 
                     id="discovery-latitude-input">
 
@@ -105,7 +107,7 @@
             <!-- ############### VS1Lab 1a Form 2 End -->
 
             <div class="discovery__wrapper row">
-                <div class="discovery__taglist col-5">
+                <div class="discovery__taglist col-4">
                     <ul class="discovery__results"
                         id="discoveryResults">
                         <li>Castle (49.01379, 8.404435) #sight</li>
@@ -113,8 +115,8 @@
                     </ul>
                 </div>
 
-                <div id="map"
-                     class="discovery__map col-7">
+                <div id="map col-8"
+                     class="discovery__map">
                     <img src="./images/mapview.jpg"
                          alt="a map with locations"
                          id="mapView" />
