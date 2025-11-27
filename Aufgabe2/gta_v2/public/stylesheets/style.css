@@ -204,11 +204,9 @@ h2 {
   gap: 10px;
 }
 
-#map {
-  display: flex;
-  flex-direction: column;
-
-}
+#map { 
+   height: 500px;
+ }
 
 #map img {
   flex: 1;
