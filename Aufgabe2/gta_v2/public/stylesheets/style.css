@@ -243,6 +243,9 @@ a {
   color: var(--gray-color);
 }
 
+#map { 
+   height: 500px;
+}
 
 /* ### TODO ### Styles for Footer Component */
 
