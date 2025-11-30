@@ -119,10 +119,15 @@ class MapManager {
 function updateLocation() {
     
     LocationHelper.findLocation((location) => {
-        document.getElementById("tag-latitude-input").value = location.latitude;
-        document.getElementById("tag-longitude-input").value = location.longitude;
-        document.getElementById("discovery-latitude-input").value = location.latitude;
-        document.getElementById("discovery-longitude-input").value = location.longitude;
+        let tagLatitude = document.getElementById("tag-latitude-input");
+        let tagLongitude = document.getElementById("tag-longitude-input");
+        let discoveryLatitude = document.getElementById("discovery-latitude-input");
+        let discoveryLongitude = document.getElementById("discovery-longitude-input");
+
+        tagLatitude.value = location.latitude;
+        tagLongitude.value = location.longitude;
+        discoveryLatitude.value = location.latitude;
+        discoveryLongitude.value = location.longitude;
     });
 }
 
