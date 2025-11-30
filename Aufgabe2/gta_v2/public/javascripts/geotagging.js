@@ -121,19 +121,31 @@ class MapManager {
  * A function to retrieve the current location and update the page.
  * It is called once the page has been fully loaded.
  */
-// ... your code here ...
-
 function updateLocation() {
-  console.log("updateLocation calles"); //debug Ausgabe
+  // Hole aktuelle Position über LocationHelper
   LocationHelper.findLocation(function (helper) {
-    console.log("Location received", helper.latitude, helper.longitude); //debug Ausgabe
-    document.getElementById("Latitude").value = helper.latitude; // Tagging Formular
-    document.getElementById("Longitude").value = helper.longitude; 
+    const lat = parseFloat(helper.latitude);
+    const lng = parseFloat(helper.longitude);
 
-    document.getElementById("hidden-latitude");
-    document.getElementById("hidden-longitude");
+    if (!window.mapManager) {
+      window.mapManager = new MapManager();
+    }
+
+    // Karte initialisieren und Marker setzen 
+    window.mapManager.initMap(lat, lng);
+    const currentGeoTag = { latitude: lat, longitude: lng, name: "Current position" };
+    window.mapManager.updateMarkers(lat, lng, [currentGeoTag]);
+
+    // Platzhalter-Bild und <p> entfernen
+    const img = document.querySelector('.discovery__map img') || document.querySelector('img');
+    if (img) {
+      const caption = img.nextElementSibling;
+      img.remove();
+      if (caption && caption.tagName && caption.tagName.toLowerCase() === 'p') {
+        caption.remove();
+      }
+    }
   });
-  
 }
 
 // Wait for the page to fully load its DOM content, then call updateLocation
