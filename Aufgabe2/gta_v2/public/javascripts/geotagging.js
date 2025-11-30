@@ -118,10 +118,14 @@ class MapManager {
  */
 function updateLocation() {
     
-    // Read position
-    LocationHelper.findLocation((helper) => {
-    }
-)
+    LocationHelper.findLocation((location) => {
+        console.log(`Latitude: ${location.latitude}, Longitude: ${location.longitude}`);
+
+        document.getElementById("tag-latitude-input").value = location.latitude;
+        document.getElementById("tag-longitude-input").value = location.longitude;
+        document.getElementById("discovery-latitude-input").value = location.latitude;
+        document.getElementById("discovery-longitude-input").value = location.longitude;
+    });
 }
 
 // Execute this function automatically after loading the page
