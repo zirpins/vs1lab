@@ -124,8 +124,8 @@ function updateLocation() {
 
         document.getElementById("taggingLatitude").value = latitude;
         document.getElementById("taggingLongitude").value = longitude;
-        document.getElementById("dicoveryLatitude").value = latitude;
-        document.getElementById("dicoveryLongitude").value = longitude;
+        document.getElementById("discoveryLatitude").value = latitude;
+        document.getElementById("discoveryLongitude").value = longitude;
 
         const mapManager = new MapManager();
 
