@@ -127,13 +127,16 @@ function updateLocation() {
         document.getElementById("dicoveryLatitude").value = latitude;
         document.getElementById("dicoveryLongitude").value = longitude;
 
-        MapManager.initMap(latitude, longitude);
-        MapManager.updateMarkers(latitude, longitude);
+        const mapManager = new MapManager();
 
+        mapManager.initMap(latitude, longitude);
+        mapManager.updateMarkers(latitude, longitude);
     });
 }
 
 // Wait for the page to fully load its DOM content, then call updateLocation
 document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("mapView").remove();
+    document.getElementById("mapSpan").remove();
     updateLocation();
 });
