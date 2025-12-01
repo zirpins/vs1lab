@@ -110,15 +110,59 @@ class MapManager {
         }
     }
 }
-
+const mapManager = new MapManager();
 /**
  * TODO: 'updateLocation'
  * A function to retrieve the current location and update the page.
  * It is called once the page has been fully loaded.
  */
-// ... your code here ...
+function updateLocation() {
+  try {
+    LocationHelper.findLocation((helper) => {
+      const latitude = helper.latitude;
+      const longitude = helper.longitude;
+
+      // 1) Formulare aktualisieren
+
+      // Tagging-Formular
+      const tagLat = document.getElementById("latitude");
+      const tagLon = document.getElementById("longitude");
+
+      // Discovery-Formular (hidden inputs)
+      const discLat = document.getElementById("disc-latitude");
+      const discLon = document.getElementById("disc-longitude");
+
+      if (tagLat) tagLat.value = latitude;
+      if (tagLon) tagLon.value = longitude;
+      if (discLat) discLat.value = latitude;
+      if (discLon) discLon.value = longitude;
+
+      // 2) Karte initialisieren und Marker setzen
+      mapManager.initMap(latitude, longitude);
+      // vorerst nur aktueller Standort, keine weiteren Tags
+      mapManager.updateMarkers(latitude, longitude);
+
+      // 3) Platzhalterbild und Text im #map-Container entfernen
+      const mapContainer = document.getElementById("map");
+      if (mapContainer) {
+        const placeholderImage = mapContainer.querySelector("img");
+        const placeholderLabel = mapContainer.querySelector("span");
+
+        if (placeholderImage) {
+          placeholderImage.remove();
+        }
+        if (placeholderLabel) {
+          placeholderLabel.remove();
+        }
+      }
+    });
+  } catch (err) {
+    console.error("Geolocation API not available:", err);
+  }
+}
 
 // Wait for the page to fully load its DOM content, then call updateLocation
 document.addEventListener("DOMContentLoaded", () => {
-    alert("Please change the script 'geotagging.js'");
+    updateLocation();
 });
+//updates location when document is loaded

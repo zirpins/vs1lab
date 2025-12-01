@@ -1,0 +1,276 @@
+/*
+  File origin: VS1LAB A1b  
+
+  CSS style is BEM. Classes used for CSS, IDs for JavaScript querying (future use).
+  CSS variables used for clarity and themability (e.g. through SSR). 
+  Inherited box sizing used for ease of including 3rd party content-box components.
+*/
+
+/* Global styling */
+
+html {
+  box-sizing: border-box;
+  background-color: #1E1F22;
+}
+
+/*EDIT: Verhindern, dass die Seite überscrollbar ist. Nur optisch*/
+html, body {
+  overscroll-behavior: none;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+
+/* Variables */
+
+:root {
+  --link-color: #00B7FF;
+  --background-color: #efefef;
+  --border-color: #cdcdcd;
+  --gray-color: #666;
+}
+
+
+/* HTML element styles */
+
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+a {
+  color: var(--link-color);
+}
+
+.row {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex: 1;
+}
+
+.col-1 {
+  width: calc(8.33% - 1rem);
+}
+
+.col-2 {
+  width: calc(16.66% - 1rem);
+}
+
+.col-3 {
+  width: calc(25% - 1rem);
+}
+
+.col-4 {
+  width: calc(33.33% - 1rem);
+}
+
+.col-5 {
+  width: calc(41.66% - 1rem);
+}
+
+.col-6 {
+  width: calc(50% - 1rem);
+}
+
+.col-7 {
+  width: calc(58.33% - 1rem);
+}
+
+.col-8 {
+  width: calc(66.66% - 1rem);
+}
+
+.col-9 {
+  width: calc(75% - 1rem);
+}
+
+.col-10 {
+  width: calc(83.33% - 1rem);
+}
+
+.col-11 {
+  width: calc(91.66% - 1rem);
+}
+
+.col-12 {
+  width: calc(100% - 1rem);
+}
+
+
+
+/* HEADER */
+
+header {
+  background-color: #121416;
+  color: #E0E0E0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0 2rem;
+  align-items: center;
+  height: 10rem;
+}
+
+header img {
+  width: 5rem;
+  display: block;
+}
+
+header a { color: #E0E0E0; }
+header a:hover { color: #4EA1D3; }
+
+header h1:hover { color: #D34E4E; }
+
+
+/* MAIN AREA */
+
+.main {
+  background-color: #1E1F22;
+  color: #E0E0E0;
+  padding: 1.5rem;
+  max-width: 1100px;
+  margin: 1.5rem auto;
+}
+
+
+/* TAGGING FORM */
+.main__tagging {
+    min-height: 500px;
+}
+.main__tagging form {
+  margin: 0rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.main__tagging form input {
+  padding: 0.3rem;
+  width: 100%;
+}
+
+
+/* DISCOVERY */
+
+.discovery__wrapper {
+  margin-top: 1rem;
+}
+.discovery_search{
+  margin:1rem;
+}
+
+/* Fieldset layout */
+fieldset {
+  border: 1px solid #2a2b2f;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  background-color: #181A1C;
+  margin-bottom: 1rem;
+}
+
+legend {
+  padding: 0 0.4rem;
+  color: #E0E0E0;
+}
+
+/* Map */
+.discovery__map img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Ergebnisliste: große Boxen, Text links, flexible Höhe */
+.discovery__results > li {
+  background-color: #181A1C;
+  list-style: none;
+  margin-bottom: 1rem;
+  border: 1px solid #2a2b2f;
+  color: #D34E4E;
+
+  padding: 0.6rem 0.8rem;
+  height: auto;
+
+  display: block;
+  border-radius: 0.3rem;
+}
+
+/* Labels ohne <br> */
+label {
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+/* Inputs Discovery */
+#searchterm {
+  width: 35%;
+  height: 2rem;
+}
+
+/* Buttons */
+main button {
+  background-color: #4EA1D3;
+  border: none;
+  cursor: pointer;
+}
+
+main button:hover { background-color: #61b2e4; }
+main button:focus { background-color: #7cc8f2; }
+
+#tagbutton {
+  width: 100%;
+  height: 2rem;
+  margin-top: 1rem;
+  border-radius: 0.4rem;
+}
+
+#searchbutton {
+  width: 35%;
+  height: 2rem;
+  margin-top: 1rem;
+  border-radius: 0.4rem;
+}
+
+#map { 
+   height: 500px;
+ }
+
+/* FOOTER 
+adjusted to fix overlapping map*/
+
+footer {
+  margin-top: auto;
+  background-color: #181A1C;
+  color: #E0E0E0;
+  padding: 2rem;
+  font-size: 0.7rem;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+  .row {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .col-1, .col-2, .col-3, .col-4,
+  .col-5, .col-6, .col-7, .col-8,
+  .col-9, .col-10, .col-11, .col-12 {
+    width: 100%;
+  }
+
+  header {
+    flex-direction: column;
+    height: auto;
+    padding: 1rem;
+    gap: 0.5rem;
+  }
+}
