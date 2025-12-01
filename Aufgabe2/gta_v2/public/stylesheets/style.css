@@ -179,9 +179,7 @@ h2 {
 
 /* ### TODO ### Styles for Tagging component */
 
-.tag_form fieldset {
-  width: 100%;
-}
+
 
 /* ### TODO ### Styles for Discovery component */
 
@@ -227,7 +225,7 @@ h2 {
 
 /* ... your code here ... */
 
-@media (max-width: 750px) {
+@media (max-width: 850px) {
   * {
     flex-direction: column;
   }
