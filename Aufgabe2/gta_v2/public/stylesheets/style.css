@@ -24,7 +24,11 @@ html {
 /* Variables (example: see declaration for "a" below) */
 
 :root {
-  --link-color: #00B7FF;
+  --link-color: #001d7a;
+  --font-color-dark: #2c2957;
+  --font-color-light: #f7f6ff;
+  --main-color1: #daf2ff;
+  --main-color2: #005f87;
   --background-color: #dbf5ff;
   --border-color: #cdcdcd;
   --gray-color: #666;
@@ -34,7 +38,8 @@ html {
 /* HTML element styles */
 
 body {
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px "Trebuchet MS", Helvetica, sans-serif;
+  color: var(--font-color-dark);
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -113,7 +118,7 @@ a {
   align-items: center;
   justify-content: space-between;
   padding: 50px 50px;
-  background-color: var(--background-color);
+  background-color: var(--main-color1);
 }
 
 .header .header-elements{
@@ -132,6 +137,11 @@ a {
   margin: 10px;
   gap: 6px;
   font-size: 16px;
+  font-weight: bold;
+}
+
+.header #header-navigation a{
+  text-decoration: none;
 }
 
 /* ### TODO ### Styles for Main Component */
@@ -143,6 +153,8 @@ a {
   gap: 25px;
 }
 
+/* general styles for form elements */
+
 /* ### TODO ### Styles for Tagging component */
 
 .main .tagging h2{
@@ -151,30 +163,35 @@ a {
 
 .main .tagging form fieldset{
   padding: 20px;
-  border: solid 1px var(--border-color);
+  background-color: #daf2ff;
+  border: 0px;
+  border-radius: 8px;
 }
 
 .main .tagging form fieldset legend{
   font-weight: bold;
 }
 
+.main .tagging form fieldset label{
+  font: bold 14px "Trebuchet MS", Helvetica, sans-serif;
+  color: var(--gray-color);
+}
 .main .tagging form fieldset input{
   display: block;
-  padding: 7px 10px;
+  padding: 10px 10px;
   margin-top: 5px;
   margin-bottom: 15px;
   width: 100%;
-}
-
-.main .tagging form fieldset label{
-  color: var(--gray-color);
+  font: 14px "Trebuchet MS", Helvetica, sans-serif;
+  border: solid 1px var(--border-color);
+  border-radius: 8px;
 }
 
 .main .tagging form fieldset #tag-form-submit{
   width: 100%;
   border: solid 1px var(--border-color);
+  font-weight: bold;
 }
-
 
 /* ### TODO ### Styles for Discovery component */
 
@@ -184,24 +201,32 @@ a {
 
 .main .discovery form fieldset {
   padding: 20px;
-  border: solid 1px var(--border-color);
-}
-
-.main .discovery form fieldset label{
-  color: var(--gray-color);
-}
-
-.main .discovery form fieldset input{
-  display: block;
-  padding: 7px 10px;
-  margin-top: 5px;
-  margin-bottom: 15px;
-  width: 30%;
+  background-color: #daf2ff;
+  border: 0px;
+  border-radius: 8px;
 }
 
 .main .discovery form fieldset legend{
   font-weight: bold;
 }
+
+.main .discovery form fieldset label{
+  font: bold 14px "Trebuchet MS", Helvetica, sans-serif;
+  color: var(--gray-color);
+}
+
+.main .discovery form fieldset input{
+  display: block;
+  padding: 10px 10px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  font: 14px "Trebuchet MS", Helvetica, sans-serif;
+  width: 20%;
+  border: solid 1px var(--border-color);
+  border-radius: 8px;
+}
+
+
 
 .main .discovery form fieldset #discovery-search-input{
   margin: 15px 0;
@@ -209,8 +234,8 @@ a {
 
 
 .main .discovery form fieldset #discovery-search-submit{
-  width: 30%;
   border: solid 1px var(--border-color);
+  font-weight: bold;
 }
 
 .main .discovery .discovery__wrapper{
@@ -223,14 +248,18 @@ a {
 
 .main .discovery .discovery__wrapper .discovery__taglist .discovery__results{
   list-style: none;
+  padding: 10px 10px;
+  background-color: var(--main-color1);
+  border-radius: 8px;
 }
 
 .main .discovery .discovery__wrapper .discovery__taglist .discovery__results li{
   padding: 10px;
-  border: solid 1px var(--border-color);
-  color: var(--link-color);
+  border: 0px;
+  border-radius: 8px;
+  color: var(--font-color-light);
   font-weight: bold;
-  background: var(--background-color);
+  background: var(--main-color2);
   margin-bottom: 15px;
 }
 
@@ -251,7 +280,7 @@ a {
 
 .footer{
   height: 100px;
-  background-color: var(--background-color);
+  background-color: var(--main-color1);
   display: flex;
   align-items: center;
 }
