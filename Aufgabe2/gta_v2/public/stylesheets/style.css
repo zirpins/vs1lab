@@ -232,8 +232,10 @@ a {
   margin-bottom: 15px;
 }
 
-.main .discovery .discovery__wrapper .discovery__map{
+.main .discovery .discovery__wrapper #map{
   border-radius: var(--default-border-radius);
+  height: 80vh;
+  min-height: 10px;
 }
 
 .main .discovery .discovery__wrapper #map-image{
