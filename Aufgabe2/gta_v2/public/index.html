@@ -26,16 +26,21 @@
 
 <body>
     <header class="header row">
-        <img src="./images/location.png"
-             class="header-elements"
-             id="header-image"
-             alt="an image of a map and location">
-        <h1 class="header-elements"
-            id="header-title">GeoTagApp</h1>
-        <nav class="header-elements"
-             id="header-navigation">
-            <a href="#">About</a> / <a href="#">Help</a> / <a href="/">Home</a>
-        </nav>
+        <div class="header-elements col-4"
+             id="header-image-container">
+            <img src="./images/location.png"
+                id="header-image"
+                alt="an image of a map and location">
+        </div>
+        <div class="header-elements col-4" id="header-title-container">
+            <h1 id="header-title">GeoTagApp</h1>
+        </div>
+        <div class="header-elements col-4" id="header-navigation-container">
+            <nav id="header-navigation">
+                <a href="#">About</a> / <a href="#">Help</a> / <a href="/">Home</a>
+            </nav>
+        </div>
+
     </header>
 
     <main class="main row">
@@ -117,21 +122,22 @@
 
             <div class="discovery__wrapper row">
                 <div class="discovery__taglist col-4">
-                    <ul class="discovery__results"
-                        id="discoveryResults">
-                        <li>Castle (49.01379, 8.404435) #sight</li>
-                        <li>IWI (49.01379, 8.390071) #edu</li>
-                    </ul>
+                    <fieldset id="discovery-results-fieldset">
+                        <legend id="discovery-results-legend">Results</legend>
+                        <ul class="discovery__results"
+                            id="discoveryResults">
+                            <li>Castle (49.01379, 8.404435) #sight</li>
+                            <li>IWI (49.01379, 8.390071) #edu</li>
+                        </ul>
+                    </fieldset>
                 </div>
 
-                <div id="map col-8"
-                     class="discovery__map">
-                    <img src="./images/mapview.jpg"
-                         alt="a map with locations"
-                         id="mapView" />
-                    <span>Result map</span>
+                <div id="map" class="discovery__map col-8">
+                    <img id="map-image"
+                         src="./images/mapview.jpg"
+                         alt="a map with locations"> 
+                    <span id="map-description">Result map</span>
                 </div>
-            </div>
         </section>
 
     </main>
