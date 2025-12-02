@@ -142,7 +142,7 @@ function updateLocation() {
       // vorerst nur aktueller Standort, keine weiteren Tags
       mapManager.updateMarkers(latitude, longitude);
 
-      // 3) Platzhalterbild und Text im #map-Container entfernen
+      // 3) Platzhalterbild und Text im #map-Container entfernen (hier span statt p)
       const mapContainer = document.getElementById("map");
       if (mapContainer) {
         const placeholderImage = mapContainer.querySelector("img");
