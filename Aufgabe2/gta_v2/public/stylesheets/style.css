@@ -20,6 +20,10 @@ html {
   box-sizing: inherit;
 }
 
+#map { 
+   height: 500px;
+ }
+ 
 
 /* Variables (example: see declaration for "a" below) */
 
