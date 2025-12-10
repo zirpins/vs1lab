@@ -31,8 +31,8 @@ class InMemoryGeoTagStore{
 
     constructor() {
         GeoTagExamples.tagList.forEach(element => {
-            geoTag = new GeoTag(element[1], element[2],element[0], element[3]);
-            this.#geoTags.push(this.#geoTags);
+            let geoTag = new GeoTag(element[1], element[2],element[0], element[3]);
+            this.#geoTags.push(geoTag);
         });
     }
 
@@ -64,6 +64,10 @@ class InMemoryGeoTagStore{
     searchNearbyGeoTags(keyword, latitude, longitude) {
         let nearbyGeoTags = this.getNearbyGeoTags(latitude, longitude);
         return nearbyGeoTags.filter(element => element.getName().includes(keyword) || element.getHashtag().includes(keyword));
+    }
+
+    getGeoTags() {
+        return this.#geoTags;
     }
 }
 
