@@ -89,6 +89,7 @@ class MapManager {
             'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; ' + mapLink + ' Contributors'}).addTo(this.#map);
         this.#markers = L.layerGroup().addTo(this.#map);
+        
     }
 
     /**
@@ -130,7 +131,7 @@ function updateLocation() {
         const mapManager = new MapManager();
 
         mapManager.initMap(latitude, longitude);
-        mapManager.updateMarkers(latitude, longitude);
+        mapManager.updateMarkers(latitude, longitude, document.getElementById(map).getAttribute(data-tags));
     });
 }
 
