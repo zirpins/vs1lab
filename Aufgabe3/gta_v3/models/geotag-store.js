@@ -85,6 +85,14 @@ class InMemoryGeoTagStore{
     toRad(grad){
         return grad * Math.PI / 180;
     }
+
+    print() {
+        console.log("GeoTags:\n")
+        this.#geoTags.forEach(element => {
+            console.log(element);
+        })
+        console.log("\n");
+    }
 }
 
 module.exports = InMemoryGeoTagStore
