@@ -20,20 +20,30 @@ console.log("The geoTagging script is going to start...");
  */
 
 function updateLocation() {
-        LocationHelper.findLocation((locationHelper) => {
-        let longitude = locationHelper.longitude;
-        let latitude = locationHelper.latitude;
+        let newLatitude = LocationHelper.latitude();
+        let newLongtitude = LocationHelper.longitude();
 
-        document.getElementById("taggingLatitude").value = latitude;
-        document.getElementById("taggingLongitude").value = longitude;
-        document.getElementById("discoveryLatitude").value = latitude;
-        document.getElementById("discoveryLongitude").value = longitude;
+        let longitude = document.getElementById("taggingLatitude").value;
+        let latitude= document.getElementById("taggingLongitude").value;
 
-        const mapManager = new MapManager();
+        if (newLatitude != latitude && newLongtitude != longitude) {
 
-        mapManager.initMap(latitude, longitude);
-        mapManager.updateMarkers(latitude, longitude);
-    });
+            LocationHelper.findLocation((locationHelper) => {
+
+                let longitude = locationHelper.longitude;
+                let latitude = locationHelper.latitude;
+
+                document.getElementById("taggingLatitude").value = latitude;
+                document.getElementById("taggingLongitude").value = longitude;
+                document.getElementById("discoveryLatitude").value = latitude;
+                document.getElementById("discoveryLongitude").value = longitude;
+
+                const mapManager = new MapManager();
+
+                mapManager.initMap(latitude, longitude);
+                mapManager.updateMarkers(latitude, longitude);
+            });
+        }
 }
 
 // Wait for the page to fully load its DOM content, then call updateLocation
