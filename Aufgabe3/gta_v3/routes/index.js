@@ -47,8 +47,8 @@ router.get('/', (req, res) => {
   geoTagStore.print();
   res.render('index', {
     taglist: [],
-    latitude: "",
-    longitude: ""
+    latitude: 0,
+    longitude: 0
   });
 });
 

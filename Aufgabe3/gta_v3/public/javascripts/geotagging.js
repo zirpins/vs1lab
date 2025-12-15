@@ -42,7 +42,7 @@ function updateLocation() {
                 const mapManager = new MapManager();
 
                 mapManager.initMap(latitude, longitude);
-                mapManager.updateMarkers(latitude, longitude);
+                mapManager.updateMarkers(latitude, longitude, JSON.parse(document.getElementById("map").getAttribute("data-tags")));
             });
         }
 }

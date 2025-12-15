@@ -92,8 +92,8 @@
                         <% }); %>
                     </ul>
                 </div>
-
-                <div id="map" class="discovery__map col-5">
+                <!--Aufgabe 3.2.3 add data-* Attribute-->
+                <div id="map" class="discovery__map col-5" data-tags="<%= JSON.stringify(taglist); %>">
                     <img src="./images/mapview.jpg" alt="a map with locations" id="mapView" />
                     <span id="mapSpan">Result map</span>
                 </div>
