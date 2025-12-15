@@ -42,10 +42,10 @@
                     <legend>Add a new Geo Tag</legend>
                     
                     <label for="latitude">Latitude:</label><br>
-                    <input type="text" name="latitude" id="taggingLatitude" placeholder="40" value="" disabled><br>
+                    <input type="text" name="latitude" id="taggingLatitude" placeholder="40" value="<%= latitude %>" readonly><br>
 
                     <label for="longitude">Longitude:</label><br>
-                    <input type="text" name="longitude" id="taggingLongitude" placeholder="-3" value="" disabled><br>
+                    <input type="text" name="longitude" id="taggingLongitude" placeholder="-3" value="<%= longitude %>" readonly><br>
 
                     <label for="name">Name:</label><br>
                     <input type="text" name="name" id="taggingName" placeholder="Madrid, Spain" value="" pattern="[A-Za-z]{1,10}" required><br>
@@ -92,8 +92,8 @@
                         <% }); %>
                     </ul>
                 </div>
-
-                <div id="map" class="discovery__map col-5">
+                <!--Aufgabe 3.2.3 add data-* Attribute-->
+                <div id="map" class="discovery__map col-5" data-tags="<%= JSON.stringify(taglist); %>">
                     <img src="./images/mapview.jpg" alt="a map with locations" id="mapView" />
                     <span id="mapSpan">Result map</span>
                 </div>
@@ -108,7 +108,7 @@
     <!-- Load JavaScripts
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="./javascripts/geotagging.js"></script>
+     <script type="module" src="./javascripts/geotagging.js"></script>
 </body>
 
 </html>

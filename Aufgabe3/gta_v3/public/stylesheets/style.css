@@ -200,6 +200,10 @@ h2 {
   gap: 10px;
 }
 
+.discovery__results{
+  flex-direction: column;
+}
+
 #map img {
   flex: 1;
   width: 100%;
