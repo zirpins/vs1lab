@@ -2,7 +2,8 @@
 
 /* Imports */
 
-
+import {MapManager} from "./map-manager.js";
+import {LocationHelper} from "./location-helper.js";
 
 /* eslint-disable no-unused-vars */
 
@@ -20,8 +21,8 @@ console.log("The geoTagging script is going to start...");
  */
 
 function updateLocation() {
-        let newLatitude = LocationHelper.latitude();
-        let newLongtitude = LocationHelper.longitude();
+        let newLatitude = LocationHelper.latitude;
+        let newLongtitude = LocationHelper.longitude;
 
         let longitude = document.getElementById("taggingLatitude").value;
         let latitude= document.getElementById("taggingLongitude").value;
