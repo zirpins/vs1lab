@@ -24,15 +24,15 @@ function updateLocation() {
         let newLatitude = LocationHelper.latitude;
         let newLongtitude = LocationHelper.longitude;
 
-        let longitude = document.getElementById("taggingLatitude").value;
-        let latitude= document.getElementById("taggingLongitude").value;
+        let latitude = document.getElementById("taggingLatitude").value;
+        let longitude = document.getElementById("taggingLongitude").value;
 
-        if (newLatitude != latitude && newLongtitude != longitude) {
+        if (newLatitude !== latitude || newLongtitude !== longitude) {
 
             LocationHelper.findLocation((locationHelper) => {
 
-                let longitude = locationHelper.longitude;
-                let latitude = locationHelper.latitude;
+                longitude = locationHelper.longitude;
+                latitude = locationHelper.latitude;
 
                 document.getElementById("taggingLatitude").value = latitude;
                 document.getElementById("taggingLongitude").value = longitude;
@@ -40,10 +40,10 @@ function updateLocation() {
                 document.getElementById("discoveryLongitude").value = longitude;
 
                 const mapManager = new MapManager();
-
                 mapManager.initMap(latitude, longitude);
                 mapManager.updateMarkers(latitude, longitude, JSON.parse(document.getElementById("map").getAttribute("data-tags")));
             });
+
         }
 }
 
