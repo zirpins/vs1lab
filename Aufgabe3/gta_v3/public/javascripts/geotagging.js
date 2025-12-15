@@ -105,7 +105,6 @@ class MapManager {
             .bindPopup("Your Location")
             .addTo(this.#markers);
         for (const tag of tags) {
-            console.log(tags)
             L.marker([tag.latitude,tag.longitude])
                 .bindPopup(tag.name)
                 .addTo(this.#markers);  
@@ -130,7 +129,6 @@ function updateLocation() {
         document.getElementById("discoveryLongitude").value = longitude;
 
         const mapManager = new MapManager();
-                console.log(document.getElementById("map").getAttribute("data-tags"))
 
         mapManager.initMap(latitude, longitude);
         mapManager.updateMarkers(latitude, longitude, JSON.parse(document.getElementById("map").getAttribute("data-tags")));
