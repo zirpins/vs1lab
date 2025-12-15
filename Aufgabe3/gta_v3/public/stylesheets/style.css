@@ -174,8 +174,6 @@ h2 {
 .main {
   display: flex;
   flex-wrap: wrap;
-  gap: 25px;
-
   padding: 25px;
 }
 
@@ -186,8 +184,6 @@ h2 {
 /* ### TODO ### Styles for Discovery component */
 
 .discovery {
-  flex-grow: 1;
-
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -204,10 +200,8 @@ h2 {
   gap: 10px;
 }
 
-#map {
-  display: flex;
+.discovery__results{
   flex-direction: column;
-
 }
 
 #map img {
@@ -226,12 +220,16 @@ h2 {
   margin-top: auto;
 }
 
+#map { 
+   height: 500px;
+ }
+
 
 /* ### TODO ### Media Queries */
 
 /* ... your code here ... */
 
-@media (max-width: 750px) {
+@media (max-width: 850px) {
   * {
     flex-direction: column;
   }

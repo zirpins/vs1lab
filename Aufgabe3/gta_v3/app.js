@@ -16,6 +16,8 @@ const path = require('path');
 const logger = require('morgan');
 
 const indexRouter = require('./routes/index');
+const indexTagging = require('./routes/index');
+const indexDiscovery = require('./routes/index');
 
 /**
  * Set up Express app.
@@ -46,6 +48,9 @@ app.use(express.urlencoded({ extended: false }));
 
 // Set dedicated script for routing
 app.use('/', indexRouter);
+app.use('/tagging', indexTagging);
+app.use('/discovery', indexDiscovery);
+app.use(express.static(path.join(__dirname, 'public')));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

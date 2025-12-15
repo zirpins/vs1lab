@@ -1,5 +1,8 @@
 // File origin: VS1LAB A3
 
+const GeoTag = require("./geotag");
+const GeoTagExamples = require("./geotag-examples");
+
 /**
  * This script is a template for exercise VS1lab/Aufgabe3
  * Complete all TODOs in the code documentation.
@@ -24,9 +27,72 @@
  * - Keyword matching should include partial matches from name or hashtag fields. 
  */
 class InMemoryGeoTagStore{
+    #geoTags = [];
 
-    // TODO: ... your code here ...
+    constructor() {
+        GeoTagExamples.tagList.forEach(element => {
+            let geoTag = new GeoTag(element[1], element[2],element[0], element[3]);
+            this.#geoTags.push(geoTag);
+        });
+    }
 
+    addGeoTag(geoTag) {
+        this.#geoTags.push(geoTag);
+    }
+
+    removeGeoTag(geoTag) {
+        this.#geoTags = this.#geoTags.filter(gt => gt.getName() !== geoTag.getName());
+    }
+
+    getNearbyGeoTags(latitude, longitude) {
+        const radius = 10;
+        let nearbyGeoTags = [];
+
+
+        this.#geoTags.forEach(element => {
+            if (this.haversineDistance(latitude, longitude, element.getLatitude(), element.getLongitude()) <= radius) nearbyGeoTags.push(element);
+        });
+        return nearbyGeoTags;
+    }
+
+    searchNearbyGeoTags(keyword, latitude, longitude) {
+        let nearbyGeoTags = this.getNearbyGeoTags(latitude, longitude);
+        if (!keyword) return nearbyGeoTags;
+        keyword = keyword.toLowerCase();
+
+        return nearbyGeoTags.filter(element => element.getName().toLowerCase().includes(keyword) || element.getHashtag().toLowerCase().includes(keyword));
+    }
+
+    getGeoTags() {
+        return this.#geoTags;
+    }
+
+    haversineDistance(lat1, long1, lat2, long2) {
+        lat1 = this.toRad(lat1);
+        long1 = this.toRad(long1);
+        lat2 = this.toRad(lat2);
+        long2 = this.toRad(long2);
+
+        const latitudeDifference = lat1 - lat2;
+        const longitudeDifference = long1 - long2;
+
+        const hav = (1 - Math.cos(latitudeDifference) + Math.cos(lat1) * Math.cos(lat2) * (1 - Math.cos(longitudeDifference))) / 2
+        const distance = 2 * Math.asin(Math.sqrt(hav));
+
+        return distance * 6371;
+    }
+
+    toRad(grad){
+        return grad * Math.PI / 180;
+    }
+
+    print() {
+        console.log("GeoTags:\n")
+        this.#geoTags.forEach(element => {
+            console.log(element);
+        })
+        console.log("\n");
+    }
 }
 
 module.exports = InMemoryGeoTagStore
