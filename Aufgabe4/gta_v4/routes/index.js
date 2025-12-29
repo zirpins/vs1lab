@@ -27,6 +27,8 @@ const GeoTag = require('../models/geotag');
 // eslint-disable-next-line no-unused-vars
 const GeoTagStore = require('../models/geotag-store');
 
+const geoTagStore = new GeoTagStore();
+
 // App routes (A3)
 
 /**
@@ -39,7 +41,12 @@ const GeoTagStore = require('../models/geotag-store');
  */
 
 router.get('/', (req, res) => {
-  res.render('index', { taglist: [] })
+  let store = new GeoTagStore;
+  res.render('index', {
+    taglist: store.getGeoTags(),
+    latitude: "",
+    longitude: ""
+  })
 });
 
 // API routes (A4)
