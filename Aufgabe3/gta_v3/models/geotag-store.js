@@ -45,7 +45,7 @@ class InMemoryGeoTagStore{
     }
 
     getNearbyGeoTags(latitude, longitude) {
-        const radius = 10;
+        const radius = 1000;
         let nearbyGeoTags = [];
 
 
