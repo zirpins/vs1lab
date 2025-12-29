@@ -28,16 +28,20 @@ const GeoTagExamples = require("./geotag-examples");
  */
 class InMemoryGeoTagStore{
     #geoTags = [];
+    #counter = 0;
 
     constructor() {
+        //adding examples
         GeoTagExamples.tagList.forEach(element => {
             let geoTag = new GeoTag(element[1], element[2],element[0], element[3]);
-            this.#geoTags.push(geoTag);
+            this.addGeoTag(geoTag);
         });
     }
 
     addGeoTag(geoTag) {
+        geoTag.setId(this.#counter);
         this.#geoTags.push(geoTag);
+        this.#counter++;
     }
 
     removeGeoTag(geoTag) {

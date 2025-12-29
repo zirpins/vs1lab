@@ -26,7 +26,6 @@ const GeoTag = require('../models/geotag');
  */
 // eslint-disable-next-line no-unused-vars
 const GeoTagStore = require('../models/geotag-store');
-const { tagList } = require('../models/geotag-examples');
 
 const geoTagStore = new GeoTagStore();
 
@@ -42,8 +41,9 @@ const geoTagStore = new GeoTagStore();
  */
 
 router.get('/', (req, res) => {
+  let store = new GeoTagStore;
   res.render('index', {
-    taglist: [],
+    taglist: store.getGeoTags(),
     latitude: "",
     longitude: ""
   })
