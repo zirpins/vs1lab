@@ -6,7 +6,7 @@
  * A class to help using the Leaflet map service.
  */
  // eslint-disable-next-line no-unused-vars
- class MapManager {
+export class MapManager {
 
     #map
     #defaultIcon

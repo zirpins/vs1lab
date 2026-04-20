@@ -31,6 +31,8 @@ const GeoTag = require('../models/geotag');
 // eslint-disable-next-line no-unused-vars
 const GeoTagStore = require('../models/geotag-store');
 
+const geoTagStore = new GeoTagStore();
+
 /**
  * Route '/' for HTTP 'GET' requests.
  * (http://expressjs.com/de/4x/api.html#app.get.method)
@@ -42,7 +44,11 @@ const GeoTagStore = require('../models/geotag-store');
 
 // TODO: extend the following route example if necessary
 router.get('/', (req, res) => {
-  res.render('index', { taglist: [] })
+  res.render('index', {
+    taglist: [],
+    latitude: "",
+    longitude: ""
+  });
 });
 
 /**
@@ -61,6 +67,37 @@ router.get('/', (req, res) => {
  */
 
 // TODO: ... your code here ...
+router.post('/tagging', (req, res) => {
+  let nearbyGeoTags = [];
+  let longitude = "";
+  let latitude = "";
+  let name = "";
+  let hashtag = "";
+  let valid = true;
+
+  if (req.body.latitude < 0 || req.body.latitude > 180 || typeof req.body.latitude !== 'string') {
+    valid = false;
+  }
+  if (req.body.longitude < 0 || req.body.longitude > 180 || typeof req.body.latitude !== 'string') {
+    valid = false;
+  }
+
+  if (typeof req.body.name !== 'string' || typeof req.body.hashtag !== 'string') {
+    valid = false;
+  }
+
+  if (valid) {
+    latitude = req.body.latitude;
+    longitude = req.body.longitude
+    geoTagStore.addGeoTag(new GeoTag(latitude, longitude, name, hashtag));
+    nearbyGeoTags = geoTagStore.getNearbyGeoTags(req.body.latitude, req.body.longitude);
+  }
+  res.render('index', {
+    taglist: nearbyGeoTags,
+    latitude: latitude,
+    longitude: longitude
+  })
+})
 
 /**
  * Route '/discovery' for HTTP 'POST' requests.
@@ -79,5 +116,32 @@ router.get('/', (req, res) => {
  */
 
 // TODO: ... your code here ...
+router.post('/discovery', (req, res) => {
+  let nearbyGeoTags = [];
+  let longitude = "";
+  let latitude = "";
+  let valid = true;
+
+  if (req.body.latitude < 0 || req.body.latitude > 180 || typeof req.body.latitude !== 'string') {
+    valid = false;
+  }
+  if (req.body.longitude < 0 || req.body.longitude > 180 || typeof req.body.latitude !== 'string') {
+    valid = false;
+  }
+  if (typeof req.body.searchterm !== 'string') {
+    valid = false;
+  }
+
+  if (valid) {
+    latitude = req.body.latitude;
+    longitude = req.body.longitude;
+    nearbyGeoTags = geoTagStore.searchNearbyGeoTags(req.body.searchterm, latitude, longitude);
+  }
+  res.render('index', {
+    taglist: nearbyGeoTags,
+    latitude: latitude,
+    longitude: longitude
+  })
+})
 
 module.exports = router;

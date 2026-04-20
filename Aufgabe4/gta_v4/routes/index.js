@@ -21,11 +21,13 @@ const router = express.Router();
 const GeoTag = require('../models/geotag');
 
 /**
- * The module "geotag-store" exports a class GeoTagStore. 
+ * The module "geotag-store" exports a class GeoTagStore.  
  * It provides an in-memory store for geotag objects.
  */
 // eslint-disable-next-line no-unused-vars
 const GeoTagStore = require('../models/geotag-store');
+
+const geoTagStore = new GeoTagStore();
 
 // App routes (A3)
 
@@ -39,7 +41,11 @@ const GeoTagStore = require('../models/geotag-store');
  */
 
 router.get('/', (req, res) => {
-  res.render('index', { taglist: [] })
+  res.render('index', {
+    taglist: [],
+    latitude: "",
+    longitude: ""
+  })
 });
 
 // API routes (A4)
@@ -56,7 +62,21 @@ router.get('/', (req, res) => {
  * If 'latitude' and 'longitude' are available, it will be further filtered based on radius.
  */
 
-// TODO: ... your code here ...
+router.get('/api/geotags', (req, res) => {
+  let latitude = parseFloat(req.query.latitude)
+  let longitude = parseFloat(req.query.longitude);
+  let searchTerm = req.query.searchterm;
+
+  if (latitude < -180 || latitude > 180) {
+    latitude = undefined;
+  }
+  if (longitude < -90 || longitude > 90) {
+    longitude = undefined;
+  }
+  
+  const nearbyGeoTags = geoTagStore.searchNearbyGeoTags(searchTerm, latitude, longitude);
+  res.json(nearbyGeoTags);
+});
 
 
 /**
@@ -70,7 +90,34 @@ router.get('/', (req, res) => {
  * The new resource is rendered as JSON in the response.
  */
 
-// TODO: ... your code here ...
+router.post('/api/geotags', (req, res) => {
+  let latitude = parseFloat(req.body.latitude);
+  let longitude = parseFloat(req.body.longitude);
+  let name = req.body.name;
+  let hashtag = req.body.hashtag;
+
+  if (latitude < -180 || latitude > 180) {
+    latitude = undefined;
+  }
+  if (longitude < -90 || longitude > 90) {
+    longitude = undefined;
+  }
+
+  if ( !name || (!latitude || !longitude)) {
+      res.render("error", {
+      message: 'name and latitude and longitude is not given',
+      error: {
+        status: '404',
+        stack: ''
+      }
+    });
+    return;
+  }
+  
+  const newGeoTag = geoTagStore.addGeoTag(new GeoTag (latitude, longitude, name, hashtag));
+
+  res.header('Location', `/api/geotags/${newGeoTag.getId()}`).json(newGeoTag);
+});
 
 
 /**
@@ -83,7 +130,22 @@ router.get('/', (req, res) => {
  * The requested tag is rendered as JSON in the response.
  */
 
-// TODO: ... your code here ...
+router.get('/api/geotags/:id', (req, res) => {
+  let id = parseInt(req.params.id);
+  if (!id || id < 0) {
+    res.status(404);
+    res.render("error", {
+      message: 'id not given',
+      error: {
+        status: '404',
+        stack: ''
+      }
+    });
+    return;
+  }
+
+  res.json(geoTagStore.getGeoTagById(id));
+});
 
 
 /**
@@ -100,7 +162,47 @@ router.get('/', (req, res) => {
  * The updated resource is rendered as JSON in the response. 
  */
 
-// TODO: ... your code here ...
+router.put('/api/geotags/:id', (req, res) => {
+  let id = parseInt(req.params.id);
+  if (id === undefined || id < 0) {
+    res.status(404);
+    res.render("error", {
+      message: 'id not given',
+      error: {
+        status: '404',
+        stack: ''
+      }
+    });
+    return;
+  }
+
+  const newLatitude = parseFloat(req.body.latitude);
+  if (newLatitude < -180 || newLatitude > 180) {
+    newLatitude = undefined;
+  }
+
+  const newLongitude = parseFloat(req.body.longitude);
+  if (newLongitude < -90 || newLongitude > 90) {
+    newLongitude = undefined;
+  }
+  const newName = req.body.name;
+
+  const newHashtag = req.body.hashtag;
+
+  if ( !newName || (!newLatitude || !newLongitude)) {
+    res.status(404);
+    res.render("error", {
+      message: 'name and latitude and longitude is not given',
+      error: {
+        status: '404',
+        stack: ''
+      }
+    });
+    return;
+  }
+  
+  res.json(geoTagStore.changeGeotagById(id, newLatitude, newLongitude, newName, newHashtag));
+});
 
 
 /**
@@ -114,6 +216,26 @@ router.get('/', (req, res) => {
  * The deleted resource is rendered as JSON in the response.
  */
 
-// TODO: ... your code here ...
+router.delete('/api/geotags/:id', (req, res) => {
+  let id = req.params.id;
+  if (id === undefined || id < 0) {
+    if (id === undefined || id < 0) {
+      res.status(404);
+      res.render("error", {
+      message: 'id not given',
+      error: {
+        status: 404,
+        stack: ''
+      }
+    });
+  }
+    return;
+  }
+
+  const deletedGeotag = geoTagStore.getGeoTagById(id);
+  geoTagStore.removeGeoTagById(id);
+  res.json(deletedGeotag);
+
+});
 
 module.exports = router;

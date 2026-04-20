@@ -29,6 +29,23 @@
             <form id="tag-form" action="/tagging" method="post">
 
                 <!-- ... your code here ... -->
+                 <fieldset class="col-1">
+                    <legend>Add a new Geo Tag</legend>
+                    
+                    <label for="latitude">Latitude:</label><br>
+                    <input type="number" name="latitude" id="taggingLatitude" placeholder="40" disabled><br>
+
+                    <label for="longitude">Longitude:</label><br>
+                    <input type="number" name="longitude" id="taggingLongitude" placeholder="-3" disabled><br>
+
+                    <label for="name">Name:</label><br>
+                    <input type="text" name="name" id="taggingName" placeholder="Madrid, Spain" pattern="[A-Za-z]{1,10}" required><br>
+
+                    <label for="hashtag">Hashtag:</label><br>
+                    <input type="text" name="hashtag" id="taggingHashtag" placeholder="#Madrid" pattern="#[A-Za-z]{1,10}"><br>
+                    
+                    <input type="submit" id="taggingSubmit" value="Add tag">
+                 </fieldset>
 
             </form>
             <!-- ############### VS1Lab 1a Form 1 End -->
@@ -42,6 +59,18 @@
             <form class="discovery__search" id="discoveryFilterForm" action="/discovery" method="post">
 
                 <!-- ... your code here ... -->
+                 <fieldset class="col-2">
+                    <legend>Searching for</legend>
+
+                    <input type="hidden"  name="latitude" id="discoveryLatitude">
+                    <input type="hidden" name="longitude" id="discoveryLongitude">
+
+                    
+                    <label for="searchterm">Searchterm:</label><br>
+                    <input name="searchterm" id="discoverySearch" placeholder="Berlin, Germany"><br>
+                    
+                    <input type="submit" id="discoverySubmit" value="Search">
+                </fieldset>
 
             </form>
             <!-- ############### VS1Lab 1a Form 2 End -->
@@ -49,8 +78,8 @@
             <div class="discovery__wrapper">
                 <div class="discovery__taglist">
                     <ul class="discovery__results" id="discoveryResults">
-                        <li>Castle (49.01379, 8.404435) #sight</li>
-                        <li>IWI (49.01379, 8.390071) #edu</li>
+                        <li>Castle (49.01379, 8.404435)<br> #sight</li>
+                        <li>IWI (49.01379, 8.390071)<br> #edu</li>
                     </ul>
                 </div>
 
