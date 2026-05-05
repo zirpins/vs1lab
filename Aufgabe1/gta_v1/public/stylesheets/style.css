@@ -109,29 +109,90 @@ a {
 
 /* ### TODO ### Styles for Header Component */
 
-/* ... your code here ... */
+.header{
+  background-color: antiquewhite;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header__image{
+  width: 4rem;
+} 
 
 
 /* ### TODO ### Styles for Main Component */
-
-/* ... your code here ... */
+.main{
+  flex:1; /*um verfügbaren Platz zwischen header und footer auszufüllen*/
+  margin: 2rem;
+}
 
 
 /* ### TODO ### Styles for Tagging component */
 
-/* ... your code here ... */
+#tag-form fieldset{
+  display: flex;
+  flex-direction: column;
+}
 
 
 /* ### TODO ### Styles for Discovery component */
 
-/* ... your code here ... */
+.discovery__results li {
+  color: #00B7FF;
+  background-color: lightgrey;
+
+  padding: 0.5rem;
+
+  margin-bottom: 1rem; /*Abstand nach unten*/
+
+  border-color: black;
+  border: 2px solid black;
+
+  list-style: none; /*keine Unterpunktzeichen*/
+
+   width: 180px;
+
+}
+
+.discovery{
+  min-width: 380px;
+}
+
+.discovery__map{
+  display: flex;
+  flex-direction: column;
+}
 
 
 /* ### TODO ### Styles for Footer Component */
 
-/* ... your code here ... */
+.footer{
+  background-color: grey;
+  text-align: center;
+  padding: 1rem;
+}
 
+/*Input Felder*/
+fieldset{
+  padding: 1rem;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin-bottom: 2rem;
+}
+
+input{
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+}
 
 /* ### TODO ### Media Queries */
 
-/* ... your code here ... */
+@media (max-width:850px){ /*regeln gelten falls Ansicht<=850*/
+  /*Tags die row Klasse angehören => column machen*/
+  .row{ 
+  width: 100%;
+  display: block;
+  justify-content: space-between;
+  flex: 1;
+  }
+}
