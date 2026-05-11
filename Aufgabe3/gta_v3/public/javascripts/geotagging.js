@@ -9,21 +9,17 @@
 // Try to find this output in the browser...
 console.log("The geoTagging script is going to start...");
 
-let tlongitude;
-let tlatitude;
-let dlongitude;
-let dlatitude;
-
 // Wait for the page to fully load its DOM content, then call updateLocation
 document.addEventListener("DOMContentLoaded", () => {
-    tlongitude = document.getElementById("tagging_longitude_input");
-    tlatitude = document.getElementById("tagging_latitude_input");
-    dlongitude = document.getElementById("discovery_longitude_input");
-    dlatitude = document.getElementById("discovery_latitude_input");
+    const tlongitude = document.getElementById("tagging_longitude_input");
+    const tlatitude = document.getElementById("tagging_latitude_input");
+    const dlongitude = document.getElementById("discovery_longitude_input");
+    const dlatitude = document.getElementById("discovery_latitude_input");
 
     if(!tlongitude.value && !tlatitude.value) {
-        alert("Updating Location");
         LocationHelper.findLocation(updateLocation);
+    } else {
+        updateMap(tlongitude.value, tlatitude.value);
     }
 });
 
@@ -37,20 +33,24 @@ function updateLocation(location) {
     const long = location.longitude;
     const lat = location.latitude;
     
-    tlongitude.value = long;
-    tlatitude.value = lat;
-    dlongitude.value = long;
-    dlatitude.value = lat;
+    document.getElementById("tagging_longitude_input").value = long;
+    document.getElementById("tagging_latitude_input").value = lat;
+    document.getElementById("discovery_longitude_input").value = long;
+    document.getElementById("discovery_latitude_input").value = lat;
 
+    updateMap(long, lat);
+}
 
+function updateMap(long, lat) {
     const mapManager = new MapManager();
-    mapManager.initMap(location.latitude, location.longitude);
+
+    mapManager.initMap(lat, long);
 
     const taglist_json = document.getElementById("map").dataset.tags;
     
     const taglist = JSON.parse(taglist_json);
 
-    mapManager.updateMarkers(location.latitude, location.longitude, taglist);
+    mapManager.updateMarkers(lat, long, taglist);
 
     const image = document.getElementById("mapView");
     image.remove();

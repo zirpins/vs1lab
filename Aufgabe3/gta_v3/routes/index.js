@@ -47,7 +47,7 @@ const tag_radius = 30;
 
 // TODO: extend the following route example if necessary
 router.get('/', (req, res) => {
-  res.render('index', { taglist: [] })
+  res.render('index', { taglist: [] });
 });
 
 /**
