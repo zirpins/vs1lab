@@ -7,7 +7,7 @@ Die Aufgabe vertieft den Umgang mit **HTML** und besonders mit **HTML-Formularen
 ## Vorbereitung
 
 Für die Aufgabe existieren schon Templates auf
-**[GitHub](https://guides.github.com/activities/hello-world/)**:
+**[GitHub](https://docs.github.com/de/get-started/using-github/hello-world)**:
 
 - [https://github.com/zirpins/vs1lab](https://github.com/zirpins/vs1lab).
 
@@ -46,7 +46,7 @@ Zur Zusammenarbeit im Team (Laborgruppe) nutzen sie GitHub-Workflows (weitere In
   - erstellt auf GitHub einen **Pull Request (PR)** vom eigenen Branch gegen den **Default-Branch** des Forks (*master*),
   - führt auf GitHub nach kurzem Review (mind. ein Kommentar oder Approval im Team) einen **Merge** in den Default-Branch des Forks durch.
 
-**Abgabe (Teil 0):** Pro Person den Link zum PR im Fork (mit sichtbarem Kommentar/Approval) und den Merge-Status (geschlossen & gemerged) angeben.
+**Abnahme (Teil 0):** Kein Upload in ILIAS. Bei der Abnahme zeigt jede Person ihren PR im Fork (mit sichtbarem Kommentar/Approval) und den Merge-Status (geschlossen & gemerged).
 
 ## Teil A - Struktur einer Webanwendung mit HTML5 erstellen
 
@@ -118,8 +118,8 @@ Setzen sie folgende Regeln um:
 
 - Latitude und Longitude erhalten feste Werte und können nicht verändert werden.
 - Im Tagging-Formular muss ein Name angegeben werden, der Hashtag ist optional.
-- Namen dürfen 10 Buchstaben lang sein.
-- Hashtags müssen mit `#` beginnen und dürfen dann noch 10 Buchstaben haben.
+- Namen dürfen höchstens 10 Buchstaben lang sein.
+- Hashtags müssen mit `#` beginnen und dürfen danach höchstens 10 Buchstaben haben.
 
 ## Teil B - Webanwendung mit CSS3 gestalten
 
@@ -131,7 +131,7 @@ Templates für Seite und Stylesheet liegen im Ordner `Aufgabe1` des Repositories
 
 ```bash
 cd ~/git/vs1lab/Aufgabe1/gta_v1/public # wechsle in das Arbeitsverzeichnis
-code ./index.html ./stylesheets/style.css # öffne Atom Editor im Wurzelverzeichnis der Aufgabe
+code ./index.html ./stylesheets/style.css # öffne VS Code mit beiden Dateien
 chromium ./index.html # öffne Chromium Web Browser mit Webseite (Linux)
 open -a "Google Chrome" ./index.html # öffne Chrome Web Browser mit Webseite (Mac)
 ```
@@ -154,7 +154,7 @@ Auf mobilen Geräten wäre es also besser, die Spalten wären untereinander posi
 
 Messen sie eine geeignet Breite aus, ab wann Spalten untereinander klappen sollen (in Chrome öffnen sie dazu die Entwicklertools, markieren den html-Tag und dann sehen sie in der rechten oberen Ecke des Browsers die Viewport-Abmessungen; ein geeigneter Wert könnte z.B. 850px sein). Nun müssen sie innerhalb der Media Queries lediglich definieren, dass Spalten untereinander positioniert werden und eine Breite von 100% haben sollen. Eine Ausführliche Erläuterung zur Verwendung von media queries finden sie unter [https://wiki.selfhtml.org/wiki/CSS/Media_Queries](https://wiki.selfhtml.org/wiki/CSS/Media_Queries).
 
-Wenn sie die Seite auf Ihrem Smartphone testen wollen, werden sie feststellen, dass sie nicht der "Simulation" entspricht. Das liegt an der Standart-Viewport Konfiguration, welche sie ebenfalls ändern müssen. Das geht aber ganz einfach mit einem HTML-Tag, den sie im HEAD unterbringen müssen: `<meta name="viewport" content="width=device-width, initial-scale=1.0">`
+Wenn sie die Seite auf Ihrem Smartphone testen wollen, werden sie feststellen, dass sie nicht der "Simulation" entspricht. Das liegt an der Standart-Viewport Konfiguration, welche sie ebenfalls ändern müssen. Das geht aber ganz einfach mit einem HTML-Tag, den sie im HEAD unterbringen müssen (im Template ist er bereits enthalten): `<meta name="viewport" content="width=device-width, initial-scale=1.0">`
 
 #### Aufgabenstellung
 
