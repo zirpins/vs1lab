@@ -43,6 +43,8 @@ Mit gegebener Node.js Umgebung gehen sie wie folgt vor:
 1. Führen sie `npm install` im Verzeichnis `Aufgabe3/gta_v3/` aus, um die nötigen Module zu laden und zu installieren.
 2. Um die App später zu starten, führen sie `npm start` im Verzeichnis `Aufgabe3/gta_v3/` aus und öffnen sie [http://localhost:3000](http://localhost:3000) im **Browser**. Am Anfang funktioniert das aber noch nicht, da noch einige Änderungen gemacht werden müssen.
 
+***Hinweis:** `npm install` meldet unter Umständen Sicherheitslücken (z. B. „3 high severity vulnerabilities“ zu `nodemon`, `chokidar` und `braces`). Diese betreffen nur das Entwicklungswerkzeug `nodemon` (Datei-Watcher von `npm start`), nicht Ihre Anwendung, und es gibt derzeit keine korrigierte Version. Sie können die Meldung ignorieren. Führen Sie **nicht** `npm audit fix --force` aus: Das installiert eine uralte `nodemon`-Version und bricht `npm start`.*
+
 ## 3.2. Teilaufgaben
 
 Die Aufgabe besteht nun in der Entwicklung der Serverskripte. Die Clientseite (Browserskripte) muss nur leicht angepasst werden.
