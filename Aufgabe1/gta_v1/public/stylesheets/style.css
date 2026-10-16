@@ -46,8 +46,15 @@ a {
 
 /* ### TODO ### Styles for other HTML elements */
 
-/* ... your code here ... */
-
+input[type="text"], 
+input[type="number"], 
+button {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid var(--border-color);
+  border-radius: 2px;
+}
 
 /* Grid styles (no changes required) */
 
@@ -109,29 +116,112 @@ a {
 
 /* ### TODO ### Styles for Header Component */
 
-/* ... your code here ... */
+.header {
+  background-color: var(--background-color);
+  border-bottom: 1px solid var(--border-color);
+  padding: 50px;
+  align-items: center;
+}
+
+.header__image {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+}
 
 
 /* ### TODO ### Styles for Main Component */
 
-/* ... your code here ... */
+.main {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
 
 
 /* ### TODO ### Styles for Tagging component */
 
-/* ... your code here ... */
+#tag-form label, #tag-form input, #tag-form button {
+  display: block;
+}
+
+#tag-form fieldset {
+  padding: 15px;
+  border: 1px solid var(--border-color);
+}
+
+#tag-form,
+#discoveryFilterForm {
+  margin-top: 10px;
+}
+
+#tag-form button, 
+.discovery__search button {
+  margin-bottom: 0;
+  width: 100%;
+  display: block;
+}
 
 
 /* ### TODO ### Styles for Discovery component */
 
-/* ... your code here ... */
+.discovery__search label:not([hidden]),
+.discovery__search input:not([type="hidden"]),
+.discovery__search button {
+    display: block;
+    max-width: 250px;
+}
+
+.discovery__search fieldset {
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid var(--border-color);
+}
+
+#discoveryResults {
+  border: none;
+  padding: 0;
+}
+
+#discoveryResults li {
+  background-color: var(--background-color);
+  border: 1px solid var(--border-color);
+  margin-bottom: 10px;
+  padding: 15px;
+  color: var(--link-color);
+  list-style-type: none;
+}
+
+.discovery__map img {
+  width: 100%;
+  height: auto;
+}
 
 
 /* ### TODO ### Styles for Footer Component */
 
-/* ... your code here ... */
+.footer {
+  background-color: var(--background-color);
+  border-top: 1px solid var(--border-color);
+  padding: 50px;
+}
 
 
 /* ### TODO ### Media Queries */
 
-/* ... your code here ... */
+@media (max-width: 650px) {
+  .row {
+    flex-direction: column;
+  }
+
+  [class*="col-"] {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+
+  .main, .header, .footer {
+    padding: 20px;
+  }
+}

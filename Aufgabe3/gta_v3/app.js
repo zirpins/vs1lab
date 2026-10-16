@@ -44,6 +44,10 @@ app.use(express.urlencoded({ extended: false }));
 
 // TODO: ... your code here ...
 
+// static files css, js, images, favicon.ico, index.html, error.ejs, index.ejs
+app.use(express.static(path.join(__dirname, 'public')));
+
+
 // Set dedicated script for routing
 app.use('/', indexRouter);
 

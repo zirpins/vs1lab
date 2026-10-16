@@ -33,8 +33,8 @@ var GEOLOCATION_API = {
 GEOLOCATION_API = navigator.geolocation;
 
 /**
-  * A class to help using the HTML5 Geolocation API.
-  */
+ * A class to help using the HTML5 Geolocation API.
+ */
 class LocationHelper {
     // Location values for latitude and longitude are private properties to protect them from changes.
     #latitude = '';
@@ -52,15 +52,15 @@ class LocationHelper {
         return this.#longitude;
     }
 
-   /**
-    * Create LocationHelper instance if coordinates are known.
-    * @param {string} latitude 
-    * @param {string} longitude 
-    */
-   constructor(latitude, longitude) {
-       this.#latitude = (parseFloat(latitude)).toFixed(5);
-       this.#longitude = (parseFloat(longitude)).toFixed(5);
-   }
+    /**
+     * Create LocationHelper instance if coordinates are known.
+     * @param {string} latitude
+     * @param {string} longitude
+     */
+    constructor(latitude, longitude) {
+        this.#latitude = (parseFloat(latitude)).toFixed(5);
+        this.#longitude = (parseFloat(longitude)).toFixed(5);
+    }
 
     /**
      * The 'findLocation' method requests the current location details through the geolocation API.
@@ -85,7 +85,9 @@ class LocationHelper {
             // Pass the locationHelper object to the callback.
             callback(helper);
         }, (error) => {
-           alert(error.message)
+            // alert(error.message)
+            console.error(error.message)
+            callback(new LocationHelper("0.0", "0.0"));
         });
     }
 }
@@ -99,27 +101,31 @@ class MapManager {
     #markers
 
     /**
-    * Initialize a Leaflet map
-    * @param {number} latitude The map center latitude
-    * @param {number} longitude The map center longitude
-    * @param {number} zoom The map zoom, defaults to 18
-    */
+     * Initialize a Leaflet map
+     * @param {number} latitude The map center latitude
+     * @param {number} longitude The map center longitude
+     * @param {number} zoom The map zoom, defaults to 18
+     */
     initMap(latitude, longitude, zoom = 18) {
         // set up dynamic Leaflet map
         this.#map = L.map('map').setView([latitude, longitude], zoom);
         var mapLink = '<a href="http://openstreetmap.org">OpenStreetMap</a>';
         L.tileLayer(
-            'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; ' + mapLink + ' Contributors'}).addTo(this.#map);
+            'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+            {
+                attribution: '&copy; ' + mapLink + ' Contributors',
+                referrerPolicy: 'origin'
+            }
+        ).addTo(this.#map);
         this.#markers = L.layerGroup().addTo(this.#map);
     }
 
     /**
-    * Update the Markers of a Leaflet map
-    * @param {number} latitude The map center latitude
-    * @param {number} longitude The map center longitude
-    * @param {{latitude, longitude, name}[]} tags The map tags, defaults to just the current location
-    */
+     * Update the Markers of a Leaflet map
+     * @param {number} latitude The map center latitude
+     * @param {number} longitude The map center longitude
+     * @param {{latitude, longitude, name}[]} tags The map tags, defaults to just the current location
+     */
     updateMarkers(latitude, longitude, tags = []) {
         // delete all markers
         this.#markers.clearLayers();
@@ -127,9 +133,9 @@ class MapManager {
             .bindPopup("Your Location")
             .addTo(this.#markers);
         for (const tag of tags) {
-            L.marker([tag.latitude,tag.longitude])
+            L.marker([tag.latitude, tag.longitude])
                 .bindPopup(tag.name)
-                .addTo(this.#markers);  
+                .addTo(this.#markers);
         }
     }
 }
@@ -140,8 +146,32 @@ class MapManager {
  * It is called once the page has been fully loaded.
  */
 // ... your code here ...
+const updateLocation = () => {
+    LocationHelper.findLocation((locationHelper) => {
+        // console.log("huh", locationHelper.latitude, locationHelper.longitude);
+        // console.log(locationHelper)
+        // console.log(document.getElementById("latitude"))
+        document.getElementById("latitude").value = locationHelper.latitude;
+        document.getElementById("longitude").value = locationHelper.longitude;
+        document.getElementById("search_latitude").value = locationHelper.latitude;
+        document.getElementById("search_longitude").value = locationHelper.longitude;
+
+        const mapDiv = document.getElementById("map");
+        const condemned = mapDiv.children;
+        for (let i = 0; i < condemned.length; i++) {
+            if (condemned[i].tag === "p" || condemned[i].tag === "img") {
+                condemned[i].remove();
+            }
+        }
+
+        const mapManager = new MapManager();
+        mapManager.initMap(locationHelper.latitude, locationHelper.longitude);
+        mapManager.updateMarkers(locationHelper.latitude, locationHelper.longitude);
+    });
+}
 
 // Wait for the page to fully load its DOM content, then call updateLocation
 document.addEventListener("DOMContentLoaded", () => {
-    alert("Please change the script 'geotagging.js'");
+    console.log("Page loaded, now updating location...");
+    updateLocation();
 });

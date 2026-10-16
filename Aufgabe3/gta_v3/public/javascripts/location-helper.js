@@ -53,7 +53,8 @@ class LocationHelper {
             // Pass the locationHelper object to the callback.
             callback(helper);
         }, (error) => {
-            alert(error.message)
+            console.error(error.message);
+            callback(new LocationHelper("0.0", "0.0"));
         });
     }
 }
