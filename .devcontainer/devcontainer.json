@@ -1,11 +1,11 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
-// https://github.com/microsoft/vscode-dev-containers/tree/v0.194.0/containers/javascript-node
+// https://github.com/devcontainers/images/tree/main/src/javascript-node
 {
 	"name": "Node.js",
 	"build": {
 		"dockerfile": "Dockerfile",
-		// Update 'VARIANT' to pick a Node version: 12, 14, 16
-		"args": { "VARIANT": "16" }
+		// Update 'VARIANT' to pick a Node version, e.g. 1-22-bookworm
+		"args": { "VARIANT": "1-22-bookworm" }
 	},
 
 	// Set *default* container specific settings.json values on container create.

@@ -36,7 +36,7 @@ Nach der Aktualisierung kann die zweite Aufgabe vorbereitet werden.
 
 ### 3.1.3 Node-js vorbereiten
 
-An dieser Stelle benötigen sie eine Node.js Umgebung. Falls sie die empfohlene Variante mit **Visual Studio Code** und **Remote Containers** Erweiterung nutzen, öffnen sie das `vs1lab`-Verzeichnis in einem Node.js-Container (siehe Laboranleitung). Alternativ kann Node.js lokal installiert werden.
+An dieser Stelle benötigen sie eine Node.js Umgebung. Falls sie die empfohlene Variante mit **Visual Studio Code** und **Dev Containers** Erweiterung nutzen, öffnen sie das `vs1lab`-Verzeichnis in einem Node.js-Container (siehe Laboranleitung). Alternativ kann Node.js lokal installiert werden.
 
 Mit gegebener Node.js Umgebung gehen sie wie folgt vor:
 
