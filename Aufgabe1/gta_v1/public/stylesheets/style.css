@@ -109,27 +109,116 @@ a {
 
 /* ### TODO ### Styles for Header Component */
 
-/* ... your code here ... */
+.header {
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--background-color);
+  padding: 3rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.header__image {
+  max-width: 3rem;
+}
+
+.header__navigation {
+  text-align: right;
+}
 
 
 /* ### TODO ### Styles for Main Component */
 
-/* ... your code here ... */
+.main {
+  flex: 1;
+  padding: 3rem;
+}
 
+h2 {
+  margin-bottom: 1rem;
+}
+
+fieldset {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+  border: 1px solid var(--border-color);
+}
+
+.input__container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  color: var(--gray-color);
+}
+
+label {
+  font-weight: bold;
+}
+
+input {
+  padding: 0.5rem;
+  color: var(--gray-color);
+  border: 1px solid var(--gray-color);
+  border-radius: 2px;
+}
+
+input:read-only {
+  background-color: var(--background-color);
+  border: 1px solid var(--border-color);
+}
+
+legend {
+  font-weight: bold;
+}
 
 /* ### TODO ### Styles for Tagging component */
 
-/* ... your code here ... */
 
 
 /* ### TODO ### Styles for Discovery component */
 
-/* ... your code here ... */
+.discovery__wrapper {
+  margin-top: 3rem;
+}
+
+.discovery__search fieldset {
+  align-items: flex-start;
+}
+
+.discovery__search input {
+  width: 16rem;
+}
+
+.discovery__results {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.discovery__results li {
+  padding: 1rem;
+  list-style-type: none;
+  color: var(--link-color);
+  background-color: var(--background-color);
+  border: 2px solid var(--border-color);
+}
+
+.discovery__map {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
 
 
 /* ### TODO ### Styles for Footer Component */
 
-/* ... your code here ... */
+.footer {
+  background-color: var(--background-color);
+  padding: 3rem;
+  border-top: 1px solid var(--border-color);
+  font-weight: bold;
+}
 
 
 /* ### TODO ### Media Queries */
