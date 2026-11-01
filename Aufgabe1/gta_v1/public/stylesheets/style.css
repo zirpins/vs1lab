@@ -129,6 +129,7 @@ a {
 /* ### TODO ### Styles for Main Component */
 
 .main {
+  
   flex: 1;
   padding: 3rem;
 }
@@ -221,6 +222,13 @@ legend {
 }
 
 
-/* ### TODO ### Media Queries */
+/* B2 Media Queries */
 
-/* ... your code here ... */
+@media (width < 850px) {
+  .row {
+    flex-direction: column;
+  }
+  .row > * {
+    width: 100%;
+  }
+}
