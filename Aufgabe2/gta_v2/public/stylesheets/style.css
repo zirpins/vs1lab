@@ -1,0 +1,377 @@
+/*
+  File origin: VS1LAB A1b  
+
+  CSS style is BEM. Classes used for CSS, IDs for JavaScript querying (future use).
+  CSS variables used for clarity and themability (e.g. through SSR). 
+  Inherited box sizing used for ease of including 3rd party content-box components.
+*/
+
+/* Global styling */
+
+html {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+
+  /* This approach prevents issues with 3rd party content-box components */
+  box-sizing: inherit;
+}
+
+#map { 
+   height: 500px;
+ }
+ 
+
+/* Variables (example: see declaration for "a" below) */
+
+:root {
+  --link-color: #00B7FF;
+  --background-color: #efefef;
+  --border-color: #cdcdcd;
+  --gray-color: #666;
+}
+
+
+/* HTML element styles */
+
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; /* Schriftart und Schriftgröße im body, Lucida Grande bevorzugte Schrift */
+  display: flex; /* body wird zu einem Flex Container (nebeneinander anordnen), header, main und footer werden  automatisch auch im Flex-Layout angeordnet */
+  flex-direction: column; /* Ausrichtung vertikal für Kinderelemente */
+  min-height: 100vh; /* body soll immer mind. volle Höhe des Browser Fensters einnehmen, damit footer ganz unten ist */
+}
+
+a {
+  color: var(--link-color); /* Farbe aller Links, Farbe ist oben definiert */
+}
+
+/* ### TODO ### Styles for other HTML elements */
+
+/* ... your code here ... */
+body {
+  background: var(--background-color); /* Hintergrundfarbe der gesamten Seite, oben definiert */
+  color: #111; /* Textfarbe */
+}
+
+h1, h2 {
+  margin: 0.25rem 0 0.75rem; /* Abstand der Überschriften nach oben, rechts/links, unten (GeoTagApp, Tagging, Discovery) */
+  font-weight: 700; /* fett gedruckt */
+}
+
+main, .main { /* HTML Tag main und Element mit der Klasse main */
+  width: min(1200px, 94vw); /* Breite des Hauptbereichs nicht breiter als 1200px und 94% der Fensterbreite */
+  margin: 1.25rem auto 2rem; /* allgemeine Abstände, auto zentriert Elemente horizontal */
+}
+
+ul { list-style: none; } /* entfernt Punkte vor Listeneinträgen (ungeordnete Liste) */
+
+
+/* Grid styles (no changes required) */
+
+.row {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex: 1;
+}
+
+.col-1 {
+  width: calc(8.33% - 1rem);
+}
+
+.col-2 {
+  width: calc(16.66% - 1rem);
+}
+
+.col-3 {
+  width: calc(25% - 1rem);
+}
+
+.col-4 {
+  width: calc(33.33% - 1rem);
+}
+
+.col-5 {
+  width: calc(41.66% - 1rem);
+}
+
+.col-6 {
+  width: calc(50% - 1rem);
+}
+
+.col-7 {
+  width: calc(58.33% - 1rem);
+}
+
+.col-8 {
+  width: calc(66.66% - 1rem);
+}
+
+.col-9 {
+  width: calc(75% - 1rem);
+}
+
+.col-10 {
+  width: calc(83.33% - 1rem);
+}
+
+.col-11 {
+  width: calc(91.66% - 1rem);
+}
+
+.col-12 {
+  width: calc(100% - 1rem);
+}
+
+
+/* ### TODO ### Styles for Header Component */
+
+/* ... your code here ... */
+.header {
+  display: flex; /* Flex Container. Kinderelemente werden nebeneinander angeordnet */
+  align-items: center; /* richtet die Höhe der Elemente mittig aus */
+  justify-content: space-between; /* Inhalte gleichmäßig über gesamte Breite verteilt */
+  gap: 1rem; /* Abstand zwischen Flex-Items, 1rem = 14-16px */
+
+  background: #f3f6fb; /* Hintergrundfarbe */
+  border-bottom: 1px solid var(--border-color); /* Linie um Header abzutrennen, solid durchgezogene Linie */
+  padding: 0.75rem 1rem; /* Abstand oben/unten, rechts/links */
+}
+
+.header__image {
+  width: 48px; /* Breite */
+  height: 48px; /* Höhe */
+  object-fit: contain; /* damit Bild nicht verzerrt wird */
+}
+
+.header__title {
+  font-size: 2rem; /* macht Überschrit groß */
+}
+
+.header__navigation a {
+  margin-left: .5rem; /* Abstand zwischen den Links */ 
+  padding: .25rem .25rem; /* Abstand oben/unten, rechts/links */
+}
+
+
+/* ### TODO ### Styles for Main Component */
+
+/* ... your code here ... */
+.main {
+  display: flex; /* Flex-Container */
+  gap: 1rem; /* Abstand zwischen den Spalten */
+}
+
+.main__tagging {
+ /* width: calc(33.33% - 1rem); /* Breite von ca. 1/3 (zieht Zwischenabstand ab) */
+}
+
+.main__discovery {
+ /* width: calc(66.66% - 1rem); /* Breite von ca. 2/3 (zieht Zwischenabstand ab) */
+}
+
+.tagging,
+.main__discovery,
+.discovery__search,
+.discovery__taglist,
+.discovery__map {
+  background: #fff; /* weißer Hintergrund */ 
+  border: 1px solid var(--border-color); /* Rahmen um jede Karte */
+  border-radius: 6px; /* abgerundete Ecken */
+  padding: 1rem; /* Abstand zwischen Inhalt und Rahmen */
+}
+
+
+/* ### TODO ### Styles for Tagging component */
+
+/* ... your code here ... */
+#tag-form { /* id */
+  display: flex; /* Flex-Container */
+  flex-direction: column; /* richtet vertikal aus */
+  gap: .75rem; /* Abstand zwischen Elementen */
+}
+
+#tag-form label {
+  display: block; /* jedes Label nimmt ganze Zeilenbreite ein */
+  color: var(--gray-color); /* Farbe oben definiert */
+  font-size: .95rem; /* etwas kleinere Schrift als normaler Text */
+  margin-bottom: .25rem; /* Abstand zwischen Label und Eingabefeld */
+}
+
+#tag-form input,
+#tag-form select,
+#tag-form textarea,
+.discovery__search input,
+.discovery__search select,
+.discovery__search textarea {
+  width: 100%; /* Eingabefeld volle Breite der Box */
+  padding: .7rem .8rem; /* Innenabstand */
+  border: 1px solid var(--border-color); /* dünner grauer Rand um das Feld */
+  border-radius: 6px; /* abgerundete Ecken */
+  font-size: 1rem; /* größere Schrift */
+  background: #fafafa; /* Hintergrundfarbe */
+}
+
+#tag-form button,
+.discovery__search button {
+  padding: .7rem .9rem; /* größerer Klickbereich */
+  border: 1px solid var(--border-color); /* Rand */ 
+  border-radius: 6px; /* abgerundete Ecken */
+  background: #eee; /* Farbe */
+  font-weight: 600; /* etwas fetter */
+  cursor: pointer; /* Mauszeiger wird zur Hand beim Überfahren */
+}
+
+.tagging {
+  padding: 2rem;
+  background-color: white;
+}
+
+.tagging__form {
+  max-width: 50%;
+}
+
+.tagging__fieldset {
+  border: 2px solid;
+  border-radius: 10px;
+  padding: 1.5rem;
+  background-color: mintcream;
+}
+
+.tagging__legend {
+  font-weight: bold;
+  padding: 8px;
+}
+
+.tagging__label {
+  display: block;
+  margin-top: 10px;
+}
+
+.tagging__input {
+  width: 100%;
+  padding: 8px;
+  color: black;
+
+}
+
+.tagging__button {
+  margin-top: 15px;
+  padding: 10px;
+  color: black;
+}
+
+
+/* ### TODO ### Styles for Discovery component */
+
+/* ... your code here ... */
+.discovery__search {
+  margin-bottom: 1rem; /* unterer Abstand */ 
+}
+
+.discovery__wrapper {
+  display: flex; /* Flex-Container */ 
+  gap: 1rem; /* Abstand zwischen Spalten */
+}
+
+.discovery__taglist {
+ /* width: calc(41.66% - 1rem);  /* Breite */
+}
+
+.discovery__map {
+ /*  width: calc(58.33% - 1rem);  /* Breite */
+}
+
+.discovery__results li {
+  padding: .75rem .85rem; /* Innenabstand */
+  border-radius: 6px; /* abgerundete Ecken */
+  border: 1px solid var(--border-color); /* Rand */
+  margin-bottom: .75rem; /* Abstand zwischen LIsteneinträgen */
+  background: #e9f5ff; /* Hintergrund Box */
+}
+
+.discovery__results li:nth-child(3n+2) { /* ab dem 2. jedes 3. */ 
+  background: #eaf9f2;
+}
+.discovery__results li:nth-child(3n+3) { /* ab dem 3. jedes 3. */
+  background: #fff0e6;
+}
+
+.discovery__map img {
+  width: 100%; /* gesamte Spaltenbreite */
+  height: auto; /* Höhe passt sich automatisch an damit Seitenverhältnis nicht verzerrt wird */
+  display: block; /* entfernt Zwischenräume */
+  border-radius: 4px; /* abgerundete Ecken*/
+}
+
+.discovery {
+  padding: 2rem;
+  background-color: white;
+}
+
+.discovery__form {
+  max-width: 100%;
+}
+
+.discovery__fieldset { /* Box ums Formular drum */
+  border: 2px solid;
+  border-radius: 10px;
+  padding: 1.5rem;
+  background-color: mintcream;
+}
+
+.discovery__legend { /* Text, der im Rahmen des Formulars steckt */
+  font-weight: bold;
+  padding: 8px;
+}
+
+.discovery__label { /* Text über jedem Formularfeld */
+  display: block;
+  margin-top: 10px;
+}
+
+.discovery__input { /* Was in die Formularfelder reinkommt (ganzer Kasten) */
+  width: 100%;
+  padding: 8px;
+  color: black;
+}
+
+.discovery__button { /* Abschicken des Formulars */
+  margin-top: 15px;
+  padding: 10px;
+  color: black;
+}
+
+
+/* ### TODO ### Styles for Footer Component */
+
+/* ... your code here ... */
+.footer {
+  margin-top: auto; /* footer bleibt immer unten wegen Definition im body */
+  background: #f3f6fb;  /* Hintergrundfarbe */              
+  border-top: 1px solid var(--border-color); /* Rand */
+  padding: .9rem 1rem; /* Abstand */
+  color: var(--gray-color); /* Schriftfarbe */
+  text-align: right; /* rechtsbündig */
+}
+
+
+/* ### TODO ### Media Queries */
+@media screen and (max-width: 850px) {
+    /* Für alle Spalten: */
+    .main__tagging, .main__discovery, .discovery__taglist, .discovery__map {
+        /* sollen gesamte Breite einnehmen (also können nie mehrere Elemente nebeinenander stehen): */
+        width: 100%;
+        
+    
+    }
+   .row {
+        flex-direction: column; /*Vertikale anzeige statt nebeneinander*/
+    }
+    .footer {
+        margin-top: 1rem; /* Setzt einen festen Abstand, sodass der Footer nicht über Inhalt schwebt */
+    }
+}
