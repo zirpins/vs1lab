@@ -28,6 +28,8 @@ html {
   --background-color: #efefef;
   --border-color: #cdcdcd;
   --gray-color: #666;
+  --label-margin: 12px 0 6px 0;
+  --discovery-list-color: #00BFFF;
 }
 
 
@@ -52,6 +54,17 @@ button {
   width: 100%;
   max-width: 240px;
   padding: 10px;
+  margin-top: 16px;
+}
+
+label {
+  display: block;
+  margin: var(--label-margin);
+}
+
+fieldset {
+  border: 1px solid var(--border-color);
+  padding: 16px;
 }
 
 /* Grid styles (no changes required) */
@@ -142,17 +155,6 @@ button {
 
 
 /* ### TODO ### Styles for Tagging component */
-.tagging fieldset {
-  border: 1px solid var(--border-color);
-  padding: 16px;
-}
-
-.tagging label {
-  display: block;
-  margin-top: 12px;
-  margin-bottom: 6px;
-}
-
 .tagging input:not([type="submit"]) {
   display: block;
   width: 100%;
@@ -166,23 +168,9 @@ button {
   border-color: var(--border-color);
 }
 
-.tagging input[type="submit"] {
-  margin-top: 16px;
-}
-
 /* Styles for Discovery component */
 .discovery__search {
   margin-bottom: 2rem;
-}
-
-.discovery__search fieldset {
-  padding: 20px;
-  border: 1px solid lightgray;
-}
-
-.discovery__search label {
-  display: block;
-  margin-bottom: 8px;
 }
 
 .discovery__search input[type="search"] {
@@ -201,9 +189,9 @@ button {
 }
 
 .discovery__results li {
-  background-color: #EEEEEE;
-  border: 1px solid #D0D0D0;
-  color: #00BFFF;
+  background-color: var(--background-color);
+  border: 1px solid var(--border-color);
+  color: var(--discovery-list-color);
   font-size: 18px;
   font-weight: bold;
   padding: 15px;
