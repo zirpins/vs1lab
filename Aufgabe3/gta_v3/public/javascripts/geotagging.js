@@ -1,0 +1,55 @@
+// File origin: VS1LAB A2
+
+/* Imports */
+
+import {MapManager} from "./map-manager.js";
+import {LocationHelper} from "./location-helper.js";
+
+/* eslint-disable no-unused-vars */
+
+// This script is executed when the browser loads index.html.
+
+// "console.log" writes to the browser's console. 
+// The console window must be opened explicitly in the browser.
+// Try to find this output in the browser...
+console.log("The geoTagging script is going to start...");
+
+/**
+ * TODO: 'updateLocation'
+ * A function to retrieve the current location and update the page.
+ * It is called once the page has been fully loaded.
+ */
+
+function updateLocation() {
+        let newLatitude = LocationHelper.latitude;
+        let newLongtitude = LocationHelper.longitude;
+
+        let latitude = document.getElementById("taggingLatitude").value;
+        let longitude = document.getElementById("taggingLongitude").value;
+
+        if (newLatitude !== latitude || newLongtitude !== longitude) {
+
+            LocationHelper.findLocation((locationHelper) => {
+
+                longitude = locationHelper.longitude;
+                latitude = locationHelper.latitude;
+
+                document.getElementById("taggingLatitude").value = latitude;
+                document.getElementById("taggingLongitude").value = longitude;
+                document.getElementById("discoveryLatitude").value = latitude;
+                document.getElementById("discoveryLongitude").value = longitude;
+
+                const mapManager = new MapManager();
+                mapManager.initMap(latitude, longitude);
+                mapManager.updateMarkers(latitude, longitude, JSON.parse(document.getElementById("map").getAttribute("data-tags")));
+            });
+
+        }
+}
+
+// Wait for the page to fully load its DOM content, then call updateLocation
+document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("mapView").remove();
+    document.getElementById("mapSpan").remove();
+    updateLocation();
+});

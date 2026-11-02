@@ -5,7 +5,7 @@
   "scripts": {
     "start": "nodemon -e js,mjs,cjs,json,ejs --watch './**' bin/www"
   },
-"dependencies": {
+  "dependencies": {
     "debug": "^4.3.5",
     "ejs": "^3.1.10",
     "express": "^4.19.2",
