@@ -27,7 +27,24 @@
             <!-- ############### VS1Lab 1a Form 1 Start -->
             <form id="tag-form" action="/tagging" method="post">
 
-                <!-- ... your code here ... -->
+            <fieldset>
+                <legend>Add a new GeoTag</legend>
+
+                <label for="latitude">Latitude:</label>
+                <input name="latitude" id="latitude" type="text" value="49.01379" readonly/>
+
+                <label for="longitude">Longitude:</label>
+                <input name="longitude" id="longitude" type="text" value="8.390071" readonly/>
+
+                <label for="name">Name:</label>
+                <input name="name" id="name" type="text" placeholder="e.g. Central Berlin"/>
+
+                <label for="hashtag">Hashtag:</label>
+                <input name="hashtag" id="hashtag" type="text" placeholder="e.g. #ber" pattern="[#]{0,1}\w{1,10}" required/>
+
+                <button type="button">Add Tag</button>
+
+            </fieldset>
 
             </form>
             <!-- ############### VS1Lab 1a Form 1 End -->
