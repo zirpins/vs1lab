@@ -46,7 +46,9 @@ a {
 
 /* ### TODO ### Styles for other HTML elements */
 
-/* ... your code here ... */
+h2{
+  padding: 1rem 0;
+}
 
 
 /* Grid styles (no changes required) */
@@ -109,27 +111,102 @@ a {
 
 /* ### TODO ### Styles for Header Component */
 
-/* ... your code here ... */
+header{
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  padding: 2rem;
+  background-color: var(--background-color);
+  border-width: 2px;
+  border-color: var(--border-color);
+  border-bottom-style: solid;
+}
+
+header img{
+  height: 100%;
+  width: 1rem;
+  min-width: 30px;
+}
 
 
 /* ### TODO ### Styles for Main Component */
 
-/* ... your code here ... */
+main{
+  padding: 2rem;
+}
+
+
+/* Styles for Form components */
+
+fieldset{
+  padding: 1rem;
+}
+
+label{
+  color: var(--gray-color);
+  padding: 0.5rem 0;
+}
+
+input{
+  padding: 0.6rem;
+  margin-bottom: 15px;
+  border-style: solid;
+  border-color: var(--border-color);
+}
+
+button{
+  padding: 0.5rem;
+  justify-content: center !important;
+}
 
 
 /* ### TODO ### Styles for Tagging component */
 
-/* ... your code here ... */
+.fixed-value{
+  background-color: var(--background-color);
+  color: var(--gray-color);
+}
+
+input:user-valid{
+  color: black;
+}
+
+input:user-invalid{
+  color: red;
+}
 
 
 /* ### TODO ### Styles for Discovery component */
 
-/* ... your code here ... */
+.discovery__wrapper{
+  margin: 2rem 0;
+}
+
+.discovery__results li{
+  list-style: none;
+  color: var(--link-color);
+  background-color: var(--background-color);
+  border-style: solid;
+  border-width: 1px;
+  border-color: var(--border-color);
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.discovery__map img{
+  margin-bottom: 5px;
+}
 
 
 /* ### TODO ### Styles for Footer Component */
 
-/* ... your code here ... */
+.footer{
+  background-color: var(--background-color);
+  padding: 2rem;
+  border-width: 2px;
+  border-color: var(--border-color);
+  border-top-style: solid;
+}
 
 
 /* ### TODO ### Media Queries */

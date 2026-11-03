@@ -12,16 +12,16 @@
 </head>
 
 <body>
-    <header class="header">
-        <img src="./images/location.png" class="header__image" alt="an image of a map and location">
-        <h1 class="header__title">GeoTagApp</h1>
-        <nav class="header__navigation">
+    <header class="header row">
+        <img src="./images/location.png" class="header__image col-1" alt="an image of a map and location">
+        <h1 class="header__title col-9">GeoTagApp</h1>
+        <nav class="header__navigation col-2">
             <a href="#">About</a> | <a href="#">Help</a> | <a href="/">Home</a>
         </nav>
     </header>
 
-    <main class="main">
-        <section class="main__tagging tagging">
+    <main class="main row">
+        <section class="main__tagging tagging col-3">
             <h2>Tagging</h2>
 
             <!-- ############### VS1Lab 1a Form 1 Start -->
@@ -30,19 +30,19 @@
                 <fieldset>
                     <legend>Add a new GeoTag</legend>
 
-                    <label for="latitude">Latitude:</label>
-                    <input name="latitude" id="latitude" type="text" value="49.01379" readonly/>
+                    <label class="row" for="latitude">Latitude:</label>
+                    <input class="row fixed-value" name="latitude" id="latitude" type="text" value="49.01379" readonly/>
 
-                    <label for="longitude">Longitude:</label>
-                    <input name="longitude" id="longitude" type="text" value="8.390071" readonly/>
+                    <label class="row" for="longitude">Longitude:</label>
+                    <input class="row fixed-value" name="longitude" id="longitude" type="text" value="8.390071" readonly/>
 
-                    <label for="name">Name:</label>
-                    <input name="name" id="name" type="text" placeholder="e.g. Central Berlin" pattern="\w{1,10}" required/>
+                    <label class="row" for="name">Name:</label>
+                    <input class="row" name="name" id="name" type="text" placeholder="e.g. Central Berlin" pattern="\w{1,10}" required/>
 
-                    <label for="hashtag">Hashtag:</label>
-                    <input name="hashtag" id="hashtag" type="text" placeholder="e.g. #ber" pattern="[#]{0,1}\w{1,10}" required/>
+                    <label class="row" for="hashtag">Hashtag:</label>
+                    <input class="row" name="hashtag" id="hashtag" type="text" placeholder="e.g. #ber" pattern="[#]{0,1}\w{1,10}" required/>
 
-                    <button type="button" id="form1button">Add Tag</button>
+                    <button class="row" type="button" id="form1button">Add Tag</button>
 
                 </fieldset>
 
@@ -51,7 +51,7 @@
 
         </section>
 
-        <section class="main__discovery discovery">
+        <section class="main__discovery discovery col-9">
             <h2 class="discovery__title">Discovery</h2>
 
             <!-- ############### VS1Lab 1a Form 2 Start -->
@@ -59,30 +59,32 @@
 
                 <fieldset>
                     <legend>Search</legend>
+                    <div class="col-4">
+                        <label class="row" for="search">Search term or keywords:</label>
+                        <input class="row" type="text" name="search" id="search" placeholder="e.g. Berlin">
 
-                    <label for="search">Search term or keywords:</label>
-                    <input type="text" name="search" id="search" placeholder="e.g. Berlin">
+                        <input name="latitude" id="latitude-hidden" type="text" value="49.01379" hidden/>
 
-                    <input name="latitude" id="latitude-hidden" type="text" value="49.01379" hidden/>
+                        <input name="longitude" id="longitude-hidden" type="text" value="8.390071" hidden/>
+                        
+                        <button class="row" type="button" id="form2button">Search</button>
+                    </div>
 
-                    <input name="longitude" id="longitude-hidden" type="text" value="8.390071" hidden/>
-                    
-                    <button type="button" id="form2button">Search</button>
                 </fieldset>
 
             </form>
             <!-- ############### VS1Lab 1a Form 2 End -->
 
-            <div class="discovery__wrapper">
-                <div class="discovery__taglist">
+            <div class="discovery__wrapper row">
+                <div class="discovery__taglist col-4">
                     <ul class="discovery__results" id="discoveryResults">
                         <li>Castle (49.01379, 8.404435) #sight</li>
                         <li>IWI (49.01379, 8.390071) #edu</li>
                     </ul>
                 </div>
 
-                <div id="map" class="discovery__map">
-                    <img src="./images/mapview.jpg" alt="a map with locations" id="mapView" />
+                <div id="map" class="discovery__map col-8">
+                    <img class="row" src="./images/mapview.jpg" alt="a map with locations" id="mapView" />
                     <span>Result map</span>
                 </div>
             </div>
