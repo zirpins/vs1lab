@@ -193,22 +193,22 @@ Das Ergebnis könnte wie folgt aussehen:
 Zur Übersicht folgen noch mal alle Anforderungen in kompakter Form als Checkliste.
 
 ### Teil 0: Teamentwicklung über GitHub
-- [ ] Ein Fork des Repositories ist angelegt und Gruppenmitglieder sind als Collaborators eingeladen
-- [ ] Jedes Mitglied der Gruppe hat einen eigenen Branch für eine (Unter-)Aufgabe erstellt
+- [x] Ein Fork des Repositories ist angelegt und Gruppenmitglieder sind als Collaborators eingeladen
+- [x] Jedes Mitglied der Gruppe hat einen eigenen Branch für eine (Unter-)Aufgabe erstellt
 - [ ] Für jeden Branch existiert ein Pull Request gegen den Default-Branch des Forks (master)
 - [ ] Mindestens ein Review-Kommentar oder ein Approval je PR ist vorhanden
 - [ ] Jeder PR ist gemerged
 
 ### Teil A: Formulare fertigstellen
 
-- [ ] `Input` Elemente im Tagging- und Discovery-Formular ergänzen
-  - [ ] Felder im Tagging Formular: `latitude`, `longitude`, `name` und `hashtag`
-  - [ ] Felder im Discovery Formular: `searchterm` sowie `latitude` und `longitude` als versteckte Eingaben
-  - [ ] Eindeutige `id` Attribute für die Felder
-  - [ ] Für alle Felder jeweils ein `label`
-  - [ ] Platzhalter für alle Felder
-- [ ] `fieldset` und `legend` zur Begrenzung des Formulars
-- [ ] Für jedes Formular ein Element zum Absenden
+- [x] `Input` Elemente im Tagging- und Discovery-Formular ergänzen
+  - [x] Felder im Tagging Formular: `latitude`, `longitude`, `name` und `hashtag`
+  - [x] Felder im Discovery Formular: `searchterm` sowie `latitude` und `longitude` als versteckte Eingaben
+  - [x] Eindeutige `id` Attribute für die Felder
+  - [x] Für alle Felder jeweils ein `label`
+  - [x] Platzhalter für alle Felder
+- [x] `fieldset` und `legend` zur Begrenzung des Formulars
+- [x] Für jedes Formular ein Element zum Absenden
 - [ ] Formular-Validierung
   - [ ] Latitude und Longitude mit festen Werten
   - [ ] Im Tagging-Formular: Name obligatorisch, Hashtag optional
@@ -219,14 +219,14 @@ Zur Übersicht folgen noch mal alle Anforderungen in kompakter Form als Checklis
 
 - [ ] Layout als verschachteltes zweispaltiges Grid realisieren
   - [ ] Klassen `.row` und `.col-x` verwenden
-- [ ] Seitengestaltung
-  - [ ] Farbig abgesetzte Header- und Footer-Bereiche
-  - [ ] Vertikale Anordnung der Eingaben im Tagging Formular
-  - [ ] Größere Boxen für die Eingaben aller Formulare
-  - [ ] Discovery Ergebnisliste mit farbigen Boxen
-- [ ] Responsives Verhalten
-  - [ ] Spalten relativ zur Bildschirmbreite anpassen
-  - [ ] Ab min. Bildschirmbreite Spalten untereinander klappen
-    - [ ] Mit Media Query realisieren 
+- [x] Seitengestaltung
+  - [x] Farbig abgesetzte Header- und Footer-Bereiche
+  - [x] Vertikale Anordnung der Eingaben im Tagging Formular
+  - [x] Größere Boxen für die Eingaben aller Formulare
+  - [x] Discovery Ergebnisliste mit farbigen Boxen
+- [x] Responsives Verhalten
+  - [x] Spalten relativ zur Bildschirmbreite anpassen
+  - [x] Ab min. Bildschirmbreite Spalten untereinander klappen
+    - [x] Mit Media Query realisieren 
 
 

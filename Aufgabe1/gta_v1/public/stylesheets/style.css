@@ -28,6 +28,8 @@ html {
   --background-color: #efefef;
   --border-color: #cdcdcd;
   --gray-color: #666;
+  --label-margin: 12px 0 6px 0;
+  --discovery-list-color: #00BFFF;
 }
 
 
@@ -46,8 +48,24 @@ a {
 
 /* ### TODO ### Styles for other HTML elements */
 
-/* ... your code here ... */
+input[type="submit"],
+button {
+  display: block;
+  width: 100%;
+  max-width: 240px;
+  padding: 10px;
+  margin-top: 16px;
+}
 
+label {
+  display: block;
+  margin: var(--label-margin);
+}
+
+fieldset {
+  border: 1px solid var(--border-color);
+  padding: 16px;
+}
 
 /* Grid styles (no changes required) */
 
@@ -107,31 +125,150 @@ a {
 }
 
 
-/* ### TODO ### Styles for Header Component */
+/* ### TODO|DONE ### Styles for Header Component */
+.header {
+  font-size: 120%;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--background-color);
+  padding: 2% 4%;
+  border: 2px solid var(--border-color);
+}
+
+.header__image {
+  height: 100%;
+  width: calc(100%/24);
+}
 
 /* ... your code here ... */
 
+/* MAIN */
 
-/* ### TODO ### Styles for Main Component */
+.main {
+  padding: 3rem;
+}
 
-/* ... your code here ... */
+.main h2 {
+  margin-bottom: 1.5rem;
+}
 
 
 /* ### TODO ### Styles for Tagging component */
+.tagging input:not([type="submit"]) {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--gray-color);
+}
 
-/* ... your code here ... */
+#latitude,
+#longitude {
+  background-color: var(--background-color);
+  border-color: var(--border-color);
+}
 
+/* Styles for Discovery component */
+.discovery__search {
+  margin-bottom: 2rem;
+}
 
-/* ### TODO ### Styles for Discovery component */
+.discovery__search input[type="search"] {
+  display: block;
+  width: 100%;
+  max-width: 240px;
+  padding: 10px;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+}
 
-/* ... your code here ... */
+.discovery__results {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
 
+.discovery__results li {
+  background-color: var(--background-color);
+  border: 1px solid var(--border-color);
+  color: var(--discovery-list-color);
+  font-size: 18px;
+  font-weight: bold;
+  padding: 15px;
+  margin-bottom: 20px;
+  overflow-wrap: anywhere;
+}
+
+.discovery__hashtag {
+  display: block;
+}
+
+.discovery__map img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
 
 /* ### TODO ### Styles for Footer Component */
+.footer {
+  display: flex;
+  background-color: var(--background-color);
+  padding: 2%;
+  border: 2px solid var(--border-color);
+}
 
 /* ... your code here ... */
 
 
-/* ### TODO ### Media Queries */
+/* Tablet */
+@media screen and (max-width: 850px) {
+  .row {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
 
-/* ... your code here ... */
+  [class*="col-"] {
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+
+  [class*="col-"]:last-child {
+    margin-bottom: 0;
+  }
+
+  .header__image {
+    width: 2rem;
+  }
+
+  .discovery__search input[type="search"],
+  input[type="submit"],
+  button {
+    max-width: 100%;
+  }
+}
+
+/* Smartphone */
+@media screen and (max-width: 480px) {
+  .header {
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1rem;
+  }
+
+  .header__image {
+    width: 3rem;
+    height: auto;
+  }
+
+  .header__title {
+    font-size: 1.5rem;
+  }
+
+  .main {
+    padding: 1rem;
+  }
+
+  .footer {
+    padding: 1rem;
+  }
+}
