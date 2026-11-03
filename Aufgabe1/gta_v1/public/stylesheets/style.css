@@ -1,61 +1,124 @@
-/*
-  File origin: VS1LAB A1b  
-
-  CSS style is BEM. Classes used for CSS, IDs for JavaScript querying (future use).
-  CSS variables used for clarity and themability (e.g. through SSR). 
-  Inherited box sizing used for ease of including 3rd party content-box components.
-*/
-
-/* Global styling */
+/* Globale Einstellungen */
 
 html {
   box-sizing: border-box;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-
-  /* This approach prevents issues with 3rd party content-box components */
+*,
+*::before,
+*::after {
   box-sizing: inherit;
 }
 
-
-/* Variables (example: see declaration for "a" below) */
-
-:root {
-  --link-color: #00B7FF;
-  --background-color: #efefef;
-  --border-color: #cdcdcd;
-  --gray-color: #666;
+* {
+  margin: 0;
+  padding: 0;
 }
 
-
-/* HTML element styles */
+:root {
+  --link-color: #075985;
+  --background-color: #f1f5f9;
+  --border-color: #cbd5e1;
+  --gray-color: #475569;
+  --brand-color: #164e63;
+  --result-color: #e0f2fe;
+}
 
 body {
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  background: var(--background-color);
+  color: #172b3a;
+  font: 16px/1.5 "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: var(--link-color);
 }
 
-/* ### TODO ### Styles for other HTML elements */
+h2 {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
 
-/* ... your code here ... */
+/* Formulare */
 
+form {
+  margin-bottom: 1.5rem;
+}
 
-/* Grid styles (no changes required) */
+fieldset {
+  min-width: 0;
+  padding: 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+}
+
+legend {
+  padding: 0 0.4rem;
+  font-weight: bold;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-weight: bold;
+}
+
+input:not([type="hidden"]) {
+  width: 100%;
+  min-width: 0;
+  min-height: 2.75rem;
+  margin-bottom: 1rem;
+  padding: 0.65rem 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 0.35rem;
+  background: white;
+  color: inherit;
+  font: inherit;
+}
+
+input[readonly] {
+  background: var(--background-color);
+  color: var(--gray-color);
+}
+
+button,
+input[type="submit"] {
+  min-height: 2.75rem;
+  padding: 0.65rem 1rem;
+  border: 1px solid var(--brand-color);
+  border-radius: 0.35rem;
+  background: var(--brand-color);
+  color: white;
+  font: inherit;
+  cursor: pointer;
+}
+
+button:hover,
+input[type="submit"]:hover {
+  background: #0e3c4e;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 3px solid #0284c7;
+  outline-offset: 3px;
+}
+
+/* Flexbox-Raster: Die Spalten einer Zeile ergeben zusammen 12. */
 
 .row {
   width: 100%;
   display: flex;
   justify-content: space-between;
   flex: 1;
+}
+
+.row > * {
+  min-width: 0;
 }
 
 .col-1 {
@@ -106,32 +169,132 @@ a {
   width: calc(100% - 1rem);
 }
 
+/* Kopfbereich */
 
-/* ### TODO ### Styles for Header Component */
+.header {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1.25rem 2rem;
+  background: var(--brand-color);
+  color: white;
+}
 
-/* ... your code here ... */
+.header__image {
+  width: 4rem;
+  height: 4rem;
+  object-fit: contain;
+}
 
+.header__title {
+  flex: 1;
+  font-size: 1.8rem;
+}
 
-/* ### TODO ### Styles for Main Component */
+.header__navigation a {
+  color: white;
+}
 
-/* ... your code here ... */
+/* Hauptbereich */
 
+.main {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  align-items: flex-start;
+}
 
-/* ### TODO ### Styles for Tagging component */
+.main__tagging,
+.main__discovery {
+  padding: 1.25rem;
+  border: 1px solid var(--border-color);
+  border-radius: 0.75rem;
+  background: white;
+}
 
-/* ... your code here ... */
+/* Tagging: Eingaben untereinander */
 
+.tagging label,
+.tagging input:not([type="hidden"]),
+.tagging button {
+  display: block;
+  width: 100%;
+}
 
-/* ### TODO ### Styles for Discovery component */
+/* Discovery: Ergebnisliste und Karte */
 
-/* ... your code here ... */
+.discovery__wrapper {
+  align-items: flex-start;
+}
 
+.discovery__results {
+  list-style: none;
+}
 
-/* ### TODO ### Styles for Footer Component */
+.discovery__results li {
+  margin-bottom: 0.75rem;
+  padding: 1rem;
+  border-left: 4px solid #0284c7;
+  border-radius: 0.35rem;
+  background: var(--result-color);
+  overflow-wrap: anywhere;
+}
 
-/* ... your code here ... */
+.discovery__map {
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  background: var(--background-color);
+}
 
+#mapView {
+  display: block;
+  width: 100%;
+  height: auto;
+}
 
-/* ### TODO ### Media Queries */
+.discovery__map span {
+  display: block;
+  padding: 0.5rem 0.75rem;
+  color: var(--gray-color);
+}
 
-/* ... your code here ... */
+/* Fussbereich */
+
+.footer {
+  padding: 1rem 2rem;
+  background: var(--brand-color);
+  color: white;
+  text-align: center;
+}
+
+/* Schmale Bildschirme: alle Spalten untereinander */
+
+@media (max-width: 850px) {
+  .row {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .row > [class*="col-"] {
+    width: 100%;
+  }
+
+  .header {
+    padding: 1rem;
+  }
+
+  .header__navigation {
+    width: 100%;
+  }
+
+  .main {
+    padding: 1rem;
+  }
+
+  .main__tagging,
+  .main__discovery {
+    padding: 1rem;
+  }
+}
