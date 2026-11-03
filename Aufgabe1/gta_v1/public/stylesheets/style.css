@@ -211,4 +211,16 @@ input:user-invalid{
 
 /* ### TODO ### Media Queries */
 
-/* ... your code here ... */
+@media (max-width: 850px) {
+  main, .discovery__wrapper{
+    display: inline !important;
+  }
+
+  .main__tagging, .main__discovery, .main__discovery fieldset div, .discovery__wrapper div{
+    width: 100%;
+  }
+
+  .discovery__results{
+    margin-top: 1rem;
+  }
+}
