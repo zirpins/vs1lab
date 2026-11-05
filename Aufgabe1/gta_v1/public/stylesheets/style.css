@@ -46,8 +46,33 @@ a {
 
 /* ### TODO ### Styles for other HTML elements */
 
-/* ... your code here ... */
+h2 {
+  margin-bottom: 0.75rem;
+}
 
+fieldset {
+  min-width: 0;
+  padding: 0.75rem;
+}
+
+form input:not([type="hidden"]) {
+  display: block;
+  width: 100%;
+  padding: 0.65rem;
+  margin-bottom: 0.75rem;
+  font: inherit;
+}
+form button[type="submit"] {
+  display: block;
+  width: 100%;
+  padding: 0.65rem;
+  border: 1px solid #e6e6e6;
+  border-radius: 0.25rem;
+  background-color: #e6e6e6;
+  color: black;
+  font: inherit;
+  cursor: pointer;
+}
 
 /* Grid styles (no changes required) */
 
@@ -109,29 +134,97 @@ a {
 
 /* ### TODO ### Styles for Header Component */
 
-/* ... your code here ... */
+.header {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 2rem;
+  background-color: #e6e6e6;
+  color: black;
+}
 
+.header__image {
+  width: 3rem;
+  height: auto;
+  justify-self: start;
+}
+
+.header__title {
+  justify-self: center;
+  text-align: center;
+}
+
+.header__navigation {
+  justify-self: end;
+}
+
+.header__navigation a {
+  color: rgb(0, 140, 255);
+}
 
 /* ### TODO ### Styles for Main Component */
 
-/* ... your code here ... */
+.main {
+  padding: 1rem;
+  align-items: flex-start;
+}
+
+.main__tagging,
+.main__discovery {
+  min-width: 0;
+}
 
 
 /* ### TODO ### Styles for Tagging component */
 
-/* ... your code here ... */
+.tagging label {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-weight: bold;
+}
 
 
 /* ### TODO ### Styles for Discovery component */
+.discovery__results {
+  list-style: none;
+}
 
-/* ... your code here ... */
+.discovery__results li {
+  background-color: #e6e6e6;
+  padding: 0.75rem;
+  margin-bottom: 0.5rem;
+  border-radius: 0.25rem;
+  overflow-wrap: anywhere;
+  color: rgb(0, 140, 255);
+}
+
+.discovery__map img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
 
 
 /* ### TODO ### Styles for Footer Component */
 
-/* ... your code here ... */
+.footer {
+  background-color: #e6e6e6;
+  color: black;
+  padding: 2rem;
+  text-align: left;
+}
 
 
 /* ### TODO ### Media Queries */
 
-/* ... your code here ... */
+@media (max-width: 850px) {
+  .row {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .row > [class*="col-"] {
+    width: 100%;
+  }
+}
