@@ -45,7 +45,12 @@ a {
 }
 
 /* ### TODO ### Styles for other HTML elements */
+.main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 
+
+}
 /* ... your code here ... */
 
 
@@ -108,17 +113,19 @@ a {
 
 
 /* ### TODO ### Styles for Header Component */
-
+.header {
+  
+}
 /* ... your code here ... */
 
 
 /* ### TODO ### Styles for Main Component */
+.main{}
 
 /* ... your code here ... */
 
 
 /* ### TODO ### Styles for Tagging component */
-
 /* ... your code here ... */
 
 
@@ -128,6 +135,11 @@ a {
 
 
 /* ### TODO ### Styles for Footer Component */
+.footer {
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  
+}
 
 /* ... your code here ... */
 
