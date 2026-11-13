@@ -12,80 +12,68 @@
 </head>
 
 <body>
-    <header class="header">
-        <div class="row">
-            <img src="./images/location.png" class="header__image" alt="an image of a map and location">
-            <h1 class="header__title">GeoTagApp</h1>
-            <nav class="header__navigation">
-                <a href="#">About</a> | <a href="#">Help</a> | <a href="/">Home</a>
-            </nav>
-        </div>
+    <header class="header row">
+
+        <img src="./images/location.png" class="header__image" alt="an image of a map and location">
+        <h1 class="header__title">GeoTagApp</h1>
+        <nav class="header__navigation">
+            <a href="#">About</a> | <a href="#">Help</a> | <a href="/">Home</a>
+        </nav>
     </header>
 
-    <main class="main">
-        <div class="row"> 
-            <div class="col-4" tagging>
-                <section class="main__tagging tagging">
-                    <h2>Tagging</h2>
+    <main class="main row">
+        <section class="main__tagging tagging col-4">
+            <h2>Tagging</h2>
 
-                    <!-- ############### VS1Lab 1a Form 1 Start -->
-                    <form id="tag-form" action="/tagging" method="post">
-                        <fieldset>
-                            <legend>Add a new GeoTag</legend>
-                            <label for="latitude">Latitude:</label>
-                            <input id="latitude" type="text" name="latitude" value="49.01379" disabled/>
-                            <label for="longitude">Longitude:</label>
-                            <input id="longitude" type="text" name="longitude" value="8.390071" disabled/>
-                            <label for="name">Name:</label>
-                            <input id="name" type="text" name="name" placeholder="e.g Central Berlin" required maxlength="10">
-                            <label for="hashtag">Hashtag:</label>
-                            <input id="hashtag" type="text" name="hashtag" placeholder="e.g #ber" pattern="#." maxlength="10"/>
-                            <input type="submit" value="Add Tag"/>
-                        </fieldset>                
-                    </form>
-                    <!-- ############### VS1Lab 1a Form 1 End -->
+            <!-- ############### VS1Lab 1a Form 1 Start -->
+            <form id="tag-form" action="/tagging" method="post">
+                <fieldset>
+                    <legend>Add a new GeoTag</legend>
+                    <label for="latitude">Latitude:</label>
+                    <input id="latitude" type="text" name="latitude" value="49.01379" disabled />
+                    <label for="longitude">Longitude:</label>
+                    <input id="longitude" type="text" name="longitude" value="8.390071" disabled />
+                    <label for="name">Name:</label>
+                    <input id="name" type="text" name="name" placeholder="e.g Central Berlin" required maxlength="10">
+                    <label for="hashtag">Hashtag:</label>
+                    <input id="hashtag" type="text" name="hashtag" placeholder="e.g #ber" pattern="#." maxlength="10" />
+                    <input type="submit" value="Add Tag" />
+                </fieldset>
+            </form>
+            <!-- ############### VS1Lab 1a Form 1 End -->
 
-                </section>
+        </section>
+
+        <section class="main__discovery discovery col-8">
+            <h2 class="discovery__title">Discovery</h2>
+
+            <!-- ############### VS1Lab 1a Form 2 Start -->
+            <form class="discovery__search" id="discoveryFilterForm" action="/discovery" method="post">
+                <fieldset>
+                    <legend>Search</legend>
+                    <label for="searchterm">Searchterm or keywords:</label>
+                    <input id="searchterm" type="text" name="searchterm" placeholder="e.g Berlin" />
+                    <input type="hidden" name="hidden_latitude" />
+                    <input type="hidden" name="hidden_longitude" />
+                    <input type="submit" value="Search" />
+                </fieldset>
+            </form>
+
+            <!-- ############### VS1Lab 1a Form 2 End -->
+            <div class="discovery__wrapper row">
+                <div class="discovery__taglist col-4">
+                    <ul class="discovery__results" id="discoveryResults">
+                        <li>Castle (49.01379, 8.404435) #sight</li>
+                        <li>IWI (49.01379, 8.390071) #edu</li>
+                    </ul>
+                </div>
+
+                <div id="map" class="discovery__map col-8">
+                    <img src="./images/mapview.jpg" alt="a map with locations" id="mapView">
+                    <span>Result map</span>
+                </div>
             </div>
-
-            <div class="col-8" discovery>
-                <section class="main__discovery discovery">
-                    <h2 class="discovery__title">Discovery</h2>
-
-                    <!-- ############### VS1Lab 1a Form 2 Start -->
-                    <form class="discovery__search" id="discoveryFilterForm" action="/discovery" method="post">
-                        <fieldset>
-                            <legend>Search</legend>
-                            <label for="searchterm">Searchterm or keywords:</label>
-                            <input id="searchterm" type="text" name="searchterm" placeholder="e.g Berlin"/>
-                            <input type="hidden" name="hidden_latitude"/>
-                            <input type="hidden" name="hidden_longitude"/>
-                            <input type="submit" value="Search"/>
-                        </fieldset>
-                    </form>
-                </section>
-                   
-                <!-- ############### VS1Lab 1a Form 2 End -->
-                    <div class="row">
-                        <div class="discovery__wrapper">
-                            <div class="col-8">
-                                <div class="discovery__taglist">
-                                    <ul class="discovery__results" id="discoveryResults">
-                                        <li>Castle (49.01379, 8.404435) #sight</li>
-                                        <li>IWI (49.01379, 8.390071) #edu</li>
-                                    </ul>
-                                </div>
-                                <div id="map" class="discovery__map">
-                                    <img src="./images/mapview.jpg" alt="a map with locations" id="mapView" />
-                                    <span>Result map</span>
-                                </div>
-                            </div>
- 
-                        </div>
-                    </div>    
-                </section>
-            </div> 
-        </div>
+        </section>
 
     </main>
 
