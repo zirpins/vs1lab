@@ -34,22 +34,78 @@ html {
 /* HTML element styles */
 
 body {
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px "JetBrains Mono", monospace;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  background-image: url(../images/old_map.jpg);
 }
 
 a {
   color: var(--link-color);
 }
 
-/* ### TODO ### Styles for other HTML elements */
 
-/* ... your code here ... */
+/* Styles for other HTML elements */
+
+h1 {
+  font-size: 25pt;
+}
+
+h2 {
+  font-size: 18pt;
+  margin-bottom: 15px;
+}
+
+fieldset {
+  border-radius: 10px;
+  border-width: 5px;
+  border-color: #5D866C;
+  border-style: dashed;
+  min-width: 0;
+}
+
+legend {
+  padding: 5px;
+}
+
+
+input {
+  max-width: 190px;
+  background-color: #f5f5f5;
+  color: #242424;
+  padding: .15rem .5rem;
+  margin: 5px;
+  min-height: 40px;
+  border-radius: 4px;
+  outline: none;
+  border: none;
+  line-height: 1.15;
+  box-shadow: 0px 10px 20px -18px;
+}
+
+input:focus {
+  border-bottom: 2px solid #5D866C;
+  border-radius: 4px 4px 2px 2px;
+}
+
+input:hover {
+  outline: 1px solid lightgrey;
+}
+
+
+.input_submit {
+  margin-top: 15px;
+}
+
+.input_submit:hover {
+  background-color: #5D866C;
+  transition: width 2s, height 2s, background-color 2s, transform 2s;
+}
 
 
 /* Grid styles (no changes required) */
+
 
 .row {
   width: 100%;
@@ -107,31 +163,192 @@ a {
 }
 
 
-/* ### TODO ### Styles for Header Component */
+/* Styles for Header Component */
 
-/* ... your code here ... */
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: rgb(166, 179, 125);
+  align-items: center;
+  padding: 30px;
+}
+
+header h1 {
+  color: #666;
+}
+
+header a {
+  color: #666;
+  text-decoration: none;
+}
+
+header nav {
+  color: #666;
+}
 
 
-/* ### TODO ### Styles for Main Component */
+/* Styles for Main Component */
 
-/* ... your code here ... */
+.main {
+  padding: 50px;
+}
+
+.main__tagging {
+  padding: 50px;
+  background-color: rgb(254, 250, 224, 0.8);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main__discovery {
+  display: flex;
+  flex-direction: column;
+}
 
 
-/* ### TODO ### Styles for Tagging component */
+/* Styles for Tagging component */
 
-/* ... your code here ... */
+.tagging_search {
+  width: 100%;
+}
 
-
-/* ### TODO ### Styles for Discovery component */
-
-/* ... your code here ... */
-
-
-/* ### TODO ### Styles for Footer Component */
-
-/* ... your code here ... */
+.inputs {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+}
 
 
-/* ### TODO ### Media Queries */
+/* Styles for Discovery component */
 
-/* ... your code here ... */
+.discovery_search {
+  background-color: rgb(254, 250, 224, 0.8);
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.discovery_search fieldset {
+  display: flex;
+  padding: 10px;
+  flex-direction: column;
+}
+
+.discovery__wrapper {
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+  background-color: rgb(254, 250, 224, 0.8);
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.main__discovery .discovery__wrapper {
+  flex: none;
+}
+
+.discovery__wrapper img {
+  border-radius: 10px;
+  max-width: 100%;
+  height: auto;
+}
+
+.discovery__taglist {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.discovery__map {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.discovery__results li {
+  padding: 10px;
+  list-style-type: none;
+  border: 5px dashed #5D866C;
+  border-radius: 10px;
+  margin: 20px;
+  background-color: rgba(166, 179, 125, 0.4);
+}
+
+
+/* Styles for Footer Component */
+
+footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: rgb(166, 179, 125);
+  align-items: center;
+  padding: 30px;
+}
+
+
+/* Media Queries */
+
+@media screen and (max-width: 768px) {
+  /* Header-Inhalte umbrechen */
+  .header {
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 20px;
+  }
+
+  .header__navigation {
+    width: 100%;
+  }
+
+  .main.row {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .main__tagging,
+  .main__discovery {
+    width: 100%;
+  }
+
+  .main .main__tagging {
+    width: 100%;
+    height: auto;
+  }
+
+  /* Ergebnisliste und Karte untereinander */
+  .discovery__wrapper {
+    flex-direction: column;
+    width: 100%;
+    gap: 16px;
+  }
+
+  .discovery__taglist,
+  .discovery__map {
+    width: 100%;
+  }
+
+  .discovery_search {
+    margin-top: 20px;
+  }
+
+  /* Bild an den verfügbaren Platz anpassen */
+  #mapView {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Lange Einträge dürfen umbrechen */
+  .discovery__results li {
+    overflow-wrap: anywhere;
+  }
+
+  .footer {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+}
