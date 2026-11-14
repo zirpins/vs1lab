@@ -28,6 +28,15 @@
             <form id="tag-form" action="/tagging" method="post">
 
                 <!-- ... your code here ... -->
+                 Add a new GeoTag 
+                 Latitude:   <input name="latitude" type="number" />
+                 Longitude:  <input name="longitude" type="number" />
+                 Name:       <input name="name" type="text" placeholder="e.g. Central Berlin" 
+                                    maxlength="10" required />
+                 Hashtag:    <input name="hashtah" type="text" pattern="#" placeholder="e.g. #ber" 
+                                    maxlength="11" />
+                 <button type="submit">Add Tag</button>
+
 
             </form>
             <!-- ############### VS1Lab 1a Form 1 End -->
@@ -41,6 +50,9 @@
             <form class="discovery__search" id="discoveryFilterForm" action="/discovery" method="post">
 
                 <!-- ... your code here ... -->
+                 Search
+                 Search term or keywords: <input name="Search" type="text" placeholder="e.g. Berlin" />
+                 <input type="submit" value="Search" />
 
             </form>
             <!-- ############### VS1Lab 1a Form 2 End -->
