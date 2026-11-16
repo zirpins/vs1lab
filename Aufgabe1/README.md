@@ -207,8 +207,8 @@ Zur Übersicht folgen noch mal alle Anforderungen in kompakter Form als Checklis
   - [x] Eindeutige `id` Attribute für die Felder
   - [x] Für alle Felder jeweils ein `label`
   - [x] Platzhalter für alle Felder
-- [ ] `fieldset` und `legend` zur Begrenzung des Formulars
-- [ ] Für jedes Formular ein Element zum Absenden
+- [x] `fieldset` und `legend` zur Begrenzung des Formulars
+- [x] Für jedes Formular ein Element zum Absenden
 - [ ] Formular-Validierung
   - [ ] Latitude und Longitude mit festen Werten
   - [ ] Im Tagging-Formular: Name obligatorisch, Hashtag optional
