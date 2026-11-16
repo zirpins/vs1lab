@@ -46,7 +46,6 @@ a {
 
 /* ### TODO ### Styles for other HTML elements */
 
-/* ... your code here ... */
 
 
 /* Grid styles (no changes required) */
@@ -109,28 +108,160 @@ a {
 
 /* ### TODO ### Styles for Header Component */
 
-/* ... your code here ... */
-
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem;
+  background: var(--background-color);
+  border: 1px solid var(--border-color);
+}
+.header__image { width: 2.5rem; height: 2.5rem; object-fit: contain; }
+.header__title { font-size: 2rem; }
 
 /* ### TODO ### Styles for Main Component */
 
-/* ... your code here ... */
+.main {
+  display: flex;
+}
 
+.main__tagging, .main__discovery {
+  padding: 1rem;
+  flex-direction: column;
+}
+
+.main__tagging {
+  flex: 0 0 20rem; /* bleibt 20rem breit */
+}
+
+.main__discovery {
+  flex: 1 1 0;
+  min-width: 0; /* verhindert, dass Inhalt Discovery breiter drückt */
+}
+
+.main section h2 {
+  margin-bottom: 1rem;
+}
 
 /* ### TODO ### Styles for Tagging component */
 
-/* ... your code here ... */
+.tagging form fieldset {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
 
+.tagging form fieldset label {
+  margin-top: 0.5rem;
+  color: var(--gray-color);
+}
+
+.tagging form fieldset input[type="number"] {
+  padding: 0.5rem;
+  margin-top: 0.25rem;
+  border: 1px solid var(--border-color);
+  background: var(--background-color);
+  color: var(--gray-color);
+}
+
+.tagging form fieldset input[type="text"] {
+  padding: 0.5rem;
+  margin-top: 0.25rem;
+}
+
+.tagging form fieldset button {
+  margin-top: 1rem;
+  padding: 0.5rem;
+  border: 1px solid var(--border-color);
+  background: var(--background-color);
+}
 
 /* ### TODO ### Styles for Discovery component */
 
-/* ... your code here ... */
+.discovery {
+  display: flex;
+  flex-direction: column;
+}
 
+.discovery form {
+  display: flex;
+  flex-direction: column;
+}
+
+.discovery form fieldset {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 1rem;
+}
+
+.discovery__search, .discovery__wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.discovery form fieldset label {
+  color: var(--gray-color);
+}
+
+.discovery form fieldset input[type="text"] {
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+  width: 12rem;
+}
+
+.discovery form fieldset input[type="submit"] {
+  margin-top: 1rem;
+  padding: 0.5rem;
+  border: 1px solid var(--border-color);
+  background: var(--background-color);
+  color: var(--gray-color);
+  width: 12rem;
+}
+
+.discovery__wrapper {
+  flex-direction: row;
+  margin-top: 2rem;
+}
+
+.discovery__taglist {
+  display: flex;
+  flex-direction: column;
+}
+
+.discovery ul {
+  list-style-type: none;
+}
+
+.discovery li {
+  padding: 0.5rem;
+  border: 1px solid var(--border-color);
+  background: var(--background-color);
+  color: var(--link-color);
+  width: 12rem;
+  margin-bottom: 0.5rem;
+}
+
+.discovery__map {
+  display: flex;
+  flex-direction: column;
+}
+
+.discovery__map span {
+  margin-top: 0.25rem;
+  color: var(--gray-color);
+}
 
 /* ### TODO ### Styles for Footer Component */
 
-/* ... your code here ... */
-
+.footer {
+  display: flex;
+  padding: 2rem;
+  background: var(--background-color);
+  border: 1px solid var(--border-color);
+  margin-top: auto;
+}
 
 /* ### TODO ### Media Queries */
 
