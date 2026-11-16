@@ -28,6 +28,7 @@ html {
   --background-color: #efefef;
   --border-color: #cdcdcd;
   --gray-color: #666;
+  --form-width: 18rem;
 }
 
 
@@ -44,9 +45,10 @@ a {
   color: var(--link-color);
 }
 
-/* ### TODO ### Styles for other HTML elements */
-
-/* ... your code here ... */
+/* Styles for other HTML elements */
+.header__image {
+  width: 4rem;
+}
 
 
 /* Grid styles (no changes required) */
@@ -107,31 +109,168 @@ a {
 }
 
 
-/* ### TODO ### Styles for Header Component */
-
-/* ... your code here ... */
-
-
-/* ### TODO ### Styles for Main Component */
-
-/* ... your code here ... */
-
-
-/* ### TODO ### Styles for Tagging component */
-
-/* ... your code here ... */
+/* Styles for Header Component */
+.header {
+  align-items: center;
+  background: var(--background-color);
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem;
+}
 
 
-/* ### TODO ### Styles for Discovery component */
+/* Styles for Main Component */
 
-/* ... your code here ... */
+.main {
+  display: flex;
+  gap: 2rem;
+  padding: 2rem;
+}
 
 
-/* ### TODO ### Styles for Footer Component */
+/*Styles for Tagging component */
 
-/* ... your code here ... */
+.tagging {
+  flex: 1;
+}
 
 
-/* ### TODO ### Media Queries */
+#tag-form input:read-only {
+  background-color: var(--background-color);
+  cursor: default;
+}
 
-/* ... your code here ... */
+#tag-form button,
+#discoveryFilterForm button {
+  border: 1px solid var(--border-color);
+  border-radius: 0.25rem;
+  cursor: pointer;
+  padding: 0.8rem;
+}
+
+#tag-form button {
+  width: 100%;
+}
+
+
+/* Styles for Discovery component */
+
+.discovery {
+  flex: 2;
+}
+
+#discoveryFilterForm input,
+#discoveryFilterForm button {
+  width: var(--form-width);
+}
+
+.discovery__wrapper {
+  display: flex;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.discovery__taglist {
+  flex: 1;
+}
+
+.discovery__map {
+  display: flex;
+  flex: 2;
+  flex-direction: column;
+}
+
+.discovery__map img {
+  width: 100%;
+  border: 1px solid var(--border-color);
+}
+
+.discovery__map span {
+  margin-top: 0.5rem;
+  color: var(--gray-color);
+}
+
+.discovery__results {
+  list-style: none;
+  padding: 0;
+}
+
+.discovery__results li {
+  border: 1px solid var(--border-color);
+  background-color: var(--background-color);
+  color: var(--link-color);
+  font-weight: bold;
+  margin-bottom: 1rem;
+  padding: 1rem;
+}
+
+/* ---------- Discovery and Tagging ---------- */
+
+.tagging h2,
+.discovery h2 {
+  margin-bottom: 1rem;
+}
+
+.form-group,
+.discovery-form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.form-group label,
+.discovery-form-group label {
+  color: var(--gray-color);
+  font-weight: bold;
+  margin-bottom: 0.3rem;
+}
+
+#tag-form fieldset {
+  width: 100%;
+  max-width: var(--form-width);;
+}
+
+#tag-form fieldset,
+#discoveryFilterForm fieldset {
+  border: 1px solid var(--border-color);
+  background: white;
+  padding: 1rem;
+}
+
+#tag-form legend,
+#discoveryFilterForm legend {
+  font-size: 1rem;
+  padding: 0 .5rem;
+}
+
+#tag-form input,
+#discoveryFilterForm input {
+  border: 1px solid var(--border-color);
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  padding: 0.7rem;
+}
+
+
+/* Styles for Footer Component */
+
+.footer {
+  background: var(--background-color);
+  border-top: 1px solid var(--border-color);
+  margin-top: auto;
+  padding: 1rem 2rem;
+}
+
+
+
+/* Media Queries */
+
+@media (max-width: 850px) {
+    .main {
+        flex-direction: column;
+    }
+    .discovery__wrapper {
+        flex-direction: column;
+    }
+}
