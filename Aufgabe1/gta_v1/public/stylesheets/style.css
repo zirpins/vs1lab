@@ -264,6 +264,13 @@ a {
 
 
 
-/* ### TODO ### Media Queries */
+/* Media Queries */
 
-/* ... your code here ... */
+@media (max-width: 850px) {
+    .main {
+        flex-direction: column;
+    }
+    .discovery__wrapper {
+        flex-direction: column;
+    }
+}
