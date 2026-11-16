@@ -29,21 +29,23 @@
 
                  <fieldset>
                     <legend>Add a new Geo Tag</legend>
-                    <label>Latitude:</label>
+                    <label for="taggingLatitude">Latitude:</label>
                     <input type="text" id="taggingLatitude" name="latitude"
+                           value="49.0094"
                            readonly
                            placeholder="0.0">
-                    <label>Longitude:</label>
+                    <label for="taggingLongitude">Longitude:</label>
                     <input type="text" id="taggingLongitude" name="longitude"
+                           value="8.4044"
                            readonly
                            placeholder="0.0">
-                    <label>Name:</label>
+                    <label for="taggingName">Name:</label>
                     <input type="text" id="taggingName" name="name"
                            placeholder="e.g. Central Berlin"
                            required
                            maxlength="10"
                            pattern="[A-Za-zÄÖÜäöüß]{1,10}">
-                    <label>Hashtag:</label>
+                    <label for="taggingHashtag">Hashtag:</label>
                     <input type="text" id="taggingHashtag" name="hashtag"
                            placeholder="e.g. #ber"
                            maxlength="11"
@@ -64,11 +66,19 @@
 
                 <fieldset>
                     <legend>Search</legend>
-                    <label>Search term or keywords:</label>
+                    <label for="discoverySearchterm">Search term or keywords:</label>
                     <input type="text" id="discoverySearchterm" name="searchterm"
                            placeholder="e.g. Berlin"
                            maxlength="11"
                            pattern="#[A-Za-zÄÖÜäöüß]{1,10}">
+                    <input type="hidden" id="discoveryLatitude" name="latitude"
+                           value="49.0094"
+                           readonly
+                           placeholder="0.0">
+                    <input type="hidden" id="discoveryLongitude" name="longitude"
+                           value="8.4044"
+                           readonly
+                           placeholder="0.0">
                     <button type="submit">Search</button>
                 </fieldset>
 
