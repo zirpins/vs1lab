@@ -20,6 +20,10 @@ html {
   box-sizing: inherit;
 }
 
+input {
+   padding: 12px; 
+}
+
 
 /* Variables (example: see declaration for "a" below) */
 
@@ -38,7 +42,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background-color: chocolate;
+  background-color: white;
 }
 
 a {
@@ -47,10 +51,9 @@ a {
 
 /* ### TODO ### Styles for other HTML elements */
 
-.header {
-  background-color: plum;
+fieldset {
+  padding: 12px;
 }
-
 
 /* Grid styles (no changes required) */
 
@@ -112,22 +115,52 @@ a {
 
 /* ### TODO ### Styles for Header Component */
 
-/* ... your code here ... */
 
+.header {
+  background-color: lightblue;
+  height: 100px;
+  display: flex;
+}
+
+.header,
+.footer {
+  padding: 0 max(20px, calc((100% - 1900px) / 2 + 20px));
+}
+
+.header__image {
+  height: inherit;
+}
+
+.header__title {
+  flex: 1;
+}
 
 /* ### TODO ### Styles for Main Component */
 
 .main {
+  flex: 1;
   display: flex;
   gap : 3%;
+  padding: 20px;
+    border: 2px solid gray;
+  margin: 10px;
+
 }
 
 
 /* ### TODO ### Styles for Tagging component */
 
 .tagging {
+  display: flex;
   flex: 1;
-  display: block;
+  flex-direction: column;
+  gap: 3%;
+}
+
+.taggingForm {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 /* ### TODO ### Styles for Discovery component */
@@ -136,8 +169,22 @@ a {
   flex: 2;
   display: flex;
   gap:2%;
-    flex-direction: column;
+  flex-direction: column;
+}
 
+.discovery__results {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.discovery__results li {
+  list-style: none;
+  color: blue;
+  background-color: rgb(228, 228, 228);
+  margin: inherit;
+  padding: 3%;
+  border: 1px solid var(--border-color);
 }
 
 .discovery__wrapper {
@@ -147,16 +194,18 @@ a {
 /* ### TODO ### Styles for Footer Component */
 
 .footer {
-  background-color: plum;
+  background-color: lightblue;
+  height: 100px;
+  display: flex;
+  align-items: center;
 } 
 
 /* ### TODO ### Media Queries */
 
 @media (max-width: 850px) {
   .main {
-    flex-direction: column;  gap : 3%;
-
-      gap : 3%;
+    flex-direction: column;
+    gap : 3%;
   }
 
   .discovery__wrapper {
@@ -165,4 +214,3 @@ a {
     gap: 5%;
   }
 }
-
