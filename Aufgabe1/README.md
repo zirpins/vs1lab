@@ -210,7 +210,7 @@ Zur Übersicht folgen noch mal alle Anforderungen in kompakter Form als Checklis
 - [x] `fieldset` und `legend` zur Begrenzung des Formulars
 - [x] Für jedes Formular ein Element zum Absenden
 - [ ] Formular-Validierung
-  - [ ] Latitude und Longitude mit festen Werten
+  - [x] Latitude und Longitude mit festen Werten
   - [ ] Im Tagging-Formular: Name obligatorisch, Hashtag optional
   - [ ] Namen: max. 10 Buchstaben lang
   - [ ] Hashtags: beginnen mit `#`, max. 10 Buchstaben
