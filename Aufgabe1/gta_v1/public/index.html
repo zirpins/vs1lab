@@ -28,7 +28,25 @@
             <form id="tag-form" action="/tagging" method="post">
 
                 <!-- ... your code here ... -->
-
+                <fieldset>
+                    <legend>Add a new GeoTag</legend>
+                    
+                    <label for="latitude">Latitude:</label>
+                    <input id="latitude" name="latitude" type="number" value="48.97004" readonly />
+                    
+                    <label for="longitude">Longitude:</label>
+                    <input id="longitude" name="longitude" type="number" value="8.40326" readonly />
+                    
+                    <label for="name">Name:</label>
+                    <input id="name" name="name" type="text" placeholder="e.g. Central Berlin" 
+                                    maxlength="10" required />
+                    
+                    <label for="hashtag">Hashtag:</label>
+                    <input id="hashtag" name="hashtag" type="text" pattern="#[A-za-z]{10}" placeholder="e.g. #ber" 
+                                    maxlength="11" />
+                    
+                    <button type="submit">Add Tag</button>
+                </fieldset>
             </form>
             <!-- ############### VS1Lab 1a Form 1 End -->
 
@@ -41,7 +59,19 @@
             <form class="discovery__search" id="discoveryFilterForm" action="/discovery" method="post">
 
                 <!-- ... your code here ... -->
-
+                <fieldset>
+                    <legend>Search</legend>
+                    
+                    <label for="search">Search term or keywords:</label> 
+                    <input id="search" name="search" type="text" placeholder="e.g. Berlin" />
+                    
+                    <!-- Versteckte Fleder für Latitude und Longitude-->
+                    <input id="latitude" name="latitude" type="hidden" value="" />
+                    <input id="longitude" name="longitude" type="hidden" value="" />
+                    
+                    <input type="submit" value="Search" />
+                
+                </fieldset>
             </form>
             <!-- ############### VS1Lab 1a Form 2 End -->
 
