@@ -29,18 +29,26 @@
                     <legend>Neuen GeoTag erstellen</legend>
 
                     <label for="latitude">Latitude: </label>
-                    <input type="number" id="latitude" name="latitude" />
+                    <input type="number" id="latitude" name="latitude"
+                           placeholder="Breitengrad"
+                    />
 
                     <label for="longitude">Longitude: </label>
-                    <input type="number" id="longitude" name="longitude" />
+                    <input type="number" id="longitude" name="longitude"
+                           placeholder="Längengrad"
+                    />
 
                     <label for="name">Name: </label>
-                    <input type="text" id="name" name="name" />
+                    <input type="text" id="name" name="name"
+                           placeholder="Schlosspark"
+                    />
 
                     <label for="hashtag">Hashtag: </label>
-                    <input type="text" id="hashtag" name="hashtag" />
+                    <input type="text" id="hashtag" name="hashtag"
+                           placeholder="#park"
+                    />
 
-                    <input type="submit" value="GeoTag erstellen" />
+                    <input type="submit" value="GeoTag erstellen"/>
                 </fieldset>
             </form>
 
@@ -58,11 +66,17 @@
                     <legend>GeoTags suchen</legend>
 
                     <label for="searchterm">Suchbegriff: </label>
-                    <input type="text" id="searchterm" name="searchterm"/>
+                    <input type="text" id="searchterm" name="searchterm"
+                           placeholder="Schlosspark"
+                    />
 
-                    <input type="hidden" id="discovery-latitude" name="latitude"/>
+                    <input type="hidden" id="discovery-latitude" name="latitude"
+                           placeholder="Breitengrad"
+                    />
 
-                    <input type="hidden" id="discovery-longitude" name="longitude" />
+                    <input type="hidden" id="discovery-longitude" name="longitude"
+                           placeholder="Längengrad"
+                    />
 
                     <input type="submit" value="Suchen" />
                 </fieldset>
