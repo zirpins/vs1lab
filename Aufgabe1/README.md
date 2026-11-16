@@ -212,7 +212,7 @@ Zur Übersicht folgen noch mal alle Anforderungen in kompakter Form als Checklis
 - [ ] Formular-Validierung
   - [x] Latitude und Longitude mit festen Werten
   - [ ] Im Tagging-Formular: Name obligatorisch, Hashtag optional
-  - [ ] Namen: max. 10 Buchstaben lang
+  - [x] Namen: max. 10 Buchstaben lang
   - [ ] Hashtags: beginnen mit `#`, max. 10 Buchstaben
 
 ### Teil B: Seite mit CSS3 gestalten
