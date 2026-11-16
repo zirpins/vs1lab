@@ -146,17 +146,17 @@ class MapManager {
             const lon = helper.longitude;
 
             document.querySelector("#latitude1").value = lat;
-            document.querySelector("#longitude2").value = lon;
+            document.querySelector("#longitude1").value = lon;
 
             document.querySelector("#latitude2").value = lat;
             document.querySelector("#longitude2").value = lon;
 
+            // Karte initialisieren
+            const mapManager = new MapManager();
+            mapManager.initMap(lat,lon);
+            mapManager.updateMarkers(lat,lon);
         });
     }
 
 // Wait for the page to fully load its DOM content, then call updateLocation
-document.addEventListener("DOMContentLoaded", () => {
-    alert("Please change the script 'geotagging.js'");
-});
-
 document.addEventListener("DOMContentLoaded", updateLocation);
