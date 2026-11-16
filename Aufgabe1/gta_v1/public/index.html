@@ -27,7 +27,54 @@
             <!-- ############### VS1Lab 1a Form 1 Start -->
             <form id="tag-form" action="/tagging" method="post">
 
-                <!-- ... your code here ... -->
+               <fieldset>
+                    <legend>Tagging Information</legend>
+
+                    <label for="latitude">Latitude:</label>
+                    <input
+                        type="number"
+                        id="latitude"
+                        name="latitude"
+                        placeholder="49.01379"
+                        value="49.01379"
+                        step="any"
+                        readonly
+                    >
+
+                    <label for="longitude">Longitude:</label>
+                    <input
+                        type="number"
+                        id="longitude"
+                        name="longitude"
+                        placeholder="8.404435"
+                        value="8.404435"
+                        step="any"
+                        readonly
+                    >
+
+                    <label for="tag-name">Name:</label>
+                    <input
+                        type="text"
+                        id="tag-name"
+                        name="name"
+                        placeholder="e.g. Castle"
+                        maxlength="10"
+                        pattern="[A-Za-z]{1,10}"
+                        required
+                    >
+
+                    <label for="hashtag">Hashtag:</label>
+                    <input
+                        type="text"
+                        id="hashtag"
+                        name="hashtag"
+                        placeholder="e.g. #sight"
+                        maxlength="11"
+                        pattern="#[A-Za-z]{1,10}"
+                    >
+
+                    <button type="submit">Add Tag</button>
+                </fieldset>
 
             </form>
             <!-- ############### VS1Lab 1a Form 1 End -->
@@ -40,18 +87,63 @@
             <!-- ############### VS1Lab 1a Form 2 Start -->
             <form class="discovery__search" id="discoveryFilterForm" action="/discovery" method="post">
 
-                <!-- ... your code here ... -->
+               <fieldset>
+                    <legend>Search for Tags</legend>
+
+                    <label for="searchterm">Search term:</label>
+                    <input
+                        type="text"
+                        id="searchterm"
+                        name="searchterm"
+                        placeholder="e.g. Castle"
+                    >
+
+                    <input
+                        type="hidden"
+                        id="discovery-latitude"
+                        name="latitude"
+                        value="49.01379"
+                    >
+
+                    <input
+                        type="hidden"
+                        id="discovery-longitude"
+                        name="longitude"
+                        value="8.404435"
+                    >
+
+                    <button type="submit">Search</button>
+                </fieldset>
 
             </form>
             <!-- ############### VS1Lab 1a Form 2 End -->
 
-            <div class="discovery__wrapper">
-                <div class="discovery__taglist">
-                    <ul class="discovery__results" id="discoveryResults">
-                        <li>Castle (49.01379, 8.404435) #sight</li>
-                        <li>IWI (49.01379, 8.390071) #edu</li>
-                    </ul>
-                </div>
+            <div class="discovery__taglist">
+                <table class="discovery__results" id="discoveryResults">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Latitude</th>
+                            <th>Longitude</th>
+                            <th>Hashtag</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Castle</td>
+                            <td>49.01379</td>
+                            <td>8.404435</td>
+                            <td>#sight</td>
+                        </tr>
+                        <tr>
+                            <td>IWI</td>
+                            <td>49.01379</td>
+                            <td>8.390071</td>
+                            <td>#edu</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
                 <div id="map" class="discovery__map">
                     <img src="./images/mapview.jpg" alt="a map with locations" id="mapView" />
