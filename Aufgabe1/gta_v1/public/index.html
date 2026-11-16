@@ -27,7 +27,34 @@
             <!-- ############### VS1Lab 1a Form 1 Start -->
             <form id="tag-form" action="/tagging" method="post">
 
-                <!-- ... your code here ... -->
+                <fieldset>
+                    <legend>Add a new GeoTag</legend>
+
+                    <div class="form-group">
+                        <label for="latitude">Latitude:</label>
+                        <input id="latitude" type="number" value="49.0141">
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="longitude">Longitude:</label>
+                        <input id="longitude" type="number" value="8.4044">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input id="name" type="text" placeholder="zBSchloss">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="hashtag">Hashtag:</label>
+                        <input id="hashtag" type="text" placeholder="zB #castle">
+                    </div>
+
+                    <button type="submit">
+                        Add Tag
+                    </button>
+                </fieldset>
 
             </form>
             <!-- ############### VS1Lab 1a Form 1 End -->
@@ -39,9 +66,22 @@
 
             <!-- ############### VS1Lab 1a Form 2 Start -->
             <form class="discovery__search" id="discoveryFilterForm" action="/discovery" method="post">
+                <fieldset>
+                    <legend>Search</legend>
+                    <div class="form-group">
 
-                <!-- ... your code here ... -->
-
+                        <label for="search">
+                            Search term or keywords:
+                        </label>
+                        <input
+                            id="search"
+                            type="text"
+                            placeholder="e.g. Karlsruhe">
+                    </div>
+                    <button type="submit">
+                        Search
+                    </button>
+                </fieldset>
             </form>
             <!-- ############### VS1Lab 1a Form 2 End -->
 
