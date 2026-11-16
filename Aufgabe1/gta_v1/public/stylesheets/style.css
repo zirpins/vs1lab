@@ -20,24 +20,28 @@ html {
   box-sizing: inherit;
 }
 
-
 /* Variables (example: see declaration for "a" below) */
 
 :root {
-  --link-color: #00B7FF;
+  --link-color: #00b7ff;
   --background-color: #efefef;
   --border-color: #cdcdcd;
   --gray-color: #666;
 }
 
-
 /* HTML element styles */
 
 body {
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font:
+    14px "Lucida Grande",
+    Helvetica,
+    Arial,
+    sans-serif;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  background-color: var(--background-color);
+  color: #333;
 }
 
 a {
@@ -46,8 +50,33 @@ a {
 
 /* ### TODO ### Styles for other HTML elements */
 
-/* ... your code here ... */
+body {
+  background-color: var(--background-color);
+  color: #333;
+}
 
+h1,
+h2 {
+  margin-bottom: 1rem;
+}
+
+input,
+button {
+  font: inherit;
+}
+
+input {
+  padding: 0.6rem;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+}
+
+button {
+  padding: 0.6rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
 
 /* Grid styles (no changes required) */
 
@@ -106,32 +135,199 @@ a {
   width: calc(100% - 1rem);
 }
 
-
 /* ### TODO ### Styles for Header Component */
 
-/* ... your code here ... */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #2c3e50;
+  color: white;
+  padding: 1rem;
+}
 
+.header__image {
+  width: 50px;
+  height: 50px;
+}
+
+.header__title {
+  margin: 0;
+}
+
+.header__navigation a {
+  color: white;
+  text-decoration: none;
+  margin-left: 0.5rem;
+}
 
 /* ### TODO ### Styles for Main Component */
 
-/* ... your code here ... */
+.main {
+  padding: 1rem;
+  align-items: flex-start;
+  gap: 1rem;
+}
 
+.main__tagging,
+.main__discovery {
+  background-color: white;
+  padding: 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+}
 
 /* ### TODO ### Styles for Tagging component */
 
-/* ... your code here ... */
+.tagging fieldset {
+  border: 1px solid var(--border-color);
+  padding: 1rem;
+  border-radius: 5px;
+}
 
+.tagging legend {
+  font-weight: bold;
+  padding: 0 0.5rem;
+}
+
+.tagging label {
+  display: block;
+  margin-top: 1rem;
+  margin-bottom: 0.3rem;
+}
+
+.tagging input {
+  display: block;
+  width: 100%;
+}
+
+.tagging button {
+  display: block;
+  margin-top: 1rem;
+  background-color: #3498db;
+  color: white;
+}
+
+.tagging button:hover {
+  background-color: #2980b9;
+}
 
 /* ### TODO ### Styles for Discovery component */
 
-/* ... your code here ... */
+.discovery__search {
+  margin-bottom: 1.5rem;
+}
 
+.discovery__search fieldset {
+  border: 1px solid var(--border-color);
+  padding: 1rem;
+  border-radius: 5px;
+}
+
+.discovery__search legend {
+  font-weight: bold;
+  padding: 0 0.5rem;
+}
+
+.discovery__search label {
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+.discovery__search input:not([type="hidden"]) {
+  display: block;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.discovery__search button {
+  background-color: #3498db;
+  color: white;
+}
+
+.discovery__search button:hover {
+  background-color: #2980b9;
+}
+
+.discovery__taglist {
+  overflow-x: auto;
+}
+
+.discovery__results {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.discovery__results th,
+.discovery__results td {
+  padding: 0.8rem;
+  text-align: left;
+  border: 1px solid var(--border-color);
+}
+
+.discovery__results th {
+  background-color: #3498db;
+  color: white;
+}
+
+.discovery__results tbody tr:nth-child(odd) {
+  background-color: #dceef8;
+}
+
+.discovery__results tbody tr:nth-child(even) {
+  background-color: #f1f7fa;
+}
+
+.discovery__map img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.discovery__map span {
+  display: block;
+  background-color: #3498db;
+  color: white;
+  padding: 0.5rem;
+  text-align: center;
+}
 
 /* ### TODO ### Styles for Footer Component */
 
-/* ... your code here ... */
-
+.footer {
+  background-color: #2c3e50;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  margin-top: auto;
+}
 
 /* ### TODO ### Media Queries */
 
-/* ... your code here ... */
+@media screen and (max-width: 850px) {
+  .header {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .main {
+    flex-direction: column;
+  }
+
+  .main > .col-4,
+  .main > .col-8 {
+    width: 100%;
+  }
+
+  .discovery__wrapper {
+    flex-direction: column;
+  }
+
+  .discovery__wrapper > .col-6 {
+    width: 100%;
+  }
+
+  .discovery__taglist {
+    margin-bottom: 1rem;
+  }
+}
