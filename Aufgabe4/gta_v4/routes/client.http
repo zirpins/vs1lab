@@ -1,0 +1,12 @@
+### Update GeoTag
+# @name updateGeoTag
+PUT http://localhost:3000/api/geotags/1
+Content-Type: application/json
+Accept: application/json
+
+{
+  "name": "Bester Doener",
+  "hashtag": "#Doener",
+  "latitude": 49.012,
+  "longitude": 8.404
+}

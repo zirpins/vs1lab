@@ -23,10 +23,75 @@
  * - The proximity constrained is the same as for 'getNearbyGeoTags'.
  * - Keyword matching should include partial matches from name or hashtag fields. 
  */
+
+const GeoTagExamples = require('./geotag-examples');
+const GeoTag = require('./geotag');
+
+
+
 class InMemoryGeoTagStore{
 
     // TODO: ... your code here ...
 
+    
+
+    #geoTagMultiSet = []
+
+    constructor() {
+        
+        const exampleData = GeoTagExamples.tagList;
+        exampleData.forEach(tagArray => {
+            const name = tagArray[0];
+            const latitude = tagArray[1];
+            const longitude = tagArray[2];
+            const hashtag = tagArray[3];
+
+            const newGeoTag = new GeoTag(latitude, longitude, name, hashtag);
+            
+            this.#geoTagMultiSet.push(newGeoTag);
+        });
+    }
+
+    get geoTagMultiSet() {
+        return this.#geoTagMultiSet
+    }
+
+    addGeoTag(geotag) {
+        this.#geoTagMultiSet.push(geotag);
+    }
+
+    removeGeoTag(name) {
+        this.#geoTagMultiSet = this.#geoTagMultiSet.filter(
+            tag => tag.name !== name
+        );
+        
+    }
+
+    getNearbyGeoTags(locationGeoTag, radius) {
+        return this.#geoTagMultiSet.filter(
+            tag => (
+
+                    tag.latitude <= locationGeoTag.latitude + radius &&
+                    tag.latitude >= locationGeoTag.latitude - radius &&
+                    tag.longitude <= locationGeoTag.longitude + radius &&
+                    tag.longitude >= locationGeoTag.longitude - radius
+                   ) 
+
+        );
+    }
+
+    searchNearbyGeoTags(name, locationGeoTag, radius) {
+        const lowerCaseName = name.toLowerCase();
+        return this.getNearbyGeoTags(locationGeoTag, radius).filter(
+            tag => 
+                (
+                    tag.name.toLowerCase().includes(lowerCaseName) || 
+                    tag.hashtag.toLowerCase().includes(lowerCaseName)
+                   )
+        )
+
+    }
+
 }
 
-module.exports = InMemoryGeoTagStore
+module.exports = InMemoryGeoTagStore;
