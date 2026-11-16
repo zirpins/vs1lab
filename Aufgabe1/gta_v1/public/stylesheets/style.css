@@ -28,6 +28,9 @@ html {
   --background-color: #efefef;
   --border-color: #cdcdcd;
   --gray-color: #666;
+  --header-color: #2c3e50;
+  --result-color-1: #d6eaf8;
+  --result-color-2: #d5f5e3;
 }
 
 
@@ -44,9 +47,57 @@ a {
   color: var(--link-color);
 }
 
-/* ### TODO ### Styles for other HTML elements */
+h1, h2 {
+  margin-bottom: 0.5rem;
+}
 
-/* ... your code here ... */
+fieldset {
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 1rem;
+}
+
+legend {
+  padding: 0 0.4rem;
+  color: var(--gray-color);
+}
+
+label {
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="number"] {
+  padding: 0.7rem;
+  font-size: 1.1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+}
+
+input[readonly] {
+  background-color: var(--background-color);
+  color: var(--gray-color);
+}
+
+input[type="submit"] {
+  padding: 0.7rem 1.4rem;
+  font-size: 1.1rem;
+  margin-top: 1rem;
+  background-color: var(--header-color);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: var(--link-color);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
 
 
 /* Grid styles (no changes required) */
@@ -107,31 +158,137 @@ a {
 }
 
 
-/* ### TODO ### Styles for Header Component */
+/* Styles for Header Component */
 
-/* ... your code here ... */
+.header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.8rem 1.5rem;
+  background-color: var(--header-color);
+  color: #fff;
+}
+
+.header__image {
+  height: 40px;
+  width: auto;
+}
+
+.header__title {
+  flex: 1;
+  margin: 0;
+}
+
+.header__navigation a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.header__navigation a:hover {
+  text-decoration: underline;
+}
 
 
-/* ### TODO ### Styles for Main Component */
+/* Styles for Main Component */
 
-/* ... your code here ... */
-
-
-/* ### TODO ### Styles for Tagging component */
-
-/* ... your code here ... */
+.main {
+  padding: 1rem 0.5rem 1rem 1.5rem;
+  background-color: #fff;
+}
 
 
-/* ### TODO ### Styles for Discovery component */
+/* Styles for Tagging component */
 
-/* ... your code here ... */
+.tagging {
+  padding: 0.5rem;
+}
+
+/* vertikale Anordnung der Eingaben */
+.tagging label,
+.tagging input {
+  display: block;
+  width: 100%;
+}
+
+.tagging label {
+  margin-top: 0.8rem;
+}
+
+.tagging input {
+  margin-top: 0.2rem;
+}
 
 
-/* ### TODO ### Styles for Footer Component */
+/* Styles for Discovery component */
 
-/* ... your code here ... */
+.discovery {
+  padding: 0.5rem;
+}
+
+.discovery__search input[type="text"] {
+  width: 60%;
+}
+
+.discovery__wrapper {
+  margin-top: 1rem;
+}
+
+.discovery__taglist table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 6px;
+}
+
+.discovery__taglist th {
+  text-align: left;
+  padding: 0.4rem 0.6rem;
+}
+
+/* Ergebnisliste mit farbigen Boxen */
+.discovery__results tr {
+  background-color: var(--result-color-1);
+}
+
+.discovery__results tr:nth-child(even) {
+  background-color: var(--result-color-2);
+}
+
+.discovery__results td {
+  padding: 0.7rem 0.6rem;
+}
+
+.discovery__map {
+  text-align: center;
+  color: var(--gray-color);
+}
 
 
-/* ### TODO ### Media Queries */
+/* Styles for Footer Component */
 
-/* ... your code here ... */
+.footer {
+  padding: 0.8rem 1.5rem;
+  background-color: var(--header-color);
+  color: #fff;
+  text-align: center;
+}
+
+
+/* Media Queries */
+
+@media (max-width: 850px) {
+  .row {
+    flex-direction: column;
+  }
+
+  [class*="col-"] {
+    width: 100%;
+  }
+
+  .main {
+    padding: 1rem;
+  }
+
+  .discovery__search input[type="text"] {
+    width: 100%;
+  }
+}
