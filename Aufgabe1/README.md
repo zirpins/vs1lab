@@ -213,7 +213,7 @@ Zur Übersicht folgen noch mal alle Anforderungen in kompakter Form als Checklis
   - [x] Latitude und Longitude mit festen Werten
   - [ ] Im Tagging-Formular: Name obligatorisch, Hashtag optional
   - [x] Namen: max. 10 Buchstaben lang
-  - [ ] Hashtags: beginnen mit `#`, max. 10 Buchstaben
+  - [x] Hashtags: beginnen mit `#`, max. 10 Buchstaben
 
 ### Teil B: Seite mit CSS3 gestalten
 
