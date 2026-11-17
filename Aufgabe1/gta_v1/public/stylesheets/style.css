@@ -40,6 +40,7 @@ html {
   --background-color: #efefef;  /* Hintergrund für gesperrte (readonly) Felder */
   --border-color: #cdcdcd;      /* Rahmenfarbe von Formularelementen */
   --gray-color: #666;           /* Dezenter Text (Legenden, readonly, Karte) */
+  --white-color: #fff;          /* Weiß als Hintergrundfarbe */
   --header-color: #2c3e50;      /* Dunkelblau für Header, Footer, Buttons */
   --result-color-1: #d6eaf8;    /* Ergebnisliste: hellblau (ungerade Zeilen) */
   --result-color-2: #d5f5e3;    /* Ergebnisliste: hellgrün (gerade Zeilen) */
@@ -111,7 +112,7 @@ input[type="submit"] {
   font-size: 1.1rem;
   margin-top: 1rem;
   background-color: var(--header-color);
-  color: #fff;
+  color: var(--white-color);
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -208,7 +209,7 @@ img {
   gap: 1rem;
   padding: 0.8rem 1.5rem;
   background-color: var(--header-color);
-  color: #fff;
+  color: var(--white-color);
 }
 
 /* Logo im Header: feste Höhe, Breite passt sich dem Seitenverhältnis an. */
@@ -227,7 +228,7 @@ img {
 /* Navigationslinks: weiß und ohne Unterstreichung, damit sie auf dem
    dunklen Hintergrund lesbar sind. */
 .header__navigation a {
-  color: #fff;
+  color: var(--white-color);
   text-decoration: none;
 }
 
@@ -245,7 +246,7 @@ img {
    kleiner, da die Spalten durch "- 1rem" in der Breite schon Platz lassen. */
 .main {
   padding: 1rem 0.5rem 1rem 1.5rem;
-  background-color: #fff;
+  background-color: var(--white-color);
 }
 
 
@@ -344,7 +345,7 @@ img {
 .footer {
   padding: 0.8rem 1.5rem;
   background-color: var(--header-color);
-  color: #fff;
+  color: var(--white-color);
   text-align: center;
 }
 
