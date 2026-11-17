@@ -171,7 +171,6 @@ button:hover {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border: 10px;
   padding: 0 40px;
   box-sizing: border-box;
 
@@ -183,10 +182,6 @@ button:hover {
   .header_title{
     margin: 0;
   }
-
-  .header_navigation{
-    margin-left: auto;
-  }
 }
 
 /* ### TODO ### Styles for Main Component */
@@ -197,7 +192,6 @@ button:hover {
   /*background-color: blue;*/
   width: 100%;
   display: flex;
-  justify-content: left;
   align-items: flex-start;
   gap: 4rem;
   padding: 3rem;
@@ -232,9 +226,7 @@ button:hover {
   justify-content: space-between;
   align-items: flex-start;
   width: 100%;
-  padding: 1.5rem;
-  padding-left: 0;
-  padding-right: 0;
+  padding: 1.5rem 0;
 }
 
 .discovery__results {
@@ -248,7 +240,7 @@ button:hover {
     margin-bottom: 10px;
     border-radius: 5px;
     color: var(--link-color);
-    font-size: 0,8rem;
+    font-size: 0.8rem;
     line-height: 2;
   }
 }
