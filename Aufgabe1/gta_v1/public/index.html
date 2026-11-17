@@ -28,28 +28,32 @@
             <!-- ############### VS1Lab 1a Form 1 Start -->
             <form id="tag-form" action="/tagging" method="post">
                 <!-- ... your code here ... -->
-                <div>
-                    <span>Latitude:</span> 
-                    <input  type = "number"/>
-                </div>
+
+                <fieldset>
+                    <legend>Add a new GeoTag</legend>
+
                 
-                <div>
-                    <span>Longitude:</span>
-                    <input type = "number"/>
-                </div>
-
-                <div>
-                    <span>Name:</span>
-                    <input type = "text"/>
-                </div>
-
-                <div>
-                    <span>Hashtag:</span>
-                    <input type = "text"/>
-                </div>
-
-                <div><input type="button" value="Add Tag"/></div>
+                    <label for="Latitude_Input">Latitude:</label> 
+                    <input id="Latitude_Input" type = "number" placeholder="49.01379" />
                 
+                
+                
+                    <label for="Longitude_Input">Longitude:</label>
+                    <input id="Longitude_Input" type = "number" placeholder="8.390071" />
+                
+
+                
+                    <label for="Name_Input">Name:</label>
+                    <input id="Name_Input" type = "text" placeholder="e.g. Central Berlin" maxlength="10" required/>
+                
+
+                
+                    <label for="Hashtag_Input">Hashtag:</label>
+                    <input id="Hashtag_Input" type = "text" placeholder="e.g. #ber" pattern="(?=.*#).{0,10}"/>
+                
+
+                    <button id = "AddTag_Button" type="submit">Add Tag</button>
+                </fieldset>
 
             </form>
             <!-- ############### VS1Lab 1a Form 1 End -->
@@ -63,6 +67,15 @@
             <form class="discovery__search" id="discoveryFilterForm" action="/discovery" method="post">
 
                 <!-- ... your code here ... -->
+
+                <fieldset>
+                    <legend>Search</legend>
+
+                
+                    <label for="Search_Input">Search term or keywords:</label>
+                    <input id="Search_Input" type="text" placeholder="e.g. Berlin" /> 
+                    <button id="Search_Button" type="submit">Search</button>
+                </fieldset>
 
             </form>
             <!-- ############### VS1Lab 1a Form 2 End -->
