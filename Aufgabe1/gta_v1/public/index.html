@@ -36,7 +36,7 @@
                     <label for="name">Name:</label>
                     <input id="name" type="text" name="name" placeholder="e.g Central Berlin" required maxlength="10">
                     <label for="hashtag">Hashtag:</label>
-                    <input id="hashtag" type="text" name="hashtag" placeholder="e.g #ber" pattern="#." maxlength="10" />
+                    <input id="hashtag" type="text" name="hashtag" placeholder="e.g #ber" pattern="#[A-Za-z0-9]{1,9}" maxlength="10" />
                     <input type="submit" value="Add Tag" />
                 </fieldset>
             </form>
