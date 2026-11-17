@@ -6,33 +6,53 @@
   Inherited box sizing used for ease of including 3rd party content-box components.
 */
 
-/* Global styling */
+/* ==========================================================================
+   Global styling
+   ========================================================================== */
 
+/* Das <html>-Element bekommt border-box: Breite/Höhe enthalten dann
+   Padding und Rahmen (einfachere Layoutberechnung). */
 html {
   box-sizing: border-box;
 }
 
+/* Universalselektor: Setzt Standard-Abstände des Browsers für ALLE Elemente
+   zurück (CSS-Reset), damit das Layout in jedem Browser gleich aussieht. */
 * {
   margin: 0;
   padding: 0;
 
   /* This approach prevents issues with 3rd party content-box components */
+  /* "inherit" übernimmt border-box vom <html>-Element, Fremdkomponenten
+     mit content-box können es aber weiterhin selbst überschreiben. */
   box-sizing: inherit;
 }
 
 
-/* Variables (example: see declaration for "a" below) */
+/* ==========================================================================
+   Variablen (CSS Custom Properties)
+   Zentral definierte Farben; Verwendung über var(--name).
+   Vorteil: Farbschema lässt sich an einer Stelle ändern.
+   ========================================================================== */
 
 :root {
-  --link-color: #00B7FF;
-  --background-color: #efefef;
-  --border-color: #cdcdcd;
-  --gray-color: #666;
+  --link-color: #00B7FF;        /* Farbe für Links und Hover-Effekt */
+  --background-color: #efefef;  /* Hintergrund für gesperrte (readonly) Felder */
+  --border-color: #cdcdcd;      /* Rahmenfarbe von Formularelementen */
+  --gray-color: #666;           /* Dezenter Text (Legenden, readonly, Karte) */
+  --header-color: #2c3e50;      /* Dunkelblau für Header, Footer, Buttons */
+  --result-color-1: #d6eaf8;    /* Ergebnisliste: hellblau (ungerade Zeilen) */
+  --result-color-2: #d5f5e3;    /* Ergebnisliste: hellgrün (gerade Zeilen) */
 }
 
 
-/* HTML element styles */
+/* ==========================================================================
+   HTML-Element-Styles (Elementselektoren)
+   ========================================================================== */
 
+/* Grundschrift der Seite. Flex-Spalte + min-height: Der Body füllt mindestens
+   die ganze Fensterhöhe, so dass der Footer unten bleibt (Main wächst über
+   "flex: 1" in .row). */
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   display: flex;
@@ -40,29 +60,83 @@ body {
   min-height: 100vh;
 }
 
+/* Links erhalten die zentrale Link-Farbe aus den Variablen. */
 a {
   color: var(--link-color);
 }
 
-/* Styles for other HTML elements */
-
+/* Überschriften: kleiner Abstand nach unten (da margin oben global 0 ist). */
 h1, h2 {
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 
-input, select, textarea, button {
-  padding: 0.75rem;
-  font: inherit;
+/* Fieldset: dezent umrandete, abgerundete Box um zusammengehörige Eingaben. */
+fieldset {
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 1rem;
 }
 
-input, select, textarea {
+/* Legend: Beschriftung des Fieldsets, grau und mit etwas seitlichem Abstand. */
+legend {
+  padding: 0 0.4rem;
+  color: var(--gray-color);
+}
+
+/* Labels sind fett, damit sie sich von den Eingaben abheben. */
+label {
+  font-weight: bold;
+}
+
+/* Größere Eingabefelder (Text und Zahl): mehr Innenabstand und größere Schrift,
+   dazu ein dezenter, abgerundeter Rahmen. */
+input[type="text"],
+input[type="number"] {
+  padding: 0.7rem;
+  font-size: 1.1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+}
+
+/* Schreibgeschützte Felder (Latitude/Longitude) werden grau hinterlegt,
+   um zu zeigen, dass sie nicht änderbar sind. */
+input[readonly] {
+  background-color: var(--background-color);
+  color: var(--gray-color);
+}
+
+/* Submit-Buttons: farbig, groß, ohne Rahmen, mit Hand-Cursor. */
+input[type="submit"] {
+  padding: 0.7rem 1.4rem;
+  font-size: 1.1rem;
+  margin-top: 1rem;
+  background-color: var(--header-color);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Hover-Effekt: Button wechselt beim Überfahren mit der Maus die Farbe. */
+input[type="submit"]:hover {
+  background-color: var(--link-color);
+}
+
+/* Bilder skalieren responsiv mit und laufen nie über ihren Container hinaus. */
+img {
   max-width: 100%;
+  height: auto;
 }
 
 
+/* ==========================================================================
+   Grid styles (no changes required)
+   12-Spalten-Grid auf Basis von Flexbox
+   ========================================================================== */
 
-/* Grid styles (no changes required) */
-
+/* Zeile: Flex-Container, der seine Kinder (Spalten) nebeneinander anordnet.
+   space-between verteilt den freien Platz zwischen den Spalten;
+   flex: 1 lässt die Zeile in der vertikalen Flex-Richtung wachsen. */
 .row {
   width: 100%;
   display: flex;
@@ -70,6 +144,9 @@ input, select, textarea {
   flex: 1;
 }
 
+/* Spaltenklassen .col-x: x = Anzahl der Teile von 12 (x/12 der Breite).
+   Von jeder Breite werden 1rem abgezogen, damit zwischen den Spalten
+   Platz (Abstand) bleibt. Pro Zeile sollen die Teile 12 ergeben. */
 .col-1 {
   width: calc(8.33% - 1rem);
 }
@@ -119,144 +196,184 @@ input, select, textarea {
 }
 
 
-/* Styles for Header Component */
+/* ==========================================================================
+   Header-Komponente (BEM: Block "header")
+   ========================================================================== */
 
+/* Header-Block: farbig abgesetzte Kopfzeile. Flexbox ordnet Logo, Titel und
+   Navigation nebeneinander an und zentriert sie vertikal. */
 .header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-
-  background-color: var(--background-color);
-  padding: 2rem 3rem;
-  border-bottom: 1px solid var(--border-color);
+  gap: 1rem;
+  padding: 0.8rem 1.5rem;
+  background-color: var(--header-color);
+  color: #fff;
 }
 
+/* Logo im Header: feste Höhe, Breite passt sich dem Seitenverhältnis an. */
 .header__image {
-  width: 50px;
-  height: auto;
-  flex: 0 0 50px;
+  height: 40px;
+  width: auto;
 }
 
+/* Titel nimmt den restlichen Platz ein (flex: 1) und schiebt dadurch die
+   Navigation nach rechts. */
 .header__title {
   flex: 1;
   margin: 0;
-  text-align: center;
-  font-size: 2rem;
 }
 
-.header__navigation {
-  flex: 0 0 auto;
-  text-align: right;
-  font-size: 14px;
-  white-space: nowrap;
-}
-
+/* Navigationslinks: weiß und ohne Unterstreichung, damit sie auf dem
+   dunklen Hintergrund lesbar sind. */
 .header__navigation a {
-  color: var(--link-color);
+  color: #fff;
+  text-decoration: none;
 }
 
-/* Styles for Main Component */
+/* Beim Hover wird der Link zur Orientierung unterstrichen. */
+.header__navigation a:hover {
+  text-decoration: underline;
+}
 
+
+/* ==========================================================================
+   Main-Komponente (BEM: Block "main")
+   ========================================================================== */
+
+/* Hauptbereich: weißer Hintergrund und Innenabstand. Rechts ist der Abstand
+   kleiner, da die Spalten durch "- 1rem" in der Breite schon Platz lassen. */
 .main {
-  padding: 1rem;
-  gap: 1rem;
-  background-color: var(--background-color);
+  padding: 1rem 0.5rem 1rem 1.5rem;
+  background-color: #fff;
 }
 
 
-/* Styles for Tagging component */
+/* ==========================================================================
+   Tagging-Komponente (linke Spalte)
+   ========================================================================== */
 
+/* Tagging-Widget: etwas Innenabstand um das Formular. */
 .tagging {
-  padding: 0;
+  padding: 0.5rem;
 }
 
-.tagging form {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-}
-
-/* Styles for Discovery component */
-
-.discovery {
-  padding: 0;
-}
-
-.discovery__search {
-  margin-bottom: 1rem;
-}
-
-.discovery__wrapper {
-  gap: 1rem;
-}
-
-.discovery__results {
-  list-style: none;
-}
-
-
-.discovery__results li {
-  background-color: var(--background-color);
-  border: 1px solid var(--border-color);
-  padding: 1rem;
-  margin-bottom: 0.75rem;
-  border-radius: 0;
-  color: var(--link-color);
-}
-
-.discovery__map img {
-  width: 100%;
-  height: auto;
+/* vertikale Anordnung der Eingaben */
+/* display: block + width: 100% => jedes Label und jedes Input steht in einer
+   eigenen Zeile und füllt die Spaltenbreite (statt <br> im HTML). */
+.tagging label,
+.tagging input {
   display: block;
+  width: 100%;
+}
+
+/* Abstand über jedem Label trennt die einzelnen Eingabegruppen voneinander. */
+.tagging label {
+  margin-top: 0.8rem;
+}
+
+/* Kleiner Abstand zwischen Label und zugehörigem Eingabefeld. */
+.tagging input {
+  margin-top: 0.2rem;
 }
 
 
+/* ==========================================================================
+   Discovery-Komponente (rechte Spalte)
+   ========================================================================== */
 
-/* Styles for Footer Component */
+/* Discovery-Widget: Innenabstand analog zum Tagging-Widget. */
+.discovery {
+  padding: 0.5rem;
+}
 
-.footer {
-  background-color: var(--background-color);
-  padding: 3rem;
+/* Suchfeld im Filterformular: 60 % der Breite, daneben bleibt Platz für
+   den Such-Button. */
+.discovery__search input[type="text"] {
+  width: 60%;
+}
+
+/* Verschachtelte Zeile (Liste + Karte): Abstand zum Filterformular darüber. */
+.discovery__wrapper {
+  margin-top: 1rem;
+}
+
+/* Ergebnistabelle: volle Spaltenbreite. "border-collapse: separate" mit
+   border-spacing erzeugt vertikale Lücken zwischen den Zeilen, so dass
+   diese wie einzelne Boxen wirken. */
+.discovery__taglist table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 6px;
+}
+
+/* Tabellenköpfe linksbündig mit etwas Innenabstand. */
+.discovery__taglist th {
   text-align: left;
-  border-top: 1px solid var(--border-color);
+  padding: 0.4rem 0.6rem;
+}
+
+/* Ergebnisliste mit farbigen Boxen */
+/* Standardfarbe der Ergebniszeilen: Hellblau. */
+.discovery__results tr {
+  background-color: var(--result-color-1);
+}
+
+/* Jede zweite (gerade) Zeile wird hellgrün => abwechselnde Farben (Zebra-Look). */
+.discovery__results tr:nth-child(even) {
+  background-color: var(--result-color-2);
+}
+
+/* Zellen der Ergebnisse: großzügiger Innenabstand für "Box"-Optik. */
+.discovery__results td {
+  padding: 0.7rem 0.6rem;
+}
+
+/* Kartenbereich: zentrierter, grauer Text (z. B. Beschriftung "Result map"). */
+.discovery__map {
+  text-align: center;
+  color: var(--gray-color);
 }
 
 
-/* Media Queries */
+/* ==========================================================================
+   Footer-Komponente (BEM: Block "footer")
+   ========================================================================== */
 
-/* Castle-Link schlägt bei 936 um... nicht schön*/
-@media (max-width: 940px) {
+/* Fußzeile: gleiche Farbgebung wie der Header, Text zentriert. */
+.footer {
+  padding: 0.8rem 1.5rem;
+  background-color: var(--header-color);
+  color: #fff;
+  text-align: center;
+}
+
+
+/* ==========================================================================
+   Media Queries (Responsive Design)
+   ========================================================================== */
+
+/* Ab einer Viewport-Breite von höchstens 850px (Tablet/Smartphone) gelten
+   diese Regeln: Die Spalten klappen untereinander. */
+@media (max-width: 850px) {
+  /* Zeilen ordnen ihre Kinder nun vertikal statt horizontal an. */
   .row {
     flex-direction: column;
   }
 
+  /* Attributselektor: trifft alle Klassen, die "col-" enthalten (.col-1 bis
+     .col-12). Jede Spalte nimmt die volle Breite ein. */
   [class*="col-"] {
     width: 100%;
   }
-}
 
-/* Ab 478 px breite berühren sich titel und navigation*/
-@media (max-width: 490px) {
-  .header {
-    flex-direction: column;
-    gap: 1rem;
+  /* Gleichmäßiger Innenabstand, da rechts kein Spaltenabstand mehr nötig ist. */
+  .main {
     padding: 1rem;
   }
 
-  .header__image {
-    flex: none;
-    width: 50px;
-  }
-
-  .header__title {
-    flex: none;
-    text-align: center;
-    font-size: 1.5rem;
-  }
-
-  .header__navigation {
-    flex: none;
-    text-align: center;
-    font-size: 14px;
+  /* Suchfeld nutzt auf kleinen Bildschirmen die volle Breite. */
+  .discovery__search input[type="text"] {
+    width: 100%;
   }
 }
