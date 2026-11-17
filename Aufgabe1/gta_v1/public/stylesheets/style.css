@@ -28,6 +28,8 @@ html {
   --background-color: #efefef;
   --border-color: #cdcdcd;
   --gray-color: #666;
+
+  --header-color: #344857;
 }
 
 
@@ -47,6 +49,57 @@ a {
 /* ### TODO ### Styles for other HTML elements */
 
 /* ... your code here ... */
+
+h2 {
+  margin-bottom: 0.75rem;
+  font-size: 1.4rem;
+  color: var(--header-color);
+}
+
+fieldset {
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 1rem;
+  background-color: #fff;
+
+}
+
+legend {
+  padding: 0 0.5rem;
+  font-weight: bold;
+  color: var(--gray-color);
+}
+
+label {
+  display: block; 
+  margin-bottom: 0.25rem;
+  font-weight: bold;
+  color: var(--gray-color)
+}
+
+input {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+}
+
+button{
+  padding: 0.25rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff;
+  background-color: var(--header-color);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #9b9c9d;
+}
 
 
 /* Grid styles (no changes required) */
@@ -111,27 +164,138 @@ a {
 
 /* ... your code here ... */
 
+.header {
+  width: 100%;
+  background: var(--border-color);
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  box-sizing: border-box;
+
+  img {
+    width: 5%;
+    height: auto;
+  }
+
+  .header_title{
+    margin: 0;
+  }
+}
 
 /* ### TODO ### Styles for Main Component */
 
 /* ... your code here ... */
 
+.main {
+  /*background-color: blue;*/
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  gap: 4rem;
+  padding: 3rem;
+}
 
 /* ### TODO ### Styles for Tagging component */
 
 /* ... your code here ... */
+
+.main__tagging{
+  /*background-color: red;*/
+  display: flex;
+  flex-direction: column;
+  flex-grow: 0.25;
+}
 
 
 /* ### TODO ### Styles for Discovery component */
 
 /* ... your code here ... */
 
+.main__discovery{
+  /*background-color: green;*/
+  flex-direction: column;
+  display: flex;
+  flex-grow: 0.3;
+
+}
+
+.discovery__wrapper{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  padding: 1.5rem 0;
+}
+
+.discovery__results {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+
+ li {
+    background-color: var(--background-color);
+    padding: 20px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    color: var(--link-color);
+    font-size: 0.8rem;
+    line-height: 2;
+  }
+}
+.discovery__map{
+  display: flex;
+  flex-direction: column;
+
+  img{
+    width: 100%;
+    height: auto;
+  }
+
+  span {
+    color: var(--gray-color);
+  }
+}
+
 
 /* ### TODO ### Styles for Footer Component */
 
-/* ... your code here ... */
+.footer{
+  width: 100%;
+  background: var(--border-color);
+  height: 100px;
+  display: flex;
+  padding: 0 40px;
+  align-items: center;
+}
+
 
 
 /* ### TODO ### Media Queries */
 
-/* ... your code here ... */
+@media (max-width: 850px) {
+  .main {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 2rem;
+    padding: 1rem;
+  }
+
+  .main__tagging,
+  .main__discovery {
+    width: 100%;
+    flex-grow: 1;
+  }
+
+  .discovery__wrapper {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .discovery__wrapper,
+  .discovery__results,
+  .discovery__map {
+    width: 100%;
+  }
+}
