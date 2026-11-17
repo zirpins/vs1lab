@@ -4,7 +4,7 @@
 
 <html lang="en">
 
-<head>
+<head> <!--  alles was ganz oben steht (bild und link)  -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GeoTagApp</title>
@@ -16,10 +16,9 @@
         <img src="./images/location.png" class="header__image" alt="an image of a map and location">
         <h1 class="header__title">GeoTagApp</h1>
         <nav class="header__navigation">
-            <a href="#">About</a> | <a href="#">Help</a> | <a href="/">Home</a>
+            <a href="#">About</a> | <a href="#">Help</a> | <a href="/">Home</a> <!--  a sind links  -->
         </nav>
     </header>
-<!--  hekjhy  -->
 
     <main class="main">
         <section class="main__tagging tagging">
@@ -29,6 +28,27 @@
             <form id="tag-form" action="/tagging" method="post">
 
                 <!-- ... your code here ... -->
+                <form>
+                    <fieldset>
+                        <legend>Add a new Geotag</legend>
+
+                        <label for="latitude">Latitude:</label>
+                        <input type="text" id="latitude" placeholder="48.97004" disabled>
+
+                        <label for="longtitude">Longtitude:</label>
+                        <input type="text" id="longtitude" placeholder="8.40216" disabled>
+
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" placeholder="e.g. Central Berlin" maxlength="10" required>
+
+                        <label for="hashtag">Hashtag:</label>
+                        <input type="text" id="hashtag" placeholder="e.g. #ber" maxlength="10">
+
+                        <input type="submit" value="Add Tag" />
+                    </fieldset>
+
+
+                </form>
 
             </form>
             <!-- ############### VS1Lab 1a Form 1 End -->
@@ -42,7 +62,18 @@
             <form class="discovery__search" id="discoveryFilterForm" action="/discovery" method="post">
 
                 <!-- ... your code here ... -->
+                <fieldset>
+                    <legend>Search</legend>
 
+                   <!----> <label for="search">Searchterm:</label>
+                    <input type="text" id="search" placeholder="e.g. Berlin">
+
+                    <input type="hidden" id="latitude">
+                    <input type="hidden" id="longtitude">
+
+                    <input type="submit" value="Search" />
+
+                </fieldset>
             </form>
             <!-- ############### VS1Lab 1a Form 2 End -->
 
