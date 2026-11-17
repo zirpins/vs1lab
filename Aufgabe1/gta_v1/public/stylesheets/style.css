@@ -28,7 +28,6 @@ html {
   --background-color: #efefef;
   --border-color: #cdcdcd;
   --gray-color: #666;
-
   --header-color: #344857;
 }
 
@@ -61,7 +60,6 @@ fieldset {
   border-radius: 6px;
   padding: 1rem;
   background-color: #fff;
-
 }
 
 legend {
@@ -218,7 +216,6 @@ button:hover {
   flex-direction: column;
   display: flex;
   flex-grow: 0.3;
-
 }
 
 .discovery__wrapper{
@@ -244,6 +241,7 @@ button:hover {
     line-height: 2;
   }
 }
+
 .discovery__map{
   display: flex;
   flex-direction: column;
@@ -269,8 +267,6 @@ button:hover {
   padding: 0 40px;
   align-items: center;
 }
-
-
 
 /* ### TODO ### Media Queries */
 
