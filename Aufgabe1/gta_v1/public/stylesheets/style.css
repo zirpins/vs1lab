@@ -199,7 +199,7 @@ button:hover {
 
 /* ... your code here ... */
 
-.main__tagging{
+.main_tagging{
   /*background-color: red;*/
   display: flex;
   flex-direction: column;
@@ -211,14 +211,14 @@ button:hover {
 
 /* ... your code here ... */
 
-.main__discovery{
+.main_discovery{
   /*background-color: green;*/
   flex-direction: column;
   display: flex;
   flex-grow: 0.3;
 }
 
-.discovery__wrapper{
+.discovery_wrapper{
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -226,7 +226,7 @@ button:hover {
   padding: 1.5rem 0;
 }
 
-.discovery__results {
+.discovery_results {
   display: flex;
   flex-direction: column;
   list-style: none;
@@ -242,7 +242,7 @@ button:hover {
   }
 }
 
-.discovery__map{
+.discovery_map{
   display: flex;
   flex-direction: column;
 
@@ -278,20 +278,20 @@ button:hover {
     padding: 1rem;
   }
 
-  .main__tagging,
-  .main__discovery {
+  .main_tagging,
+  .main_discovery {
     width: 100%;
     flex-grow: 1;
   }
 
-  .discovery__wrapper {
+  .discovery_wrapper {
     flex-direction: column;
     gap: 2rem;
   }
 
-  .discovery__wrapper,
-  .discovery__results,
-  .discovery__map {
+  .discovery_wrapper,
+  .discovery_results,
+  .discovery_map {
     width: 100%;
   }
 }
