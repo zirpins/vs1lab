@@ -7,10 +7,10 @@ const filename = "todos.txt";
 const server = net.createServer((connection) => {
 	// Bei einer neuen Verbindung wird diese Funktion ausgeführt
 	console.log("Subscriber connected.");
-	connection.write(`Now watching ${filename} for changes...\n`);
+	connection.write(`Watching ${filename}...\n`);
 	// watcher setup
 	const watcher = fs.watch(filename, () => {
-		connection.write(`File '${filename}' changed: ${Date.now()}\n`);
+		connection.write(`Changed: ${Date.now()}\n`);
 	});
 	// cleanup: Beim Schließen der Verbindung wird folgende Funktion ausgeführt
 	connection.on("close", () => {
