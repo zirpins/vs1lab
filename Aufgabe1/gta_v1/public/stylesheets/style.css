@@ -135,14 +135,16 @@ a {
   padding: 1rem;
 }
 
+/*
 .main__tagging {
-  flex: 0 0 20rem; /* bleibt 20rem breit */
+  flex: 0 0 20rem; /* bleibt 20rem breit 
 }
 
 .main__discovery {
   flex: 1 1 0;
-  min-width: 0; /* verhindert, dass Inhalt Discovery breiter drückt */
+  min-width: 0; /* verhindert, dass Inhalt Discovery breiter drückt 
 }
+*/
 
 .main section h2 {
   margin-bottom: 1rem;
@@ -244,6 +246,10 @@ a {
   color: var(--gray-color);
 }
 
+.discovery__map img {
+  max-width: 100%;
+}
+
 /* ### TODO ### Styles for Footer Component */
 
 .footer {
@@ -259,4 +265,6 @@ a {
 @media (width < 850px) {
 	.main { flex-direction: column; }
   .discovery__wrapper { flex-direction: column; }
+
+  [class*="col-"] { width: 100%; }
 }
