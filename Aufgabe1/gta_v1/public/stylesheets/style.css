@@ -69,7 +69,7 @@ legend {
 }
 
 label {
-  display: block; 
+  display: block;
   margin-bottom: 0.25rem;
   font-weight: bold;
   color: var(--gray-color)
@@ -84,7 +84,7 @@ input {
   border-radius: 4px;
 }
 
-button{
+button {
   padding: 0.25rem;
   font-size: 1rem;
   font-weight: bold;
@@ -98,7 +98,6 @@ button{
 button:hover {
   background-color: #9b9c9d;
 }
-
 
 /* Grid styles (no changes required) */
 
@@ -159,38 +158,26 @@ button:hover {
 
 
 /* ### TODO ### Styles for Header Component */
-
 /* ... your code here ... */
 
 .header {
-  width: 100%;
+  /* width: 100%; */
   background: var(--border-color);
   height: 100px;
-  display: flex;
   align-items: center;
-  justify-content: space-between;
   padding: 0 40px;
   box-sizing: border-box;
 
   img {
-    width: 5%;
-    height: auto;
-  }
-
-  .header_title{
-    margin: 0;
+    margin:10px 0;
+    width: 5em;
   }
 }
 
 /* ### TODO ### Styles for Main Component */
 
 /* ... your code here ... */
-
 .main {
-  /*background-color: blue;*/
-  width: 100%;
-  display: flex;
-  align-items: flex-start;
   gap: 4rem;
   padding: 3rem;
 }
@@ -199,26 +186,25 @@ button:hover {
 
 /* ... your code here ... */
 
-.main_tagging{
+.main_tagging {
   /*background-color: red;*/
   display: flex;
   flex-direction: column;
-  flex-grow: 0.25;
+
+  /* flex-grow: 0.25; */
 }
 
 
 /* ### TODO ### Styles for Discovery component */
 
 /* ... your code here ... */
-
-.main_discovery{
-  /*background-color: green;*/
-  flex-direction: column;
-  display: flex;
-  flex-grow: 0.3;
+.discovery_search {
+  fieldset {
+    width: 100%;
+  }
 }
 
-.discovery_wrapper{
+.discovery_wrapper {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -231,7 +217,7 @@ button:hover {
   flex-direction: column;
   list-style: none;
 
- li {
+  li {
     background-color: var(--background-color);
     padding: 20px;
     margin-bottom: 10px;
@@ -242,11 +228,11 @@ button:hover {
   }
 }
 
-.discovery_map{
+.discovery_map {
   display: flex;
   flex-direction: column;
 
-  img{
+  img {
     width: 100%;
     height: auto;
   }
@@ -259,7 +245,7 @@ button:hover {
 
 /* ### TODO ### Styles for Footer Component */
 
-.footer{
+.footer {
   width: 100%;
   background: var(--border-color);
   height: 100px;
@@ -290,8 +276,17 @@ button:hover {
   }
 
   .discovery_wrapper,
+  .discovery_taglist,
   .discovery_results,
   .discovery_map {
     width: 100%;
+    li {
+      width: 100%;
+    }
+  }
+
+  img {
+    margin:10px 0;
+    width: 2em !important;
   }
 }
