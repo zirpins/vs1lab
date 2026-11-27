@@ -1,27 +1,23 @@
-var main = function() {
-    "use strict";
-
-    var addTodosToList = function(todos) {
-        var todolist = document.getElementById("todo-list");
-        for (var key in todos) {
-            var li = document.createElement("li");
-            li.innerHTML = "TODO: " + todos[key].message;
-            todolist.appendChild(li);
-        }
-    };
-
-    //	setInterval(function () {
-    //  note: to use setInterval() you have to implement a mechanisms
-    //  that checks which todos are already shown to the client
-    console.log("Loading todos from server");
-
-    $.getJSON("../todos", addTodosToList)
-        .error(function(jqXHR, textStatus, errorThrown) {
-            console.log("error: " + textStatus);
-            console.log("incoming Text: " + jqXHR.responseText);
-        });
-
-    //	}, 2000);
+const addTodosToList = (todos) => {
+    const todolist = document.getElementById("todo-list");
+    for (const todo of todos) {
+        const li = document.createElement("li");
+        li.textContent = `TODO: ${todo.message}`;
+        todolist.appendChild(li);
+    }
 };
 
-$(main);
+const main = async () => {
+    console.log("Loading todos from server");
+    try {
+        const response = await fetch("../todos");
+        if (!response.ok) {
+            throw new Error(`HTTP ${response.status}`);
+        }
+        addTodosToList(await response.json());
+    } catch (error) {
+        console.log(`error: ${error.message}`);
+    }
+};
+
+document.addEventListener("DOMContentLoaded", main);

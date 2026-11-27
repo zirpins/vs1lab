@@ -1,9 +1,9 @@
-var ejs = require('ejs');
+const ejs = require('ejs');
 
-var template1 = '<%= message %>';
-var template2 = '<%- message %>';
+const template1 = '<%= message %>';
+const template2 = '<%- message %>';
 
-var context = {
+const context = {
     message: "<script>alert('hi!');</script>"
 };
 

@@ -1,19 +1,18 @@
-var express = require("express");
-var http = require("http");
+const express = require("express");
 
-var port = 3000;
-var app = express();
+const port = 3000;
+const app = express();
 app.use(express.static(__dirname + "/client"));
-http.createServer(app).listen(port);
+app.listen(port, () => console.log(`Server listening on port ${port}`));
 console.log('Server startet on port 3000');
 
-var todos = [];
-var t1 = {
+const todos = [];
+const t1 = {
     message: "Mow the cat",
     type: 1,
     deadline: "12/12/2016"
 };
-var t2 = {
+const t2 = {
     message: "Feed the lawn",
     type: 3,
     deadline: "20/12/2016"
@@ -36,12 +35,12 @@ function getTodos(request, response, next) {
 app.get("/todos", logger, getTodos);
 
 //add todo to the server
-app.get("/addtodo", function(request, response) {
+app.get("/addtodo", (request, response) => {
     const url_parts = new URL(request.url, `http://${request.headers.host}`);
 	const query = url_parts.searchParams;
 
     if (query.has("message")) {
-        var tx = {
+        const tx = {
             message: query.get("message"),
             type: query.get("type"),
             deadline: query.get("deadline")
