@@ -46,8 +46,52 @@ a {
 
 /* ### TODO ### Styles for other HTML elements */
 
-/* ... your code here ... */
+h2 {
+    margin-bottom: 0.75rem;
+}
 
+fieldset {
+    min-width: 0;
+    border: 1px solid var(--border-color);
+    padding: 1rem;
+}
+
+legend {
+    padding: 0 0.25rem;
+}
+
+label {
+    display: block;
+    color: var(--gray-color);
+    margin-bottom: 0.4rem;
+}
+
+input {
+    display: block;
+    max-width: 100%;
+    font: inherit;
+    padding: 0.5rem;
+    margin-bottom: 0.9rem;
+}
+
+input[type="text"],
+input[type="submit"] {
+    width: 100%;
+}
+
+input[type="submit"] {
+    margin-bottom: 0;
+    background-color: var(--background-color);
+    border: 1px solid var(--border-color);
+    cursor: pointer;
+}
+
+/* Versteckte Felder weiterhin ausblenden */
+input[type="hidden"] {
+    display: none;
+}
+
+/* ... your code here ... */
 
 /* Grid styles (no changes required) */
 
@@ -109,29 +153,118 @@ a {
 
 /* ### TODO ### Styles for Header Component */
 
-/* ... your code here ... */
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2.5rem;
+    background-color: var(--background-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.header__image {
+    width: 48px;
+    height: auto;
+}
+
+.header__title {
+    margin: 0;
+}
 
 
 /* ### TODO ### Styles for Main Component */
 
 /* ... your code here ... */
 
+.main {
+    padding: 2.5rem;
+    align-items: flex-start;
+}
+
 
 /* ### TODO ### Styles for Tagging component */
-
 /* ... your code here ... */
+.tagging {
+    min-width: 0;
+}
 
 
 /* ### TODO ### Styles for Discovery component */
 
-/* ... your code here ... */
 
+.discovery {
+    min-width: 0;
+}
+
+.discovery__search input[type="text"],
+.discovery__search input[type="submit"] {
+    width: 11rem;
+}
+
+.discovery__wrapper {
+    margin-top: 1.75rem;
+    align-items: flex-start;
+}
+
+.discovery__results {
+    list-style: none;
+}
+
+.discovery__results li {
+    padding: 0.75rem;
+    margin-bottom: 0.9rem;
+    background-color: var(--background-color);
+    border: 1px solid var(--border-color);
+    color: var(--link-color);
+    overflow-wrap: anywhere;
+}
+
+.discovery__map img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.discovery__map span {
+    display: block;
+    margin-top: 0.25rem;
+}
 
 /* ### TODO ### Styles for Footer Component */
+.footer {
+    padding: 2.5rem;
+    background-color: var(--background-color);
+    border-top: 1px solid var(--border-color);
+}
+
 
 /* ... your code here ... */
 
 
 /* ### TODO ### Media Queries */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        gap: 1rem;
+    }
 
+    .main,
+    .footer,
+    .header {
+        padding: 1rem;
+    }
+
+    .row {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .col-3,
+    .col-9,
+    .col-4,
+    .col-8 {
+        width: 100%;
+    }
+}
 /* ... your code here ... */
