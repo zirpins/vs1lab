@@ -17,7 +17,6 @@
 - nodejs_cookies (Cookies im Server)
 - browser_cookies (Cookies im Client)
 - nodejs_session (Server Sesions in Express)
-- nodejs_twitter (3'rd Party Authentifikation per Twitter)
 
 ## Vorlesung Sicherheit
 
