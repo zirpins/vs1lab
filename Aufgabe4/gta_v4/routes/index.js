@@ -31,7 +31,7 @@ const GeoTagStore = require('../models/geotag-store');
 
 /**
  * Route '/' for HTTP 'GET' requests.
- * (http://expressjs.com/de/4x/api.html#app.get.method)
+ * (https://expressjs.com/en/4x/api/application/#appget)
  *
  * Requests cary no parameters
  *
@@ -46,10 +46,10 @@ router.get('/', (req, res) => {
 
 /**
  * Route '/api/geotags' for HTTP 'GET' requests.
- * (http://expressjs.com/de/4x/api.html#app.get.method)
+ * (https://expressjs.com/en/4x/api/application/#appget)
  *
  * Requests contain the fields of the Discovery form as query.
- * (http://expressjs.com/de/4x/api.html#req.query)
+ * (https://expressjs.com/en/4x/api/request/#reqquery)
  *
  * As a response, an array with Geo Tag objects is rendered as JSON.
  * If 'searchterm' is present, it will be filtered by search term.
@@ -61,10 +61,10 @@ router.get('/', (req, res) => {
 
 /**
  * Route '/api/geotags' for HTTP 'POST' requests.
- * (http://expressjs.com/de/4x/api.html#app.post.method)
+ * (https://expressjs.com/en/4x/api/application/#apppost)
  *
  * Requests contain a GeoTag as JSON in the body.
- * (http://expressjs.com/de/4x/api.html#req.body)
+ * (https://expressjs.com/en/4x/api/request/#reqbody)
  *
  * The URL of the new resource is returned in the header as a response.
  * The new resource is rendered as JSON in the response.
@@ -75,10 +75,10 @@ router.get('/', (req, res) => {
 
 /**
  * Route '/api/geotags/:id' for HTTP 'GET' requests.
- * (http://expressjs.com/de/4x/api.html#app.get.method)
+ * (https://expressjs.com/en/4x/api/application/#appget)
  *
  * Requests contain the ID of a tag in the path.
- * (http://expressjs.com/de/4x/api.html#req.params)
+ * (https://expressjs.com/en/4x/api/request/#reqparams)
  *
  * The requested tag is rendered as JSON in the response.
  */
@@ -88,13 +88,13 @@ router.get('/', (req, res) => {
 
 /**
  * Route '/api/geotags/:id' for HTTP 'PUT' requests.
- * (http://expressjs.com/de/4x/api.html#app.put.method)
+ * (https://expressjs.com/en/4x/api/application/#appput)
  *
  * Requests contain the ID of a tag in the path.
- * (http://expressjs.com/de/4x/api.html#req.params)
+ * (https://expressjs.com/en/4x/api/request/#reqparams)
  * 
  * Requests contain a GeoTag as JSON in the body.
- * (http://expressjs.com/de/4x/api.html#req.body)
+ * (https://expressjs.com/en/4x/api/request/#reqbody)
  *
  * Changes the tag with the corresponding ID to the sent value.
  * The updated resource is rendered as JSON in the response. 
@@ -105,10 +105,10 @@ router.get('/', (req, res) => {
 
 /**
  * Route '/api/geotags/:id' for HTTP 'DELETE' requests.
- * (http://expressjs.com/de/4x/api.html#app.delete.method)
+ * (https://expressjs.com/en/4x/api/application/#appdelete)
  *
  * Requests contain the ID of a tag in the path.
- * (http://expressjs.com/de/4x/api.html#req.params)
+ * (https://expressjs.com/en/4x/api/request/#reqparams)
  *
  * Deletes the tag with the corresponding ID.
  * The deleted resource is rendered as JSON in the response.

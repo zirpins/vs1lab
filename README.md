@@ -27,7 +27,7 @@ Auf einem Entwicklungsrechner brauchen sie zur Lösung der Aufgaben verschiedene
 Ab der dritten Aufgabe kommen folgende Frameworks hinzu:
 
 - [**Node.js Plattform**](https://nodejs.org) (inkl. npm)
-- [**Express Framework**](http://expressjs.com) (inkl. Express-Generator)
+- [**Express Framework**](https://expressjs.com) (inkl. Express-Generator)
 
 Alle Komponenten sind auf den Poolrechnern (LI 137) vorhanden. Sie können aber auch leicht selbst auf dem eigenen Rechner installiert werden. Alle Werkzeuge sind natürlich kostenfrei erhältlich.
 
