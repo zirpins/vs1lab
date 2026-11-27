@@ -11,12 +11,12 @@ Aktualisieren sie zunächst das Github Repository [https://github.com/zirpins/vs
 ```bash
 cd ~/git/vs1lab # wechsle in das git Verzeichnis
 git checkout master # wechsle in den Hauptzweig (eigene Änderungen vorher mit 'commit' sichern)
-git pull # lade Aktualisierungen herunter
-git checkout dev # wechsle wieder in den eigenen Branch
+git pull --ff-only upstream master # lade Aktualisierungen aus dem Original-Repository (Upstream) herunter
+git checkout <ihr-branch> # wechsle wieder in den eigenen Branch (Name wie in Aufgabe 1)
 git merge master # übernehme mögliche Änderungen aus dem Hauptzweig (Daumen drücken, dass es keine Konflikte gibt, sonst manuell mit eigenen Änderungen zusammenführen)
 ```
 
-Nach der Aktualisierung kann die zweite Aufgabe vorbereitet werden.
+Nach der Aktualisierung kann die dritte Aufgabe vorbereitet werden.
 
 ### 3.1.1 Vorherige Lösungen übernehmen
 
@@ -43,7 +43,7 @@ Mit gegebener Node.js Umgebung gehen sie wie folgt vor:
 1. Führen sie `npm install` im Verzeichnis `Aufgabe3/gta_v3/` aus, um die nötigen Module zu laden und zu installieren.
 2. Um die App später zu starten, führen sie `npm start` im Verzeichnis `Aufgabe3/gta_v3/` aus und öffnen sie [http://localhost:3000](http://localhost:3000) im **Browser**. Am Anfang funktioniert das aber noch nicht, da noch einige Änderungen gemacht werden müssen.
 
-***Hinweis:** `npm install` meldet unter Umständen Sicherheitslücken (z. B. „3 high severity vulnerabilities“ zu `nodemon`, `chokidar` und `braces`). Diese betreffen nur das Entwicklungswerkzeug `nodemon` (Datei-Watcher von `npm start`), nicht Ihre Anwendung, und es gibt derzeit keine korrigierte Version. Sie können die Meldung ignorieren. Führen Sie **nicht** `npm audit fix --force` aus: Das installiert eine uralte `nodemon`-Version und bricht `npm start`.*
+***Hinweis:** `npm install` meldet unter Umständen Sicherheitslücken (z. B. „2 moderate severity vulnerabilities“ zu `nodemon` und `minimatch`). Diese betreffen nur das Entwicklungswerkzeug `nodemon` (Datei-Watcher von `npm start`), nicht Ihre Anwendung, und es gibt derzeit keine korrigierte Version. Sie können die Meldung ignorieren. Führen Sie **nicht** `npm audit fix --force` aus: Das kann `nodemon` durch eine uralte Version ersetzen und `npm start` brechen.*
 
 ## 3.2. Teilaufgaben
 
@@ -81,9 +81,10 @@ Die Serverimplementierung hat die folgende Struktur:
 Die erste (und umfangreichste) Teilaufgabe besteht in der Vervollständigung einzelner Teile der Server-Implementierung. Die Anforderungen stehen jeweils als Kommentare im Sourcecode. Hier sind auch Hinweise auf relevante Stellen in der Express Dokumentation enthalten. Im einzelnen gibt es folgende Teilaufgaben:
 
 - Backend Funktionen zur Verwaltung von GeoTags
-  - Eine **Klasse für GeoTag Objekte** erstellen (`./model/geotag.js`)
-  - Eine Klasse für die **Speicherung und Suche von GeoTag Objekten** erstellen (`./model/geotag-store.js`)
-  - Die **Beispieldaten für GeoTag Objekte** einlesen (`./model/geotag-examples.js`)
+  - Eine **Klasse für GeoTag Objekte** erstellen (`./models/geotag.js`)
+  - Eine Klasse für die **Speicherung und Suche von GeoTag Objekten** erstellen (`./models/geotag-store.js`)
+    - Der Umkreis um eine Position ist ein Radius in **Kilometern**.
+  - Die **Beispieldaten für GeoTag Objekte** einlesen (`./models/geotag-examples.js`)
 - Server Konfiguration und Routen für die wichtigsten Endpunkte
   - **Statische Dateien** bereitstellen (`./app.js`)
   - Die **1. Route** `/` zur **Erzeugung der Einstiegsseite** ist vorgegeben. (`./routes/index.js`)
@@ -126,11 +127,11 @@ Zur Übersicht folgen noch mal alle Anforderungen in kompakter Form als Checklis
 ### 1. Teilaufgabe: Server-Implementierung
 
 - [ ] **Skripte** für Backend Funktionen fertigstellen
-  - [ ] **Klasse für GeoTag Objekte** erstellen (`./model/geotag.js`)
-  - [ ] **Klasse zur GeoTag Speicherung** erstellen (`./model/geotag-store.js`)
+  - [ ] **Klasse für GeoTag Objekte** erstellen (`./models/geotag.js`)
+  - [ ] **Klasse zur GeoTag Speicherung** erstellen (`./models/geotag-store.js`)
     - [ ] Privaten Array nutzen
     - [ ] Methoden `addGeoTag`, `removeGeoTag`, `getNearbyGeoTags`, `searchNearbyGeoTags` realisieren
-  - [ ] **Beispieldaten für GeoTag Objekte** einlesen (`./model/geotag-examples.js`)
+  - [ ] **Beispieldaten für GeoTag Objekte** einlesen (`./models/geotag-examples.js`)
 
 - [ ] **Server Konfiguration und Routen** fertigstellen
   - [ ] **Statische Dateien** bereitstellen (`./app.js`)

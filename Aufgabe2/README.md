@@ -11,8 +11,8 @@ Aktualisieren sie zunächst das Github Repository [https://github.com/zirpins/vs
 ```bash
 cd ~/git/vs1lab # wechsle in das git Verzeichnis
 git checkout master # wechsle in den Hauptzweig (eigene Änderungen vorher mit 'commit' sichern)
-git pull # lade Aktualisierungen herunter
-git checkout dev # wechsle wieder in den eigenen Branch
+git pull --ff-only upstream master # lade Aktualisierungen aus dem Original-Repository (Upstream) herunter
+git checkout <ihr-branch> # wechsle wieder in den eigenen Branch (Name wie in Aufgabe 1)
 git merge master # übernehme mögliche Änderungen aus dem Hauptzweig (Daumen drücken, dass es keine Konflikte gibt, sonst manuell mit eigenen Änderungen zusammenführen)
 ```
 
