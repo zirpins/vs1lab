@@ -16,8 +16,7 @@ app.get("/countMe", (req, res) => {
     const session = req.session;
     if (session.views) {
         session.views++;
-        res.send("You have been here " + session.views +
-            " times (last visit: " + session.lastVisit + ")");
+        res.send(`You have been here ${session.views} times (last visit: ${session.lastVisit})`);
         session.lastVisit = new Date().toLocaleDateString();
     }
     else {
