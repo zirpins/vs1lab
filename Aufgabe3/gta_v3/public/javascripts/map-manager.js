@@ -32,7 +32,7 @@
     initMap(latitude, longitude, zoom = 18) {
         // set up dynamic Leaflet map
         this.#map = L.map('map').setView([latitude, longitude], zoom);
-        var mapLink = '<a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>';
+        const mapLink = '<a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>';
         L.tileLayer(
             'https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; ' + mapLink + ' Contributors'}).addTo(this.#map);
