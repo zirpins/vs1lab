@@ -1,6 +1,6 @@
 <% if (names.length) { -%>
   <ul>
-  <%_ names.forEach(function (name) { -%>
+  <%_ names.forEach((name) => { -%>
     <li foo='<%= name _%> '><%= name %></li>
   <%_ }); -%>
   </ul>

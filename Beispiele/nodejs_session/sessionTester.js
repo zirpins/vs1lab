@@ -1,8 +1,7 @@
-var express = require("express");
-var http = require("http");
-var credentials = require("./credentials");
-var sessions = require("express-session");
-var app = express();
+const express = require("express");
+const credentials = require("./credentials");
+const sessions = require("express-session");
+const app = express();
 
 app.use(sessions({
     secret: credentials.cookieSecret,
@@ -11,10 +10,10 @@ app.use(sessions({
     cookie: {signed: true}
 }));
 
-http.createServer(app).listen(3001);
+app.listen(3001, () => console.log("Server listening on port 3001"));
 
-app.get("/countMe", function (req, res) {
-    var session = req.session;
+app.get("/countMe", (req, res) => {
+    const session = req.session;
     if (session.views) {
         session.views++;
         res.send("You have been here " + session.views +

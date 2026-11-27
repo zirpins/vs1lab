@@ -1,20 +1,19 @@
-var express = require("express");
-var http = require("http");
-var credentials = require("./credentials.js");
-var cookies = require("cookie-parser");
+const express = require("express");
+const credentials = require("./credentials.js");
+const cookies = require("cookie-parser");
 
-var app = express();
+const app = express();
 app.use(cookies(credentials.cookieSecret));
-http.createServer(app).listen(3000);
+app.listen(3000, () => console.log("Server listening on port 3000"));
 
-app.get("/sendMeCookies", function(req, res) {
+app.get("/sendMeCookies", (req, res) => {
     console.log("Cookies sent");
     res.cookie("chocolate", "monster");
     res.cookie("signed_choco", "monster", {signed: true});
     res.send();
 });
 
-app.get("/listAllCookies", function (req, res) {
+app.get("/listAllCookies", (req, res) => {
     console.log("\n++++ /listallcookies (unsigned) ++++");
     console.log(req.cookies);
     console.log("\n++++ /listallcookies (signed) ++++");

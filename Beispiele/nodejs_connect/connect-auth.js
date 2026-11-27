@@ -1,6 +1,6 @@
-var connect = require('connect');
+const connect = require('connect');
 
-var serveStatic = require('serve-static'),
+const serveStatic = require('serve-static'),
     serve = serveStatic('./static');
 
 connect()
@@ -23,15 +23,15 @@ function hello(request, response, next) {
 }
 
 function restrict(req, res, next) {
-    var authz = req.headers.authorization;
+    const authz = req.headers.authorization;
     if (!authz)
         return next(new Error('Unauthorized'));
-    var parts = authz.split(' ');
-    var scheme = parts[0];
-    var auth = new Buffer.from(parts[1], 'base64')
+    const parts = authz.split(' ');
+    const scheme = parts[0];
+    const auth = Buffer.from(parts[1], 'base64')
         .toString().split(':');
-    var user = auth[0]
-    var pass = auth[1];
+    const user = auth[0]
+    const pass = auth[1];
     if (user === "user" && pass === "password") {
         next();
     } else{
