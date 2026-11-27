@@ -94,7 +94,7 @@ router.get('/', (req, res) => {
  * (http://expressjs.com/de/4x/api.html#req.params)
  * 
  * Requests contain a GeoTag as JSON in the body.
- * (http://expressjs.com/de/4x/api.html#req.query)
+ * (http://expressjs.com/de/4x/api.html#req.body)
  *
  * Changes the tag with the corresponding ID to the sent value.
  * The updated resource is rendered as JSON in the response. 
