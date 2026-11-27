@@ -81,7 +81,7 @@ class LocationHelper {
         // These callbacks are given as arrow function expressions.
         geoLocationApi.getCurrentPosition((location) => {
             // Create and initialize LocationHelper object.
-            let helper = new LocationHelper(location.coords.latitude, location.coords.longitude);
+            const helper = new LocationHelper(location.coords.latitude, location.coords.longitude);
             // Pass the locationHelper object to the callback.
             callback(helper);
         }, (error) => {
@@ -110,7 +110,7 @@ class MapManager {
         const mapLink = '<a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>';
         L.tileLayer(
             'https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; ' + mapLink + ' Contributors'}).addTo(this.#map);
+            attribution: `&copy; ${mapLink} Contributors`}).addTo(this.#map);
         this.#markers = L.layerGroup().addTo(this.#map);
     }
 

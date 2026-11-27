@@ -1,8 +1,9 @@
 const express = require("express");
+const path = require("path");
 
 const port = 3000;
 const app = express();
-app.use(express.static(__dirname + "/client"));
+app.use(express.static(path.join(__dirname, "client")));
 app.listen(port, () => console.log(`Server listening on port ${port}`));
 console.log('Server startet on port 3000');
 
@@ -46,7 +47,7 @@ app.get("/addtodo", (request, response) => {
             deadline: query.get("deadline")
         };
         todos.push(tx);
-        console.log("Added " + tx.message);
+        console.log(`Added ${tx.message}`);
         response.end("Todo added successfully");
     } else {
         response.end("Error: missing message parameter");

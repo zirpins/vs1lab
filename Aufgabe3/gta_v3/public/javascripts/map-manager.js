@@ -35,7 +35,7 @@
         const mapLink = '<a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>';
         L.tileLayer(
             'https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; ' + mapLink + ' Contributors'}).addTo(this.#map);
+            attribution: `&copy; ${mapLink} Contributors`}).addTo(this.#map);
         this.#markers = L.layerGroup().addTo(this.#map);
     }
 
