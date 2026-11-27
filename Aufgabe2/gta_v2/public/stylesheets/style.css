@@ -349,6 +349,9 @@ img {
   text-align: center;
 }
 
+#map {
+  height: 500px;
+}
 
 /* ==========================================================================
    Media Queries (Responsive Design)
