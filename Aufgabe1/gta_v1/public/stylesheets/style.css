@@ -111,6 +111,37 @@ a {
 
 /* ... your code here ... */
 
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background-color: #2c3e50;
+  color: white;
+
+  padding: 0.75rem 1.5rem;
+}
+
+.header__image {
+  width: 40px;
+  height: auto;
+}
+
+.header__title {
+  font-size: 1.5rem;
+  margin-left: 0.75rem;
+}
+
+.header__navigation a {
+  color: white;
+  text-decoration: none;
+  margin-left: 0.75rem;
+}
+
+.header__navigation a:hover {
+  text-decoration: underline;
+}
+
 
 /* ### TODO ### Styles for Main Component */
 
@@ -121,17 +152,129 @@ a {
 
 /* ... your code here ... */
 
+.tagging {
+  padding: 1.5rem;
+}
+
+.tagging form fieldset {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.tagging input,
+.tagging button {
+  padding: 0.5rem;
+  font-size: 1rem;
+}
+
+.tagging fieldset {
+  border: 1px solid #cdcdcd;
+  padding: 1rem;
+}
+
+.tagging button {
+  margin-top: 0.5rem;
+}
 
 /* ### TODO ### Styles for Discovery component */
 
 /* ... your code here ... */
 
+.discovery {
+  padding: 1.5rem;
+}
+
+.discovery__search {
+  margin-bottom: 1.5rem;
+}
+
+.discovery__search fieldset {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  max-width: 600px;  
+  padding-right: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.discovery__search input[type="text"] {
+  flex: 1;
+  padding: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.discovery__search button {
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.discovery__search button:hover {
+  background-color: #ddd;
+}
+
+.discovery__results {
+  list-style: none;
+  padding: 0;
+}
+
+.discovery__results li {
+  background-color: #e8f4ff;
+  border-left: 4px solid #00B7FF;
+
+  padding: 0.75rem;
+  margin-bottom: 0.5rem;
+
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+.discovery__map {
+  padding: 0.5rem;
+  background-color: #f9f9f9;
+  border: 1px solid #cdcdcd;
+  border-radius: 6px;
+}
+
+.discovery__map img {
+  width: 100%;
+  display: block;
+}
+.discovery__wrapper {
+  gap: 1rem;
+}
 
 /* ### TODO ### Styles for Footer Component */
 
 /* ... your code here ... */
 
 
+.footer {
+  background-color: #2c3e50;
+  color: white;
+
+  text-align: center;
+  padding: 0.75rem;
+
+  font-size: 0.85rem;
+  margin-top: auto;
+}
+
 /* ### TODO ### Media Queries */
 
 /* ... your code here ... */
+
+@media (max-width: 850px) {
+  .row {
+    flex-direction: column;
+  }
+
+  [class^="col-"] {
+    width: 100%;
+  }
+
+  .discovery__search fieldset {
+    max-width: 100%;
+  }
+}
