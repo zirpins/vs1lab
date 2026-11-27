@@ -46,7 +46,55 @@ a {
 
 /* ### TODO ### Styles for other HTML elements */
 
-/* ... your code here ... */
+.main {
+  display: flex;
+  width: 100vw;
+  padding: 1rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.tag-box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.discovery-box,
+.discovery__wrapper {
+  flex: 1;
+  width: 100%;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.discovery-box {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.discovery__wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.discovery__map {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.discovery__map img {
+  display: block;
+  max-width: 100%;
+  flex-shrink: 1;
+}
+
 
 
 /* Grid styles (no changes required) */
@@ -109,29 +157,117 @@ a {
 
 /* ### TODO ### Styles for Header Component */
 
-/* ... your code here ... */
+.header {
+  display: flex;
+  background-color: #f0f0f0;
+  align-items: center;
+  justify-content: space-between;
+  padding: 50px;
+  height: 100px;
+  border-bottom: 1px solid #666;
+}
+
+.header img {
+  width: 50px;
+  height: auto;
+}
 
 
 /* ### TODO ### Styles for Main Component */
 
-/* ... your code here ... */
+.main h2 {
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+.main label {
+  color: #666;
+}
 
 
 /* ### TODO ### Styles for Tagging component */
 
-/* ... your code here ... */
+#tag_name,
+#tag_hashtag,
+#submit {
+  border: 2px solid #ccc;
+  font-size: 15px;
+  padding: 10px;
+}
+
+.tag-box legend {
+  font-weight: bold;
+}
+
+.discovery-box legend {
+  font-weight: bold;
+}
+
+#latitude,
+#longitude {
+  border: 2px solid #ccc;
+  font-size: 15px;
+  background-color: #f0f0f0;
+  padding: 10px;
+}
+
+#tag-box {
+  border: 2px solid #ccc;
+  padding: 20px;
+}
 
 
 /* ### TODO ### Styles for Discovery component */
 
-/* ... your code here ... */
+#discovery-box {
+  border: 2px solid #ccc;
+  padding: 20px;
+}
+
+#search,
+#submit_search {
+  border: 2px solid #ccc;
+  font-size: 15px;
+  padding: 10px;
+  width: 33%;
+}
+
+.discovery__results li {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 2px solid #ccc;
+  background-color: #f0f0f0;
+  border-radius: 0;
+  font-size: 15px;
+  color: red;
+  list-style: none;
+}
+
+.discovery__map span {
+  font-size: 15px;
+  font-weight: bold;
+}
 
 
 /* ### TODO ### Styles for Footer Component */
 
-/* ... your code here ... */
+.footer {
+  background-color: #f0f0f0;
+  justify-content: space-between;
+  padding: 50px;
+  height: 100px;
+  border-top: 1px solid #666;
+  font-weight: bold;
+}
 
 
 /* ### TODO ### Media Queries */
 
-/* ... your code here ... */
+@media (max-width: 850px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 20px;
+    height: auto;
+  }
+}
