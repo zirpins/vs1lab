@@ -11,8 +11,8 @@ console.log("The geoTagging script is going to start...");
 
 // Here the API used for geolocations is selected
 // The following declaration is a 'mockup' that always works and returns a fixed position.
-var GEOLOCATION_API = {
-    getCurrentPosition: function(onsuccess) {
+const GEOLOCATION_API = {
+    getCurrentPosition(onsuccess) {
         onsuccess({
             "coords": {
                 "latitude": 49.013790,
@@ -107,7 +107,7 @@ class MapManager {
     initMap(latitude, longitude, zoom = 18) {
         // set up dynamic Leaflet map
         this.#map = L.map('map').setView([latitude, longitude], zoom);
-        var mapLink = '<a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>';
+        const mapLink = '<a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>';
         L.tileLayer(
             'https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; ' + mapLink + ' Contributors'}).addTo(this.#map);
