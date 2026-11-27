@@ -92,7 +92,7 @@ Ergänzen sie ihre `updateLocation`-Funktion wie folgt:
 
 - Rufen sie die Funktionen `initMap` und `updateMarkers` mit den aktuellen Koordinaten auf. Daraufhin wird die Karte in Ihrer App angezeigt.
 - Suchen sie im DOM das **Image Element** auf der Webseite.
-- Löschen Sie sowohl das `<img>`-Element als auch das `<p>`-Element für die Beschriftung mithilfe des DOM (nicht in der HTML Datei). Dadurch wird der *Platzhalter* zur anfänglich Darstellung der Karte auf der Webseite wieder entfernt.
+- Löschen Sie sowohl das `<img>`-Element als auch das `<span>`-Element für die Beschriftung mithilfe des DOM (nicht in der HTML Datei). Dadurch wird der *Platzhalter* zur anfänglich Darstellung der Karte auf der Webseite wieder entfernt.
 
 ## Checkliste
 
@@ -112,4 +112,4 @@ Zur Übersicht folgen noch mal alle Anforderungen in kompakter Form als Checklis
 
 - [ ] `updateLocation`-Funktion ergänzen
   - [ ] Funktionen `initMap` und `updateMarkers` aufrufen
-  - [ ] `img` und `p`-Elemente mit DOM-Funktionen entfernen
+  - [ ] `img`- und `span`-Elemente mit DOM-Funktionen entfernen
