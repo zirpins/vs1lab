@@ -58,7 +58,7 @@ Demonstrieren sie alle Routen Ihrer REST API mit einem REST Client Ihrer Wahl. Z
 
 #### Tipps zur Verarbeitung von JSON im Express Server
 
-Die Vorverarbeitung des HTTP-Requests erfolgt mit einer in Express enthaltenen Middleware, die mit `express.json()` bereitgestellt wird (zu sehen in `./app.js`). Der Request muss den Header `Content-Type: application/json` enthalten. Der JSON-Inhalt lässt sich dann aus dem [Body des Request Objekts](http://expressjs.com/de/4x/api.html#req.body) entnehmen.
+Die Vorverarbeitung des HTTP-Requests erfolgt mit einer in Express enthaltenen Middleware, die mit `express.json()` bereitgestellt wird (zu sehen in `./app.js`). Der Request muss den Header `Content-Type: application/json` enthalten. Der JSON-Inhalt lässt sich dann aus dem [Body des Request Objekts](https://expressjs.com/en/4x/api/request/#reqbody) entnehmen.
 
 ### 4.2.2 Clientseite (Browser)
 

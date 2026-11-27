@@ -33,7 +33,7 @@ const GeoTagStore = require('../models/geotag-store');
 
 /**
  * Route '/' for HTTP 'GET' requests.
- * (http://expressjs.com/de/4x/api.html#app.get.method)
+ * (https://expressjs.com/en/4x/api/application/#appget)
  *
  * Requests cary no parameters
  *
@@ -47,10 +47,10 @@ router.get('/', (req, res) => {
 
 /**
  * Route '/tagging' for HTTP 'POST' requests.
- * (http://expressjs.com/de/4x/api.html#app.post.method)
+ * (https://expressjs.com/en/4x/api/application/#apppost)
  *
  * Requests cary the fields of the tagging form in the body.
- * (http://expressjs.com/de/4x/api.html#req.body)
+ * (https://expressjs.com/en/4x/api/request/#reqbody)
  *
  * Based on the form data, a new geotag is created and stored.
  *
@@ -64,11 +64,11 @@ router.get('/', (req, res) => {
 
 /**
  * Route '/discovery' for HTTP 'POST' requests.
- * (http://expressjs.com/de/4x/api.html#app.post.method)
+ * (https://expressjs.com/en/4x/api/application/#apppost)
  *
  * Requests cary the fields of the discovery form in the body.
  * This includes coordinates and an optional search term.
- * (http://expressjs.com/de/4x/api.html#req.body)
+ * (https://expressjs.com/en/4x/api/request/#reqbody)
  *
  * As response, the ejs-template is rendered with geotag objects.
  * All result objects are located in the proximity of the given coordinates.
