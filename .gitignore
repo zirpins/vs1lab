@@ -319,3 +319,11 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.toptal.com/developers/gitignore/api/visualstudiocode,macos,linux,windows,node,webstorm
+
+# Added by CZ 
+
+# do not fix version of dependencies, let npm handle it
+package-lock.json 
+
+# temporary files created by samba when deleting files on a share
+.smbdelete* 
